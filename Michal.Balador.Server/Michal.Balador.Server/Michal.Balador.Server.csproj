@@ -306,6 +306,7 @@
     <Content Include="font\roboto\Roboto-Thin.ttf" />
     <Content Include="font\roboto\Roboto-Thin.woff" />
     <Content Include="font\roboto\Roboto-Thin.woff2" />
+    <Content Include="webhooks.html" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="img\appsite_hero.png" />
     <Content Include="img\cover_image.jpg" />
@@ -377,6 +378,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\NotifyApiController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -409,10 +411,11 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebHooks\CustomFilterProvider.cs" />
+    <Compile Include="WebHooks\MyWebHookSender.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Migrations\" />
     <Folder Include="Models\" />
   </ItemGroup>

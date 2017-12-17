@@ -19,6 +19,14 @@ namespace Michal.Balador.Server
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+            // Load Web API controllers and Azure Storage store
+            config.InitializeCustomWebHooks();
+            // config.InitializeCustomWebHooksAzureStorage();
+            config.InitializeCustomWebHooksSqlStorage();
+            config.InitializeCustomWebHooksApis();
+
         }
     }
 }
