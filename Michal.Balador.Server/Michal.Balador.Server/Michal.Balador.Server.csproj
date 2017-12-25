@@ -338,6 +338,12 @@
     <Content Include="font\roboto\Roboto-Thin.ttf" />
     <Content Include="font\roboto\Roboto-Thin.woff" />
     <Content Include="font\roboto\Roboto-Thin.woff2" />
+    <Content Include="ssss\cash.png" />
+    <Content Include="ssss\covered-food-tray-on-a-hand-of-hotel-room-service %281%29.png" />
+    <Content Include="ssss\growing-weed %281%29.png" />
+    <Content Include="ssss\growing-weed.png" />
+    <Content Include="ssss\plant-pot.png" />
+    <Content Include="ssss\smurfs_25.jpg" />
     <Content Include="webhooks.html" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="img\appsite_hero.png" />
@@ -467,6 +473,11 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="ssss\covered-food-tray-on-a-hand-of-hotel-room-service %281%29.psd" />
+    <Content Include="ssss\covered-food-tray-on-a-hand-of-hotel-room-service %282%29.psd" />
+    <Content Include="ssss\covered-food-tray-on-a-hand-of-hotel-room-service.psd" />
+    <Content Include="ssss\logo-balador.psd" />
+    <Content Include="ssss\plant-with-leaves-in-a-pot.psd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
