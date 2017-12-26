@@ -304,6 +304,7 @@
     <Content Include="img\project4.jpg" />
     <Content Include="img\project5.png" />
     <Content Include="img\project6.jpeg" />
+    <Content Include="index - Copy.html" />
     <Content Include="js\init.js" />
     <Content Include="js\jquery-2.1.1.min.js" />
     <Content Include="js\materialize.js" />
@@ -343,7 +344,10 @@
     <Content Include="ssss\growing-weed %281%29.png" />
     <Content Include="ssss\growing-weed.png" />
     <Content Include="ssss\plant-pot.png" />
+    <Content Include="ssss\shay.jpg" />
+    <Content Include="ssss\shay.png" />
     <Content Include="ssss\smurfs_25.jpg" />
+    <Content Include="ssss\todo.txt" />
     <Content Include="webhooks.html" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="img\appsite_hero.png" />
@@ -478,6 +482,7 @@
     <Content Include="ssss\covered-food-tray-on-a-hand-of-hotel-room-service.psd" />
     <Content Include="ssss\logo-balador.psd" />
     <Content Include="ssss\plant-with-leaves-in-a-pot.psd" />
+    <Content Include="ssss\shay.psd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
