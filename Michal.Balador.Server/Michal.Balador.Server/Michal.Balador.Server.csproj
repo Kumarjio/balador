@@ -324,6 +324,7 @@
     <Content Include="font\roboto\Roboto-Thin.ttf" />
     <Content Include="font\roboto\Roboto-Thin.woff" />
     <Content Include="font\roboto\Roboto-Thin.woff2" />
+    <Content Include="Schema\all.sql" />
     <Content Include="ssss\cash.png" />
     <Content Include="ssss\covered-food-tray-on-a-hand-of-hotel-room-service %281%29.png" />
     <Content Include="ssss\growing-weed %281%29.png" />
