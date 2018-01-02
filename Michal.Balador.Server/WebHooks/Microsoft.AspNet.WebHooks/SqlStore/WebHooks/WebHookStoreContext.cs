@@ -18,7 +18,7 @@ namespace Microsoft.AspNet.WebHooks
         internal const string ConnectionStringName = "MS_SqlStoreConnectionString";
         private const string ConnectionStringNameParameter = "name=" + ConnectionStringName;
         private readonly string _tableName;
-        private readonly string _schemaName = "WebHooks";
+        private readonly string _schemaName = "dbo";// = "WebHooks";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WebHookStoreContext"/> class.
