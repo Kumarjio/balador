@@ -179,8 +179,33 @@
     <Compile Include="Common\Utilities\Hasher.cs" />
     <Compile Include="Common\Utilities\TypeUtilities.cs" />
     <Compile Include="Properties\CustomApiResources.Designer.cs" />
+    <Compile Include="Properties\CustomReceiverResources.Designer.cs" />
     <Compile Include="Properties\CustomResources.Designer.cs" />
+    <Compile Include="Properties\ReceiverResources.Designer.cs" />
     <Compile Include="Properties\SqlStorageResources.Designer.cs" />
+    <Compile Include="Receivers.Custom\Extensions\HttpConfigurationExtensions.cs" />
+    <Compile Include="Receivers.Custom\WebHooks\CustomNotifications.cs" />
+    <Compile Include="Receivers.Custom\WebHooks\CustomWebHookReceiver.cs" />
+    <Compile Include="Receivers\Controllers\WebHookReceiversController.cs" />
+    <Compile Include="Receivers\Extensions\DependencyScopeExtensions.cs" />
+    <Compile Include="Receivers\Extensions\WebHookHandlerContextExtensions.cs" />
+    <Compile Include="Receivers\Extensions\WebHookReceiverConfigExtensions.cs" />
+    <Compile Include="Receivers\Routes\WebHookReceiverRouteNames.cs" />
+    <Compile Include="Receivers\Services\ReceiverServices.cs" />
+    <Compile Include="Receivers\WebHooks\IWebHookHandler.cs" />
+    <Compile Include="Receivers\WebHooks\IWebHookHandlerSorter.cs" />
+    <Compile Include="Receivers\WebHooks\IWebHookReceiver.cs" />
+    <Compile Include="Receivers\WebHooks\IWebHookReceiverConfig.cs" />
+    <Compile Include="Receivers\WebHooks\IWebHookReceiverManager.cs" />
+    <Compile Include="Receivers\WebHooks\WebHookAssemblyResolver.cs" />
+    <Compile Include="Receivers\WebHooks\WebHookHandler.cs" />
+    <Compile Include="Receivers\WebHooks\WebHookHandlerContext.cs" />
+    <Compile Include="Receivers\WebHooks\WebHookHandlerSorter.cs" />
+    <Compile Include="Receivers\WebHooks\WebHookQueueContext.cs" />
+    <Compile Include="Receivers\WebHooks\WebHookQueueHandler.cs" />
+    <Compile Include="Receivers\WebHooks\WebHookReceiver.cs" />
+    <Compile Include="Receivers\WebHooks\WebHookReceiverConfig.cs" />
+    <Compile Include="Receivers\WebHooks\WebHookReceiverManager.cs" />
     <Compile Include="SqlStore\Common\DataSecurity.cs" />
     <Compile Include="SqlStore\Extensions\HttpConfigurationExtensions.cs" />
     <Compile Include="SqlStore\Storage\IRegistration.cs" />
@@ -196,7 +221,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\CommonResources.resx" />
     <EmbeddedResource Include="Properties\CustomApiResources.resx" />
+    <EmbeddedResource Include="Properties\CustomReceiverResources.resx" />
     <EmbeddedResource Include="Properties\CustomResources.resx" />
+    <EmbeddedResource Include="Properties\ReceiverResources.resx" />
     <EmbeddedResource Include="Properties\SqlStorageResources.resx" />
   </ItemGroup>
   <ItemGroup />
