@@ -71,8 +71,27 @@ function notifymvc() {
     function (data, status) { alert("Data: " + data + "\nStatus: " + status); });
     return false;
 }
-
 function notifyapi() {
+    var access_token = "bearer " + $("#txtToken").val();
+    $.ajax({
+        type: "POST",
+        url: "/api/notifyapi",
+        data: JSON.stringify({ }),
+        headers: { "Authorization": access_token },
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data, status) {
+            debugger;
+            alert(data.Message ? data.Message : status);
+        },
+        error: function (errMsg) {
+            debugger;
+            alert(errMsg.responseJSON.Message);
+        }
+    });
+    return false;
+        }
+function notifyapi2() {
     $.post("/api/notifyapi",
     { },
     function (data, status) { alert("Data: " + data + "\nStatus: " + status); });

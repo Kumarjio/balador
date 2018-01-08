@@ -252,7 +252,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="balador.html" />
     <Content Include="Contact.aspx" />
     <Content Include="contact.php" />
     <Content Include="Content\bootstrap.css" />

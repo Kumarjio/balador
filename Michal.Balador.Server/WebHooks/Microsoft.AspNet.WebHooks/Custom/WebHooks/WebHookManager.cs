@@ -242,12 +242,12 @@ namespace Microsoft.AspNet.WebHooks
             }
 
             string actualEcho = await response.Content.ReadAsStringAsync();
-            //if (!string.Equals(actualEcho, echo, StringComparison.Ordinal))
-            //{
-            //    string msg = CustomResources.Manager_VerifyBadEcho;
-            //    _logger.Error(msg);
-            //    throw new InvalidOperationException(msg);
-            //}
+            if (!string.Equals(actualEcho, echo, StringComparison.Ordinal))
+            {
+                string msg = CustomResources.Manager_VerifyBadEcho;
+                _logger.Error(msg);
+                throw new InvalidOperationException(msg);
+            }
         }
 
         /// <summary>
