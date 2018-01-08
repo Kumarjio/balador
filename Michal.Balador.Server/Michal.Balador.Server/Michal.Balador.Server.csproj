@@ -397,6 +397,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MefConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -477,14 +478,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EMessages\Simple\Michal.Balador.EMassage.Simple\Michal.Balador.EMassage.Simple.csproj">
-      <Project>{6a2396f9-a680-459c-a88c-e0e0619acad0}</Project>
-      <Name>Michal.Balador.EMassage.Simple</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Michal.Balador.Contracts\Michal.Balador.Contracts.csproj">
-      <Project>{ba5fab0c-477d-4f4e-8738-731bb4fd4728}</Project>
-      <Name>Michal.Balador.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebHooks\Microsoft.AspNet.WebHooks\Microsoft.AspNet.WebHooks.csproj">
       <Project>{C89C330E-8B78-4257-BCA0-F2D1A9403CF6}</Project>
       <Name>Microsoft.AspNet.WebHooks</Name>
