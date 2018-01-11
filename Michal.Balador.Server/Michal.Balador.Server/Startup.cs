@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(minyangroups.api.Startup))]
+[assembly: OwinStartup(typeof(lior.api.Startup))]
 
-namespace minyangroups.api
+namespace lior.api
 {
     public partial class Startup
     {

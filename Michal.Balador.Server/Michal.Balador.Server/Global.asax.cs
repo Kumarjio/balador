@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using Michal.Balador.Server.App_Start;
 
 namespace Michal.Balador.Server
 {
@@ -18,6 +19,9 @@ namespace Michal.Balador.Server
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //ControllerBuilder.Current.SetControllerFactory(new MefControllerFactory(
+            //       Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins")));
+            MefConfig.RegisterMef();
         }
     }
 }
