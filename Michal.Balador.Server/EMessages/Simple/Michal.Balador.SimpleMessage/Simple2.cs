@@ -9,8 +9,8 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
-    //[Export("Simple2", typeof(IEMessage))]
-    [Export(typeof(IEMessage))]
+    [Export("Simple2", typeof(IEMessage))]
+   // [Export(typeof(IEMessage))]
     public class Simple2 : IEMessage
     {
         public Task<ResponseSender> ConnectAndSend(Sender send)

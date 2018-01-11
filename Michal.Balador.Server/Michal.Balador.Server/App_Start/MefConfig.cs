@@ -67,13 +67,10 @@ namespace Michal.Balador.Server.App_Start
         public static void RegisterMef()
         {
            var container = ConfigureContainer();
-            //container.Compose()
-            // ControllerBuilder.Current.SetControllerFactory(new MefControllerFactory(container));
-            //   var dependencyResolver = System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver;
-            //    System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new MefDependencyResolver(container);
+            // Install MEF dependency resolver for Web API
             var dependencyResolver = System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver;
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new MefDependencyResolver(container);
-            // var dependencyResolver = System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver;
+
 
         }
 
@@ -81,8 +78,9 @@ namespace Michal.Balador.Server.App_Start
         {
             var assemblyCatalog = new AssemblyCatalog(Assembly.GetExecutingAssembly());
            var businessRulesCatalog = new AssemblyCatalog(typeof(IEMessage).Assembly);
-           var catalogs = new AggregateCatalog(assemblyCatalog, businessRulesCatalog);
-           var container = new CompositionContainer(catalogs);
+           var catalogs = new AggregateCatalog(assemblyCatalog, businessRulesCatalog,  new DirectoryCatalog("plugins"));
+         
+            var container = new CompositionContainer(catalogs);
           return container;
         }
     }

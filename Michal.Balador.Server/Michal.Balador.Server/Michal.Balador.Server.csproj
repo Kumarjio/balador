@@ -460,6 +460,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Plugins\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -481,10 +482,6 @@
     <ProjectReference Include="..\EMessages\Contracts\Michal.Balador.Contracts\Michal.Balador.Contracts.csproj">
       <Project>{7f9deb2f-4803-4165-a1e2-d3ba1a50c7e3}</Project>
       <Name>Michal.Balador.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EMessages\Simple\Michal.Balador.SimpleMessage\Michal.Balador.SimpleMessage.csproj">
-      <Project>{2411f175-07e3-4d01-bbb9-376b24d7148a}</Project>
-      <Name>Michal.Balador.SimpleMessage</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebHooks\Microsoft.AspNet.WebHooks\Microsoft.AspNet.WebHooks.csproj">
       <Project>{C89C330E-8B78-4257-BCA0-F2D1A9403CF6}</Project>
