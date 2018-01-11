@@ -19,11 +19,20 @@ namespace Michal.Balador.Server.Controllers
         private IMyTest _myTest;
         [ImportMany(typeof(IEMessage))]
         IEnumerable<Lazy<IEMessage>> _messages;
+        [ImportMany(typeof(IEMessage))]
+        IEnumerable<Lazy<IEMessage, IDictionary<string, object>>> __messagesRules;
         // GET api/<controller>
         public async Task<IEnumerable<string>> Get()
         {
             List<ResponseSender> senders = new List<ResponseSender>();
             List<string> ss = new List<string>();
+            Lazy<IEMessage> _utah = __messagesRules.Where(s => (string)s.Metadata["MessageType"] == "Simple_2").FirstOrDefault();
+            if(_utah!=null && _utah.Value != null)
+            {
+                var sender2 = await _utah.Value.ConnectAndSend(new Contracts.DataModel.Sender());
+                ss.Add(sender2.Message);
+            }
+
             foreach (var item in _messages)
             {
                 var sender = await item.Value.ConnectAndSend(new Contracts.DataModel.Sender());

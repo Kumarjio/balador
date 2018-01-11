@@ -60,6 +60,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Michal.Balador.Server\Plugins\$(ProjectName).dll"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).*" "$(SolutionDir)Michal.Balador.Server\Plugins\$(ProjectName).*"
+
+</PostBuildEvent>
   </PropertyGroup>
 </Project>
