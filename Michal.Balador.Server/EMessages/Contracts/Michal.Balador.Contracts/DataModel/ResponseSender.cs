@@ -6,7 +6,28 @@ using System.Threading.Tasks;
 
 namespace Michal.Balador.Contracts.DataModel
 {
-   public class ResponseSender
+    public class ResponseBase
+    {
+        public bool IsError { get; set; }
+        public string Message { get; set; }
+    }
+
+    public class Response<T> : ResponseBase
+    {
+        public T Result { get; set; }
+    }
+
+    public class ResponseMessages : Response<SenderMessages>
+    {
+        
+
+    }
+    public class ResponseSend : Response<List<ResponseMessage>>
+    {
+       
+    }
+
+    public class ResponseSender
     {
         public bool IsError { get; set; }
         public string Message { get; set; }
@@ -15,10 +36,10 @@ namespace Michal.Balador.Contracts.DataModel
 
     }
 
-    public class ResponseMessage
+    public class ResponseMessage: MessageItem
     {
-        public string Id { get; set; }
+     
         public bool IsError { get; set; }
-        public string Message { get; set; }
+        public string ErrMessage { get; set; }
     }
   }
