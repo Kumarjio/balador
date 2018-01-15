@@ -69,9 +69,15 @@ namespace Michal.Balador.SimpleMessage
         {
             if (this.loginStatus == CONNECTION_STATUS.CONNECTED || this.loginStatus == CONNECTION_STATUS.LOGGEDIN)
             {
-                int toRead = 0;
-              
-                this.Socket_read(toRead);
+                int toRead = 4090;
+        
+               var data= this.Socket_read(toRead);
+                var yd=Encoding.UTF8.GetString(data);
+
+                Console.WriteLine("data={0}", yd);
+                if (yd.Trim() == "Y")
+                    this.fireOnLoginSuccess("ok", data);
+
                 this.loginStatus = CONNECTION_STATUS.LOGGEDIN;
                 return true;
             }

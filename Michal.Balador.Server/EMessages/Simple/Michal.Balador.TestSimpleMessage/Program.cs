@@ -13,9 +13,17 @@ namespace Michal.Balador.TestSimpleMessage
         {
             SocketClientTest test = new SocketClientTest("l", "1");
             test.Connect();
-             string m = "ddd";
-            test.SendData(Encoding.UTF8.GetBytes(m));
-         
+             string m = "OK";
+            test.SendData(Encoding.ASCII.GetBytes(m));
+            //test.SendData(new byte[0]);
+            //System.Threading.Thread.Sleep(100);
+   
+            test.pollMessage();
+            m = "FAILED";
+            test.SendData(Encoding.ASCII.GetBytes(m));
+            test.pollMessage();
+            test.pollMessage();
+            test.pollMessage();
         }
     }
 }

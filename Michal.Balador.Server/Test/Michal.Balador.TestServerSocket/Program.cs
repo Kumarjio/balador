@@ -72,7 +72,7 @@ namespace Michal.Balador.TestServerSocket
        /// <param name="args">Command line arguments</param>
         static void Main(string[] args)
         {
-            string textMessage = "Server: ServerResponse";
+            string textMessage = "Y";
             int localPort = 5150, sendCount = 10, bufferSize = 4096;
             IPAddress localAddress = IPAddress.Any;
             SocketType sockType = SocketType.Stream;
@@ -146,7 +146,8 @@ namespace Michal.Balador.TestServerSocket
                 Console.WriteLine("Server: IPEndPoint is OK...");
                 EndPoint castSenderAddress;
                 Socket clientSocket;
-                byte[] receiveBuffer = new byte[bufferSize], sendBuffer = new byte[bufferSize];
+                byte[] receiveBuffer = new byte[bufferSize], 
+                    sendBuffer = new byte[bufferSize];
                 int rc;
                 FormatBuffer(sendBuffer, textMessage);
                 // Create the server socket
@@ -159,20 +160,13 @@ namespace Michal.Balador.TestServerSocket
                 serverSocket.Bind(localEndPoint);
                 Console.WriteLine("Server: {0} server socket bound to {1}", sockProtocol.ToString(), localEndPoint.ToString());
                 if (sockProtocol == ProtocolType.Tcp)
-
                 {
-
                     // If TCP socket, set the socket to listening
-
                     serverSocket.Listen(1);
-
                     Console.WriteLine("Server: Listen() is OK, I'm listening for connection buddy!");
-
-                }
-            
+                }      
                else
                 {
-
                    byte[] byteTrue = new byte[4];
                     // Set the SIO_UDP_CONNRESET ioctl to true for this UDP socket. If this UDP socket
                     //    ever sends a UDP packet to a remote destination that exists but there is
@@ -191,113 +185,62 @@ namespace Michal.Balador.TestServerSocket
                 {
                     if (sockProtocol == ProtocolType.Tcp)
                     {
-
                         // Wait for a client connection
-
                         clientSocket = serverSocket.Accept();
-
                         Console.WriteLine("Server: Accept() is OK...");
-
                         Console.WriteLine("Server: Accepted connection from: {0}", clientSocket.RemoteEndPoint.ToString());
-
-
-
                         // Receive the request from the client in a loop until the client shuts
-
-                        //    the connection down via a Shutdown.
-
+                       //    the connection down via a Shutdown.
                         Console.WriteLine("Server: Preparing to receive using Receive()...");
+                        var flag = "N";
 
                         while (true)
-
                         {
-
-                            rc = clientSocket.Receive(receiveBuffer);
-
-
-
-                            Console.WriteLine("Server: Read {0} bytes", rc);
+                           rc = clientSocket.Receive(receiveBuffer);
+                           Console.WriteLine("Server: Read {0} bytes", rc);
+                            //if (flag == "Y")
+                            //    flag = "N";
+                            //else
+                            //    flag = "Y";
 
                             if (rc == 0)
-
                                 break;
+                           // System.Threading.Thread.Sleep(100);
+                            Console.WriteLine("lior: Preparing to send using Send()...");
+                          
+                           var receiveBufferRequest = System.Text.Encoding.ASCII.GetString(receiveBuffer);
+                            Console.WriteLine("lior:receiveBufferRequest={0}...", receiveBufferRequest);
+                            if (receiveBufferRequest.Trim().Contains("OK"))
+                                flag = "Y";
+                           else if (receiveBufferRequest.Trim().Contains("FAILED"))
+                                flag = "N";
+                           else
+                                flag = "X";
+                           
+                      
+                                Console.WriteLine("lior: Sended {0}...", flag);
+                            var yesNo = Encoding.UTF8.GetBytes(flag);
+                            rc = clientSocket.Send(yesNo);
+                            
 
                         }
-
-
-
                         // Send the indicated number of response messages
 
+                        Console.WriteLine("Server: Wait...");
+                        System.Threading.Thread.Sleep(500);
                         Console.WriteLine("Server: Preparing to send using Send()...");
-
                         for (int i = 0; i < sendCount; i++)
-
                         {
-
                             rc = clientSocket.Send(sendBuffer);
-
                             Console.WriteLine("Server: Sent {0} bytes", rc);
-
-                        }
-
-
-
+                        }              
                         // Shutdown the client connection
-
                         clientSocket.Shutdown(SocketShutdown.Send);
-
                         Console.WriteLine("Server: Shutdown() is OK...");
-
                         clientSocket.Close();
-
                         Console.WriteLine("Server: Close() is OK...");
 
                     }
-
-                    else
-
-                    {
-
-                        castSenderAddress = (EndPoint)senderAddress;
-                        // Receive the initial request from the client
-                        rc = serverSocket.ReceiveFrom(receiveBuffer, ref castSenderAddress);
-                        Console.WriteLine("Server: ReceiveFrom() is OK...");
-                        senderAddress = (IPEndPoint)castSenderAddress;
-                        Console.WriteLine("Server: Received {0} bytes from {1}", rc, senderAddress.ToString());
-                        // Send the response to the client the requested number of times
-                        for (int i = 0; i < sendCount; i++)
-
-                        {
-
-                            try
-                            {
-                                rc = serverSocket.SendTo(sendBuffer, senderAddress);
-                                Console.WriteLine("Server: SendTo() is OK...");
-                            }
-                            catch
-                            {
-                                // If the sender's address is being spoofed we may get an error when sending
-                                //    the response. You can test this by using IPv6 and using the RawSocket
-                                //    sample to spoof a UDP packet with an invalid link local source address.
-                                continue;
-                            }
-                            Console.WriteLine("Server: Sent {0} bytes to {1}", rc, senderAddress.ToString());
-                        }
-                        // Send several zero byte datagrams to indicate to client that no more data
-                        //    will be sent from the server. Multiple packets are sent since UDP
-                        //    is not guaranteed and we want to try to make an effort the client
-                        //    gets at least one.
-                        Console.WriteLine("Server: Preparing to send using SendTo(), on the way do sleeping, Sleep(250)...");
-                        for (int i = 0; i < 3; i++)
-                        {
-                            serverSocket.SendTo(sendBuffer, 0, 0, SocketFlags.None, senderAddress);
-                           // Space out sending the zero byte datagrams a bit. UDP is unreliable and
-                            //   the local stack can even drop them before even hitting the wire!
-                            System.Threading.Thread.Sleep(250);
-                        }
-
-                    }
-
                 }
 
             }
