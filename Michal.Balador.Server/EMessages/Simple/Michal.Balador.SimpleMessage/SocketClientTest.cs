@@ -14,7 +14,12 @@ namespace Michal.Balador.SimpleMessage
         private int port;
         private int recvTimeout;
         private CONNECTION_STATUS loginStatus;
-        
+
+        public bool CreateUser(string jid, string nickname = "")
+        {
+           
+            return true;
+        }
         public SocketClientTest(string username, string password)
         {
             _username = username;
@@ -68,6 +73,13 @@ namespace Michal.Balador.SimpleMessage
                 this.fireOnLoginSuccess("ok", null);
             }
             
+        }
+
+        public string SendMessage(string to, string txt)
+        {
+          var data=   Encoding.UTF8.GetBytes(to+ " "+txt);
+            this.Socket_send(data);
+            return "";
         }
 
         public bool pollMessage()

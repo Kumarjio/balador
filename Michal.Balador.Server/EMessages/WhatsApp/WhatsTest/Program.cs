@@ -31,7 +31,8 @@ namespace WhatsTest
             string text = "בדיקה";
 
                 WhatsApp wa = new WhatsApp(sender, password, nickname, true);
-                //event bindings
+            //event bindings
+          
                 wa.OnLoginSuccess += (phoneNumber, data) =>
                 {
                     WhatsUserManager usrMan = new WhatsUserManager();

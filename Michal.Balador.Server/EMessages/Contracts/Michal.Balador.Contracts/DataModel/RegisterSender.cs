@@ -9,6 +9,7 @@ namespace Michal.Balador.Contracts.DataModel
    public class RegisterSender
     {
         public string Id { get; set; }//email,phone
+        public string Pws { get; set; }//token
         public List<KeyValuePair<string,string>> Extra { get; set; }
 
     }
