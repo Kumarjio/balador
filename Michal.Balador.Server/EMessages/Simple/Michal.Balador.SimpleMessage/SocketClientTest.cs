@@ -45,10 +45,15 @@ namespace Michal.Balador.SimpleMessage
                 throw new ConnectionException("Cannot connect");
         }
 
-        public void Login()
+        public void Login(bool isValid)
         {
-            
-            byte[] data = null;
+            string m = "OK";
+            byte[] data=Encoding.ASCII.GetBytes(m);
+            //test.SendData(new byte[0]);
+            //System.Threading.Thread.Sleep(100);
+            if(!isValid)
+                m = "FAILED";
+
             this.SendData(data);
             this.pollMessage();
 
@@ -75,10 +80,8 @@ namespace Michal.Balador.SimpleMessage
                 var yd=Encoding.UTF8.GetString(data);
 
                 Console.WriteLine("data={0}", yd);
-                if (yd.Trim() == "Y")
-                    this.fireOnLoginSuccess("ok", data);
-
-                this.loginStatus = CONNECTION_STATUS.LOGGEDIN;
+                
+                this.loginStatus = yd=="Y"? CONNECTION_STATUS.LOGGEDIN: CONNECTION_STATUS.UNAUTHORIZED;
                 return true;
             }
             return false;

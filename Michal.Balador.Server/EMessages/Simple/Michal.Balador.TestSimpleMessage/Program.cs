@@ -13,17 +13,32 @@ namespace Michal.Balador.TestSimpleMessage
         {
             SocketClientTest test = new SocketClientTest("l", "1");
             test.Connect();
-             string m = "OK";
-            test.SendData(Encoding.ASCII.GetBytes(m));
-            //test.SendData(new byte[0]);
-            //System.Threading.Thread.Sleep(100);
+
+            test.OnLoginSuccess+= (a, b) =>
+             {
+                 Console.WriteLine("data ok={0}",a);
+                 string m = "test me...";
+                 test.SendData(Encoding.ASCII.GetBytes(m));
+
+             };
+            test.OnLoginFailed += (a) =>
+             {
+                 Console.WriteLine("data error={0}", a);
+
+             };
+            test.Login(true);
+            Console.ReadKey();
+
+            // string m = "OK";
+            //test.SendData(Encoding.ASCII.GetBytes(m));
+            ////test.SendData(new byte[0]);
+            ////System.Threading.Thread.Sleep(100);
    
-            test.pollMessage();
-            m = "FAILED";
-            test.SendData(Encoding.ASCII.GetBytes(m));
-            test.pollMessage();
-            test.pollMessage();
-            test.pollMessage();
+            //test.pollMessage();
+            //m = "FAILED";
+            //test.SendData(Encoding.ASCII.GetBytes(m));
+            //test.pollMessage();
+          
         }
     }
 }
