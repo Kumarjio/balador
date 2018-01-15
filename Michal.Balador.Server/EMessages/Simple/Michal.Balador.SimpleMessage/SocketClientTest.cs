@@ -19,7 +19,7 @@ namespace Michal.Balador.SimpleMessage
         {
             _username = username;
                 _password = password;
-               port = 8881;
+               port = 5150;
             recvTimeout = 1000;
             this.loginStatus = CONNECTION_STATUS.CONNECTED;
             //success
@@ -32,7 +32,7 @@ namespace Michal.Balador.SimpleMessage
             try
             {
                 this.socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                Random random = new Random();
+           
                 this.socket.Connect("localhost", this.port);
                 this.socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, this.recvTimeout);
             }
@@ -112,7 +112,7 @@ namespace Michal.Balador.SimpleMessage
             return tmpRet;
         }
 
-        protected void SendData(byte[] data)
+        public void SendData(byte[] data)
         {
             try
             {
