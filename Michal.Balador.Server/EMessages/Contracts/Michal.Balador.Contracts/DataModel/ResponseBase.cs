@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Michal.Balador.Contracts.DataModel
 {
-    public class ResponseSender
+
+    public class ResponseBase
     {
         public bool IsError { get; set; }
         public string Message { get; set; }
-
-        public List<ResponseMessage> ResponseMessages { get; set; }
-
     }
-  }
+}

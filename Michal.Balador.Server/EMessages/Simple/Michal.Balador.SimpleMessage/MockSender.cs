@@ -13,9 +13,9 @@ namespace Michal.Balador.SimpleMessage
     [ExportMetadata("MessageType", "MockSender")]
     public class MockSender : IFactrorySendMessages
     {
-        public async Task<ResponseMessages> GetSender(RegisterSender register)
+        public async Task<ResponseSenderMessages> GetSender(RegisterSender register)
         {
-            ResponseMessages response = new ResponseMessages();
+            ResponseSenderMessages response = new ResponseSenderMessages();
                SenderMessagesFactory sendFactory = new SenderMessagesFactory();
             var respndFactory = await sendFactory.ConnectAndLogin(register.Id, register.Pws);
             if (respndFactory.IsError)
@@ -24,9 +24,8 @@ namespace Michal.Balador.SimpleMessage
                 response.Message = respndFactory.Message;
             }
             else
-            {
-                response.Result = respndFactory.Result;
-            }
+              response.Result = respndFactory.Result;
+            
             return response;
         }
     }

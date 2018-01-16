@@ -8,8 +8,6 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
-   
-
     public class MockSend : SenderMessages
     {
         SocketClientTest _test;
