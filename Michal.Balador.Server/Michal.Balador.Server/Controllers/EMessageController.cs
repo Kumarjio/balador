@@ -22,7 +22,7 @@ namespace Michal.Balador.Server.Controllers
     {
       
      
-        [ImportMany(typeof(IEMessage))]
+        [ImportMany(typeof(IFactrorySendMessages))]
         IEnumerable<Lazy<IFactrorySendMessages, IDictionary<string, object>>> _senderRules;
         // GET api/<controller>
         public async Task<HttpResponseMessage> Get()
@@ -31,8 +31,7 @@ namespace Michal.Balador.Server.Controllers
             List<ResponseSender> senders = new List<ResponseSender>();
             List<string> ss = new List<string>();
             Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockSender").FirstOrDefault();
-            var result = "";
-
+           
             if (_utah != null && _utah.Value != null)
             {
                 // var sender=await _utah.Value.GetSender(new RegisterSender { Id="someuser",Pws="12345"});
@@ -41,17 +40,34 @@ namespace Michal.Balador.Server.Controllers
                 mockData.mocks.Senders.AsParallel().ForAll(async rs =>
                 {
                     var sender = await _utah.Value.GetSender(rs);
-                    if (!sender.IsError)
+                    try
                     {
-                       var requestToSend= await mockData.FindMessagesById(rs.Id);
-                       requestToSend.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
-                       var responseToSend= await sender.Result.Send(requestToSend);
-                        resultError.Add(responseToSend);
+                        if (!sender.IsError)
+                        {
+                            var requestToSend = await mockData.FindMessagesById(rs.Id);
+                            if (requestToSend != null)
+                            {
+                                requestToSend.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
+                                var responseToSend = await sender.Result.Send(requestToSend);
+                                resultError.Add(responseToSend);
+                            }
+                        }
+                        else
+                        {
+                            //CALL Error!!!
+                        }
                     }
-                    else
+                    catch (Exception ee)
                     {
-                        //CALL Error!!!
+
+                       // throw;
                     }
+                    finally
+                    {
+                        //if (sender != null && sender.Result != null)
+                           // sender.Result.Dispose();
+                    }
+                    
                 });
 
             }

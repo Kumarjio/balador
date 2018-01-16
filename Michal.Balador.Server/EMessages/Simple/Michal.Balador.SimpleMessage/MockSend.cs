@@ -16,10 +16,15 @@ namespace Michal.Balador.SimpleMessage
         {
             _test = test;
         }
-        
+        public override void Dispose()
+        {
+            _test.Disconnect();
+            //  throw new NotImplementedException();
+        }
         public override async Task<ResponseSend> Send(SendRequest request)
         {
             ResponseSend res = new ResponseSend();
+            res.Result = new List<ResponseMessage>();
             res.Id = request.Id;
             res.Log = request.Log;
             foreach (var itemMessage in request.Messages)
@@ -28,8 +33,8 @@ namespace Michal.Balador.SimpleMessage
               {
                   try
                   {
-                      _test.SendMessage(itemMessage.Id, itemMessage.Message);
-                      res.Result.Add(new ResponseMessage { Id = itemMessage.Id, IsError = false, Message = itemMessage.Message });
+                     var message= _test.SendMessage(itemMessage.Id, itemMessage.Message);
+                      res.Result.Add(new ResponseMessage { Id = itemMessage.Id, IsError = false, Message = message +" id="+ itemMessage.Id+ " ,Message=" + itemMessage.Message });
                   }
                   catch (Exception e)
                   {

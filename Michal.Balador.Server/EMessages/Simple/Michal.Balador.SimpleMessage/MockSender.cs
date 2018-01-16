@@ -16,15 +16,25 @@ namespace Michal.Balador.SimpleMessage
         public async Task<ResponseSenderMessages> GetSender(RegisterSender register)
         {
             ResponseSenderMessages response = new ResponseSenderMessages();
-               SenderMessagesFactory sendFactory = new SenderMessagesFactory();
-            var respndFactory = await sendFactory.ConnectAndLogin(register.Id, register.Pws);
-            if (respndFactory.IsError)
+            try
             {
-                response.IsError = true;
-                response.Message = respndFactory.Message;
+                SenderMessagesFactory sendFactory = new SenderMessagesFactory();
+                var respndFactory = await sendFactory.ConnectAndLogin(register.Id, register.Pws);
+                if (respndFactory.IsError)
+                {
+                    response.IsError = true;
+                    response.Message = respndFactory.Message;
+                }
+                else
+                    response.Result = respndFactory.Result;
             }
-            else
-              response.Result = respndFactory.Result;
+            catch (Exception e)
+            {
+
+                response.IsError = true;
+                response.Message = e.Message;
+            }
+        
             
             return response;
         }

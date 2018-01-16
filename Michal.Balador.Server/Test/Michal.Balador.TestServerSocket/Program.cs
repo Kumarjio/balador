@@ -11,12 +11,23 @@ namespace Michal.Balador.TestServerSocket
     //http://www.winsocketdotnetworkprogramming.com/clientserversocketnetworkcommunication8b.html
     class Program
     {
-       
-           /// <summary>
-            /// Winsock ioctl code which will disable ICMP errors from being propagated to a UDP socket.
-            /// This can occur if a UDP packet is sent to a valid destination but there is no socket
-            /// registered to listen on the given port.
-            /// </summary>
+
+         static byte[] Decode(byte[] packet)
+        {
+            var i = packet.Length - 1;
+            while (packet[i] == 0)
+            {
+                --i;
+            }
+            var temp = new byte[i + 1];
+            Array.Copy(packet, temp, i + 1);
+         
+            return temp;
+        }  /// <summary>
+           /// Winsock ioctl code which will disable ICMP errors from being propagated to a UDP socket.
+           /// This can occur if a UDP packet is sent to a valid destination but there is no socket
+           /// registered to listen on the given port.
+           /// </summary>
         public const int SIO_UDP_CONNRESET = -1744830452;
         /// <summary>
         /// This routine repeatedly copies a string message into a byte array until filled.
@@ -208,8 +219,9 @@ namespace Michal.Balador.TestServerSocket
                                 break;
                            // System.Threading.Thread.Sleep(100);
                             Console.WriteLine("lior: Preparing to send using Send()...");
-                          
-                           var receiveBufferRequest = System.Text.Encoding.ASCII.GetString(receiveBuffer);
+                          var removeZeroBytes= Decode(receiveBuffer);
+
+                             var receiveBufferRequest = System.Text.Encoding.ASCII.GetString(removeZeroBytes);
                             Console.WriteLine("lior:receiveBufferRequest={0}...", receiveBufferRequest);
                             if (receiveBufferRequest.Trim().Contains("OK"))
                                 flag = "Y";

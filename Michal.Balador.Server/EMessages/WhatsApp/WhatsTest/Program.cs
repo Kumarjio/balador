@@ -39,6 +39,7 @@ namespace WhatsTest
                     var tmpUser = usrMan.CreateUser(target, "User");
                     string sdata = Convert.ToBase64String(data);
                     wa.SendMessage(tmpUser.GetFullJid(), text);
+                    //wa.Disconnect();
                 };
                 byte[] nextChallenge = Convert.FromBase64String(sender);
                 wa.Connect();
