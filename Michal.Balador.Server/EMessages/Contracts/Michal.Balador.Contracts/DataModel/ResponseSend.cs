@@ -8,6 +8,7 @@ namespace Michal.Balador.Contracts.DataModel
 {
     public class ResponseSend : Response<List<ResponseMessage>>
     {
-
+        public string Id { get; set; }
+        public int  Log { get; set; }
     }
 }

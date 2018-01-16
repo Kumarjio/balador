@@ -8,6 +8,8 @@ namespace Michal.Balador.Contracts.DataModel
 {
    public class SendRequest
     {
+        public int Log { get; set; }//email,phone
+        public string Id { get; set; }//email,phone
         public List<MessageItem> Messages { get; set; }
     }
 }

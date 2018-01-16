@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Michal.Balador.TestServerSocket
 {
+    //http://www.winsocketdotnetworkprogramming.com/clientserversocketnetworkcommunication8b.html
     class Program
     {
        

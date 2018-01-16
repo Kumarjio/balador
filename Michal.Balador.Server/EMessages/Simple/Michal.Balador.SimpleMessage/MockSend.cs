@@ -20,6 +20,8 @@ namespace Michal.Balador.SimpleMessage
         public override async Task<ResponseSend> Send(SendRequest request)
         {
             ResponseSend res = new ResponseSend();
+            res.Id = request.Id;
+            res.Log = request.Log;
             foreach (var itemMessage in request.Messages)
             {
                await Task.Run(() =>
@@ -35,10 +37,8 @@ namespace Michal.Balador.SimpleMessage
                   }
               }
             );
-        
         }
-
-            return await Task.FromResult<ResponseSend>(res);
+            return await Task.FromResult(res);
         }
 
 
