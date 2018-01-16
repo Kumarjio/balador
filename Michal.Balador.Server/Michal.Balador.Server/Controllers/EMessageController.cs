@@ -39,6 +39,7 @@ namespace Michal.Balador.Server.Controllers
             
                 mockData.mocks.Senders.AsParallel().ForAll(async rs =>
                 {
+                    rs.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
                     var sender = await _utah.Value.GetSender(rs);
                     try
                     {
