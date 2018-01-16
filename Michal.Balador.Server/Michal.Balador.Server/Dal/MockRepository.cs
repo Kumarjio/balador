@@ -25,8 +25,8 @@ namespace Michal.Balador.Server.Dal
              mocks = new DataSendersMock();
             mocks.Senders = new List<RegisterSender>();
             mocks.Senders.Add(new RegisterSender { Id = "1", Pws = "111" });
-          //  mocks.Senders.Add(new RegisterSender { Id = "2", Pws = "222" });
-           // mocks.Senders.Add(new RegisterSender { Id = "3", Pws = "333" });
+           mocks.Senders.Add(new RegisterSender { Id = "2", Pws = "222" });
+           mocks.Senders.Add(new RegisterSender { Id = "3", Pws = "333" });
 
             sendRequests = new List<SendRequest>();
             var se1 = new SendRequest { Id = "1", Messages = new List<MessageItem>()};

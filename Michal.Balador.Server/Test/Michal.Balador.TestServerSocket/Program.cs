@@ -240,7 +240,7 @@ namespace Michal.Balador.TestServerSocket
                         // Send the indicated number of response messages
 
                         Console.WriteLine("Server: Wait...");
-                        System.Threading.Thread.Sleep(500);
+                        System.Threading.Thread.Sleep(5000);
                         Console.WriteLine("Server: Preparing to send using Send()...");
                         for (int i = 0; i < sendCount; i++)
                         {
