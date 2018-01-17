@@ -20,7 +20,7 @@ namespace Michal.Balador.Server.Controllers
         //[AcceptVerbs("GET")]
         public IHttpActionResult Get(string s)
         {
-            var defaultLogFolder = HttpContext.Current.Server.MapPath("~/CollectLogs");
+            var defaultLogFolder = HttpContext.Current.Server.MapPath("~/Logs");
             var pat = Path.Combine(defaultLogFolder, ("ping_Get" + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".txt"));
             File.WriteAllText(pat, s);
           
@@ -30,7 +30,7 @@ namespace Michal.Balador.Server.Controllers
        // [AcceptVerbs("GET")]
         public IHttpActionResult Get()
         {
-            var defaultLogFolder = HttpContext.Current.Server.MapPath("~/CollectLogs");
+            var defaultLogFolder = HttpContext.Current.Server.MapPath("~/Logs");
             var pat = Path.Combine(defaultLogFolder, ("ping_Get_Empty" + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".txt"));
             File.WriteAllText(pat, "ok");
             return Ok("test");
@@ -39,7 +39,7 @@ namespace Michal.Balador.Server.Controllers
        [AcceptVerbs("Post")]
         public IHttpActionResult Post(string s)
         {
-            var defaultLogFolder = HttpContext.Current.Server.MapPath("~/CollectLogs");
+            var defaultLogFolder = HttpContext.Current.Server.MapPath("~/Logs");
             var pat = Path.Combine(defaultLogFolder, ("pingPost" + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".txt"));
             File.WriteAllText(pat, "ok");
             return Ok("test=" + s);
