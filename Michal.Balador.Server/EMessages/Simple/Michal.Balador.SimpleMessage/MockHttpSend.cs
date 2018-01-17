@@ -8,20 +8,18 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
-    public class MockSend : SenderMessages
+    public class MockHttpSend : SenderMessages
     {
-        SocketClientTest _test;
+        HttpClientTest _test;
         
-        public MockSend(SocketClientTest test)
+        public MockHttpSend()
         {
-            _test = test;
+            _test = new HttpClientTest();
         }
-
         public override void Dispose()
         {
             _test.Disconnect();
         }
-
         public override async Task<ResponseSend> Send(SendRequest request)
         {
             ResponseSend res = new ResponseSend();
@@ -30,19 +28,17 @@ namespace Michal.Balador.SimpleMessage
             res.Log = request.Log;
             foreach (var itemMessage in request.Messages)
             {
-               await Task.Run(() =>
-              {
                   try
                   {
-                     var message= _test.SendMessage(itemMessage.Id, itemMessage.Message);
+                     var message=   await _test.SendMessage(request.ToString());
                       res.Result.Add(new ResponseMessage { Id = itemMessage.Id, IsError = false, Message = message +" id="+ itemMessage.Id+ " ,Message=" + itemMessage.Message });
                   }
                   catch (Exception e)
                   {
                       res.Result.Add(new ResponseMessage { Id = itemMessage.Id, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
                   }
-              }
-            );
+              
+            
         }
             return await Task.FromResult(res);
         }
