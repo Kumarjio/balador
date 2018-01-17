@@ -51,7 +51,6 @@ namespace Michal.Balador.Server.Controllers
                             {
                                 requestToSend.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
                                 var responseToSend = await sender.Result.Send(requestToSend);
-
                                 resultError.Add(responseToSend);
                                 Log.Info(responseToSend.ToString());
                             }
@@ -64,7 +63,7 @@ namespace Michal.Balador.Server.Controllers
                     catch (Exception ee)
                     {
 
-                       // throw;
+                        Log.Error(rs.Log + " " + rs.Id + " " + ee);
                     }
                     finally
                     {

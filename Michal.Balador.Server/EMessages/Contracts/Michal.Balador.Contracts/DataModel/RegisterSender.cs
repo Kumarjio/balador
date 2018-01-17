@@ -11,6 +11,7 @@ namespace Michal.Balador.Contracts.DataModel
         public int Log { get; set; }
         public string Id { get; set; }//email,phone
         public string Pws { get; set; }//token
+        public string Email { get; set; }//email
         public List<KeyValuePair<string,string>> Extra { get; set; }
 
     }

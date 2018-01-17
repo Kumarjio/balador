@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DisconnectedException.cs" />
+    <Compile Include="HttpClientTest.cs" />
     <Compile Include="MockSend.cs" />
     <Compile Include="MockSender.cs" />
     <Compile Include="SenderMessagesFactory.cs" />
