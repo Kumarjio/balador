@@ -453,6 +453,9 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewLog\vlog.ashx.cs">
+      <DependentUpon>vlog.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -478,6 +481,7 @@
     <Content Include="ssss\logo-balador.psd" />
     <Content Include="ssss\plant-with-leaves-in-a-pot.psd" />
     <Content Include="ssss\shay.psd" />
+    <Content Include="ViewLog\vlog.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
