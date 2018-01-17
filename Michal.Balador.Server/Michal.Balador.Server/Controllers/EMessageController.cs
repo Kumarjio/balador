@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Michal.Balador.Contracts;
@@ -30,72 +31,69 @@ namespace Michal.Balador.Server.Controllers
         {
             ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
             List<ResponseSender> senders = new List<ResponseSender>();
-            List<string> ss = new List<string>();
-            Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockSender").FirstOrDefault();
+    
+            //Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockSender").FirstOrDefault();
+           Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
+
            
-            if (_utah != null && _utah.Value != null)
-            {
                 // var sender=await _utah.Value.GetSender(new RegisterSender { Id="someuser",Pws="12345"});
                 MockRepository mockData = new MockRepository();
-            
-                mockData.mocks.Senders.AsParallel().ForAll(async rs =>
-                {
-                    rs.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
-                    var sender = await _utah.Value.GetSender(rs);
-                    try
-                    {
-                        if (!sender.IsError)
-                        {
-                            var requestToSend = await mockData.FindMessagesById(rs.Id);
-                            if (requestToSend != null)
-                            {
-                                requestToSend.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
-                                var responseToSend = await sender.Result.Send(requestToSend);
-                                resultError.Add(responseToSend);
-                                Log.Info(responseToSend.ToString());
-                            }
-                        }
-                        else
-                        {
-                            Log.Error(rs.Log+" "+ rs.Id+" "+ sender.Message);
-                        }
-                    }
-                    catch (Exception ee)
-                    {
+                //await Task.Run(()=>
+                   {
+                       mockData.mocks.Senders.AsParallel().ForAll(async rs =>
+                       {
+                           rs.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
+                           var sender = await _utah.Value.GetSender(rs);
+                           try
+                           {
+                               if (!sender.IsError)
+                               {
+                                   var requestToSend = await mockData.FindMessagesById(rs.Id);
+                               
+                                   if (requestToSend != null)
+                                   {
+                                       requestToSend.Log = rs.Log;
+                                      // var responseToSendWait =  sender.Result.Send(requestToSend);
+                                      //responseToSendWait.Wait();
+                                      //var responseToSend = responseToSendWait.Result;
+                                      //var responseToSendWait = sender.Result.Send(requestToSend).Result;
 
-                        Log.Error(rs.Log + " " + rs.Id + " " + ee);
-                    }
-                    finally
-                    {
-                        if (sender != null && sender.Result != null)
-                            sender.Result.Dispose();
-                    }
-                    
-                });
-
-            }
-
-            //foreach (var item in _messages)
-            //{
-            //    var sender = await item.Value.ConnectAndSend(new Contracts.DataModel.Sender());
-            //    senders.Add(sender);
-            //    ss.Add(sender.Message);
-            //}
-            //ss.Add(_myTest.GetMessage());
-            //return ss.ToArray();
+                                       //resultError.Add(responseToSendWait);
+                                       //Log.Info(responseToSendWait.ToString());
+                                       //var responseToSendWait = await sender.Result.Send(requestToSend);
+                                     var responseToSendWait =  sender.Result.Send(requestToSend).Result;
+                                       resultError.Add(responseToSendWait);
+                                      Log.Info(responseToSendWait.ToString());
+                                   }
+                               }
+                               else
+                               {
+                                   var mes = rs.Log + " " + rs.Id + " " + sender.Message;
+                                   resultError.Add(new ResponseSend { IsError=true,Message= mes });
+                                   Log.Error(mes);
+                               }
+                           }
+                           catch (Exception ee)
+                           {
+                               resultError.Add(new ResponseSend { IsError = true, Message = "unhandle" });
+                               Log.Error(rs.Log + " " + rs.Id + " " + ee);
+                           }
+                           finally
+                           {
+                               if (sender != null && sender.Result != null)
+                                   sender.Result.Dispose();
+                           }
+                       });
+                   } 
+               // );
             var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new ObjectContent<ConcurrentBag<ResponseSend>>(resultError,
+                Content = new ObjectContent<ResponseSend[]>(resultError.ToArray(),
                          new JsonMediaTypeFormatter(),
                           new MediaTypeWithQualityHeaderValue("application/json"))
             };
             return response;
-
-
-
         }
-
-     
         }
 
 }

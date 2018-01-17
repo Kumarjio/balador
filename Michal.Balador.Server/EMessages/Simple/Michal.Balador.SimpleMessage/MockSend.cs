@@ -44,7 +44,8 @@ namespace Michal.Balador.SimpleMessage
               }
             );
         }
-            return await Task.FromResult(res);
+            //   return await Task.FromResult(res);
+            return res;
         }
 
 

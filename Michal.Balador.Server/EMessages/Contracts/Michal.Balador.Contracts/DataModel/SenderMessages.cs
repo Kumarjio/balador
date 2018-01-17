@@ -13,6 +13,6 @@ namespace Michal.Balador.Contracts.DataModel
           //  throw new NotImplementedException();
         //}
 
-        public abstract Task<ResponseSend> Send(SendRequest request);
+        public abstract  Task<ResponseSend> Send(SendRequest request);
     }
 }

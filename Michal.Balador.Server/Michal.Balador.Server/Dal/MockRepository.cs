@@ -34,12 +34,12 @@ namespace Michal.Balador.Server.Dal
             var se3 = new SendRequest { Id = "3", Messages = new List<MessageItem>() };
           
             se1.Messages.Add(new MessageItem { Id = "a", Message = "x" });
-            se1.Messages.Add(new MessageItem { Id = "aa", Message = "xx" });
-            se1.Messages.Add(new MessageItem { Id = "aaa", Message = "xxx" });
+            //se1.Messages.Add(new MessageItem { Id = "aa", Message = "xx" });
+            //se1.Messages.Add(new MessageItem { Id = "aaa", Message = "xxx" });
 
             se2.Messages.Add(new MessageItem { Id = "b", Message = "q" });
             se2.Messages.Add(new MessageItem { Id = "bb", Message = "qq" });
-            se2.Messages.Add(new MessageItem { Id = "bbb", Message = "qqq" });
+        //    se2.Messages.Add(new MessageItem { Id = "bbb", Message = "qqq" });
 
             se3.Messages.Add(new MessageItem { Id = "c", Message = "m" });
             se3.Messages.Add(new MessageItem { Id = "cc", Message = "mm" });
