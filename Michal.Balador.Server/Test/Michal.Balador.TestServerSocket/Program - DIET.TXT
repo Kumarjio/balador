@@ -1,0 +1,180 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Michal.Balador.TestServerSocket
+{
+    //http://www.winsocketdotnetworkprogramming.com/clientserversocketnetworkcommunication8b.html
+    class Program
+    {
+
+         static byte[] Decode(byte[] packet)
+        {
+            var i = packet.Length - 1;
+            while (packet[i] == 0)
+            {
+                --i;
+            }
+            var temp = new byte[i + 1];
+            Array.Copy(packet, temp, i + 1);
+         
+            return temp;
+        }  
+        /// This routine repeatedly copies a string message into a byte array until filled.
+        /// </summary>
+        /// <param name="dataBuffer">Byte buffer to fill with string message</param>
+        /// <param name="message">String message to copy</param>
+        static public void FormatBuffer(byte[] dataBuffer, string message)
+        {
+
+            byte[] byteMessage = System.Text.Encoding.ASCII.GetBytes(message);
+
+            int index = 0;
+            // First convert the string to bytes and then copy into send buffer
+            while (index < dataBuffer.Length)
+            {
+                for (int j = 0; j < byteMessage.Length; j++)
+                {
+                    dataBuffer[index] = byteMessage[j];
+                    index++;
+                    // Make sure we don't go past the send buffer length
+                    if (index >= dataBuffer.Length)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+       
+     
+        static void Main(string[] args)
+        {
+            string textMessage = "Y";
+            int localPort = 5150, sendCount = 10, bufferSize = 4096;
+            IPAddress localAddress = IPAddress.Any;
+            SocketType sockType = SocketType.Stream;
+            ProtocolType sockProtocol = ProtocolType.Tcp;         
+            Console.WriteLine();
+
+            // Parse the command line
+         
+            Socket serverSocket = null;
+            try
+            {
+
+                IPEndPoint localEndPoint = new IPEndPoint(localAddress, localPort), senderAddress = new IPEndPoint(localAddress, 0);
+                Console.WriteLine("Server: IPEndPoint is OK...");
+              
+                Socket clientSocket;
+                byte[] receiveBuffer = new byte[bufferSize], 
+                    sendBuffer = new byte[bufferSize];
+                int rc;
+                FormatBuffer(sendBuffer, textMessage);
+                // Create the server socket
+
+                serverSocket = new Socket(localAddress.AddressFamily, sockType, sockProtocol);
+                Console.WriteLine("Server: Socket() is OK...");
+
+                // Bind the socket to the local interface specified
+
+                serverSocket.Bind(localEndPoint);
+                Console.WriteLine("Server: {0} server socket bound to {1}", sockProtocol.ToString(), localEndPoint.ToString());
+              
+                    // If TCP socket, set the socket to listening
+                    serverSocket.Listen(100);
+                    Console.WriteLine("Server: Listen() is OK, I'm listening for connection buddy!");
+               // Console.WriteLine("Hoe many clients are going to connect to this server?:");
+                //int numberOfClientsYouNeedToConnect = int.Parse(Console.ReadLine());
+                //for (int connee = 0; connee < numberOfClientsYouNeedToConnect; connee++)
+                //{
+                //    Thread newThread = new Thread(new ThreadStart(()=>
+                //    {
+                        // Service clients in a loop
+                        while (true)
+                        {
+
+                            // Wait for a client connection
+                            clientSocket = serverSocket.Accept();
+                            Console.WriteLine("Server: Accept() is OK...");
+                            Console.WriteLine("Server: Accepted connection from: {0}", clientSocket.RemoteEndPoint.ToString());
+                            // Receive the request from the client in a loop until the client shuts
+                            //    the connection down via a Shutdown.
+                            Console.WriteLine("Server: Preparing to receive using Receive()...");
+                            var flag = "N";
+
+                            while (true)
+                            {
+                                rc = clientSocket.Receive(receiveBuffer);
+                                Console.WriteLine("Server: Read {0} bytes", rc);
+                                //if (flag == "Y")
+                                //    flag = "N";
+                                //else
+                                //    flag = "Y";
+
+                                if (rc == 0)
+                                    break;
+                                // System.Threading.Thread.Sleep(100);
+                                Console.WriteLine("lior: Preparing to send using Send()...");
+                                var removeZeroBytes = Decode(receiveBuffer);
+
+                                var receiveBufferRequest = System.Text.Encoding.ASCII.GetString(removeZeroBytes);
+                                Console.WriteLine("lior:receiveBufferRequest={0}...", receiveBufferRequest);
+                                if (receiveBufferRequest.Trim().Contains("OK"))
+                                    flag = "Y";
+                                else if (receiveBufferRequest.Trim().Contains("FAILED"))
+                                    flag = "N";
+                                else
+                                    flag = "X";
+
+
+                                Console.WriteLine("lior: Sended {0}...", flag);
+                                var yesNo = Encoding.UTF8.GetBytes(flag);
+                                rc = clientSocket.Send(yesNo);
+
+
+                            }
+                            // Send the indicated number of response messages
+
+                            Console.WriteLine("Server: Wait...");
+                            System.Threading.Thread.Sleep(5000);
+                            Console.WriteLine("Server: Preparing to send using Send()...");
+                            for (int i = 0; i < sendCount; i++)
+                            {
+                                rc = clientSocket.Send(sendBuffer);
+                                Console.WriteLine("Server: Sent {0} bytes", rc);
+                            }
+                            // Shutdown the client connection
+                            clientSocket.Shutdown(SocketShutdown.Send);
+                            Console.WriteLine("Server: Shutdown() is OK...");
+                            clientSocket.Close();
+                            Console.WriteLine("Server: Close() is OK...");
+
+                        }
+                //    }));
+                //    newThread.Start();
+                //}
+              
+                
+
+            }
+           catch (SocketException err)
+            {
+                Console.WriteLine("Server: Socket error occurred: {0}", err.Message);
+            }
+            finally
+            {
+              // Close the socket if necessary
+                if (serverSocket != null)
+                {
+                    Console.WriteLine("Server: Closing using Close()...");
+                    serverSocket.Close();
+                }
+            }
+        }
+    }
+}
