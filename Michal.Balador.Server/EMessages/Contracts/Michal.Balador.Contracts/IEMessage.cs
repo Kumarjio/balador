@@ -7,6 +7,9 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Contracts
 {
+    /// <summary>
+    /// For Test Only
+    /// </summary>
     public interface IEMessage
     {
         Task<ResponseSender> ConnectAndSend(Sender send);
