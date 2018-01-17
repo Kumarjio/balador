@@ -29,10 +29,8 @@ public class AsynchIOServer
         {
             Console.WriteLine("Client:" + socketForClient.RemoteEndPoint + " now connected to server.");
             NetworkStream networkStream = new NetworkStream(socketForClient);
-            System.IO.StreamWriter streamWriter =
-            new System.IO.StreamWriter(networkStream);
-            System.IO.StreamReader streamReader =
-            new System.IO.StreamReader(networkStream);
+            System.IO.StreamWriter streamWriter =    new System.IO.StreamWriter(networkStream);
+            System.IO.StreamReader streamReader =    new System.IO.StreamReader(networkStream);
 
             ////here we send message to client
             //Console.WriteLine("type your message to be recieved by client:");
@@ -48,7 +46,7 @@ public class AsynchIOServer
             {
                 string theString = streamReader.ReadLine();
                 Console.WriteLine("Message recieved by client:" + theString);
-                if (theString == "exit")
+                if (theString == "exit" || String.IsNullOrEmpty(theString))
                     break;
             }
             streamReader.Close();

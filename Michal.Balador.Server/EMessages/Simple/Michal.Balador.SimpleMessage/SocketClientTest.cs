@@ -161,6 +161,7 @@ namespace Michal.Balador.SimpleMessage
         {
             if (this.socket != null)
             {
+                this.SendData(Encoding.ASCII.GetBytes("exit"));
                 this.socket.Close();
             }
             this.loginStatus = CONNECTION_STATUS.DISCONNECTED;

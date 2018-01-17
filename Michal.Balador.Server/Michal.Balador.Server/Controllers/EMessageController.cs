@@ -65,8 +65,8 @@ namespace Michal.Balador.Server.Controllers
                     }
                     finally
                     {
-                        //if (sender != null && sender.Result != null)
-                           // sender.Result.Dispose();
+                        if (sender != null && sender.Result != null)
+                            sender.Result.Dispose();
                     }
                     
                 });
