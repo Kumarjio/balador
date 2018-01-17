@@ -1,0 +1,26 @@
+INFO  2018-01-17 11:52:53,775  1349ms EMessageController     MoveNext           - 1,11
+a,False, id=a ,Message=x
+aa,False, id=aa ,Message=xx
+aaa,False, id=aaa ,Message=xxx
+
+INFO  2018-01-17 11:52:53,775  1349ms EMessageController     MoveNext           - 2,9
+b,False, id=b ,Message=q
+bb,False, id=bb ,Message=qq
+bbb,False, id=bbb ,Message=qqq
+
+INFO  2018-01-17 11:52:53,775  1349ms EMessageController     MoveNext           - 3,10
+c,False, id=c ,Message=m
+cc,False, id=cc ,Message=mm
+ccc,False, id=ccc ,Message=mmm
+
+INFO  2018-01-17 11:53:15,897 23470ms EMessageController     MoveNext           - 3,9
+c,False, id=c ,Message=m
+cc,False, id=cc ,Message=mm
+ccc,False, id=ccc ,Message=mmm
+
+INFO  2018-01-17 11:53:15,897 23470ms EMessageController     MoveNext           - 1,11
+a,False, id=a ,Message=x
+aa,False, id=aa ,Message=xx
+aaa,False, id=aaa ,Message=xxx
+
+ERROR 2018-01-17 11:53:16,926 24500ms EMessageController     MoveNext           - 10 2 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond

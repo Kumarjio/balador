@@ -8,6 +8,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 using Michal.Balador.Server.App_Start;
+using System.IO;
 
 namespace Michal.Balador.Server
 {
@@ -22,6 +23,8 @@ namespace Michal.Balador.Server
             //ControllerBuilder.Current.SetControllerFactory(new MefControllerFactory(
             //       Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins")));
             MefConfig.RegisterMef();
+            log4net.Config.XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
+
         }
     }
 }

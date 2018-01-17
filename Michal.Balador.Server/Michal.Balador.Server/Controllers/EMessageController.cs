@@ -20,8 +20,9 @@ namespace Michal.Balador.Server.Controllers
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class EMessageController : ApiController
     {
-      
-     
+
+        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(EMessageController));
+
         [ImportMany(typeof(IFactrorySendMessages))]
         IEnumerable<Lazy<IFactrorySendMessages, IDictionary<string, object>>> _senderRules;
         // GET api/<controller>
@@ -50,12 +51,14 @@ namespace Michal.Balador.Server.Controllers
                             {
                                 requestToSend.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
                                 var responseToSend = await sender.Result.Send(requestToSend);
+
                                 resultError.Add(responseToSend);
+                                Log.Info(responseToSend.ToString());
                             }
                         }
                         else
                         {
-                            //CALL Error!!!
+                            Log.Error(rs.Log+" "+ rs.Id+" "+ sender.Message);
                         }
                     }
                     catch (Exception ee)

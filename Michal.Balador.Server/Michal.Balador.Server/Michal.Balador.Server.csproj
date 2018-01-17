@@ -55,6 +55,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -461,6 +464,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="logs\" />
     <Folder Include="Migrations\" />
     <Folder Include="Plugins\" />
   </ItemGroup>
@@ -484,6 +488,10 @@
     <ProjectReference Include="..\EMessages\Contracts\Michal.Balador.Contracts\Michal.Balador.Contracts.csproj">
       <Project>{7f9deb2f-4803-4165-a1e2-d3ba1a50c7e3}</Project>
       <Name>Michal.Balador.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMessages\Infrastructures\Michal.Balador.Infrastructures\Michal.Balador.Infrastructures.csproj">
+      <Project>{41bd1ff6-1eaa-47eb-a388-143eb5614ab7}</Project>
+      <Name>Michal.Balador.Infrastructures</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebHooks\Microsoft.AspNet.WebHooks\Microsoft.AspNet.WebHooks.csproj">
       <Project>{C89C330E-8B78-4257-BCA0-F2D1A9403CF6}</Project>
