@@ -7304,3 +7304,237 @@ c,True,m
 cc,True,mm
 ccc,True,mmm
 
+INFO  2018-01-17 18:15:01,184  1780ms EMessageController     MoveNext           - 1,39
+a,False,_lock=1,39
+a,x id=a ,Message=x
+
+INFO  2018-01-17 18:15:02,293  2890ms EMessageController     MoveNext           - 2,34
+b,False,_lock=2,34
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,34
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-17 18:15:03,121  3718ms EMessageController     MoveNext           - 3,53
+c,False,_lock=3,53
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,53
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,53
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-17 18:15:16,428 17024ms EMessageController     MoveNext           - 1,39
+a,False,_lock=1,39
+a,x id=a ,Message=x
+
+INFO  2018-01-17 18:15:17,240 17836ms EMessageController     MoveNext           - 2,53
+b,False,_lock=2,53
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,53
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-17 18:15:17,645 18242ms EMessageController     MoveNext           - 3,15
+c,False,_lock=3,15
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,15
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,15
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-17 18:15:20,531 21128ms EMessageController     MoveNext           - 1,27
+a,False,_lock=1,27
+a,x id=a ,Message=x
+
+INFO  2018-01-17 18:15:20,936 21533ms EMessageController     MoveNext           - 1,19
+a,False,_lock=1,19
+a,x id=a ,Message=x
+
+INFO  2018-01-17 18:15:22,560 23156ms EMessageController     MoveNext           - 2,31
+b,False,_lock=2,31
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,31
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-17 18:15:23,370 23966ms EMessageController     MoveNext           - 2,46
+b,False,_lock=2,46
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,46
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-17 18:15:23,775 24371ms EMessageController     MoveNext           - 3,53
+c,False,_lock=3,53
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,53
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,53
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-17 18:15:24,183 24779ms EMessageController     MoveNext           - 3,34
+c,False,_lock=3,34
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,34
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,34
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-18 15:01:15,370  9792ms EMessageController     MoveNext           - 1,13
+a,False,_lock=1,13
+a,x id=a ,Message=x
+
+INFO  2018-01-18 15:01:16,181 10603ms EMessageController     MoveNext           - 2,10
+b,False,_lock=2,10
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,10
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-18 15:01:16,577 10999ms EMessageController     MoveNext           - 3,11
+c,False,_lock=3,11
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,11
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,11
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-18 15:45:53,293  3383ms EMessageController     MoveNext           - 1,10
+a,False,_lock=1,10
+a,x id=a ,Message=x
+
+INFO  2018-01-18 15:45:54,842  4932ms EMessageController     MoveNext           - 2,10
+b,False,_lock=2,10
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,10
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-18 15:45:56,121  6210ms EMessageController     MoveNext           - 3,10
+c,False,_lock=3,10
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,10
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,10
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-18 15:46:41,845 51934ms EMessageController     MoveNext           - 1,17
+a,False,_lock=1,17
+a,x id=a ,Message=x
+
+INFO  2018-01-18 15:46:42,735 52824ms EMessageController     MoveNext           - 2,9
+b,False,_lock=2,9
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,9
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-18 15:46:43,998 54088ms EMessageController     MoveNext           - 3,17
+c,False,_lock=3,17
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,17
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,17
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-18 15:47:17,055 87144ms EMessageController     MoveNext           - 1,17
+a,False,_lock=1,17
+a,x id=a ,Message=x
+
+INFO  2018-01-18 15:47:17,897 87986ms EMessageController     MoveNext           - 2,8
+b,False,_lock=2,8
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,8
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-18 15:47:19,162 89251ms EMessageController     MoveNext           - 3,8
+c,False,_lock=3,8
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,8
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,8
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-18 15:48:13,903 143992ms EMessageController     MoveNext           - 1,8
+a,False,_lock=1,8
+a,x id=a ,Message=x
+
+INFO  2018-01-18 15:48:14,745 144835ms EMessageController     MoveNext           - 2,4
+b,False,_lock=2,4
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,4
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-18 15:48:16,009 146098ms EMessageController     MoveNext           - 3,10
+c,False,_lock=3,10
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,10
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,10
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+

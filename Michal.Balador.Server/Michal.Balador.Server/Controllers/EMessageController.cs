@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 using System.Web.Http;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
@@ -31,6 +32,69 @@ namespace Michal.Balador.Server.Controllers
         {
             ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
             List<ResponseSender> senders = new List<ResponseSender>();
+            Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
+            MockRepository mockData = new MockRepository();
+            var doStuffBlock = new ActionBlock<RegisterSender>(async rs =>
+            {
+                rs.Log = Thread.CurrentThread.ManagedThreadId;
+                var sender = await _utah.Value.GetSender(rs);
+                try
+                {
+                    if (!sender.IsError)
+                    {
+                        var requestToSend = await mockData.FindMessagesById(rs.Id);
+
+                        if (requestToSend != null)
+                        {
+                            requestToSend.Log = rs.Log;
+                            var responseToSendWait = await sender.Result.Send(requestToSend);
+                            resultError.Add(responseToSendWait);
+                            Log.Info(responseToSendWait.ToString());
+                        }
+                    }
+                    else
+                    {
+                        var mes = rs.Log + " " + rs.Id + " " + sender.Message;
+                        resultError.Add(new ResponseSend { IsError = true, Message = mes });
+                        Log.Error(mes);
+                    }
+                }
+                catch (Exception ee)
+                {
+                    resultError.Add(new ResponseSend { IsError = true, Message = "unhandle" });
+                    Log.Error(rs.Log + " " + rs.Id + " " + ee);
+                }
+                finally
+                {
+                    if (sender != null && sender.Result != null)
+                        sender.Result.Dispose();
+                }
+            } );
+            foreach (var item in mockData.mocks.Senders)
+            {
+                doStuffBlock.Post(item);
+            }
+            doStuffBlock.Complete();
+            await doStuffBlock.Completion;
+
+            var response = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ObjectContent<ResponseSend[]>(resultError.ToArray(),
+                         new JsonMediaTypeFormatter(),
+                          new MediaTypeWithQualityHeaderValue("application/json"))
+            };
+            return response;
+        }
+        }
+
+}
+
+
+/*
+  public async Task<HttpResponseMessage> Get()
+        {
+            ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
+            List<ResponseSender> senders = new List<ResponseSender>();
     
             //Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockSender").FirstOrDefault();
            Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
@@ -38,9 +102,8 @@ namespace Michal.Balador.Server.Controllers
            
                 // var sender=await _utah.Value.GetSender(new RegisterSender { Id="someuser",Pws="12345"});
                 MockRepository mockData = new MockRepository();
-                //await Task.Run(()=>
-                   {
-                       mockData.mocks.Senders.AsParallel().ForAll(async rs =>
+
+                mockData.mocks.Senders.AsParallel().ForAll(async rs =>
                        {
                            rs.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
                            var sender = await _utah.Value.GetSender(rs);
@@ -84,8 +147,7 @@ namespace Michal.Balador.Server.Controllers
                                    sender.Result.Dispose();
                            }
                        });
-                   } 
-               // );
+                
             var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
                 Content = new ObjectContent<ResponseSend[]>(resultError.ToArray(),
@@ -94,8 +156,4 @@ namespace Michal.Balador.Server.Controllers
             };
             return response;
         }
-        }
-
-}
-
-
+ */
