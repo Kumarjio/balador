@@ -7538,3 +7538,29 @@ c,m
 cc,mm
 ccc,mmm id=ccc ,Message=mmm
 
+INFO  2018-01-18 15:53:45,773  1100ms EMessageController     MoveNext           - 1,9
+a,False,_lock=1,9
+a,x id=a ,Message=x
+
+INFO  2018-01-18 15:53:46,691  2018ms EMessageController     MoveNext           - 2,29
+b,False,_lock=2,29
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,29
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-18 15:53:47,958  3285ms EMessageController     MoveNext           - 3,33
+c,False,_lock=3,33
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,33
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,33
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
