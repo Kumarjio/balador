@@ -15,6 +15,7 @@ using System.Web.Http;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Server.Dal;
+using Microsoft.AspNet.WebHooks;
 
 namespace Michal.Balador.Server.Controllers
 {//http://kennytordeur.blogspot.co.il/2012/08/mef-in-aspnet-mvc-4-and-webapi.html
@@ -34,12 +35,14 @@ namespace Michal.Balador.Server.Controllers
             List<ResponseSender> senders = new List<ResponseSender>();
             Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
             MockRepository mockData = new MockRepository();
+
             var doStuffBlock = new ActionBlock<RegisterSender>(async rs =>
             {
                 rs.Log = Thread.CurrentThread.ManagedThreadId;
                 var sender = await _utah.Value.GetSender(rs);
                 try
                 {
+                   // SetUser
                     if (!sender.IsError)
                     {
                         var requestToSend = await mockData.FindMessagesById(rs.Id);
@@ -50,6 +53,11 @@ namespace Michal.Balador.Server.Controllers
                             var responseToSendWait = await sender.Result.Send(requestToSend);
                             resultError.Add(responseToSendWait);
                             Log.Info(responseToSendWait.ToString());
+                            IWebHookManager manager = this.Configuration.DependencyResolver.GetManager();
+                            List<NotificationDictionary> notifications = new List<NotificationDictionary>();
+                            notifications.Add(new NotificationDictionary ("event2", new { P1 = "p1" }));
+                            
+                            await manager.NotifyAsync(rs.Id, notifications, null);
                         }
                     }
                     else

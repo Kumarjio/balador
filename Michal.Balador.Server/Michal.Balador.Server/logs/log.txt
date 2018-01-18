@@ -7538,3 +7538,87 @@ c,m
 cc,mm
 ccc,mmm id=ccc ,Message=mmm
 
+INFO  2018-01-18 15:58:57,368  5412ms EMessageController     MoveNext           - 1,8
+a,False,_lock=1,8
+a,x id=a ,Message=x
+
+INFO  2018-01-18 15:58:58,139  6183ms EMessageController     MoveNext           - 2,10
+b,False,_lock=2,10
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,10
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-18 15:58:58,518  6562ms EMessageController     MoveNext           - 3,11
+c,False,_lock=3,11
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,11
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,11
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-18 15:59:08,931  1363ms EMessageController     MoveNext           - 1,13
+a,False,_lock=1,13
+a,x id=a ,Message=x
+
+INFO  2018-01-18 15:59:10,394  2826ms EMessageController     MoveNext           - 2,10
+b,False,_lock=2,10
+b,q
+bb,qq id=b ,Message=q
+bb,False,_lock=2,10
+b,q
+bb,qq id=bb ,Message=qq
+
+INFO  2018-01-18 15:59:10,819  3251ms EMessageController     MoveNext           - 3,11
+c,False,_lock=3,11
+c,m
+cc,mm
+ccc,mmm id=c ,Message=m
+cc,False,_lock=3,11
+c,m
+cc,mm
+ccc,mmm id=cc ,Message=mm
+ccc,False,_lock=3,11
+c,m
+cc,mm
+ccc,mmm id=ccc ,Message=mmm
+
+INFO  2018-01-18 16:25:25,698 100082ms EMessageController     MoveNext           - rt,9
+a,False,_lock=rt,9
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,9
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-18 16:50:47,524 190080ms EMessageController     MoveNext           - rt,9
+a,False,_lock=rt,9
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,9
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-18 16:53:00,307 322863ms EMessageController     MoveNext           - rt,9
+a,False,_lock=rt,9
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,9
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-18 17:06:43,241 1145797ms EMessageController     MoveNext           - rt,31
+a,False,_lock=rt,31
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,31
+a,x
+aa,xx id=aa ,Message=xx
+
