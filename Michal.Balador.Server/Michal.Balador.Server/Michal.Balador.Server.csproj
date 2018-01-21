@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -432,6 +433,7 @@
     <Compile Include="Helper\Provider\CustomPasswordValidator.cs" />
     <Compile Include="Helper\Provider\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Helper\Provider\SimpleRefreshTokenProvider.cs" />
+    <Compile Include="Infrastructures\Logger.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationRole.cs" />

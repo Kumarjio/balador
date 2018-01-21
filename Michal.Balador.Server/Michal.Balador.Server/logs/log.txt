@@ -7658,3 +7658,27 @@ aa,xx id=aa ,Message=xx
 
 =======
 >>>>>>> 59196e5e7912753eafcfe4cd4db56800ee0f8d26
+INFO  2018-01-21 09:42:59,520  4414ms EMessageController     MoveNext           - rt,8
+a,False,_lock=rt,8
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,8
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 09:44:34,812  1733ms EMessageController     MoveNext           - rt,11
+a,False,_lock=rt,11
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,11
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 10:03:56,371 41878ms EMessageController     MoveNext           - rt,30
+a,False,_lock=rt,30
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,30
+a,x
+aa,xx id=aa ,Message=xx
+

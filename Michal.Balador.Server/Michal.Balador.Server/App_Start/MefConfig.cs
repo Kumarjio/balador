@@ -70,13 +70,16 @@ namespace Michal.Balador.Server.App_Start
             // Install MEF dependency resolver for Web API
             var dependencyResolver = System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver;
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new MefDependencyResolver(container);
+            //IDependencyScope
 
+            //https://weblog.west-wind.com/posts/2016/Dec/12/Loading-NET-Assemblies-out-of-Seperate-Folders
 
         }
 
         private static CompositionContainer ConfigureContainer()
         {
             var assemblyCatalog = new AssemblyCatalog(Assembly.GetExecutingAssembly());
+
            var businessRulesCatalog = new AssemblyCatalog(typeof(IEMessage).Assembly);
            var catalogs = new AggregateCatalog(assemblyCatalog, businessRulesCatalog,  new DirectoryCatalog("plugins"));
          
