@@ -82,18 +82,8 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
             };
 
             _httpClient = httpClient ?? new HttpClient();
-
-            // Create the launch processors with the given retry delays
-            //_launchers = new ActionBlock<WebHookWorkItem>[1 + retryDelays.Count()];
-
-            //int offset = 0;
             _launcher = new ActionBlock<WebHookWorkItem>(async item => await LaunchWebHook(item), options);
-            //foreach (TimeSpan delay in retryDelays)
-            //{
-            //    _launchers[offset++] = new ActionBlock<WebHookWorkItem>(async item => await DelayedLaunchWebHook(item, delay), options);
-            //}
-
-
+            
             string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_Started, typeof(BaladorDataflowWebHookSender).Name, 1);
             Logger.Info(msg);
         }
