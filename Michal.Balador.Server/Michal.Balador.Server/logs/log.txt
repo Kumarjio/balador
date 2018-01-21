@@ -7940,3 +7940,155 @@ a,x
 aa,xx id=aa ,Message=xx
 
 INFO  2018-01-21 12:39:01,849 242241ms Logger                 Log                - WebHook '0a53099ee4f44df1b77ecd33f3caeec7' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-21 15:21:26,871  9554ms EMessageController     MoveNext           - rt,8
+a,False,_lock=rt,8
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,8
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 15:21:26,966  9649ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+ERROR 2018-01-21 15:48:29,311 1631994ms EMessageController     MoveNext           - 8 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<SendWebHookWorkItemsAsync>d__8.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 111
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Microsoft.AspNet.WebHooks.WebHookManager.<NotifyAsync>d__10.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\WebHooks\WebHookManager.cs:line 107
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 60
+INFO  2018-01-21 15:48:34,815 1637497ms EMessageController     MoveNext           - rt,18
+a,False,_lock=rt,18
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,18
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 15:48:34,843 1637525ms EMessageController     MoveNext           - 18 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<SendWebHookWorkItemsAsync>d__8.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 111
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Microsoft.AspNet.WebHooks.WebHookManager.<NotifyAsync>d__10.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\WebHooks\WebHookManager.cs:line 107
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 60
+INFO  2018-01-21 15:48:52,078 1654761ms EMessageController     MoveNext           - rt,6
+a,False,_lock=rt,6
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,6
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 15:49:52,543 1715226ms EMessageController     MoveNext           - 6 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<SendWebHookWorkItemsAsync>d__8.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 111
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Microsoft.AspNet.WebHooks.WebHookManager.<NotifyAsync>d__10.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\WebHooks\WebHookManager.cs:line 107
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 60
+INFO  2018-01-21 15:50:33,218 1755901ms EMessageController     MoveNext           - rt,15
+a,False,_lock=rt,15
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,15
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 15:51:10,419 1793102ms EMessageController     MoveNext           - 15 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<SendWebHookWorkItemsAsync>d__8.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 111
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Microsoft.AspNet.WebHooks.WebHookManager.<NotifyAsync>d__10.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\WebHooks\WebHookManager.cs:line 107
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 60
+INFO  2018-01-21 15:51:28,388 1811071ms EMessageController     MoveNext           - rt,18
+a,False,_lock=rt,18
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,18
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 15:52:21,887 1864570ms EMessageController     MoveNext           - 18 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<SendWebHookWorkItemsAsync>d__8.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 111
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Microsoft.AspNet.WebHooks.WebHookManager.<NotifyAsync>d__10.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\WebHooks\WebHookManager.cs:line 107
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 60
+INFO  2018-01-21 15:54:21,694 15084ms EMessageController     MoveNext           - rt,50
+a,False,_lock=rt,50
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,50
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 15:54:37,574 30964ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+ERROR 2018-01-21 15:55:20,571 73961ms EMessageController     MoveNext           - 50 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<SendWebHookWorkItemsAsync>d__8.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 111
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Microsoft.AspNet.WebHooks.WebHookManager.<NotifyAsync>d__10.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\WebHooks\WebHookManager.cs:line 107
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 60
+INFO  2018-01-21 15:57:34,366 207756ms EMessageController     MoveNext           - rt,50
+a,False,_lock=rt,50
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,50
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 15:58:20,158 253548ms EMessageController     MoveNext           - 50 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<SendWebHookWorkItemsAsync>d__8.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 111
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at Microsoft.AspNet.WebHooks.WebHookManager.<NotifyAsync>d__10.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\WebHooks\WebHookManager.cs:line 107
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 60
+INFO  2018-01-21 16:01:11,512 23743ms EMessageController     MoveNext           - rt,20
+a,False,_lock=rt,20
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,20
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 16:01:11,957 24187ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-21 16:02:27,457 99688ms Logger                 Log                - WebHook '0a53099ee4f44df1b77ecd33f3caeec7' resulted in status code 'OK' on attempt '0'.

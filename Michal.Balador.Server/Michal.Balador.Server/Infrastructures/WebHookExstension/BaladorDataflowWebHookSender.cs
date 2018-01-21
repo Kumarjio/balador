@@ -31,8 +31,8 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
         private static readonly Collection<TimeSpan> DefaultRetries = new Collection<TimeSpan> { TimeSpan.FromMinutes(1), TimeSpan.FromMinutes(4) };
 
         private readonly HttpClient _httpClient;
-        private readonly ActionBlock<WebHookWorkItem>[] _launchers;
-
+        //private readonly ActionBlock<WebHookWorkItem>[] _launchers;
+        private readonly ActionBlock<WebHookWorkItem> _launcher;
         private bool _disposed;
         [ImportingConstructor]
         /// <summary>
@@ -84,21 +84,22 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
             _httpClient = httpClient ?? new HttpClient();
 
             // Create the launch processors with the given retry delays
-            _launchers = new ActionBlock<WebHookWorkItem>[1 + retryDelays.Count()];
+            //_launchers = new ActionBlock<WebHookWorkItem>[1 + retryDelays.Count()];
 
-            int offset = 0;
-            _launchers[offset++] = new ActionBlock<WebHookWorkItem>(async item => await LaunchWebHook(item), options);
-            foreach (TimeSpan delay in retryDelays)
-            {
-                _launchers[offset++] = new ActionBlock<WebHookWorkItem>(async item => await DelayedLaunchWebHook(item, delay), options);
-            }
+            //int offset = 0;
+            _launcher = new ActionBlock<WebHookWorkItem>(async item => await LaunchWebHook(item), options);
+            //foreach (TimeSpan delay in retryDelays)
+            //{
+            //    _launchers[offset++] = new ActionBlock<WebHookWorkItem>(async item => await DelayedLaunchWebHook(item, delay), options);
+            //}
 
-            string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_Started, typeof(DataflowWebHookSender).Name, _launchers.Length);
+
+            string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_Started, typeof(BaladorDataflowWebHookSender).Name, 1);
             Logger.Info(msg);
         }
 
         /// <inheritdoc />
-        public override Task SendWebHookWorkItemsAsync(IEnumerable<WebHookWorkItem> workItems)
+        public override async Task SendWebHookWorkItemsAsync(IEnumerable<WebHookWorkItem> workItems)
         {
             if (workItems == null)
             {
@@ -107,10 +108,11 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 
             foreach (WebHookWorkItem workItem in workItems)
             {
-                _launchers[0].Post(workItem);
+                _launcher.Post(workItem);
             }
-
-            return Task.FromResult(true);
+            _launcher.Complete();
+            await _launcher.Completion;
+            
         }
 
         /// <summary>
@@ -124,28 +126,19 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                 _disposed = true;
                 if (disposing)
                 {
-                    if (_launchers != null)
+                    if (_launcher != null)
                     {
                         try
                         {
-                            // Start shutting down launchers
-                            Task[] completionTasks = new Task[_launchers.Length];
-                            for (int cnt = 0; cnt < _launchers.Length; cnt++)
-                            {
-                                ActionBlock<WebHookWorkItem> launcher = _launchers[cnt];
-                                launcher.Complete();
-                                completionTasks[cnt] = launcher.Completion;
-                            }
-
-                            // Cancel any outstanding HTTP requests
+                            _launcher.Complete();
                             if (_httpClient != null)
                             {
                                 _httpClient.CancelPendingRequests();
                                 _httpClient.Dispose();
                             }
 
-                            // Wait for launchers to complete
-                            Task.WaitAll(completionTasks);
+                            _launcher.Completion.Wait();
+
                         }
                         catch (Exception ex)
                         {
@@ -154,6 +147,7 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                             Logger.Error(msg, ex);
                         }
                     }
+                   
                 }
                 base.Dispose(disposing);
             }
@@ -219,7 +213,7 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                 // Setting up and send WebHook request 
                 HttpRequestMessage request = CreateWebHookRequest(workItem);
                 HttpResponseMessage response = await _httpClient.SendAsync(request);
-
+                workItem.Properties.Add("d","3");
                 string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_Result, workItem.WebHook.Id, response.StatusCode, workItem.Offset);
                 Logger.Info(msg);
 
@@ -233,6 +227,7 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                 {
                     // If we get a 410 Gone then we are also done.
                     await OnWebHookGone(workItem);
+                    await OnWebHookFailure(workItem);
                     return;
                 }
             }
@@ -242,28 +237,29 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                 Logger.Error(msg, ex);
             }
 
-            try
-            {
-                // See if we should retry the request with delay or give up
-                workItem.Offset++;
-                if (workItem.Offset < _launchers.Length)
-                {
-                    // If we are to retry then we submit the request again after a delay.
-                    await OnWebHookRetry(workItem);
-                    _launchers[workItem.Offset].Post(workItem);
-                }
-                else
-                {
-                    string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_GivingUp, workItem.WebHook.Id, workItem.Offset);
-                    Logger.Error(msg);
-                    await OnWebHookFailure(workItem);
-                }
-            }
-            catch (Exception ex)
-            {
-                string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_WebHookFailure, workItem.Offset, workItem.WebHook.Id, ex.Message);
-                Logger.Error(msg, ex);
-            }
+            //try
+            //{
+            //    See if we should retry the request with delay or give up
+            //    workItem.Offset++;
+            //    if (workItem.Offset < _launchers.Length)
+            //    {
+            //        If we are to retry then we submit the request again after a delay.
+            //        await OnWebHookRetry(workItem);
+            //        _launchers[workItem.Offset].Post(workItem);
+
+            //    }
+            //    else
+            //    {
+            //        string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_GivingUp, workItem.WebHook.Id, workItem.Offset);
+            //        Logger.Error(msg);
+            //        await OnWebHookFailure(workItem);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_WebHookFailure, workItem.Offset, workItem.WebHook.Id, ex.Message);
+            //    Logger.Error(msg, ex);
+            //}
         }
     }
 }
