@@ -207,7 +207,7 @@
     <Compile Include="Receivers\WebHooks\WebHookReceiverConfig.cs" />
     <Compile Include="Receivers\WebHooks\WebHookReceiverManager.cs" />
     <Compile Include="SqlStore\Common\DataSecurity.cs" />
-    <Compile Include="SqlStore\Extensions\HttpConfigurationExtensions.cs" />
+    <Compile Include="SqlStore\Storage\HttpConfigurationExtensions.cs" />
     <Compile Include="SqlStore\Storage\IRegistration.cs" />
     <Compile Include="SqlStore\Storage\Registration.cs" />
     <Compile Include="SqlStore\WebHooks\DbWebHookStore.cs" />
@@ -226,6 +226,8 @@
     <EmbeddedResource Include="Properties\ReceiverResources.resx" />
     <EmbeddedResource Include="Properties\SqlStorageResources.resx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SqlStore\Extensions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

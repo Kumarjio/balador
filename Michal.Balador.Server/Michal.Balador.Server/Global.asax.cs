@@ -16,13 +16,14 @@ namespace Michal.Balador.Server
     {
         void Application_Start(object sender, EventArgs e)
         {
+            MefConfig.RegisterMef();
             // Code that runs on application startup
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //ControllerBuilder.Current.SetControllerFactory(new MefControllerFactory(
             //       Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins")));
-            MefConfig.RegisterMef();
+           
             log4net.Config.XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
 
         }

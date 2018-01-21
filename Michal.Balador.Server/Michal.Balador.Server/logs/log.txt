@@ -7682,3 +7682,261 @@ aa,False,_lock=rt,30
 a,x
 aa,xx id=aa ,Message=xx
 
+INFO  2018-01-21 12:08:10,608 11776ms EMessageController     MoveNext           - rt,9
+a,True,x
+aa,True,xx
+
+INFO  2018-01-21 12:08:10,677 11845ms Logger                 Log                - Configuring 'DataflowWebHookSender' with a total of 3 attempt(s) of sending WebHooks.
+ERROR 2018-01-21 12:08:14,301 15469ms Logger                 Log                - Failed to submit attempt 0 of WebHook 0a53099ee4f44df1b77ecd33f3caeec7 due to failure: An error occurred while sending the request.
+System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The remote name could not be resolved: 'runnerdevice.co.il'
+   at System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   at System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Microsoft.AspNet.WebHooks.DataflowWebHookSender.<LaunchWebHook>d__15.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\WebHooks\DataFlowWebHookSender.cs:line 217
+INFO  2018-01-21 12:09:02,392 63560ms EMessageController     MoveNext           - rt,11
+a,False,_lock=rt,11
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,11
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 12:09:02,952 64120ms Logger                 Log                - WebHook '0a53099ee4f44df1b77ecd33f3caeec7' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-21 12:09:06,031 67199ms EMessageController     MoveNext           - rt,13
+a,False,_lock=rt,13
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,13
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 12:09:06,635 67803ms Logger                 Log                - WebHook '0a53099ee4f44df1b77ecd33f3caeec7' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-21 12:09:14,487 75655ms Logger                 Log                - WebHook '0a53099ee4f44df1b77ecd33f3caeec7' resulted in status code 'OK' on attempt '1'.
+INFO  2018-01-21 12:10:53,398 19734ms EMessageController     MoveNext           - rt,14
+a,False,_lock=rt,14
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,14
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 12:11:07,304 33640ms Logger                 Log                - Configuring 'DataflowWebHookSender' with a total of 3 attempt(s) of sending WebHooks.
+INFO  2018-01-21 12:11:36,670 63007ms Logger                 Log                - WebHook '0a53099ee4f44df1b77ecd33f3caeec7' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-21 12:13:29,621 20212ms EMessageController     MoveNext           - rt,18
+a,False,_lock=rt,18
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,18
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 12:13:29,848 20438ms EMessageController     MoveNext           - 18 rt System.ComponentModel.Composition.CompositionException: The composition produced a single composition error. The root cause is provided below. Review the CompositionException.Errors property for more detailed information.
+
+1) Cannot create an instance of type 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender' because a constructor could not be selected for construction. Ensure that the type either has a default constructor, or a single constructor marked with the 'System.ComponentModel.Composition.ImportingConstructorAttribute'.
+
+Resulting in: Cannot activate part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot get export 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender")' from part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+   at System.ComponentModel.Composition.Hosting.CompositionServices.GetExportedValueFromComposedPart(ImportEngine engine, ComposablePart part, ExportDefinition definition)
+   at System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportedValue(CatalogPart part, ExportDefinition export, Boolean isSharedPart)
+   at System.ComponentModel.Composition.Primitives.Export.get_Value()
+   at System.ComponentModel.Composition.ExportServices.GetCastedExportedValue[T](Export export)
+   at System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   at Michal.Balador.Server.App_Start.MefDependencyResolver.GetService(Type serviceType) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\App_Start\MefConfig.cs:line 40
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions2.GetService[TService](IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Common\Extensions\DependencyScopeExtensions.cs:line 58
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetSender(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 86
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetManager(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 108
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 56
+INFO  2018-01-21 12:15:59,513 170104ms EMessageController     MoveNext           - rt,24
+a,False,_lock=rt,24
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,24
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 12:16:13,275 183866ms EMessageController     MoveNext           - 24 rt System.ComponentModel.Composition.CompositionException: The composition produced a single composition error. The root cause is provided below. Review the CompositionException.Errors property for more detailed information.
+
+1) Cannot create an instance of type 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender' because a constructor could not be selected for construction. Ensure that the type either has a default constructor, or a single constructor marked with the 'System.ComponentModel.Composition.ImportingConstructorAttribute'.
+
+Resulting in: Cannot activate part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot get export 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender")' from part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+   at System.ComponentModel.Composition.Hosting.CompositionServices.GetExportedValueFromComposedPart(ImportEngine engine, ComposablePart part, ExportDefinition definition)
+   at System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportedValue(CatalogPart part, ExportDefinition export, Boolean isSharedPart)
+   at System.ComponentModel.Composition.Primitives.Export.get_Value()
+   at System.ComponentModel.Composition.ExportServices.GetCastedExportedValue[T](Export export)
+   at System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   at Michal.Balador.Server.App_Start.MefDependencyResolver.GetService(Type serviceType) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\App_Start\MefConfig.cs:line 40
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions2.GetService[TService](IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Common\Extensions\DependencyScopeExtensions.cs:line 58
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetSender(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 86
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetManager(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 108
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 56
+INFO  2018-01-21 12:16:39,510 210101ms EMessageController     MoveNext           - rt,10
+a,False,_lock=rt,10
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,10
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 12:16:51,199 221789ms EMessageController     MoveNext           - 10 rt System.ComponentModel.Composition.CompositionException: The composition produced a single composition error. The root cause is provided below. Review the CompositionException.Errors property for more detailed information.
+
+1) Cannot create an instance of type 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender' because a constructor could not be selected for construction. Ensure that the type either has a default constructor, or a single constructor marked with the 'System.ComponentModel.Composition.ImportingConstructorAttribute'.
+
+Resulting in: Cannot activate part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot get export 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender")' from part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+   at System.ComponentModel.Composition.Hosting.CompositionServices.GetExportedValueFromComposedPart(ImportEngine engine, ComposablePart part, ExportDefinition definition)
+   at System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportedValue(CatalogPart part, ExportDefinition export, Boolean isSharedPart)
+   at System.ComponentModel.Composition.Primitives.Export.get_Value()
+   at System.ComponentModel.Composition.ExportServices.GetCastedExportedValue[T](Export export)
+   at System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   at Michal.Balador.Server.App_Start.MefDependencyResolver.GetService(Type serviceType) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\App_Start\MefConfig.cs:line 40
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions2.GetService[TService](IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Common\Extensions\DependencyScopeExtensions.cs:line 58
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetSender(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 86
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetManager(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 108
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 56
+INFO  2018-01-21 12:17:00,232 230823ms EMessageController     MoveNext           - rt,24
+a,False,_lock=rt,24
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,24
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 12:17:00,377 230967ms EMessageController     MoveNext           - 24 rt System.ComponentModel.Composition.CompositionException: The composition produced a single composition error. The root cause is provided below. Review the CompositionException.Errors property for more detailed information.
+
+1) Cannot create an instance of type 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender' because a constructor could not be selected for construction. Ensure that the type either has a default constructor, or a single constructor marked with the 'System.ComponentModel.Composition.ImportingConstructorAttribute'.
+
+Resulting in: Cannot activate part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot get export 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender")' from part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+   at System.ComponentModel.Composition.Hosting.CompositionServices.GetExportedValueFromComposedPart(ImportEngine engine, ComposablePart part, ExportDefinition definition)
+   at System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportedValue(CatalogPart part, ExportDefinition export, Boolean isSharedPart)
+   at System.ComponentModel.Composition.Primitives.Export.get_Value()
+   at System.ComponentModel.Composition.ExportServices.GetCastedExportedValue[T](Export export)
+   at System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   at Michal.Balador.Server.App_Start.MefDependencyResolver.GetService(Type serviceType) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\App_Start\MefConfig.cs:line 40
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions2.GetService[TService](IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Common\Extensions\DependencyScopeExtensions.cs:line 58
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetSender(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 86
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetManager(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 108
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 56
+INFO  2018-01-21 12:17:18,753 249343ms EMessageController     MoveNext           - rt,5
+a,False,_lock=rt,5
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,5
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 12:17:42,461 273051ms EMessageController     MoveNext           - 5 rt System.ComponentModel.Composition.CompositionException: The composition produced a single composition error. The root cause is provided below. Review the CompositionException.Errors property for more detailed information.
+
+1) Cannot create an instance of type 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender' because a constructor could not be selected for construction. Ensure that the type either has a default constructor, or a single constructor marked with the 'System.ComponentModel.Composition.ImportingConstructorAttribute'.
+
+Resulting in: Cannot activate part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot get export 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender")' from part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+   at System.ComponentModel.Composition.Hosting.CompositionServices.GetExportedValueFromComposedPart(ImportEngine engine, ComposablePart part, ExportDefinition definition)
+   at System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportedValue(CatalogPart part, ExportDefinition export, Boolean isSharedPart)
+   at System.ComponentModel.Composition.Primitives.Export.get_Value()
+   at System.ComponentModel.Composition.ExportServices.GetCastedExportedValue[T](Export export)
+   at System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   at Michal.Balador.Server.App_Start.MefDependencyResolver.GetService(Type serviceType) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\App_Start\MefConfig.cs:line 40
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions2.GetService[TService](IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Common\Extensions\DependencyScopeExtensions.cs:line 58
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetSender(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 86
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetManager(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 108
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 56
+INFO  2018-01-21 12:25:58,210 18092ms EMessageController     MoveNext           - rt,38
+a,False,_lock=rt,38
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,38
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 12:26:12,848 32730ms EMessageController     MoveNext           - 38 rt System.ComponentModel.Composition.CompositionException: The composition produced a single composition error. The root cause is provided below. Review the CompositionException.Errors property for more detailed information.
+
+1) Cannot create an instance of type 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender' because a constructor could not be selected for construction. Ensure that the type either has a default constructor, or a single constructor marked with the 'System.ComponentModel.Composition.ImportingConstructorAttribute'.
+
+Resulting in: Cannot activate part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot get export 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender")' from part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+   at System.ComponentModel.Composition.Hosting.CompositionServices.GetExportedValueFromComposedPart(ImportEngine engine, ComposablePart part, ExportDefinition definition)
+   at System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportedValue(CatalogPart part, ExportDefinition export, Boolean isSharedPart)
+   at System.ComponentModel.Composition.Primitives.Export.get_Value()
+   at System.ComponentModel.Composition.ExportServices.GetCastedExportedValue[T](Export export)
+   at System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   at Michal.Balador.Server.App_Start.MefDependencyResolver.GetService(Type serviceType) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\App_Start\MefConfig.cs:line 40
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions2.GetService[TService](IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Common\Extensions\DependencyScopeExtensions.cs:line 58
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetSender(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 86
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetManager(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 108
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 56
+INFO  2018-01-21 12:29:56,671 256554ms EMessageController     MoveNext           - rt,29
+a,False,_lock=rt,29
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,29
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-21 12:31:09,871 329754ms EMessageController     MoveNext           - 29 rt System.ComponentModel.Composition.CompositionException: The composition produced a single composition error. The root cause is provided below. Review the CompositionException.Errors property for more detailed information.
+
+1) Cannot create an instance of type 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender' because a constructor could not be selected for construction. Ensure that the type either has a default constructor, or a single constructor marked with the 'System.ComponentModel.Composition.ImportingConstructorAttribute'.
+
+Resulting in: Cannot activate part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot get export 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender")' from part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+   at System.ComponentModel.Composition.Hosting.CompositionServices.GetExportedValueFromComposedPart(ImportEngine engine, ComposablePart part, ExportDefinition definition)
+   at System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportedValue(CatalogPart part, ExportDefinition export, Boolean isSharedPart)
+   at System.ComponentModel.Composition.Primitives.Export.get_Value()
+   at System.ComponentModel.Composition.ExportServices.GetCastedExportedValue[T](Export export)
+   at System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   at Michal.Balador.Server.App_Start.MefDependencyResolver.GetService(Type serviceType) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\App_Start\MefConfig.cs:line 40
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions2.GetService[TService](IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Common\Extensions\DependencyScopeExtensions.cs:line 58
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetSender(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 86
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetManager(IDependencyScope services) in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 108
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 56
+INFO  2018-01-21 12:35:08,091  8483ms EMessageController     MoveNext           - rt,34
+a,False,_lock=rt,34
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,34
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 12:35:29,350 29742ms Logger                 Log                - Configuring 'DataflowWebHookSender' with a total of 3 attempt(s) of sending WebHooks.
+INFO  2018-01-21 12:37:04,487 124878ms Logger                 Log                - WebHook '0a53099ee4f44df1b77ecd33f3caeec7' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-21 12:37:25,692 146083ms EMessageController     MoveNext           - rt,11
+a,False,_lock=rt,11
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,11
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-21 12:39:01,849 242241ms Logger                 Log                - WebHook '0a53099ee4f44df1b77ecd33f3caeec7' resulted in status code 'OK' on attempt '0'.

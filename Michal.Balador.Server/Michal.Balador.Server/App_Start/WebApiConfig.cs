@@ -24,7 +24,9 @@ namespace Michal.Balador.Server
             // Load Web API controllers and Azure Storage store
             config.InitializeCustomWebHooks();
             // config.InitializeCustomWebHooksAzureStorage();
-            config.InitializeCustomWebHooksSqlStorage();
+          //  config.InitializeCustomWebHooksSqlStorage();
+            config.InitializeBaladorCustomWebHooksSqlStorage(encryptData:true, nameOrConnectionString:null, schemaName: null, tableName: null);
+            // C: \Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\SqlStore\Extensions\
             config.InitializeCustomWebHooksApis();
 
         }
