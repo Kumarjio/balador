@@ -43,7 +43,7 @@
                 type: "POST",
                 url: "/api/balador/registrations",
                 data: JSON.stringify({
-                    WebHookUri: "http://runnerdevice.co.il/api/TestEmail",
+                    WebHookUri: "http://runnerdevice.co.il/api/PreUpdate",
                     Secret: "12345678901234567890123456789012",
                     Description: "My first WebHook!",
                     Filters: ["preUpdate"]
@@ -70,7 +70,7 @@
                 type: "POST",
                 url: "/api/balador/registrations",
                 data: JSON.stringify({
-                    WebHookUri: "http://runnerdevice.co.il/api/TestEmail",
+                    WebHookUri: "http://runnerdevice.co.il/api/PostUpdate",
                     Secret: "12345678901234567890123456789012",
                     Description: "My first WebHook!",
                     Filters: ["postUpdate"]

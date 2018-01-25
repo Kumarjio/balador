@@ -42,24 +42,24 @@ namespace System.Web.Http
 
             WebHooksConfig.Initialize(config);
 
-            ILogger logger = config.DependencyResolver.GetLogger();
-            SettingsDictionary settings = config.DependencyResolver.GetSettings();
+            //ILogger logger = config.DependencyResolver.GetLogger();
+            //SettingsDictionary settings = config.DependencyResolver.GetSettings();
 
-            // We explicitly set the DB initializer to null to avoid that an existing DB is initialized wrongly.
-            Database.SetInitializer<WebHookStoreContext>(null);
+            //// We explicitly set the DB initializer to null to avoid that an existing DB is initialized wrongly.
+            //Database.SetInitializer<WebHookStoreContext>(null);
 
-            IWebHookStore store;
-            if (encryptData)
-            {
-                IDataProtector protector = Michal.Balador.Infrastructures.Security.DataSecurity.GetDataProtector();
-                store = new SqlWebHookStore(settings, protector, logger, nameOrConnectionString, schemaName, tableName);
-            }
-            else
-            {
-                store = new SqlWebHookStore(settings, logger, nameOrConnectionString, schemaName, tableName);
-            }
+            //IWebHookStore store;
+            //if (encryptData)
+            //{
+            //    IDataProtector protector = Michal.Balador.Infrastructures.Security.DataSecurity.GetDataProtector();
+            //    store = new SqlWebHookStore(settings, protector, logger, nameOrConnectionString, schemaName, tableName);
+            //}
+            //else
+            //{
+            //    store = new SqlWebHookStore(settings, logger, nameOrConnectionString, schemaName, tableName);
+            //}
 
-            CustomServices.SetStore(store);
+            //CustomServices.SetStore(store);
         }
     }
 }

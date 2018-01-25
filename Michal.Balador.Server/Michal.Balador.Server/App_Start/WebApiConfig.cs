@@ -25,7 +25,7 @@ namespace Michal.Balador.Server
             config.InitializeCustomWebHooks();
             // config.InitializeCustomWebHooksAzureStorage();
           //  config.InitializeCustomWebHooksSqlStorage();
-            config.InitializeBaladorCustomWebHooksSqlStorage(encryptData:true, nameOrConnectionString:null, schemaName: null, tableName: null);
+           // config.InitializeBaladorCustomWebHooksSqlStorage(encryptData:true, nameOrConnectionString:null, schemaName: null, tableName: null);
             // C: \Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\SqlStore\Extensions\
             config.InitializeCustomWebHooksApis();
 

@@ -15,6 +15,7 @@ using System.Web.Http;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Server.Dal;
+using Michal.Balador.Server.Infrastructures.WebHookExstension;
 using Microsoft.AspNet.WebHooks;
 
 namespace Michal.Balador.Server.Controllers
@@ -49,14 +50,25 @@ namespace Michal.Balador.Server.Controllers
 
                         if (requestToSend != null)
                         {
+                            IWebHookManager manager = this.Configuration.DependencyResolver.GetManager();
+                            List<NotificationDictionary> notifications = new List<NotificationDictionary>();
+                            notifications.Add(new NotificationDictionary("preUpdate", new { P1 = "p1" }));
+                            await manager.NotifyAsync(rs.Id, notifications, null);
+                            if (manager is IExposeResult)
+                            {
+                                foreach (var itemNotification in ((IExposeResult)manager).NotificationsResult)
+                                {
+                                    Log.Info(itemNotification);
+                                }
+                            }
                             requestToSend.Log = rs.Log;
                             var responseToSendWait = await sender.Result.Send(requestToSend);
                             resultError.Add(responseToSendWait);
                             Log.Info(responseToSendWait.ToString());
-                            IWebHookManager manager = this.Configuration.DependencyResolver.GetManager();
-                            List<NotificationDictionary> notifications = new List<NotificationDictionary>();
-                            notifications.Add(new NotificationDictionary ("preUpdate", new { P1 = "p1" }));
-                            
+                           
+
+                            notifications = new List<NotificationDictionary>();
+                            notifications.Add(new NotificationDictionary("postUpdate", new { P1 = "2eee" }));
                             await manager.NotifyAsync(rs.Id, notifications, null);
                         }
                     }

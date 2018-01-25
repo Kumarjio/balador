@@ -18,6 +18,7 @@ using System.ComponentModel.Composition;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
 namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 {
+    
     [Export(typeof(IWebHookSender))]
     /// <summary>
     /// Provides an implementation of <see cref="IWebHookSender"/> for sending HTTP requests to 
@@ -128,7 +129,6 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                             }
 
                             _launcher.Completion.Wait();
-
                         }
                         catch (Exception ex)
                         {
@@ -203,6 +203,7 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                 // Setting up and send WebHook request 
                 HttpRequestMessage request = CreateWebHookRequest(workItem);
                 HttpResponseMessage response = await _httpClient.SendAsync(request);
+
                 workItem.Properties.Add("d","3");
                 string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_Result, workItem.WebHook.Id, response.StatusCode, workItem.Offset);
                 Logger.Info(msg);
@@ -226,30 +227,6 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                 string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_WebHookFailure, workItem.Offset, workItem.WebHook.Id, ex.Message);
                 Logger.Error(msg, ex);
             }
-
-            //try
-            //{
-            //    See if we should retry the request with delay or give up
-            //    workItem.Offset++;
-            //    if (workItem.Offset < _launchers.Length)
-            //    {
-            //        If we are to retry then we submit the request again after a delay.
-            //        await OnWebHookRetry(workItem);
-            //        _launchers[workItem.Offset].Post(workItem);
-
-            //    }
-            //    else
-            //    {
-            //        string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_GivingUp, workItem.WebHook.Id, workItem.Offset);
-            //        Logger.Error(msg);
-            //        await OnWebHookFailure(workItem);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_WebHookFailure, workItem.Offset, workItem.WebHook.Id, ex.Message);
-            //    Logger.Error(msg, ex);
-            //}
         }
     }
 }

@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Http.Dependencies;
 using Michal.Balador.Contracts;
+using Microsoft.AspNet.WebHooks;
+using Microsoft.AspNet.WebHooks.Diagnostics;
+using Microsoft.AspNet.WebHooks.Services;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace Michal.Balador.Server.App_Start
 {
@@ -71,8 +76,21 @@ namespace Michal.Balador.Server.App_Start
             var dependencyResolver = System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver;
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new MefDependencyResolver(container);
             //IDependencyScope
-
+            //
             //https://weblog.west-wind.com/posts/2016/Dec/12/Loading-NET-Assemblies-out-of-Seperate-Folders
+            Database.SetInitializer<WebHookStoreContext>(null);
+            IDataProtector protector = Michal.Balador.Infrastructures.Security.DataSecurity.GetDataProtector();
+            ILogger logger = dependencyResolver.GetLogger();
+
+            Microsoft.AspNet.WebHooks.Config.SettingsDictionary settings  = dependencyResolver.GetSettings();
+
+            string nameOrConnectionString = null;
+            string schemaName= null;
+            string tableName = null;
+            var store = new SqlWebHookStore(settings, protector, logger, nameOrConnectionString, schemaName, tableName);
+
+           // CustomServices.SetStore(store);
+            container.ComposeExportedValue<IWebHookStore>(store);
 
         }
 
