@@ -223,8 +223,8 @@ namespace Michal.Balador.Server.Controllers
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
-
-            _registrationsManager = Configuration.DependencyResolver.GetBaladorRegistrationsManager();
+            _registrationsManager = Configuration.DependencyResolver.GetRegistrationsManager();
+          //  _registrationsManager = Configuration.DependencyResolver.GetBaladorRegistrationsManager();
         }
 
         /// <summary>

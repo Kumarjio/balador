@@ -55,7 +55,7 @@ namespace Michal.Balador.Server.Controllers
                             Log.Info(responseToSendWait.ToString());
                             IWebHookManager manager = this.Configuration.DependencyResolver.GetManager();
                             List<NotificationDictionary> notifications = new List<NotificationDictionary>();
-                            notifications.Add(new NotificationDictionary ("event2", new { P1 = "p1" }));
+                            notifications.Add(new NotificationDictionary ("preUpdate", new { P1 = "p1" }));
                             
                             await manager.NotifyAsync(rs.Id, notifications, null);
                         }
