@@ -8092,3 +8092,145 @@ aa,xx id=aa ,Message=xx
 
 INFO  2018-01-21 16:01:11,957 24187ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
 INFO  2018-01-21 16:02:27,457 99688ms Logger                 Log                - WebHook '0a53099ee4f44df1b77ecd33f3caeec7' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-24 15:36:52,481  5209ms EMessageController     MoveNext           - rt,12
+a,False,_lock=rt,12
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,12
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 15:36:52,897  5625ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-24 15:37:34,861 47589ms Logger                 Log                - WebHook '242e29e325824ee09f96671c2a7e217c' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-24 15:37:34,873 47601ms Logger                 Log                - WebHook '14711a2b177949e8841ada3934f2f30d' resulted in status code 'BadGateway' on attempt '0'.
+INFO  2018-01-24 15:40:08,369 201098ms EMessageController     MoveNext           - rt,12
+a,False,_lock=rt,12
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,12
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 15:41:49,823 23780ms EMessageController     MoveNext           - rt,11
+a,False,_lock=rt,11
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,11
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 15:41:49,943 23899ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-24 15:43:12,989 106946ms Logger                 Log                - WebHook '14711a2b177949e8841ada3934f2f30d' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-24 15:43:14,443 108399ms Logger                 Log                - WebHook '242e29e325824ee09f96671c2a7e217c' resulted in status code 'BadGateway' on attempt '0'.
+INFO  2018-01-24 15:51:14,010  4076ms EMessageController     MoveNext           - rt,21
+a,False,_lock=rt,21
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,21
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 15:51:14,038  4104ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-24 15:52:52,401 102466ms Logger                 Log                - WebHook '242e29e325824ee09f96671c2a7e217c' resulted in status code 'ServiceUnavailable' on attempt '0'.
+INFO  2018-01-24 15:52:52,402 102467ms Logger                 Log                - WebHook '14711a2b177949e8841ada3934f2f30d' resulted in status code 'ServiceUnavailable' on attempt '0'.
+INFO  2018-01-24 16:01:38,334  3625ms EMessageController     MoveNext           - rt,17
+a,False,_lock=rt,17
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,17
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 16:01:38,359  3650ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-24 16:02:07,899 33190ms Logger                 Log                - WebHook '14711a2b177949e8841ada3934f2f30d' resulted in status code 'ServiceUnavailable' on attempt '0'.
+INFO  2018-01-24 16:02:07,903 33194ms Logger                 Log                - WebHook '242e29e325824ee09f96671c2a7e217c' resulted in status code 'ServiceUnavailable' on attempt '0'.
+INFO  2018-01-24 16:04:16,065  3557ms EMessageController     MoveNext           - rt,13
+a,False,_lock=rt,13
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,13
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 16:04:16,129  3621ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-24 16:04:18,722  6214ms Logger                 Log                - WebHook '242e29e325824ee09f96671c2a7e217c' resulted in status code 'ServiceUnavailable' on attempt '0'.
+INFO  2018-01-24 16:04:18,722  6214ms Logger                 Log                - WebHook '14711a2b177949e8841ada3934f2f30d' resulted in status code 'ServiceUnavailable' on attempt '0'.
+INFO  2018-01-24 16:09:03,742  5262ms EMessageController     MoveNext           - rt,19
+a,False,_lock=rt,19
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,19
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 16:09:03,771  5291ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-24 16:09:21,938 23458ms Logger                 Log                - WebHook '14711a2b177949e8841ada3934f2f30d' resulted in status code 'ServiceUnavailable' on attempt '0'.
+INFO  2018-01-24 16:09:21,938 23458ms Logger                 Log                - WebHook '242e29e325824ee09f96671c2a7e217c' resulted in status code 'ServiceUnavailable' on attempt '0'.
+INFO  2018-01-24 16:10:07,804 69324ms EMessageController     MoveNext           - rt,23
+a,False,_lock=rt,23
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,23
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 16:10:29,755 91276ms EMessageController     MoveNext           - rt,13
+a,False,_lock=rt,13
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,13
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 16:10:52,540 114061ms EMessageController     MoveNext           - rt,23
+a,False,_lock=rt,23
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,23
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 16:11:45,070 166590ms Logger                 Log                - Configuring 'DataflowWebHookSender' with a total of 3 attempt(s) of sending WebHooks.
+INFO  2018-01-24 16:20:45,773 707294ms EMessageController     MoveNext           - rt,15
+a,False,_lock=rt,15
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,15
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-24 16:27:44,960 12092ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-24 16:32:13,531 280663ms Logger                 Log                - Could not register WebHook due to error: The following filters are not valid: '*'.
+INFO  2018-01-24 16:41:08,716 20842ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-24 16:46:30,111 11830ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-25 14:45:05,979 114156ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-25 14:50:59,002  5664ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-25 14:53:21,953 148616ms Logger                 Log                - Could not register WebHook due to error: The following filters are not valid: '*'.
+INFO  2018-01-25 14:57:36,154  5090ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-25 15:01:08,358 217294ms EMessageController     MoveNext           - rt,12
+a,False,_lock=rt,12
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,12
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-25 15:01:32,793 241729ms Logger                 Log                - WebHook '114905eb005e403ea9d5b4cc4c9dc557' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-25 15:02:59,688 328624ms EMessageController     MoveNext           - rt,51
+a,False,_lock=rt,51
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,51
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-01-25 15:03:13,918 342854ms EMessageController     MoveNext           - 51 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 60
+INFO  2018-01-25 15:03:26,411 355347ms EMessageController     MoveNext           - rt,29
+a,False,_lock=rt,29
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,29
+a,x
+aa,xx id=aa ,Message=xx
+

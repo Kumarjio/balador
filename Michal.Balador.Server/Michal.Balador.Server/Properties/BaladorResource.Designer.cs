@@ -19,7 +19,7 @@ namespace Michal.Balador.Server.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class BaladorResource {
@@ -75,6 +75,15 @@ namespace Michal.Balador.Server.Properties {
         internal static string FilterManager_FailureGettingFilters {
             get {
                 return ResourceManager.GetString("FilterManager_FailureGettingFilters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The WebHook test launcher is not enabled. To enable the test launcher for testing purposes, please set the &apos;{0}&apos; application setting to &apos;{1}&apos;. The test launcher should not be enabled in production environments..
+        /// </summary>
+        internal static string LaunchController_NotEnabled {
+            get {
+                return ResourceManager.GetString("LaunchController_NotEnabled", resourceCulture);
             }
         }
         
@@ -192,6 +201,60 @@ namespace Michal.Balador.Server.Properties {
         internal static string Notification_KeyNotFound {
             get {
                 return ResourceManager.GetString("Notification_KeyNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not delete WebHooks due to error: {0}.
+        /// </summary>
+        internal static string RegistrationController_DeleteAllFailure {
+            get {
+                return ResourceManager.GetString("RegistrationController_DeleteAllFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not delete WebHook due to error: {0}.
+        /// </summary>
+        internal static string RegistrationController_DeleteFailure {
+            get {
+                return ResourceManager.GetString("RegistrationController_DeleteFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &apos;{0}&apos; implementation of &apos;{1}&apos; caused an exception: {2}.
+        /// </summary>
+        internal static string RegistrationController_RegistrarException {
+            get {
+                return ResourceManager.GetString("RegistrationController_RegistrarException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &apos;{0}&apos; implementation of &apos;{1}&apos; resulted in an HTTP response with status code {2}.
+        /// </summary>
+        internal static string RegistrationController_RegistrarStatusCode {
+            get {
+                return ResourceManager.GetString("RegistrationController_RegistrarStatusCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not register WebHook due to error: {0}.
+        /// </summary>
+        internal static string RegistrationController_RegistrationFailure {
+            get {
+                return ResourceManager.GetString("RegistrationController_RegistrationFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not update WebHook due to error: {0}.
+        /// </summary>
+        internal static string RegistrationController_UpdateFailure {
+            get {
+                return ResourceManager.GetString("RegistrationController_UpdateFailure", resourceCulture);
             }
         }
         

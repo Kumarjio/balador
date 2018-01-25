@@ -123,6 +123,9 @@
   <data name="Filter_WildcardDescription" xml:space="preserve">
     <value>Listen in on all events.</value>
   </data>
+  <data name="LaunchController_NotEnabled" xml:space="preserve">
+    <value>The WebHook test launcher is not enabled. To enable the test launcher for testing purposes, please set the '{0}' application setting to '{1}'. The test launcher should not be enabled in production environments.</value>
+  </data>
   <data name="Manager_CompletionFailure" xml:space="preserve">
     <value>Failure shutting down launchers: '{0}'</value>
   </data>
@@ -161,6 +164,24 @@
   </data>
   <data name="Notification_KeyNotFound" xml:space="preserve">
     <value>No Notification setting was found with key '{0}'.</value>
+  </data>
+  <data name="RegistrationController_DeleteAllFailure" xml:space="preserve">
+    <value>Could not delete WebHooks due to error: {0}</value>
+  </data>
+  <data name="RegistrationController_DeleteFailure" xml:space="preserve">
+    <value>Could not delete WebHook due to error: {0}</value>
+  </data>
+  <data name="RegistrationController_RegistrarException" xml:space="preserve">
+    <value>The '{0}' implementation of '{1}' caused an exception: {2}</value>
+  </data>
+  <data name="RegistrationController_RegistrarStatusCode" xml:space="preserve">
+    <value>The '{0}' implementation of '{1}' resulted in an HTTP response with status code {2}</value>
+  </data>
+  <data name="RegistrationController_RegistrationFailure" xml:space="preserve">
+    <value>Could not register WebHook due to error: {0}</value>
+  </data>
+  <data name="RegistrationController_UpdateFailure" xml:space="preserve">
+    <value>Could not update WebHook due to error: {0}</value>
   </data>
   <data name="RegistrationsManager_InvalidFilters" xml:space="preserve">
     <value>The following filters are not valid: '{0}'.</value>

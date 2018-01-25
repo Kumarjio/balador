@@ -15,7 +15,7 @@ using Microsoft.AspNet.WebHooks.Properties;
 using Microsoft.AspNet.WebHooks;
 using Michal.Balador.Server.Properties;
 using System.ComponentModel.Composition;
-
+using Michal.Balador.Server.Infrastructures.WebHookExstension;
 namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 {
     [Export(typeof(IWebHookSender))]

@@ -412,6 +412,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\BaladorRegistrationsController.cs" />
     <Compile Include="Controllers\EMessageController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\NotifyApiController.cs" />
@@ -436,6 +437,9 @@
     <Compile Include="Infrastructures\HttpSqlConfigurationExtensions.cs" />
     <Compile Include="Infrastructures\Logger.cs" />
     <Compile Include="Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs" />
+    <Compile Include="Infrastructures\WebHookExstension\BaladorRegistrationsManager.cs" />
+    <Compile Include="Infrastructures\WebHookExstension\CustomFilterProvider.cs" />
+    <Compile Include="Infrastructures\WebHookExstension\DependencyScopeExtensions.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationRole.cs" />

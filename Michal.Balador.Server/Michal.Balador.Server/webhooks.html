@@ -35,7 +35,7 @@
             var access_token = "bearer " + $("#txtToken").val();
             $.ajax({
                 type: "POST",
-                url: "/api/webhooks/registrations",
+                url: "/api/balador/registrations",
                 data: JSON.stringify({
                     WebHookUri: "http://runnerdevice.co.il/api/TestEmail",
                     Secret: "12345678901234567890123456789012",
