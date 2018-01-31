@@ -18,7 +18,12 @@ using System.ComponentModel.Composition;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
 namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 {
-    
+    public class MessageResult
+    {
+        public string Content { get; set; }
+        public bool ToDisabled { get; set; }
+        public string Message { get; set; }
+    }
     [Export(typeof(IWebHookSender))]
     /// <summary>
     /// Provides an implementation of <see cref="IWebHookSender"/> for sending HTTP requests to 
@@ -210,8 +215,14 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // If we get a successful response then we are done.
-                    await OnWebHookSuccess(workItem);
+                    MessageResult messageResult;
+                    if (response.TryGetContentValue<MessageResult>(out messageResult))
+                    {
+                        workItem.Properties.Add(BaladorConst.Message, messageResult.Message);
+                        workItem.Properties.Add(BaladorConst.Content, messageResult.Content);
+                    }
+                       // If we get a successful response then we are done.
+                       await OnWebHookSuccess(workItem);
                     return;
                 }
                 else if (response.StatusCode == HttpStatusCode.Gone)

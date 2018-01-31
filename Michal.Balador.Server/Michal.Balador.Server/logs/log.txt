@@ -8348,3 +8348,85 @@ Parameter name: action
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
    at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 56
+INFO  2018-01-31 16:05:13,992 1120168ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-31 16:27:58,173 29419ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-31 16:28:22,684 53930ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-31 16:28:43,931 75177ms EMessageController     MoveNext           - {Action=d, P4444=44444}
+INFO  2018-01-31 16:29:10,856 102102ms EMessageController     MoveNext           - rt,10
+a,False,_lock=rt,10
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,10
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-31 16:39:37,912  4574ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-31 16:39:45,727 12389ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-31 16:39:45,731 12393ms EMessageController     MoveNext           - {Action=d, P4444=44444}
+INFO  2018-01-31 16:39:46,689 13351ms EMessageController     MoveNext           - rt,25
+a,False,_lock=rt,25
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,25
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-31 16:40:40,630 67292ms EMessageController     MoveNext           - rt,29
+a,False,_lock=rt,29
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,29
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-31 16:41:50,850 137511ms EMessageController     MoveNext           - rt,25
+a,False,_lock=rt,25
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,25
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-31 16:43:43,966 250628ms EMessageController     MoveNext           - rt,48
+a,False,_lock=rt,48
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,48
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-31 16:45:52,361 379022ms EMessageController     MoveNext           - rt,46
+a,False,_lock=rt,46
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,46
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-31 16:48:24,259   331ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-01-31 16:48:26,634  2707ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-01-31 16:48:26,638  2711ms EMessageController     MoveNext           - {Action=d, P4444=44444}
+INFO  2018-01-31 16:48:27,501  3574ms EMessageController     MoveNext           - rt,47
+a,False,_lock=rt,47
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,47
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-31 16:51:37,920 193993ms EMessageController     MoveNext           - rt,29
+a,False,_lock=rt,29
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,29
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-01-31 16:53:15,499 291571ms EMessageController     MoveNext           - rt,10
+a,False,_lock=rt,10
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,10
+a,x
+aa,xx id=aa ,Message=xx
+

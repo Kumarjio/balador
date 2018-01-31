@@ -436,6 +436,7 @@
     <Compile Include="Infrastructures\Helper\Provider\SimpleRefreshTokenProvider.cs" />
     <Compile Include="Infrastructures\HttpSqlConfigurationExtensions.cs" />
     <Compile Include="Infrastructures\Logger.cs" />
+    <Compile Include="Infrastructures\WebHookExstension\BaladorConst.cs" />
     <Compile Include="Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs" />
     <Compile Include="Infrastructures\WebHookExstension\BaladorRegistrationsManager.cs" />
     <Compile Include="Infrastructures\WebHookExstension\CustomFilterProvider.cs" />

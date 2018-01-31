@@ -43,7 +43,6 @@ namespace Michal.Balador.Server.Controllers
                 var sender = await _utah.Value.GetSender(rs);
                 try
                 {
-                   // SetUser
                     if (!sender.IsError)
                     {
                         var requestToSend = await mockData.FindMessagesById(rs.Id);
