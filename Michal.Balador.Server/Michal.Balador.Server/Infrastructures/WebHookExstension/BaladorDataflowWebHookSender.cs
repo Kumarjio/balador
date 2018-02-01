@@ -17,6 +17,7 @@ using Michal.Balador.Server.Properties;
 using System.ComponentModel.Composition;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
 using Newtonsoft.Json;
+using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 {
@@ -225,13 +226,11 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                 {
                     if (workItem.WebHook.Filters != null && workItem.WebHook.Filters.Any() && workItem.WebHook.Filters.Where(p => p == BaladorConst.PreUpdate).FirstOrDefault() != null)
                     {
-                        var messageResult = await response.Content.ReadAsAsync<MessageResult>();
-                        workItem.Properties.Add(BaladorConst.Message, messageResult.Message);
-                        workItem.Properties.Add(BaladorConst.Content, messageResult.Content);
+                        var messageResult = await response.Content.ReadAsAsync<SendRequest>();
+                        workItem.Properties.Add(BaladorConst.Messages, messageResult);
+                        await OnWebHookSuccess(workItem);
+                        return;
                     }
-                       // If we get a successful response then we are done.
-                       await OnWebHookSuccess(workItem);
-                    return;
                 }
                 else if (response.StatusCode == HttpStatusCode.Gone)
                 {

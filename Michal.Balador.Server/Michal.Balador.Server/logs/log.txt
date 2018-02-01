@@ -8532,3 +8532,103 @@ Newtonsoft.Json.JsonSerializationException: Error converting value "ok" to type 
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
    at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<LaunchWebHook>d__16.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 228
+INFO  2018-02-01 15:48:31,144   310ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-01 15:48:35,632  4798ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 15:48:35,652  4818ms EMessageController     MoveNext           - {Action=Message, Length=41}
+INFO  2018-02-01 15:48:35,656  4822ms EMessageController     MoveNext           - {Action=Content, Length=420}
+INFO  2018-02-01 15:48:36,606  5772ms EMessageController     MoveNext           - rt,13
+a,False,_lock=rt,13
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,13
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 15:48:36,630  5796ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:21:03,232 45892ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-01 16:21:25,668 68328ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:22:41,455 144114ms EMessageController     MoveNext           - {Action=Message, Log=1, Id=rt, Messages={Michal.Balador.Contracts.DataModel.MessageItem, Michal.Balador.Contracts.DataModel.MessageItem}}
+INFO  2018-02-01 16:22:42,713 145373ms EMessageController     MoveNext           - rt,12
+a,False,_lock=rt,12
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,12
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 16:22:42,736 145396ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:36:06,481 14865ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-01 16:36:20,136 28519ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:36:24,858 33241ms EMessageController     MoveNext           - rt,25
+a,False,_lock=rt,25
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,25
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 16:36:36,758 45141ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:37:55,002 123385ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:38:18,311 146694ms EMessageController     MoveNext           - rt,19
+a,False,_lock=rt,19
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,19
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 16:38:18,351 146734ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:41:35,002  5457ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-01 16:41:46,264 16719ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:42:38,295 68750ms EMessageController     MoveNext           - rt,46
+a,False,_lock=rt,46
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,46
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 16:42:53,808 84263ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:44:42,298 192753ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:45:45,728   523ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-01 16:45:48,280  3074ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:45:49,159  3954ms EMessageController     MoveNext           - rt,12
+a,False,_lock=rt,12
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,12
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 16:45:49,182  3977ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:47:29,234 104029ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-01 16:47:59,784 134579ms EMessageController     MoveNext           - 12 rt System.ArgumentNullException: Value cannot be null.
+Parameter name: action
+   at Microsoft.AspNet.WebHooks.NotificationDictionary..ctor(String action, Object data) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\WebHooks\NotificationDictionary.cs:line 44
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorWebHookManager.<NotifyAsync>d__10.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorRegistrationsManager.cs:line 120
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 55
+INFO  2018-02-01 16:48:12,934 147729ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:48:13,772 148567ms EMessageController     MoveNext           - rt,12
+a,False,_lock=rt,12
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,12
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 16:48:13,789 148584ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:53:00,662  4524ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-01 16:53:10,563 14425ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 16:53:43,929 47791ms EMessageController     MoveNext           - rt,23
+a,False,_lock=rt,23
+a,change a my value51cf6f4f-2434-4d41-85ea-49357d5b6992
+aa,change aa my value17bf18d7-611e-49df-847d-ba99dea0141e id=a ,Message=change a my value51cf6f4f-2434-4d41-85ea-49357d5b6992
+aa,False,_lock=rt,23
+a,change a my value51cf6f4f-2434-4d41-85ea-49357d5b6992
+aa,change aa my value17bf18d7-611e-49df-847d-ba99dea0141e id=aa ,Message=change aa my value17bf18d7-611e-49df-847d-ba99dea0141e
+
+INFO  2018-02-01 16:54:01,054 64916ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.

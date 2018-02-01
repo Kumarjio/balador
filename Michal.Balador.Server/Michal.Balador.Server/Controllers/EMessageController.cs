@@ -51,23 +51,31 @@ namespace Michal.Balador.Server.Controllers
                         {
                             IWebHookManager manager = this.Configuration.DependencyResolver.GetManager();
                             List<NotificationDictionary> notifications = new List<NotificationDictionary>();
-                            notifications.Add(new NotificationDictionary("preUpdate", new { P1 = "p1" }));
+                            notifications.Add(new NotificationDictionary(BaladorConst.PreUpdate, new { Request = requestToSend }));
                             await manager.NotifyAsync(rs.Id, notifications, null);
                             if (manager is IExposeResult)
                             {
-                                foreach (var itemNotification in ((IExposeResult)manager).NotificationsResult)
+                               
+                                IExposeResult iexposeResult = (IExposeResult)manager;
+                                if (iexposeResult != null && iexposeResult.NotificationResult != null )
                                 {
-                                    Log.Info(itemNotification);
+                                    
+                                        foreach (var messageWebHookClient in iexposeResult.NotificationResult.Messages)
+                                        {
+                                            var messageToChange = requestToSend.Messages.Where(p => p.Id == messageWebHookClient.Id).FirstOrDefault();
+                                            if (messageToChange != null)
+                                            {
+                                                messageToChange.Message = messageWebHookClient.Message;
+                                            }
+                                    }
                                 }
-                               // requestToSend.Messages
                             }
                             requestToSend.Log = rs.Log;
                             var responseToSendWait = await sender.Result.Send(requestToSend);
                             resultError.Add(responseToSendWait);
                             Log.Info(responseToSendWait.ToString());
-                           
                             notifications = new List<NotificationDictionary>();
-                            notifications.Add(new NotificationDictionary("postUpdate", new { P1 = "2eee" }));
+                            notifications.Add(new NotificationDictionary(BaladorConst.PostUpdate, new { Response = requestToSend }));
                             await manager.NotifyAsync(rs.Id, notifications, null);
                         }
                     }

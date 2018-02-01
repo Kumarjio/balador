@@ -13,12 +13,13 @@ using Microsoft.AspNet.WebHooks.Properties;
 using Microsoft.AspNet.WebHooks;
 using System.ComponentModel.Composition;
 using Michal.Balador.Server.Properties;
+using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 {
     public interface IExposeResult
     {
-        IEnumerable<NotificationDictionary> NotificationsResult { get; }
+        SendRequest NotificationResult { get; }
     }
 
     [Export(typeof(IWebHookManager))]
@@ -111,21 +112,24 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 
             // For each WebHook set up a work item with the right set of notifications
             IEnumerable<WebHookWorkItem> workItems = GetWorkItems(webHooks, nots);
-            _notificationsBagge = new List<NotificationDictionary>();
+            _notificationBagge = new SendRequest();
             // Start sending WebHooks
             await _webHookSender.SendWebHookWorkItemsAsync(workItems);
             foreach (var workItem in workItems)
             {
-                foreach (var itemProp in workItem.Properties)
-                    _notificationsBagge.Add(new NotificationDictionary(itemProp.Key, itemProp.Value));
+               
+                if(workItem.Properties.ContainsKey(BaladorConst.Messages))
+                       _notificationBagge =(SendRequest) workItem.Properties[BaladorConst.Messages];
+                
                 
             }
            
             return webHooks.Count;
         }
-        List<NotificationDictionary>   _notificationsBagge;
-        public IEnumerable<NotificationDictionary> NotificationsResult {
-            get { return _notificationsBagge;
+        SendRequest _notificationBagge;
+        public SendRequest NotificationResult {
+            get {
+                return _notificationBagge;
             }
         }
         /// <inheritdoc />
