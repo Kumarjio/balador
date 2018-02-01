@@ -117,10 +117,8 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
             foreach (var workItem in workItems)
             {
                 foreach (var itemProp in workItem.Properties)
-                {
-                    _notificationsBagge.Add(new NotificationDictionary(itemProp.Key, new { P4444 = "44444" }));
-                 
-                }
+                    _notificationsBagge.Add(new NotificationDictionary(itemProp.Key, itemProp.Value));
+                
             }
            
             return webHooks.Count;

@@ -16,6 +16,8 @@ using Microsoft.AspNet.WebHooks;
 using Michal.Balador.Server.Properties;
 using System.ComponentModel.Composition;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
+using Newtonsoft.Json;
+
 namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 {
     public class MessageResult
@@ -38,7 +40,8 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 
         private readonly HttpClient _httpClient;
         //private readonly ActionBlock<WebHookWorkItem>[] _launchers;
-        private readonly ActionBlock<WebHookWorkItem> _launcher;
+        private  ActionBlock<WebHookWorkItem> _launcher;
+       // private readonly ActionBlock<WebHookWorkItem> _launcher;
         private bool _disposed;
         [ImportingConstructor]
         /// <summary>
@@ -68,7 +71,7 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
             : this(logger, retryDelays, options, httpClient: null)
         {
         }
-
+        ExecutionDataflowBlockOptions _options;
         /// <summary>
         /// Initialize a new instance of the <see cref="DataflowWebHookSender"/> with the given retry policy, <paramref name="options"/>,
         /// and <paramref name="httpClient"/>. This constructor is intended for unit testing purposes.
@@ -82,13 +85,16 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
         {
             retryDelays = retryDelays ?? DefaultRetries;
 
-            options = options ?? new ExecutionDataflowBlockOptions
+            _options = options ?? new ExecutionDataflowBlockOptions
             {
                 MaxDegreeOfParallelism = DefaultMaxConcurrencyLevel
             };
 
             _httpClient = httpClient ?? new HttpClient();
-            _launcher = new ActionBlock<WebHookWorkItem>(async item => await LaunchWebHook(item), options);
+            //_launcher = new ActionBlock<WebHookWorkItem>(async item => {
+            //    await LaunchWebHook(item);
+            //    }
+            //, _options);
             
             string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_Started, typeof(BaladorDataflowWebHookSender).Name, 1);
             Logger.Info(msg);
@@ -101,7 +107,11 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
             {
                 throw new ArgumentNullException(nameof(workItems));
             }
-
+          
+            _launcher = new ActionBlock<WebHookWorkItem>(async item => {
+                await LaunchWebHook(item);
+            }
+           , _options);
             foreach (WebHookWorkItem workItem in workItems)
             {
                 _launcher.Post(workItem);
@@ -208,16 +218,14 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
                 // Setting up and send WebHook request 
                 HttpRequestMessage request = CreateWebHookRequest(workItem);
                 HttpResponseMessage response = await _httpClient.SendAsync(request);
-
-                workItem.Properties.Add("d","3");
                 string msg = string.Format(CultureInfo.CurrentCulture, BaladorResource.Manager_Result, workItem.WebHook.Id, response.StatusCode, workItem.Offset);
                 Logger.Info(msg);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageResult messageResult;
-                    if (response.TryGetContentValue<MessageResult>(out messageResult))
+                    if (workItem.WebHook.Filters != null && workItem.WebHook.Filters.Any() && workItem.WebHook.Filters.Where(p => p == BaladorConst.PreUpdate).FirstOrDefault() != null)
                     {
+                        var messageResult = await response.Content.ReadAsAsync<MessageResult>();
                         workItem.Properties.Add(BaladorConst.Message, messageResult.Message);
                         workItem.Properties.Add(BaladorConst.Content, messageResult.Content);
                     }

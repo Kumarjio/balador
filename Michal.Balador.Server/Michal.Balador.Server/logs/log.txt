@@ -8430,3 +8430,105 @@ aa,False,_lock=rt,10
 a,x
 aa,xx id=aa ,Message=xx
 
+INFO  2018-02-01 12:16:54,112 52924ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-01 12:17:42,647 101459ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 12:18:52,154 170966ms EMessageController     MoveNext           - {Action=d, P4444=44444}
+INFO  2018-02-01 12:18:53,338 172150ms EMessageController     MoveNext           - rt,13
+a,False,_lock=rt,13
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,13
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 12:19:21,774 200586ms EMessageController     MoveNext           - rt,13
+a,False,_lock=rt,13
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,13
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 12:20:09,043 247855ms EMessageController     MoveNext           - rt,13
+a,False,_lock=rt,13
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,13
+a,x
+aa,xx id=aa ,Message=xx
+
+ERROR 2018-02-01 12:24:31,719 23034ms EMessageController     MoveNext           - 31 rt System.ComponentModel.Composition.CompositionException: The composition produced a single composition error. The root cause is provided below. Review the CompositionException.Errors property for more detailed information.
+
+1) Value cannot be null.
+Parameter name: dataflowBlockOptions
+
+Resulting in: An exception occurred while trying to create an instance of type 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+
+Resulting in: Cannot activate part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot get export 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender")' from part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender (ContractName="Microsoft.AspNet.WebHooks.IWebHookSender") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot set import 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorWebHookManager..ctor (Parameter="webHookSender", ContractName="Microsoft.AspNet.WebHooks.IWebHookSender")' on part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorWebHookManager'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorWebHookManager..ctor (Parameter="webHookSender", ContractName="Microsoft.AspNet.WebHooks.IWebHookSender") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorWebHookManager -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+Resulting in: Cannot get export 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorWebHookManager (ContractName="Microsoft.AspNet.WebHooks.IWebHookManager")' from part 'Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorWebHookManager'.
+Element: Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorWebHookManager (ContractName="Microsoft.AspNet.WebHooks.IWebHookManager") -->  Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorWebHookManager -->  AssemblyCatalog (Assembly="Michal.Balador.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+   at System.ComponentModel.Composition.Hosting.CompositionServices.GetExportedValueFromComposedPart(ImportEngine engine, ComposablePart part, ExportDefinition definition)
+   at System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportedValue(CatalogPart part, ExportDefinition export, Boolean isSharedPart)
+   at System.ComponentModel.Composition.Primitives.Export.get_Value()
+   at System.ComponentModel.Composition.ExportServices.GetCastedExportedValue[T](Export export)
+   at System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   at Michal.Balador.Server.App_Start.MefDependencyResolver.GetService(Type serviceType) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\App_Start\MefConfig.cs:line 45
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions2.GetService[TService](IDependencyScope services) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Common\Extensions\DependencyScopeExtensions.cs:line 58
+   at Microsoft.AspNet.WebHooks.DependencyScopeExtensions.GetManager(IDependencyScope services) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\WebHooks\Microsoft.AspNet.WebHooks\Custom\Extensions\DependencyScopeExtensions.cs:line 104
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 52
+INFO  2018-02-01 12:25:43,037  4878ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-01 12:25:58,665 20506ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 12:26:05,009 26850ms EMessageController     MoveNext           - {Action=d, P4444=44444}
+INFO  2018-02-01 12:26:05,962 27803ms EMessageController     MoveNext           - rt,45
+a,False,_lock=rt,45
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,45
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 12:26:19,085 40926ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 12:32:23,794  7340ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-01 12:32:40,184 23730ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-01 12:33:08,279 51824ms EMessageController     MoveNext           - {Action=d, P4444=44444}
+INFO  2018-02-01 12:33:37,549 81094ms EMessageController     MoveNext           - {Action=Message, P4444=44444}
+INFO  2018-02-01 12:33:37,551 81096ms EMessageController     MoveNext           - {Action=Content, P4444=44444}
+INFO  2018-02-01 12:33:38,418 81964ms EMessageController     MoveNext           - rt,47
+a,False,_lock=rt,47
+a,x
+aa,xx id=a ,Message=x
+aa,False,_lock=rt,47
+a,x
+aa,xx id=aa ,Message=xx
+
+INFO  2018-02-01 12:33:49,940 93486ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-01 12:33:57,299 100845ms Logger                 Log                - Failed to submit attempt 0 of WebHook fc8fafb90dc945bb8c714e1dc3e33ad0 due to failure: Error converting value "ok" to type 'Michal.Balador.Server.Infrastructures.WebHookExstension.MessageResult'. Path '', line 1, position 4.
+Newtonsoft.Json.JsonSerializationException: Error converting value "ok" to type 'Michal.Balador.Server.Infrastructures.WebHookExstension.MessageResult'. Path '', line 1, position 4. ---> System.ArgumentException: Could not cast or convert from System.String to Michal.Balador.Server.Infrastructures.WebHookExstension.MessageResult.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   --- End of inner exception stack trace ---
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at System.Net.Http.Formatting.BaseJsonMediaTypeFormatter.ReadFromStream(Type type, Stream readStream, Encoding effectiveEncoding, IFormatterLogger formatterLogger)
+   at System.Net.Http.Formatting.BaseJsonMediaTypeFormatter.ReadFromStream(Type type, Stream readStream, HttpContent content, IFormatterLogger formatterLogger)
+   at System.Net.Http.Formatting.BaseJsonMediaTypeFormatter.ReadFromStreamAsync(Type type, Stream readStream, HttpContent content, IFormatterLogger formatterLogger)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Net.Http.HttpContentExtensions.<ReadAsAsyncCore>d__0`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<LaunchWebHook>d__16.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 228

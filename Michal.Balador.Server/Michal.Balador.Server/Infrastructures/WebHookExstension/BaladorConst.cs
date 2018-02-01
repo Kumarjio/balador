@@ -9,5 +9,7 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
     {
         public const string Content = "Content";
         public const string Message = "Message";
+        public const string PreUpdate = "preUpdate";
+        public const string PostUpdate = "postUpdate";
     }
 }

@@ -16,8 +16,8 @@ namespace Michal.Balador.Server.Infrastructures.WebHookExstension
     {
         private readonly Collection<WebHookFilter> filters = new Collection<WebHookFilter>
     {
-        new WebHookFilter { Name = "postUpdate", Description = "This event happened." },
-        new WebHookFilter { Name = "preUpdate", Description = "This event happened. preUpdate" },
+        new WebHookFilter { Name = BaladorConst.PostUpdate, Description = "This event happened .PostUpdate" },
+        new WebHookFilter { Name = BaladorConst.PreUpdate, Description = "This event happened. PreUpdate" },
     };
 
         public Task<Collection<WebHookFilter>> GetFiltersAsync()

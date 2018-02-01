@@ -59,13 +59,13 @@ namespace Michal.Balador.Server.Controllers
                                 {
                                     Log.Info(itemNotification);
                                 }
+                               // requestToSend.Messages
                             }
                             requestToSend.Log = rs.Log;
                             var responseToSendWait = await sender.Result.Send(requestToSend);
                             resultError.Add(responseToSendWait);
                             Log.Info(responseToSendWait.ToString());
                            
-
                             notifications = new List<NotificationDictionary>();
                             notifications.Add(new NotificationDictionary("postUpdate", new { P1 = "2eee" }));
                             await manager.NotifyAsync(rs.Id, notifications, null);
