@@ -16,7 +16,7 @@ namespace Michal.Balador.Infrastructures.Service
             //throw new NotImplementedException();
         }
 
-        public Task<ResponseBase> SaveContact(object contact)
+        public Task<ResponseBase> SetContact(object contact)
         {
             return null;
             //throw new NotImplementedException();

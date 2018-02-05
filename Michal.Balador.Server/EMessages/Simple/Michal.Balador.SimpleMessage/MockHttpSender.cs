@@ -6,14 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.SimpleMessage
 {
     [Export(typeof(IFactrorySendMessages))]
     [ExportMetadata("MessageType", "MockHttpSender")]
-    public class MockHttpSender : IFactrorySendMessages
+    public class MockHttpSender : FactrorySendMessages
     {
-        public async Task<ResponseSenderMessages> GetSender(RegisterSender register)
+        [ImportingConstructor()]
+        public MockHttpSender(IBaladorContext context) : base(context)
+        {
+
+        }
+        public async override Task<ResponseSenderMessages> GetSender(RegisterSender register)
         {
             ResponseSenderMessages response = new ResponseSenderMessages();
             try

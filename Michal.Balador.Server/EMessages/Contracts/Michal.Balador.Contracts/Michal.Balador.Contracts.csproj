@@ -56,9 +56,9 @@
     <Compile Include="DataModel\Sender.cs" />
     <Compile Include="DataModel\SenderMessages.cs" />
     <Compile Include="DataModel\SendRequest.cs" />
-    <Compile Include="IBaladorContext.cs" />
-    <Compile Include="IEMessage.cs" />
-    <Compile Include="IFactrorySendMessages.cs" />
+    <Compile Include="Contract\IBaladorContext.cs" />
+    <Compile Include="Contract\IEMessage.cs" />
+    <Compile Include="Contract\IFactrorySendMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\FactrorySendMessages.cs" />
   </ItemGroup>

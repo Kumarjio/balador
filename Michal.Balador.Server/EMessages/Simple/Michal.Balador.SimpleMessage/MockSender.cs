@@ -6,14 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.SimpleMessage
 {
     [Export(typeof(IFactrorySendMessages))]
     [ExportMetadata("MessageType", "MockSender")]
-    public class MockSender : IFactrorySendMessages
+    public class MockSender : FactrorySendMessages
     {
-        public async Task<ResponseSenderMessages> GetSender(RegisterSender register)
+        [ImportingConstructor()]
+        public MockSender(IBaladorContext context):base(context)
+        {
+
+        }
+        public override async Task<ResponseSenderMessages> GetSender(RegisterSender register)
         {
             ResponseSenderMessages response = new ResponseSenderMessages();
             try
@@ -38,5 +44,7 @@ namespace Michal.Balador.SimpleMessage
             
             return response;
         }
+
+       
     }
 }

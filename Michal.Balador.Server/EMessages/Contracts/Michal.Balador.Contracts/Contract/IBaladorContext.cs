@@ -10,6 +10,6 @@ namespace Michal.Balador.Contracts
     public interface IBaladorContext
     {
       Task<object>  GetContact(string id);
-      Task<ResponseBase> SaveContact(object contact);
+      Task<ResponseBase> SetContact(object contact);
     }
 }

@@ -8632,3 +8632,89 @@ a,change a my value51cf6f4f-2434-4d41-85ea-49357d5b6992
 aa,change aa my value17bf18d7-611e-49df-847d-ba99dea0141e id=aa ,Message=change aa my value17bf18d7-611e-49df-847d-ba99dea0141e
 
 INFO  2018-02-01 16:54:01,054 64916ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:12:33,179   647ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+ERROR 2018-02-05 15:12:37,569  5038ms Logger                 Log                - Failed to submit attempt 0 of WebHook 0f7e050a2f9c4526b150f9a2f4492a49 due to failure: An error occurred while sending the request.
+System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The remote name could not be resolved: 'runnerdevice.co.il'
+   at System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   at System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Infrastructures.WebHookExstension.BaladorDataflowWebHookSender.<LaunchWebHook>d__16.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs:line 221
+ERROR 2018-02-05 15:12:37,601  5070ms EMessageController     MoveNext           - 6 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 63
+INFO  2018-02-05 15:26:00,980 808448ms Logger                 Log                - WebHook 'f050abd3a63c45ceb741cc077944a1b2' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-05 15:26:01,000 808468ms EMessageController     MoveNext           - 24 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 63
+INFO  2018-02-05 15:26:02,813 810281ms Logger                 Log                - WebHook 'f050abd3a63c45ceb741cc077944a1b2' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-05 15:26:02,831 810299ms EMessageController     MoveNext           - 14 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 63
+INFO  2018-02-05 15:26:04,683 812151ms Logger                 Log                - WebHook 'f050abd3a63c45ceb741cc077944a1b2' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-05 15:26:04,695 812163ms EMessageController     MoveNext           - 14 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 63
+INFO  2018-02-05 15:29:46,043 1033511ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-05 15:30:17,357 1064826ms EMessageController     MoveNext           - 14 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 63
+INFO  2018-02-05 15:30:43,475 1090943ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-05 15:31:16,592 1124060ms EMessageController     MoveNext           - 26 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 63
+INFO  2018-02-05 15:40:45,123 1692591ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:40:57,237 1704706ms EMessageController     MoveNext           - rt,53
+a,True,change a my valuef9e78f11-61f9-4d21-8c0b-21aac1911576
+aa,True,change aa my valuefffbd7bd-10cd-44b8-b457-d37844c23b50
+
+INFO  2018-02-05 15:40:57,330 1704798ms Logger                 Log                - WebHook 'd141838299fe4f0fa2634aadf98e406a' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:41:04,241 1711709ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:41:04,273 1711741ms EMessageController     MoveNext           - rt,35
+a,True,change a my value1f80cd09-88d5-451f-a46b-368f45385fd0
+aa,True,change aa my value8ec224d6-6964-432e-a82b-e8e3683409e4
+
+INFO  2018-02-05 15:41:04,305 1711773ms Logger                 Log                - WebHook 'd141838299fe4f0fa2634aadf98e406a' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:41:54,808 1762277ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:42:25,100 1792568ms EMessageController     MoveNext           - rt,32
+a,True,change a my value43fde99b-35a0-482a-9e70-c187ff1ca4dc
+aa,True,change aa my value94dd24e7-bb27-427a-a2d9-9357bdd44b62
+
+INFO  2018-02-05 15:42:41,975 1809443ms Logger                 Log                - WebHook 'd141838299fe4f0fa2634aadf98e406a' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:43:06,940 1834409ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:43:09,635 1837103ms EMessageController     MoveNext           - rt,32
+a,True,change a my value481f8bd2-45e9-483d-b87b-ff181b406c7a
+aa,True,change aa my valuee1419f29-df00-4638-a55d-3cf5589123ed
+
+INFO  2018-02-05 15:43:18,856 1846324ms Logger                 Log                - WebHook 'd141838299fe4f0fa2634aadf98e406a' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:44:06,422 1893891ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:44:08,152 1895620ms EMessageController     MoveNext           - rt,45
+a,True,change a my value9754f02e-8331-4797-b1b4-60e5c424ede4
+aa,True,change aa my valuee6b1152a-77b7-4f82-9388-0a423af2ff05
+
+INFO  2018-02-05 15:44:12,188 1899657ms Logger                 Log                - WebHook 'd141838299fe4f0fa2634aadf98e406a' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:45:44,928   841ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-05 15:45:51,149  7061ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:45:51,261  7173ms EMessageController     MoveNext           - rt,9
+a,True,change a my valuead5d90de-18f1-43c2-b0fa-bf5594618a19
+aa,True,change aa my value65041851-badf-437d-8960-168b9d1ee0b7
+
+INFO  2018-02-05 15:45:51,309  7221ms Logger                 Log                - WebHook 'd141838299fe4f0fa2634aadf98e406a' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:48:28,541   735ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-05 15:48:33,859  6053ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 15:48:34,964  7158ms EMessageController     MoveNext           - rt,6
+a,False,_lock=rt,6
+a,change a my valueecbd406a-f10c-4d89-9155-46857019bb25
+aa,change aa my value43fc5862-43c3-4e3f-82ff-1385922d3790 id=a ,Message=change a my valueecbd406a-f10c-4d89-9155-46857019bb25
+aa,False,_lock=rt,6
+a,change a my valueecbd406a-f10c-4d89-9155-46857019bb25
+aa,change aa my value43fc5862-43c3-4e3f-82ff-1385922d3790 id=aa ,Message=change aa my value43fc5862-43c3-4e3f-82ff-1385922d3790
+
+INFO  2018-02-05 15:48:35,024  7218ms Logger                 Log                - WebHook 'd141838299fe4f0fa2634aadf98e406a' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 16:01:07,453 117850ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-05 16:01:10,710 121107ms Logger                 Log                - WebHook '075790a030e846629d63e5bdb05e0d11' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-05 16:01:11,782 122179ms EMessageController     MoveNext           - rt,15
+a,False,_lock=rt,15
+a,change a my value080c7a04-990e-4dfa-8476-aa5ecdce5503
+aa,change aa my valueced63aa8-ed9a-4951-b7b2-4a8d7a33cb67 id=a ,Message=change a my value080c7a04-990e-4dfa-8476-aa5ecdce5503
+aa,False,_lock=rt,15
+a,change a my value080c7a04-990e-4dfa-8476-aa5ecdce5503
+aa,change aa my valueced63aa8-ed9a-4951-b7b2-4a8d7a33cb67 id=aa ,Message=change aa my valueced63aa8-ed9a-4951-b7b2-4a8d7a33cb67
+
+INFO  2018-02-05 16:01:11,854 122251ms Logger                 Log                - WebHook 'd141838299fe4f0fa2634aadf98e406a' resulted in status code 'OK' on attempt '0'.

@@ -16,7 +16,7 @@ namespace Michal.Balador.SimpleMessage
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://runnerdevice.co.il/api/ping")
+                BaseAddress = new Uri("http://localhost:1945/api/ping")
             };
             _httpClient.DefaultRequestHeaders
              .Accept

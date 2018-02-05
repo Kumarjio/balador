@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Http.Dependencies;
 using Michal.Balador.Contracts;
+using Michal.Balador.Infrastructures.Service;
 using Microsoft.AspNet.WebHooks;
 using Microsoft.AspNet.WebHooks.Diagnostics;
 using Microsoft.AspNet.WebHooks.Services;
@@ -91,6 +92,9 @@ namespace Michal.Balador.Server.App_Start
 
            // CustomServices.SetStore(store);
             container.ComposeExportedValue<IWebHookStore>(store);
+
+            var context = new BaladorContext();
+            container.ComposeExportedValue<IBaladorContext>(context);
 
         }
 
