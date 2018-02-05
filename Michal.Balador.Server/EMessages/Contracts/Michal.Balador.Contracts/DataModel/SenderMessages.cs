@@ -8,11 +8,14 @@ namespace Michal.Balador.Contracts.DataModel
 {
    public abstract class SenderMessages:IDisposable
     {
+
         public abstract void Dispose();
         //{
           //  throw new NotImplementedException();
         //}
 
         public abstract  Task<ResponseSend> Send(SendRequest request);
+
+        //public abstract Task<AuthenticationManager> GetAuthenticationManager();
     }
 }

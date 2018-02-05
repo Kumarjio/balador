@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModel\AuthenticationManager.cs" />
     <Compile Include="DataModel\MessageItem.cs" />
+    <Compile Include="DataModel\NotificationManager.cs" />
     <Compile Include="DataModel\RegisterSender.cs" />
     <Compile Include="DataModel\Response.cs" />
     <Compile Include="DataModel\ResponseBase.cs" />
@@ -54,6 +56,7 @@
     <Compile Include="DataModel\Sender.cs" />
     <Compile Include="DataModel\SenderMessages.cs" />
     <Compile Include="DataModel\SendRequest.cs" />
+    <Compile Include="IContext.cs" />
     <Compile Include="IEMessage.cs" />
     <Compile Include="IFactrorySendMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
