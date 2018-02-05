@@ -24,7 +24,7 @@ namespace Michal.Balador.SimpleMessage
             ResponseSenderMessages response = new ResponseSenderMessages();
             try
             {
-                response.Result = new MockHttpSend();
+                response.Result = new MockHttpSend(this.Context);
             }
             catch (Exception e)
             {

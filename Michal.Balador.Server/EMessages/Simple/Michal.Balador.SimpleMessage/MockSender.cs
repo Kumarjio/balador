@@ -24,7 +24,7 @@ namespace Michal.Balador.SimpleMessage
             ResponseSenderMessages response = new ResponseSenderMessages();
             try
             {
-                SenderMessagesFactory sendFactory = new SenderMessagesFactory();
+                SenderMessagesFactory sendFactory = new SenderMessagesFactory(this.Context);
                 var respndFactory = await sendFactory.ConnectAndLogin(register.Id, register.Pws);
                 if (respndFactory.IsError)
                 {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
@@ -12,8 +13,9 @@ namespace Michal.Balador.SimpleMessage
     {
         SocketClientTest _test;
         
-        public MockSend(SocketClientTest test)
+        public MockSend(SocketClientTest test,IBaladorContext context):base(context)
         {
+            
             _test = test;
         }
 

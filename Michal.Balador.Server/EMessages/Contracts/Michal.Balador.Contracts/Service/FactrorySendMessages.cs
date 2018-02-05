@@ -9,8 +9,8 @@ namespace Michal.Balador.Contracts.Service
 {
     public abstract class FactrorySendMessages: IFactrorySendMessages
     {
-        protected IBaladorContext _context;
-       
+       IBaladorContext _context;
+       public IBaladorContext Context { get { return _context; } }
         public FactrorySendMessages(IBaladorContext context)
         {
             _context = context;

@@ -4,12 +4,18 @@ using System.Linq;
 using System.Text;
 
 using System.Threading.Tasks;
+using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
     public class SenderMessagesFactory
     {
+        IBaladorContext _context;
+        public SenderMessagesFactory(IBaladorContext context)
+        {
+            _context = context;
+        }
         public async Task<Response<MockSend>> ConnectAndLogin(string user, string pws)
         {
             var tcs = new TaskCompletionSource<Response<MockSend>>();
@@ -23,7 +29,7 @@ namespace Michal.Balador.SimpleMessage
                     Console.WriteLine("data ok={0}", a);
                     string m = "test me...";
                     test.SendData(Encoding.ASCII.GetBytes(m));
-                    tcs.SetResult(new Response<MockSend> { IsError = false, Result = new MockSend(test) });
+                    tcs.SetResult(new Response<MockSend> { IsError = false, Result = new MockSend(test,this._context) });
                 };
                 test.OnLoginFailed += (a) =>
                 {
