@@ -92,9 +92,9 @@ namespace Michal.Balador.Server.App_Start
 
            // CustomServices.SetStore(store);
             container.ComposeExportedValue<IWebHookStore>(store);
-
-            var context = new BaladorContext();
-            container.ComposeExportedValue<IBaladorContext>(context);
+            //it's singleton!!
+       //     var context = new BaladorContext();
+         //  container.ComposeExportedValue<IBaladorContext>(context);
 
         }
 

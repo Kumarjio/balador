@@ -8,12 +8,14 @@ namespace Michal.Balador.Contracts.DataModel
 {
    public abstract class SenderMessages:IDisposable
     {
-
+        public string ServiceName
+        {
+            get
+            {
+                return this.GetType().FullName;
+            }
+        }
         public abstract void Dispose();
-        //{
-          //  throw new NotImplementedException();
-        //}
-
         public abstract  Task<ResponseSend> Send(SendRequest request);
         IBaladorContext _context;
         public IBaladorContext Context { get { return _context; } }
@@ -22,6 +24,6 @@ namespace Michal.Balador.Contracts.DataModel
             _context = context;
         }
 
-        //public abstract Task<AuthenticationManager> GetAuthenticationManager();
+       // public abstract Task<AuthenticationManager> GetAuthenticationManager();
     }
 }

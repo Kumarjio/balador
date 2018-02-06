@@ -9,7 +9,8 @@ namespace Michal.Balador.Contracts
 {
     public interface IBaladorContext
     {
-      Task<object>  GetContact(string id);
-      Task<ResponseBase> SetContact(object contact);
+        int Log { get; set; }
+      Task<object>  GetContact(SenderMessages senderMessages, string id);
+      Task<ResponseBase> SetContact(SenderMessages senderMessages,object contact);
     }
 }

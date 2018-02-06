@@ -429,6 +429,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructures\BaladorContext.cs" />
     <Compile Include="Infrastructures\Helper\Const.cs" />
     <Compile Include="Infrastructures\Helper\HelperSecurity.cs" />
     <Compile Include="Infrastructures\Helper\Provider\CustomPasswordValidator.cs" />

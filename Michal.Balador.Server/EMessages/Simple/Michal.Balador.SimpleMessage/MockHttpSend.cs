@@ -23,6 +23,7 @@ namespace Michal.Balador.SimpleMessage
         }
         public override async Task<ResponseSend> Send(SendRequest request)
         {
+           var contact= this.Context.GetContact(this, "ddd");
             ResponseSend res = new ResponseSend();
             res.Result = new List<ResponseMessage>();
             res.Id = request.Id;
