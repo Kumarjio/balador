@@ -8,6 +8,10 @@ namespace Michal.Balador.Contracts.DataModel
 {
     public class SenderLandPageConfiguration
     {
+        public SenderLandPageConfiguration()
+        {
+            ExtraFields = new Dictionary<string, string>();
+        }
         public string Logo { get; set; }
         public string MessageEmailTemplate { get; set; }
         public string TextLandPageTemplate { get; set; }
