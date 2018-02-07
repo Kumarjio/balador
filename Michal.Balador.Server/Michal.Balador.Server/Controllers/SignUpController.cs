@@ -22,96 +22,29 @@ namespace Michal.Balador.Server.Controllers
 {//http://kennytordeur.blogspot.co.il/2012/08/mef-in-aspnet-mvc-4-and-webapi.html
     [Export]
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    public class EMessageController : ApiController
+    public class SignUpController : ApiController
     {
 
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(EMessageController));
-       // [Import(typeof(IBaladorContext))]
-       // private IBaladorContext _context;
+        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(SignUpController));
         [ImportMany(typeof(IFactrorySendMessages))]
-        IEnumerable<Lazy<IFactrorySendMessages, IDictionary<string, object>>> _senderRules;
-
+        IEnumerable<Lazy<IFactrorySendMessages>> _senderRules;
+        // GET api/<controller>
         public async Task<HttpResponseMessage> Get()
         {
-            //if (_context != null)
-            //{
-            //    var ff=_context.Log;
-            //}
-            ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
-            List<ResponseSender> senders = new List<ResponseSender>();
-            Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
+            List<string> authentications = new List<string>();
+            List<Contracts.DataModel.AuthenticationManager> authenticationManagers = new List<Contracts.DataModel.AuthenticationManager>();
+         
             MockRepository mockData = new MockRepository();
-
-            var doStuffBlock = new ActionBlock<RegisterSender>(async rs =>
+            foreach (var senderRule in _senderRules)
             {
-                rs.Log = Thread.CurrentThread.ManagedThreadId;
-                var sender = await _utah.Value.GetSender(rs);
-                try
-                {
-                    if (!sender.IsError)
-                    {
-                        var requestToSend = await mockData.FindMessagesById(rs.Id);
-
-                        if (requestToSend != null)
-                        {
-                            IWebHookManager manager = this.Configuration.DependencyResolver.GetManager();
-                            List<NotificationDictionary> notifications = new List<NotificationDictionary>();
-                            notifications.Add(new NotificationDictionary(BaladorConst.PreUpdate, new { Request = requestToSend }));
-                            await manager.NotifyAsync(rs.Id, notifications, null);
-                            if (manager is IExposeResult)
-                            {
-                               
-                                IExposeResult iexposeResult = (IExposeResult)manager;
-                                if (iexposeResult != null && iexposeResult.NotificationResult != null )
-                                {
-                                    
-                                        foreach (var messageWebHookClient in iexposeResult.NotificationResult.Messages)
-                                        {
-                                            var messageToChange = requestToSend.Messages.Where(p => p.Id == messageWebHookClient.Id).FirstOrDefault();
-                                            if (messageToChange != null)
-                                            {
-                                                messageToChange.Message = messageWebHookClient.Message;
-                                            }
-                                    }
-                                }
-                            }
-                            requestToSend.Log = rs.Log;
-                            var responseToSendWait = await sender.Result.Send(requestToSend);
-                            resultError.Add(responseToSendWait);
-                            Log.Info(responseToSendWait.ToString());
-                            notifications = new List<NotificationDictionary>();
-                            notifications.Add(new NotificationDictionary(BaladorConst.PostUpdate, new { Response = requestToSend }));
-                            await manager.NotifyAsync(rs.Id, notifications, null);
-                        }
-                    }
-                    else
-                    {
-                        var mes = rs.Log + " " + rs.Id + " " + sender.Message;
-                        resultError.Add(new ResponseSend { IsError = true, Message = mes });
-                        Log.Error(mes);
-                    }
-                }
-                catch (Exception ee)
-                {
-                    resultError.Add(new ResponseSend { IsError = true, Message = "unhandle" });
-                    Log.Error(rs.Log + " " + rs.Id + " " + ee);
-                }
-                finally
-                {
-                    if (sender != null && sender.Result != null)
-                        sender.Result.Dispose();
-                }
-            } );
-            foreach (var item in mockData.mocks.Senders)
-            {
-                doStuffBlock.Post(item);
+               var sender=await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate=false,Id="1"});
+               var authenticationManager = sender.Result.GetAuthenticationManager();
             }
-            doStuffBlock.Complete();
-            await doStuffBlock.Completion;
+                
 
             var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new ObjectContent<ResponseSend[]>(resultError.ToArray(),
+                Content = new ObjectContent<string[]>(authentications.ToArray(),
                          new JsonMediaTypeFormatter(),
                           new MediaTypeWithQualityHeaderValue("application/json"))
             };

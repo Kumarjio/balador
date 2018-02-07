@@ -46,17 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DisconnectedException.cs" />
-    <Compile Include="HttpClientTest.cs" />
-    <Compile Include="MockHttpSend.cs" />
-    <Compile Include="MockHttpSender.cs" />
-    <Compile Include="MockSend.cs" />
-    <Compile Include="MockSender.cs" />
-    <Compile Include="SenderMessagesFactory.cs" />
-    <Compile Include="Simple2.cs" />
-    <Compile Include="Simple1.cs" />
+    <Compile Include="Authentication\HttpSimpleAuthentication.cs" />
+    <Compile Include="Sockets\DisconnectedException.cs" />
+    <Compile Include="Sockets\HttpClientTest.cs" />
+    <Compile Include="ConcreteSender\MockHttpSend.cs" />
+    <Compile Include="Factories\MockHttpSender.cs" />
+    <Compile Include="ConcreteSender\MockSend.cs" />
+    <Compile Include="Factories\MockSender.cs" />
+    <Compile Include="ConcreteSender\SenderMessagesFactory.cs" />
+    <Compile Include="Simple\Simple2.cs" />
+    <Compile Include="Simple\Simple1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SocketClientTest.cs" />
+    <Compile Include="Sockets\SocketClientTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -67,6 +68,7 @@
       <Name>Michal.Balador.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).*" "$(SolutionDir)Michal.Balador.Server\Plugins\$(ProjectName).*"

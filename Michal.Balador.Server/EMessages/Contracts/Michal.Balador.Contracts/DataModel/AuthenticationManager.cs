@@ -15,7 +15,7 @@ namespace Michal.Balador.Contracts.DataModel
         {
             Context = context;
         }
-
+        public abstract string AuthenticationTitle { get; }
         public abstract string AuthenticationName { get; }
 
         //step 1 after set signup sender register page or email

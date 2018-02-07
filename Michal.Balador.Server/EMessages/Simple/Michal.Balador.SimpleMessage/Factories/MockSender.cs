@@ -15,7 +15,7 @@ namespace Michal.Balador.SimpleMessage
     public class MockSender : FactrorySendMessages
     {
         [ImportingConstructor()]
-        public MockSender([Import(typeof(IBaladorContext))]IBaladorContext context) :base(context)
+        public MockSender(IBaladorContext context) :base(context)
         {
 
         }

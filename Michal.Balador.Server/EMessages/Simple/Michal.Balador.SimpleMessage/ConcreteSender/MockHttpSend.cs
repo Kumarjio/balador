@@ -22,9 +22,9 @@ namespace Michal.Balador.SimpleMessage
             _test.Disconnect();
         }
 
-        public override Task<AuthenticationManager> GetAuthenticationManager()
+        public override AuthenticationManager GetAuthenticationManager()
         {
-            throw new NotImplementedException();
+            return new HttpSimpleAuthentication(Context);
         }
 
         public override async Task<ResponseSend> Send(SendRequest request)
@@ -45,8 +45,6 @@ namespace Michal.Balador.SimpleMessage
                   {
                       res.Result.Add(new ResponseMessage { Id = itemMessage.Id, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
                   }
-              
-            
         }
             return await Task.FromResult(res);
         }

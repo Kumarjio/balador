@@ -328,6 +328,7 @@
     <Content Include="font\roboto\Roboto-Thin.woff" />
     <Content Include="font\roboto\Roboto-Thin.woff2" />
     <Content Include="Schema\all.sql" />
+    <Content Include="signup.html" />
     <Content Include="ssss\cash.png" />
     <Content Include="ssss\covered-food-tray-on-a-hand-of-hotel-room-service %281%29.png" />
     <Content Include="ssss\growing-weed %281%29.png" />
@@ -413,6 +414,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BaladorRegistrationsController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\EMessageController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\NotifyApiController.cs" />
