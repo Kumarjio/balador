@@ -24,6 +24,6 @@ namespace Michal.Balador.Contracts.DataModel
             _context = context;
         }
 
-       // public abstract Task<AuthenticationManager> GetAuthenticationManager();
+       public abstract Task<AuthenticationManager> GetAuthenticationManager();
     }
 }

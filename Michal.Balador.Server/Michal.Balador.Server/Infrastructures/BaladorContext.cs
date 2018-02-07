@@ -18,10 +18,27 @@ namespace Michal.Balador.Infrastructures.Service
             Log = 5;
         }
         public int Log { get; set; }
+
+        public Task<object> GetConfiguration(SenderMessages senderMessages)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ResponseBase> SetConfiguration(SenderMessages senderMessages, object config)
+        {
+            throw new NotImplementedException();
+        }
+
         public  Task<object> GetContact(SenderMessages senderMessages, string id)
         {
             return null;
             //throw new NotImplementedException();
+        }
+
+        public Task<ResponseBase> NotifySenderMessage(SenderMessages senderMessages, string id, string message)
+        {
+            //send to email adress of sender!!! 
+            throw new NotImplementedException();
         }
 
         public Task<ResponseBase> SetContact(SenderMessages senderMessages, object contact)

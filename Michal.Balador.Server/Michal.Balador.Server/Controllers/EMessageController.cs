@@ -26,17 +26,17 @@ namespace Michal.Balador.Server.Controllers
     {
 
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(EMessageController));
-        [Import(typeof(IBaladorContext))]
-        private IBaladorContext _context;
+       // [Import(typeof(IBaladorContext))]
+       // private IBaladorContext _context;
         [ImportMany(typeof(IFactrorySendMessages))]
         IEnumerable<Lazy<IFactrorySendMessages, IDictionary<string, object>>> _senderRules;
         // GET api/<controller>
         public async Task<HttpResponseMessage> Get()
         {
-            if (_context != null)
-            {
-                var ff=_context.Log;
-            }
+            //if (_context != null)
+            //{
+            //    var ff=_context.Log;
+            //}
             ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
             List<ResponseSender> senders = new List<ResponseSender>();
             Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();

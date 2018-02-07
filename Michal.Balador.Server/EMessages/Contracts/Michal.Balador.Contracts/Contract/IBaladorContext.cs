@@ -9,8 +9,21 @@ namespace Michal.Balador.Contracts
 {
     public interface IBaladorContext
     {
-        int Log { get; set; }
-      Task<object>  GetContact(SenderMessages senderMessages, string id);
-      Task<ResponseBase> SetContact(SenderMessages senderMessages,object contact);
+        //start:helper functions
+        Task<object> GetConfiguration(SenderMessages senderMessages);
+        Task<ResponseBase> SetConfiguration(SenderMessages senderMessages, object config);
+        Task<object> GetContact(SenderMessages senderMessages, string id);
+        Task<ResponseBase> SetContact(SenderMessages senderMessages, object contact);
+
+        /// <summary>
+        /// Notify Sender Message
+        /// </summary>
+        /// <param name="senderMessages">current plugin</param>
+        /// <param name="id">phone of sender find out email adress</param>
+        /// <param name="message">message to email</param>
+        /// <returns></returns>
+        Task<ResponseBase> NotifySenderMessage(SenderMessages senderMessages, string id, string message);
+
+        //end:helper functions}
     }
 }

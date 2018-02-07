@@ -21,6 +21,12 @@ namespace Michal.Balador.SimpleMessage
         {
             _test.Disconnect();
         }
+
+        public override Task<AuthenticationManager> GetAuthenticationManager()
+        {
+            throw new NotImplementedException();
+        }
+
         public override async Task<ResponseSend> Send(SendRequest request)
         {
            var contact= this.Context.GetContact(this, "ddd");
