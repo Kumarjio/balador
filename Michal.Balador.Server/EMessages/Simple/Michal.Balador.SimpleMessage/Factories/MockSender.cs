@@ -24,6 +24,11 @@ namespace Michal.Balador.SimpleMessage
             ResponseSenderMessages response = new ResponseSenderMessages();
             try
             {
+                if(!register.IsAuthenticate)
+                {
+                    response.Result = new MockSend(new SocketClientTest(register.Id,register.Pws), this.Context);
+                    return response;
+                }
                 SenderMessagesFactory sendFactory = new SenderMessagesFactory(this.Context);
                 var respndFactory = await sendFactory.ConnectAndLogin(register.Id, register.Pws);
                 if (respndFactory.IsError)

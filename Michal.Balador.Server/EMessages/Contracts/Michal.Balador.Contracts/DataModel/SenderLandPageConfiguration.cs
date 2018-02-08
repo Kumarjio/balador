@@ -8,10 +8,12 @@ namespace Michal.Balador.Contracts.DataModel
 {
     public class SenderLandPageConfiguration
     {
-        public SenderLandPageConfiguration()
+        public SenderLandPageConfiguration(SenderMessages senderMessages)
         {
             ExtraFields = new Dictionary<string, string>();
+            Id = senderMessages.ServiceName;
         }
+        public string Id { private set; get; }
         public string Logo { get; set; }
         public string MessageEmailTemplate { get; set; }
         public string TextLandPageTemplate { get; set; }

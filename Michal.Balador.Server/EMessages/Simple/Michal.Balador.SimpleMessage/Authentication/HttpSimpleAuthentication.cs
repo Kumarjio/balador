@@ -17,7 +17,7 @@ namespace Michal.Balador.SimpleMessage
     }
     public class HttpSimpleAuthentication : AuthenticationManager
     {
-        public HttpSimpleAuthentication(IBaladorContext context) : base(context)
+        public HttpSimpleAuthentication(IBaladorContext context,SenderMessages senderMessages) : base(context, senderMessages)
         {
         }
         public override string AuthenticationTitle
@@ -36,15 +36,15 @@ namespace Michal.Balador.SimpleMessage
             }
         }
 
-        public override Task<ResponseBase> GetObservableToken(SenderMessages senderMessages, SignUpSender signUpSender, string token)
+        public override Task<ResponseBase> GetObservableToken(SignUpSender signUpSender, string token)
         {
             return null;
         }
 
-        public override SenderLandPageConfiguration Register(SenderMessages senderMessages, SignUpSender signUpSender)
+        public override SenderLandPageConfiguration Register( SignUpSender signUpSender)
         {
 
-            var senderLandPageConfiguration = new SenderLandPageConfiguration
+            var senderLandPageConfiguration = new SenderLandPageConfiguration(this.SenderMessages)
             {
                 Logo = "",
                 MessageEmailTemplate= "http test",
@@ -60,10 +60,10 @@ namespace Michal.Balador.SimpleMessage
             return senderLandPageConfiguration;
         }
 
-        public override async Task<ResponseBase> SignIn(SenderMessages senderMessages, SenderLandPageConfiguration configPageLand, SignUpSender senderDetail, NameValueCollection extraDataForm)
+        public override async Task<ResponseBase> SignIn(SenderLandPageConfiguration configPageLand, SignUpSender senderDetail, NameValueCollection extraDataForm)
         {
-            ResponseBase responseBase = new ResponseBase();
-               var url = "http://localhost:1945/token";
+            ResponseBase responseBase = new ResponseBase(); responseBase.IsError = true;
+            var url = "http://localhost:1945/token";
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders
              .Accept
@@ -81,6 +81,14 @@ namespace Michal.Balador.SimpleMessage
 
             var req = new HttpRequestMessage(HttpMethod.Post, url) { Content = new FormUrlEncodedContent(dict) };
             var res = await httpClient.SendAsync(req);
+            if (res.IsSuccessStatusCode)
+            {
+                responseBase.IsError = false;
+                var stringRes = await res.Content.ReadAsStringAsync();
+                Context.GetLogger().Log(System.Diagnostics.TraceLevel.Verbose, stringRes);
+
+            }
+
             return responseBase;
 
         }

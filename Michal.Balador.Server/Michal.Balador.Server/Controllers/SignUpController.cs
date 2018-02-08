@@ -16,6 +16,7 @@ using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Server.Dal;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
+using Michal.Balador.Server.Models;
 using Microsoft.AspNet.WebHooks;
 
 namespace Michal.Balador.Server.Controllers
@@ -31,7 +32,7 @@ namespace Michal.Balador.Server.Controllers
         // GET api/<controller>
         public async Task<HttpResponseMessage> Get()
         {
-            List<string> authentications = new List<string>();
+            List<FormSignThirdPartyToken> authentications = new List<FormSignThirdPartyToken>();
             List<Contracts.DataModel.AuthenticationManager> authenticationManagers = new List<Contracts.DataModel.AuthenticationManager>();
          
             MockRepository mockData = new MockRepository();
@@ -39,12 +40,22 @@ namespace Michal.Balador.Server.Controllers
             {
                var sender=await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate=false,Id="1"});
                var authenticationManager = sender.Result.GetAuthenticationManager();
+               var configuration= authenticationManager.Register(new SignUpSender {Id="33" });
+
+                authentications.Add(new FormSignThirdPartyToken
+                {
+                    Id=configuration.Id,
+                     Fields=configuration.ExtraFields,
+                     Message=configuration.TextLandPageTemplate
+                });
+
+
             }
                 
 
             var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new ObjectContent<string[]>(authentications.ToArray(),
+                Content = new ObjectContent<FormSignThirdPartyToken[]>(authentications.ToArray(),
                          new JsonMediaTypeFormatter(),
                           new MediaTypeWithQualityHeaderValue("application/json"))
             };
