@@ -27,6 +27,11 @@ namespace Michal.Balador.SimpleMessage
             return new HttpSimpleAuthentication(Context);
         }
 
+        public override bool IsAuthorized()
+        {
+            throw new NotImplementedException();
+        }
+
         public override async Task<ResponseSend> Send(SendRequest request)
         {
            var contact= this.Context.GetContact(this, "ddd");

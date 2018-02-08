@@ -8,6 +8,8 @@ namespace Michal.Balador.Contracts.DataModel
 {
    public abstract class SenderMessages:IDisposable
     {
+        //check autor
+        public abstract bool IsAuthorized();
         public string ServiceName
         {
             get
@@ -19,6 +21,7 @@ namespace Michal.Balador.Contracts.DataModel
         public abstract  Task<ResponseSend> Send(SendRequest request);
         IBaladorContext _context;
         public IBaladorContext Context { get { return _context; } }
+
         public SenderMessages(IBaladorContext context)
         {
             _context = context;
