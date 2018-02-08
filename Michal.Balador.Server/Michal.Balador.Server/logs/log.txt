@@ -8885,3 +8885,26 @@ a,change a my value68524904-ac45-46ba-83d6-200683b515ed
 aa,change aa my value476527e2-acc2-420f-965d-8304c02bee12 id=aa ,Message=change aa my value476527e2-acc2-420f-965d-8304c02bee12
 
 INFO  2018-02-06 13:46:25,706 28858ms Logger                 Log                - WebHook 'd141838299fe4f0fa2634aadf98e406a' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-08 15:31:08,862  8209ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-08 15:31:18,562 17909ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-08 15:31:18,672 18018ms Logger                 Log                - dddd
+INFO  2018-02-08 15:31:48,380 47727ms EMessageController     MoveNext           - rt,7
+a,False,_lock=rt,7
+a,change a my value195325ff-dd84-4acb-8165-159caf904a85
+aa,change aa my value389376ea-ed9b-4f6f-88b0-50ad27646ddc id=a ,Message=change a my value195325ff-dd84-4acb-8165-159caf904a85
+aa,False,_lock=rt,7
+a,change a my value195325ff-dd84-4acb-8165-159caf904a85
+aa,change aa my value389376ea-ed9b-4f6f-88b0-50ad27646ddc id=aa ,Message=change aa my value389376ea-ed9b-4f6f-88b0-50ad27646ddc
+
+INFO  2018-02-08 15:31:50,649 49996ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-08 15:32:27,078 86424ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-08 15:32:35,177 94523ms Logger                 Log                - dddd
+INFO  2018-02-08 15:32:40,399 99746ms EMessageController     MoveNext           - rt,13
+a,False,_lock=rt,13
+a,change a my value40afee6a-f377-41ab-b672-7c31859cda46
+aa,change aa my valuec9ace979-f571-420c-bd12-e9c7833bd54a id=a ,Message=change a my value40afee6a-f377-41ab-b672-7c31859cda46
+aa,False,_lock=rt,13
+a,change a my value40afee6a-f377-41ab-b672-7c31859cda46
+aa,change aa my valuec9ace979-f571-420c-bd12-e9c7833bd54a id=aa ,Message=change aa my valuec9ace979-f571-420c-bd12-e9c7833bd54a
+
+INFO  2018-02-08 15:32:40,427 99774ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.

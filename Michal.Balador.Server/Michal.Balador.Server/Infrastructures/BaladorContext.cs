@@ -6,6 +6,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Michal.Balador.Contracts.Contract;
 
 namespace Michal.Balador.Infrastructures.Service
 {
@@ -18,6 +19,9 @@ namespace Michal.Balador.Infrastructures.Service
             Log = 5;
         }
         public int Log { get; set; }
+
+        [Import(typeof(IBaladorLogger))]
+        IBaladorLogger _logger;
 
         public Task<object> GetConfiguration(SenderMessages senderMessages)
         {
@@ -45,6 +49,11 @@ namespace Michal.Balador.Infrastructures.Service
         {
             return null;
             //throw new NotImplementedException();
+        }
+
+        public IBaladorLogger GetLogger()
+        {
+            return _logger;
         }
     }
 }

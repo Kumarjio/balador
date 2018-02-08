@@ -22,7 +22,7 @@ namespace Michal.Balador.Contracts.DataModel
         public abstract SenderLandPageConfiguration Register(SenderMessages senderMessages, SignUpSender signUpSender);
 
         //step 2 signin
-        public abstract Task SignIn(SenderMessages senderMessages, SenderLandPageConfiguration configPageLand, SignUpSender senderDetail, NameValueCollection extraDataForm);
+        public abstract Task<ResponseBase> SignIn(SenderMessages senderMessages, SenderLandPageConfiguration configPageLand, SignUpSender senderDetail, NameValueCollection extraDataForm);
 
 
         //step 3 after get from sms message token ,the sender write token and send it back to manager
