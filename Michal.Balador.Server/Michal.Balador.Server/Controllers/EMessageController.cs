@@ -26,17 +26,11 @@ namespace Michal.Balador.Server.Controllers
     {
 
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(EMessageController));
-       // [Import(typeof(IBaladorContext))]
-       // private IBaladorContext _context;
         [ImportMany(typeof(IFactrorySendMessages))]
         IEnumerable<Lazy<IFactrorySendMessages, IDictionary<string, object>>> _senderRules;
 
         public async Task<HttpResponseMessage> Get()
         {
-            //if (_context != null)
-            //{
-            //    var ff=_context.Log;
-            //}
             ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
             List<ResponseSender> senders = new List<ResponseSender>();
             Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
@@ -60,18 +54,15 @@ namespace Michal.Balador.Server.Controllers
                             await manager.NotifyAsync(rs.Id, notifications, null);
                             if (manager is IExposeResult)
                             {
-                               
+
                                 IExposeResult iexposeResult = (IExposeResult)manager;
-                                if (iexposeResult != null && iexposeResult.NotificationResult != null )
+                                if (iexposeResult != null && iexposeResult.NotificationResult != null)
                                 {
-                                    
-                                        foreach (var messageWebHookClient in iexposeResult.NotificationResult.Messages)
-                                        {
-                                            var messageToChange = requestToSend.Messages.Where(p => p.Id == messageWebHookClient.Id).FirstOrDefault();
-                                            if (messageToChange != null)
-                                            {
-                                                messageToChange.Message = messageWebHookClient.Message;
-                                            }
+                                    foreach (var messageWebHookClient in iexposeResult.NotificationResult.Messages)
+                                    {
+                                        var messageToChange = requestToSend.Messages.Where(p => p.Id == messageWebHookClient.Id).FirstOrDefault();
+                                        if (messageToChange != null)
+                                          messageToChange.Message = messageWebHookClient.Message; 
                                     }
                                 }
                             }
@@ -101,7 +92,7 @@ namespace Michal.Balador.Server.Controllers
                     if (sender != null && sender.Result != null)
                         sender.Result.Dispose();
                 }
-            } );
+            });
             foreach (var item in mockData.mocks.Senders)
             {
                 doStuffBlock.Post(item);
@@ -117,75 +108,5 @@ namespace Michal.Balador.Server.Controllers
             };
             return response;
         }
-        }
-
+    }
 }
-
-
-/*
-  public async Task<HttpResponseMessage> Get()
-        {
-            ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
-            List<ResponseSender> senders = new List<ResponseSender>();
-    
-            //Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockSender").FirstOrDefault();
-           Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
-
-           
-                // var sender=await _utah.Value.GetSender(new RegisterSender { Id="someuser",Pws="12345"});
-                MockRepository mockData = new MockRepository();
-
-                mockData.mocks.Senders.AsParallel().ForAll(async rs =>
-                       {
-                           rs.Log = System.Threading.Thread.CurrentThread.ManagedThreadId;
-                           var sender = await _utah.Value.GetSender(rs);
-                           try
-                           {
-                               if (!sender.IsError)
-                               {
-                                   var requestToSend = await mockData.FindMessagesById(rs.Id);
-                               
-                                   if (requestToSend != null)
-                                   {
-                                       requestToSend.Log = rs.Log;
-                                      // var responseToSendWait =  sender.Result.Send(requestToSend);
-                                      //responseToSendWait.Wait();
-                                      //var responseToSend = responseToSendWait.Result;
-                                      //var responseToSendWait = sender.Result.Send(requestToSend).Result;
-
-                                       //resultError.Add(responseToSendWait);
-                                       //Log.Info(responseToSendWait.ToString());
-                                       //var responseToSendWait = await sender.Result.Send(requestToSend);
-                                     var responseToSendWait =  sender.Result.Send(requestToSend).Result;
-                                       resultError.Add(responseToSendWait);
-                                      Log.Info(responseToSendWait.ToString());
-                                   }
-                               }
-                               else
-                               {
-                                   var mes = rs.Log + " " + rs.Id + " " + sender.Message;
-                                   resultError.Add(new ResponseSend { IsError=true,Message= mes });
-                                   Log.Error(mes);
-                               }
-                           }
-                           catch (Exception ee)
-                           {
-                               resultError.Add(new ResponseSend { IsError = true, Message = "unhandle" });
-                               Log.Error(rs.Log + " " + rs.Id + " " + ee);
-                           }
-                           finally
-                           {
-                               if (sender != null && sender.Result != null)
-                                   sender.Result.Dispose();
-                           }
-                       });
-                
-            var response = new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new ObjectContent<ResponseSend[]>(resultError.ToArray(),
-                         new JsonMediaTypeFormatter(),
-                          new MediaTypeWithQualityHeaderValue("application/json"))
-            };
-            return response;
-        }
- */

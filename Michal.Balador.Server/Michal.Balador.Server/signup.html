@@ -3,8 +3,48 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/materialize.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script>
+        $(function () {
+            $(document).on('click', '#share form input[type=submit]', function (e) {
+                e.preventDefault();
+                alert('');
+                /*  do work */
+            })
+        })
+        $(function () {
+            var $form = $('<form />', { action: 'sharer.php', method: 'POST' }),
+                frmSave = $('<div />', { class: 'appm', text: 'Save this' }),
+                frmRName = $('<input />', { id: 'rname', name: 'routename', placeholder: 'Name', type: 'text' }),
+                frmRDesc = $('<input />', { class: 'address', id: 'rdescription', name: 'routedescription', placeholder: 'description', type: 'text' }),
+                frmRTags = $('<input />', { id: 'tags', name: 'routetags', placeholder: 'tags', type: 'text' }),
+                frmButton = $('<input />', { id: 'savebutton', type: 'submit', value: 'Save' });
+
+            $form.append(frmSave, frmRName, frmRDesc, frmRTags, $('<br />'), frmButton).appendTo($('#share'));
+        })
+    </script>
 </head>
 <body>
-
+    TEST<div class="card-panel">
+        <span class="blue-text text-darken-2">This is a card panel with dark blue text</span>
+    </div>
+        <div class="container">
+            <div class="row">
+                <div class="blue lighten-5 col s12 m1 l1">1</div>
+                <div class="blue lighten-4 col s12 m1 l1">1</div>
+                <div class="blue lighten-3 col s12 m1 l1">1</div>
+                <div class="blue lighten-2 col s12 m2 l2">2</div>
+                <div class="blue lighten-1 col s12 m3 l3">2</div>
+                <div class="blue col s12 m4 l4">2</div>
+            </div>
+            <div class="row">
+                <div id="share"></div>
+            </div>
+            </div>
+        
 </body>
 </html>
