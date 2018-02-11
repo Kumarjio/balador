@@ -14,18 +14,43 @@
                 e.preventDefault();
                 alert('');
                 /*  do work */
-            })
-        })
-        $(function () {
-            var $form = $('<form />', { action: 'sharer.php', method: 'POST' }),
-                frmSave = $('<div />', { class: 'appm', text: 'Save this' }),
-                frmRName = $('<input />', { id: 'rname', name: 'routename', placeholder: 'Name', type: 'text' }),
-                frmRDesc = $('<input />', { class: 'address', id: 'rdescription', name: 'routedescription', placeholder: 'description', type: 'text' }),
-                frmRTags = $('<input />', { id: 'tags', name: 'routetags', placeholder: 'tags', type: 'text' }),
-                frmButton = $('<input />', { id: 'savebutton', type: 'submit', value: 'Save' });
+            });
+            $.getJSON("/api/signup", function (data) {
+                var items = [];
+                $.each(data, function (key, val) {
+                  //  items.push("<li id='" + key + "'>" + val + "</li>");
+                    debugger;
+                    var $form = $('<form />', { action: '/api/signup', method: 'POST' });
+                        frmSave = $('<div />', { text: val.Message });
+                        frmRName = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
+                        frmButton = $('<input />', {type: 'submit', value: 'Save' });
+                        var fields = val.Fields;
+                        $div_container = $('<div  />', { class: 'container' });
+                        $div_row = $('<div  />', { class: 'row' });
+                        $div_container.append($div_row);
+                        for (var i = 0; i < fields.length; i++) {
+                            debugger;
+                            var field= fields[i];
+                            var $fieldForm = $('<input />', { name: field.Name, placeholder: field.Title, type: 'text'});
+                            $div_row.append($fieldForm, $('<br />'));
+                        }
+                        $form.append(frmSave, frmRName, $('<br />'), $div_container,frmButton).appendTo($('#share'));
+                });
 
-            $form.append(frmSave, frmRName, frmRDesc, frmRTags, $('<br />'), frmButton).appendTo($('#share'));
+               
+            });
+
         })
+        //$(function () {
+        //    var $form = $('<form />', { action: 'sharer.php', method: 'POST' }),
+        //        frmSave = $('<div />', { class: 'appm', text: 'Save this' }),
+        //        frmRName = $('<input />', { id: 'rname', name: 'routename', placeholder: 'Name', type: 'text' }),
+        //        frmRDesc = $('<input />', { class: 'address', id: 'rdescription', name: 'routedescription', placeholder: 'description', type: 'text' }),
+        //        frmRTags = $('<input />', { id: 'tags', name: 'routetags', placeholder: 'tags', type: 'text' }),
+        //        frmButton = $('<input />', { id: 'savebutton', type: 'submit', value: 'Save' });
+
+        //    $form.append(frmSave, frmRName, frmRDesc, frmRTags, $('<br />'), frmButton).appendTo($('#share'));
+        //})
     </script>
 </head>
 <body>
@@ -33,14 +58,7 @@
         <span class="blue-text text-darken-2">This is a card panel with dark blue text</span>
     </div>
         <div class="container">
-            <div class="row">
-                <div class="blue lighten-5 col s12 m1 l1">1</div>
-                <div class="blue lighten-4 col s12 m1 l1">1</div>
-                <div class="blue lighten-3 col s12 m1 l1">1</div>
-                <div class="blue lighten-2 col s12 m2 l2">2</div>
-                <div class="blue lighten-1 col s12 m3 l3">2</div>
-                <div class="blue col s12 m4 l4">2</div>
-            </div>
+          
             <div class="row">
                 <div id="share"></div>
             </div>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Server.Models
 {
@@ -11,7 +12,7 @@ namespace Michal.Balador.Server.Models
         public string Title { get; set; }
         public string Name { get; set; }
         public string Message { get; set; }
-        public IDictionary<string,string> Fields { get; set; }
+        public List<FieldView> Fields { get; set; }
 
     }
     public class FormsSignThirdPartyToken

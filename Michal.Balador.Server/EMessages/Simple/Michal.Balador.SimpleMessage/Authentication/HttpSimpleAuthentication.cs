@@ -51,9 +51,9 @@ namespace Michal.Balador.SimpleMessage
                 TextLandPageTemplate="http test",
                 
             };
-            senderLandPageConfiguration.ExtraFields.Add("pws", "write password");
-            senderLandPageConfiguration.ExtraFields.Add("client_id", "client");
-            senderLandPageConfiguration.ExtraFields.Add("grant_type", "grant type");
+            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "pws", Title = "write password" });
+            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "client_id", Title = "client" });
+            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "grant_type", Title = "grant type" });
 
 
 
