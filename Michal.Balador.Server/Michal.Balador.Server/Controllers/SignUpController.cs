@@ -33,7 +33,7 @@ namespace Michal.Balador.Server.Controllers
         public async Task<HttpResponseMessage> Get()
         {
             List<FormSignThirdPartyToken> authentications = new List<FormSignThirdPartyToken>();
-            
+
             MockRepository mockData = new MockRepository();
             foreach (var senderRule in _senderRules)
             {
@@ -46,8 +46,8 @@ namespace Michal.Balador.Server.Controllers
                     Id = configuration.Id,
                     Fields = configuration.ExtraFields,
                     Message = configuration.TextLandPageTemplate,
-                    Name=authenticationManager.AuthenticationName,
-                    Title=authenticationManager.AuthenticationTitle
+                    Name = authenticationManager.AuthenticationName,
+                    Title = authenticationManager.AuthenticationTitle
                 });
             }
             var response = new HttpResponseMessage(HttpStatusCode.OK)
@@ -58,5 +58,32 @@ namespace Michal.Balador.Server.Controllers
             };
             return response;
         }
+
+
+        [HttpPost]
+        public async Task<HttpResponseMessage> Post(HttpRequestMessage request)
+        {
+
+            ResponseBase responseResult = new ResponseBase();
+            try
+            {
+                var str = await request.Content.ReadAsStringAsync();
+
+            }
+            catch (Exception eee)
+            {
+                responseResult.IsError = true;
+                responseResult.Message = eee.Message;
+                //throw;
+            }
+            var response = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ObjectContent<ResponseBase>(responseResult,
+                        new JsonMediaTypeFormatter(),
+                         new MediaTypeWithQualityHeaderValue("application/json"))
+            };
+            return response;
+        }
     }
-}
+        
+    }
