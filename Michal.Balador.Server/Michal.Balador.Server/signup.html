@@ -14,7 +14,7 @@
             $(document).on('click', '#share form input[type=submit]', function (e) {
                 e.preventDefault();
                 debugger;
-                //var idindex= $(this).data("index");
+                var idindex= $(this).data("index");
                 //for (var item in _d){
                 //    if (item.Id == idindex) {
                 //        break;
@@ -30,8 +30,14 @@
                     contentType: 'application/x-www-form-urlencoded',
                     success: function (got) {
                         debugger;
-                        
-                        return alert("shortened url: " + got.id);
+                        //frmSignup_Michal.Balador.SimpleMessage.MockHttpSend
+                        var frmToken = "#frmToken_" + idindex;
+                        var frmSignup = "#frmSignup_" + idindex;
+                        $formToken = $(frmToken);
+                        $frmSignup = $(frmSignup);
+                        $formToken.show();
+                        $frmSignup.hide();
+
                     }
                 });
                 //$.post("/api/signup", {
@@ -45,28 +51,35 @@
                 var items = [];
                 $.each(data, function (key, val) {
                     _d.push(val);
-                    //var $formToken = $('<form />', { action: '/api/setToken', method: 'POST', id: "frmToken_" + val.Id });
-                    //var fTokenHidden = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
-                    //var $fieldToken = $('<input />', { name: "txtToken", placeholder: "Write Token", type: 'text' });
-                    //var btnValidate = $('<input />', { type: 'submit', value: 'Validate' });
-                    //$form.append($formToken, fTokenHidden, $fieldToken, $('<br />'), btnValidate).appendTo($('#tokens'));
-                    //$formToken.hide();
+                    $div_container = $('<div  />', { class: 'container',id:'div_'+val.Id });
+                    $div_row = $('<div  />', { class: 'row' });
+               
+                    var $frmToken = $('<form />', { action: '/api/setToken', method: 'POST', id: "frmToken_" + val.Id });
+                    //$formToken.data("frmtokenid", val.Id);
+                    var fTokenHidden = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
+                    var $fieldToken = $('<input />', { name: "txtToken", placeholder: "Write Token", type: 'text' });
+                    var btnValidate = $('<input />', { type: 'button', value: 'Validate' });
+                    $frmToken.append( fTokenHidden, $fieldToken, $('<br />'), btnValidate).appendTo($div_container);
+                    $frmToken.hide();
 
-                    var $form = $('<form />', { action: '/api/signup', method: 'POST' });
+                    var $form = $('<form />', { action: '/api/signup', method: 'POST', id: "frmSignup_" + val.Id });
+                    $form.data("frmsignupid", val.Id);
                     var frmSave = $('<div />', { text: val.Message });
                     var frmRName = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
                     var frmButton = $('<input />', { type: 'submit', value: 'Apply' });
                     frmButton.data("index", val.Id);
                     var fields = val.Fields;
-                    $div_container = $('<div  />', { class: 'container' });
-                    $div_row = $('<div  />', { class: 'row' });
+                
                     $div_container.append($div_row);
                     for (var i = 0; i < fields.length; i++) {
                         var field = fields[i];
                         var $fieldForm = $('<input />', { name: field.Name, placeholder: field.Title, type: 'text' });
                         $div_row.append($fieldForm, $('<br />'));
                     }
-                    $form.append(frmSave, frmRName, $('<br />'), $div_container, frmButton).appendTo($('#share'));
+                    //$form.append(frmSave, frmRName, $('<br />'), $div_container, frmButton).appendTo($('#share'));
+                    $form.append(frmSave, $('<br />'),frmRName,  $('<br />'), frmButton).appendTo($div_container);
+                    
+                    $div_container.append($form).appendTo($('#share'));
                 });
 
 
@@ -85,10 +98,7 @@
             <div id="share"></div>
 
         </div>
-        <div class="row">
-            <div id="tokens"></div>
-
-        </div>
+     
     </div>
 
 </body>

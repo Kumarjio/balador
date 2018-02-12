@@ -41,7 +41,6 @@ namespace Michal.Balador.SimpleMessage
 
         public override SenderLandPageConfiguration Register( SignUpSender signUpSender)
         {
-
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.SenderMessages)
             {
                 Logo = "",
@@ -52,9 +51,6 @@ namespace Michal.Balador.SimpleMessage
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "pws", Title = "write password" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "client_id", Title = "client" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "grant_type", Title = "grant type" });
-
-
-
             return senderLandPageConfiguration;
         }
 
