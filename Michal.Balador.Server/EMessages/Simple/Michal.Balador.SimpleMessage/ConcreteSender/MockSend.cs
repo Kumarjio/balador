@@ -26,7 +26,7 @@ namespace Michal.Balador.SimpleMessage
 
         public override AuthenticationManager GetAuthenticationManager()
         {
-            return new HttpSimpleAuthentication(Context,this);
+            return new HttpLiteAuthentication(Context,this);
         }
 
         public override bool IsAuthorized()

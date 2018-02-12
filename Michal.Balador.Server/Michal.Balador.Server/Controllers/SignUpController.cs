@@ -40,7 +40,7 @@ namespace Michal.Balador.Server.Controllers
             {
                 var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
                 var authenticationManager = sender.Result.GetAuthenticationManager();
-                var configuration = authenticationManager.Register(new SignUpSender { Id = "33" });
+                var configuration = authenticationManager.Register(new SignUpSender { Id = "rt" });
 
                 authentications.Add(new FormSignThirdPartyToken
                 {
@@ -63,16 +63,22 @@ namespace Michal.Balador.Server.Controllers
 
         [HttpPost]
         public async Task<HttpResponseMessage> Post(HttpRequestMessage request)
-      //        public async Task<HttpResponseMessage> Post(NameValueCollection request)
         {
 
             ResponseBase responseResult = new ResponseBase();
             try
             {
                 NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
-                //       var ddd = await request.Content.ReadAsAsync<NameValueCollection>(); 
-                //     var str = await request.Content.ReadAsStringAsync();
-
+                var id = formData["formType"];
+                foreach (var senderRule in _senderRules)
+                {
+                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
+                    if (!sender.IsError && sender.Result != null && sender.Result.ServiceName == id)
+                    {
+                        var authenticationManager = sender.Result.GetAuthenticationManager();
+                        responseResult = await authenticationManager.SignIn(new SignUpSender { Id = "rt" }, formData);
+                    }
+                }
             }
             catch (Exception eee)
             {
@@ -89,5 +95,5 @@ namespace Michal.Balador.Server.Controllers
             return response;
         }
     }
-        
-    }
+
+}

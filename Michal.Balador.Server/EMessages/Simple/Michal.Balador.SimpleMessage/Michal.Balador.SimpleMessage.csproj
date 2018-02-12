@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\HttpLiteAuthentication.cs" />
     <Compile Include="Authentication\HttpSimpleAuthentication.cs" />
     <Compile Include="Sockets\DisconnectedException.cs" />
     <Compile Include="Sockets\HttpClientTest.cs" />

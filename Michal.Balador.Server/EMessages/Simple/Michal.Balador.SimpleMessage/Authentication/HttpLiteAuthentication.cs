@@ -12,9 +12,9 @@ using Michal.Balador.Contracts.DataModel;
 namespace Michal.Balador.SimpleMessage
 {
    
-    public class HttpSimpleAuthentication : AuthenticationManager
+    public class HttpLiteAuthentication : AuthenticationManager
     {
-        public HttpSimpleAuthentication(IBaladorContext context,SenderMessages senderMessages) : base(context, senderMessages)
+        public HttpLiteAuthentication(IBaladorContext context,SenderMessages senderMessages) : base(context, senderMessages)
         {
         }
 
@@ -23,14 +23,14 @@ namespace Michal.Balador.SimpleMessage
 
             get
             {
-                return "Http Simple Authentication";
+                return "Http Lite Authentication";
             }
         }
 
         public override string AuthenticationName {
         get
             {
-                return "HttpSimpleAuthentication";
+                return "HttpLiteAuthentication";
             }
         }
 
@@ -45,24 +45,19 @@ namespace Michal.Balador.SimpleMessage
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.SenderMessages)
             {
                 Logo = "",
-                MessageEmailTemplate= "http test",
-                TextLandPageTemplate="http test",
+                MessageEmailTemplate= "http lite",
+                TextLandPageTemplate= "http lite",
                 
             };
-            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "pws", Title = "write password" });
-            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "client_id", Title = "client" });
-            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "grant_type", Title = "grant type" });
-
-
-
+            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "pws", Title = "write ONLY password " });
+ 
             return senderLandPageConfiguration;
         }
 
         public override async Task<ResponseBase> SignIn(SignUpSender senderDetail, NameValueCollection extraDataForm)
         {
-            ResponseBase responseBase = new ResponseBase();
-            responseBase.IsError = true;
-            var url = "http://localhost:8988/token";
+            ResponseBase responseBase = new ResponseBase(); responseBase.IsError = true;
+            var url = "http://localhost:1945/token";
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders
              .Accept
@@ -70,8 +65,8 @@ namespace Michal.Balador.SimpleMessage
             var dict = new Dictionary<string, string>();
 
             var pws=extraDataForm["pws"];
-            var grant_type = extraDataForm["grant_type"];
-            var client_id = extraDataForm["client_id"];
+            var grant_type = "password";
+            var client_id = "ngAutoApp";
             
             dict.Add("username", senderDetail.Id);
             dict.Add("password", pws);
