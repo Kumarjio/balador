@@ -9,27 +9,41 @@
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script>
+        var _d=[];
         $(function () {
             $(document).on('click', '#share form input[type=submit]', function (e) {
                 e.preventDefault();
-                alert('');
-                /*  do work */
+                debugger;
+               //var idindex= $(this).data("index");
+               //for (var item in _d){
+               //    if (item.Id == idindex) {
+               //        break;
+
+               //    }
+               //}
+               var $form = $(this).parent();
+               var formData=$form.serialize();
+               $.post("/api/signup", {
+                   formData
+                }, function (r) {
+                    debugger;
+                    alert('ok');
+                });
             });
             $.getJSON("/api/signup", function (data) {
                 var items = [];
                 $.each(data, function (key, val) {
-                  //  items.push("<li id='" + key + "'>" + val + "</li>");
-                    debugger;
-                    var $form = $('<form />', { action: '/api/signup', method: 'POST' });
+                        _d.push(val);
+                        var $form = $('<form />', { action: '/api/signup', method: 'POST' });
                         frmSave = $('<div />', { text: val.Message });
                         frmRName = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
-                        frmButton = $('<input />', {type: 'submit', value: 'Save' });
+                        frmButton = $('<input />', { type: 'submit', value: 'Save' });
+                        frmButton.data("index", val.Id);
                         var fields = val.Fields;
                         $div_container = $('<div  />', { class: 'container' });
                         $div_row = $('<div  />', { class: 'row' });
                         $div_container.append($div_row);
                         for (var i = 0; i < fields.length; i++) {
-                            debugger;
                             var field= fields[i];
                             var $fieldForm = $('<input />', { name: field.Name, placeholder: field.Title, type: 'text'});
                             $div_row.append($fieldForm, $('<br />'));
@@ -41,16 +55,6 @@
             });
 
         })
-        //$(function () {
-        //    var $form = $('<form />', { action: 'sharer.php', method: 'POST' }),
-        //        frmSave = $('<div />', { class: 'appm', text: 'Save this' }),
-        //        frmRName = $('<input />', { id: 'rname', name: 'routename', placeholder: 'Name', type: 'text' }),
-        //        frmRDesc = $('<input />', { class: 'address', id: 'rdescription', name: 'routedescription', placeholder: 'description', type: 'text' }),
-        //        frmRTags = $('<input />', { id: 'tags', name: 'routetags', placeholder: 'tags', type: 'text' }),
-        //        frmButton = $('<input />', { id: 'savebutton', type: 'submit', value: 'Save' });
-
-        //    $form.append(frmSave, frmRName, frmRDesc, frmRTags, $('<br />'), frmButton).appendTo($('#share'));
-        //})
     </script>
 </head>
 <body>

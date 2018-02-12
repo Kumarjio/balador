@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Net;
@@ -62,12 +63,15 @@ namespace Michal.Balador.Server.Controllers
 
         [HttpPost]
         public async Task<HttpResponseMessage> Post(HttpRequestMessage request)
+      //        public async Task<HttpResponseMessage> Post(NameValueCollection request)
         {
 
             ResponseBase responseResult = new ResponseBase();
             try
             {
-                var str = await request.Content.ReadAsStringAsync();
+                NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
+                //       var ddd = await request.Content.ReadAsAsync<NameValueCollection>(); 
+                //     var str = await request.Content.ReadAsStringAsync();
 
             }
             catch (Exception eee)
