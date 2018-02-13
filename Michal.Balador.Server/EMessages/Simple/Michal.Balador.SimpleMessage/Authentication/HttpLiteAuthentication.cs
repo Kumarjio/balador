@@ -34,10 +34,12 @@ namespace Michal.Balador.SimpleMessage
             }
         }
 
-        public override Task<ResponseBase> GetObservableToken(SignUpSender signUpSender, string token)
-        {
-            return null;
-        }
+       
+
+        //public override Task<ResponseBase> GetObservableToken(SignUpSender signUpSender, string token)
+        //{
+        //    return null;
+        //}
 
         public override SenderLandPageConfiguration Register( SignUpSender signUpSender)
         {
@@ -49,14 +51,16 @@ namespace Michal.Balador.SimpleMessage
                 TextLandPageTemplate= "http lite",
                 
             };
-            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "pws", Title = "write ONLY password " });
+            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "token", Title = "write token only " });
  
             return senderLandPageConfiguration;
         }
 
-        public override async Task<ResponseBase> SignIn(SignUpSender senderDetail, NameValueCollection extraDataForm)
+        public override async Task<Response<AuthenticationUser>> SignIn(SignUpSender senderDetail, NameValueCollection extraDataForm)
         {
-            ResponseBase responseBase = new ResponseBase(); responseBase.IsError = true;
+            var response = new Response<AuthenticationUser>();
+            response.IsError = true;
+            response.Result = new AuthenticationUser { IsTwoFactorAuthentication = false, UserId = senderDetail.Id };
             var url = "http://localhost:1945/token";
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders
@@ -64,7 +68,7 @@ namespace Michal.Balador.SimpleMessage
              .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var dict = new Dictionary<string, string>();
 
-            var pws=extraDataForm["pws"];
+            var pws=extraDataForm["token"];
             var grant_type = "password";
             var client_id = "ngAutoApp";
             
@@ -77,13 +81,13 @@ namespace Michal.Balador.SimpleMessage
             var res = await httpClient.SendAsync(req);
             if (res.IsSuccessStatusCode)
             {
-                responseBase.IsError = false;
+                response.IsError = false;
                 var stringRes = await res.Content.ReadAsStringAsync();
                 Context.GetLogger().Log(System.Diagnostics.TraceLevel.Verbose, stringRes);
 
             }
-
-            return responseBase;
+            //response.
+            return response;
 
         }
     }

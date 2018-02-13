@@ -27,19 +27,20 @@ namespace Michal.Balador.SimpleMessage
             }
         }
 
-        public override string AuthenticationName {
+        public override string AuthenticationName
+        {
         get
             {
                 return "HttpSimpleAuthentication";
             }
         }
-
+      
         public override Task<ResponseBase> GetObservableToken(SignUpSender signUpSender, string token)
         {
             return null;
         }
 
-        public override SenderLandPageConfiguration Register( SignUpSender signUpSender)
+        public override SenderLandPageConfiguration Register(SignUpSender signUpSender)
         {
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.SenderMessages)
             {
@@ -54,10 +55,11 @@ namespace Michal.Balador.SimpleMessage
             return senderLandPageConfiguration;
         }
 
-        public override async Task<ResponseBase> SignIn(SignUpSender senderDetail, NameValueCollection extraDataForm)
+        public override async Task<Response<AuthenticationUser>> SignIn(SignUpSender senderDetail, NameValueCollection extraDataForm)
         {
-            ResponseBase responseBase = new ResponseBase();
-            responseBase.IsError = true;
+            var response = new Response<AuthenticationUser>();
+            response.Result = new AuthenticationUser { IsTwoFactorAuthentication = true, UserId = senderDetail.Id };
+            response.IsError = true;
             var url = "http://localhost:8988/token";
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders
@@ -78,13 +80,13 @@ namespace Michal.Balador.SimpleMessage
             var res = await httpClient.SendAsync(req);
             if (res.IsSuccessStatusCode)
             {
-                responseBase.IsError = false;
+                response.IsError = false;
                 var stringRes = await res.Content.ReadAsStringAsync();
                 Context.GetLogger().Log(System.Diagnostics.TraceLevel.Verbose, stringRes);
 
             }
 
-            return responseBase;
+            return response;
 
         }
     }
