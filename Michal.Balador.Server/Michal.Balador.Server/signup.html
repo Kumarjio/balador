@@ -15,39 +15,9 @@
         };
 
         $(function () {
-            $(document).on('click', '#share form input[type=submit]', function (e) {
-                e.preventDefault();
-                debugger;
-                var idindex = $(this).data("index");
-
-                var $form = $(this).parent();
-                var formData = $form.serialize();
-                $.ajax({
-                    url: '/api/signup',
-                    type: 'POST',
-                    data: formData,
-                    contentType: 'application/x-www-form-urlencoded',
-                    success: function (got) {
-                        debugger;
-                        //frmSignup_Michal.Balador.SimpleMessage.MockHttpSend
-                        var frmToken = "frmToken_" + idindex;
-                        var frmSignup = "frmSignup_" + idindex;
-
-                        formToken = document.getElementById(frmToken);
-                      //  ddd = formToken.length;
-                        formSignup = document.getElementById(frmSignup);
-                       formToken.style.display = "block";
-                       formSignup.style.display = "none";
-                        //formSignup.hide();
-
-                    }
-                });
-
-            });
             $(document).on('click', '#share form input[type=button]', function (e) {
                 e.preventDefault();
-                debugger;
-                alert(1);
+                debugger; alert(1);
                 return;
                 var idindex = $(this).data("index");
 
@@ -59,28 +29,69 @@
                     data: formData,
                     contentType: 'application/x-www-form-urlencoded',
                     success: function (got) {
+                      
                         debugger;
                         if (got.IsError) {
+                           alert(got.Message);
+                           return;
+                        }
+
+                        //frmSignup_Michal.Balador.SimpleMessage.MockHttpSend
+                        var frmToken = "frmToken_" + idindex;
+                        var frmSignup = "frmSignup_" + idindex;
+
+                        formToken = document.getElementById(frmToken);
+                        formSignup = document.getElementById(frmSignup);
+
+
+                       formToken.style.display = "block";
+                       formSignup.style.display = "none";
+
+                        //formSignup.hide();
+
+                    }
+                });
+
+            });
+            $(document).on('click', '#share form input[type=submit]', function (e) {
+                e.preventDefault();
+                debugger;
+                
+                var idindex = $(this).data("index");
+
+                var $form = $(this).parent();
+                var formData = $form.serialize();
+                $.ajax({
+                    url: '/api/signup',
+                    type: 'POST',
+                    data: formData,
+                    contentType: 'application/x-www-form-urlencoded',
+                    success: function (got) {
+                        debugger;
+                        var tokenText = "frmToken_" + idindex;
+                        var signupText = "frmSignup_" + idindex;
+                        var okText = "ok_" + idindex;
+                        var errText = "err_" + idindex;
+                        formErr = document.getElementById(signupText);
+                        if (got.IsError) {
                             alert(got.Message);
+                         //  formErr.style.display = "block";
                             return;
                         }
                         if (got.Result==null) {
                             alert("NULL!!!");
                             return;
                         }
-                        var frmToken = "frmToken_" + idindex;
-                        var frmSignup = "frmSignup_" + idindex;
+                        formToken = document.getElementById(tokenText);
+                        formSignup = document.getElementById(signupText);
+                        formOkComplete = document.getElementById(okText);
+                        formSignup.style.display = "none";
 
-                        formSignup = document.getElementById(frmSignup);
                         if (got.Result.IsTwoFactorAuthentication ==true) {
-                            alert("NULL!!!");
+                            formToken.style.display = "block";
                             return;
                         }
-                      
-                        formToken = document.getElementById(frmToken);
-
-                        formToken.style.display = "block";
-                        formSignup.style.display = "none";
+                        formOkComplete.style.display = "block";
                     }
                 });
             });
@@ -89,16 +100,16 @@
                 var items = [];
                 $.each(data, function (key, val) {
                     _d.push(val);
-                    //var completeText = $('<div />', { id: 'ok_' + val.Id , text: "Complete " + val.Message });
+                    $div_container = $('<div  />', { class: 'container', id: 'div_' + val.Id });
+                    var completeText = $('<div />', { id: 'ok_' + val.Id , text: "Complete " + val.Message });
                     
-                    //completeText.appendTo($div_container);
-                    //var errText = $('<div />', { id: 'err_' + val.Id, text: "Error on " + val.Message });
-                    
-                    //completeText.appendTo($div_container);
-                    //errText.appendTo($div_container);
-                    //completeText.hide();
-                    //errText.hide();
-                    $div_container = $('<div  />', { class: 'container',id:'div_'+val.Id });
+                    completeText.appendTo($div_container);
+                    var errText = $('<div />', { id: 'err_' + val.Id, text: "Error on " + val.Message });
+                    errText.appendTo($div_container);
+                    completeText.hide();
+                    errText.hide();
+
+                   
                     $div_row = $('<div  />', { class: 'row' });
                     var frmTokenMessage= $('<div />', { text: val.Message });
                     var $frmToken = $('<form />', { action: '/api/setToken', method: 'POST', id: "frmToken_" + val.Id });

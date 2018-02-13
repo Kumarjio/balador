@@ -59,7 +59,7 @@ namespace Michal.Balador.SimpleMessage
         public override async Task<Response<AuthenticationUser>> SignIn(SignUpSender senderDetail, NameValueCollection extraDataForm)
         {
             var response = new Response<AuthenticationUser>();
-            response.IsError = true;
+            response.IsError = false;
             response.Result = new AuthenticationUser { IsTwoFactorAuthentication = false, UserId = senderDetail.Id };
             var url = "http://localhost:1945/token";
             var httpClient = new HttpClient();
@@ -79,13 +79,13 @@ namespace Michal.Balador.SimpleMessage
 
             var req = new HttpRequestMessage(HttpMethod.Post, url) { Content = new FormUrlEncodedContent(dict) };
             var res = await httpClient.SendAsync(req);
-            if (res.IsSuccessStatusCode)
-            {
-                response.IsError = false;
-                var stringRes = await res.Content.ReadAsStringAsync();
-                Context.GetLogger().Log(System.Diagnostics.TraceLevel.Verbose, stringRes);
+            //if (res.IsSuccessStatusCode)
+            //{
+            //    response.IsError = false;
+            //    var stringRes = await res.Content.ReadAsStringAsync();
+            //    Context.GetLogger().Log(System.Diagnostics.TraceLevel.Verbose, stringRes);
 
-            }
+            //}
             //response.
             return response;
 
