@@ -60,20 +60,14 @@
                     contentType: 'application/x-www-form-urlencoded',
                     success: function (got) {
                         debugger;
-                        //frmSignup_Michal.Balador.SimpleMessage.MockHttpSend
                         var frmToken = "frmToken_" + idindex;
                         var frmSignup = "frmSignup_" + idindex;
-
                         formToken = document.getElementById(frmToken);
-                        //  ddd = formToken.length;
                         formSignup = document.getElementById(frmSignup);
                         formToken.style.display = "block";
                         formSignup.style.display = "none";
-                        //formSignup.hide();
-
                     }
                 });
-
             });
 
             $.getJSON("/api/signup", function (data) {
@@ -84,7 +78,6 @@
                     $div_row = $('<div  />', { class: 'row' });
                     var frmTokenMessage= $('<div />', { text: val.Message });
                     var $frmToken = $('<form />', { action: '/api/setToken', method: 'POST', id: "frmToken_" + val.Id });
-                    //$formToken.data("frmtokenid", val.Id);
                     var fTokenHidden = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
                     var $fieldToken = $('<input />', { name: "txtToken", placeholder: "Write Token", type: 'text' });
                     var btnValidate = $('<input />', { type: 'button', value: 'Validate' });
@@ -106,13 +99,9 @@
                         $div_row.append($fieldForm, $('<br />'));
                     }
                     frmSave.append($div_row);
-                
                     $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
-                    
                     $div_container.append($form).appendTo($('#share'));
                 });
-
-
             });
 
         })
