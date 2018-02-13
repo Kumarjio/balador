@@ -60,10 +60,25 @@
                     contentType: 'application/x-www-form-urlencoded',
                     success: function (got) {
                         debugger;
+                        if (got.IsError) {
+                            alert(got.Message);
+                            return;
+                        }
+                        if (got.Result==null) {
+                            alert("NULL!!!");
+                            return;
+                        }
                         var frmToken = "frmToken_" + idindex;
                         var frmSignup = "frmSignup_" + idindex;
-                        formToken = document.getElementById(frmToken);
+
                         formSignup = document.getElementById(frmSignup);
+                        if (got.Result.IsTwoFactorAuthentication ==true) {
+                            alert("NULL!!!");
+                            return;
+                        }
+                      
+                        formToken = document.getElementById(frmToken);
+
                         formToken.style.display = "block";
                         formSignup.style.display = "none";
                     }
@@ -74,6 +89,15 @@
                 var items = [];
                 $.each(data, function (key, val) {
                     _d.push(val);
+                    //var completeText = $('<div />', { id: 'ok_' + val.Id , text: "Complete " + val.Message });
+                    
+                    //completeText.appendTo($div_container);
+                    //var errText = $('<div />', { id: 'err_' + val.Id, text: "Error on " + val.Message });
+                    
+                    //completeText.appendTo($div_container);
+                    //errText.appendTo($div_container);
+                    //completeText.hide();
+                    //errText.hide();
                     $div_container = $('<div  />', { class: 'container',id:'div_'+val.Id });
                     $div_row = $('<div  />', { class: 'row' });
                     var frmTokenMessage= $('<div />', { text: val.Message });
