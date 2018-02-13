@@ -28,9 +28,12 @@ namespace Michal.Balador.Infrastructures.Service
             throw new NotImplementedException();
         }
 
-        public Task<ResponseBase> SetConfiguration(SenderMessages senderMessages, object config)
+        public async Task<ResponseBase>  SetConfiguration(SenderMessages senderMessages, object config)
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
+            _logger.Log(System.Diagnostics.TraceLevel.Info, config.ToString());
+            return await Task.FromResult<ResponseBase>(new ResponseBase { IsError = false, Message = "" });
+
         }
 
         public  Task<object> GetContact(SenderMessages senderMessages, string id)

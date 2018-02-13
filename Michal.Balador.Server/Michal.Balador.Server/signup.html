@@ -17,42 +17,42 @@
         $(function () {
             $(document).on('click', '#share form input[type=button]', function (e) {
                 e.preventDefault();
-                debugger; alert(1);
-                return;
+                debugger;
                 var idindex = $(this).data("index");
 
                 var $form = $(this).parent();
                 var formData = $form.serialize();
                 $.ajax({
-                    url: '/api/signup',
+                    url: '/api/setToken',
                     type: 'POST',
                     data: formData,
                     contentType: 'application/x-www-form-urlencoded',
                     success: function (got) {
-                      
                         debugger;
                         if (got.IsError) {
                            alert(got.Message);
                            return;
                         }
+                        var tokenText = "frmToken_" + idindex;
+                        var signupText = "frmSignup_" + idindex;
+                        var okText = "ok_" + idindex;
+                        var errText = "err_" + idindex;
 
-                        //frmSignup_Michal.Balador.SimpleMessage.MockHttpSend
-                        var frmToken = "frmToken_" + idindex;
-                        var frmSignup = "frmSignup_" + idindex;
-
-                        formToken = document.getElementById(frmToken);
-                        formSignup = document.getElementById(frmSignup);
-
-
-                       formToken.style.display = "block";
-                       formSignup.style.display = "none";
-
-                        //formSignup.hide();
-
+                        formErr = document.getElementById(signupText);
+                        if (got.IsError) {
+                            alert(got.Message);
+                            //  formErr.style.display = "block";
+                            return;
+                        }
+                        formToken = document.getElementById(tokenText);
+                        formSignup = document.getElementById(signupText);
+                        formOkComplete = document.getElementById(okText);
+                        formSignup.style.display = "none";
+                        formOkComplete.style.display = "block";
                     }
                 });
-
             });
+
             $(document).on('click', '#share form input[type=submit]', function (e) {
                 e.preventDefault();
                 debugger;
@@ -62,7 +62,7 @@
                 var $form = $(this).parent();
                 var formData = $form.serialize();
                 $.ajax({
-                    url: '/api/signup',
+                    url: '/api/signIn',
                     type: 'POST',
                     data: formData,
                     contentType: 'application/x-www-form-urlencoded',

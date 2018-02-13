@@ -62,9 +62,9 @@ namespace Michal.Balador.Server.Controllers
 
 
         [HttpPost]
-        public async Task<HttpResponseMessage> Post(HttpRequestMessage request)
+        [Route("api/signIn")]
+        public async Task<HttpResponseMessage> SignIn(HttpRequestMessage request)
         {
-
             ResponseBase responseResult = new ResponseBase();
             try
             {
@@ -77,6 +77,42 @@ namespace Michal.Balador.Server.Controllers
                     {
                         var authenticationManager = sender.Result.GetAuthenticationManager();
                         responseResult = await authenticationManager.SignIn(new SignUpSender { Id = "rt" }, formData);
+                        break;
+                    }
+                }
+            }
+            catch (Exception eee)
+            {
+                responseResult.IsError = true;
+                responseResult.Message = eee.Message;
+            }
+            var response = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ObjectContent<ResponseBase>(responseResult,
+                        new JsonMediaTypeFormatter(),
+                         new MediaTypeWithQualityHeaderValue("application/json"))
+            };
+            return response;
+        }
+
+        [HttpPost]
+        [Route("api/SetToken")]
+        public async Task<HttpResponseMessage> SetToken(HttpRequestMessage request)
+        {
+            ResponseBase responseResult = new ResponseBase();
+            try
+            {
+                NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
+                var id = formData["formType"];
+                var token = formData["txtToken"];
+                foreach (var senderRule in _senderRules)
+                {
+                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
+                    if (!sender.IsError && sender.Result != null && sender.Result.ServiceName == id)
+                    {
+                        var authenticationManager = sender.Result.GetAuthenticationManager();
+                        responseResult = await authenticationManager.GetObservableToken(new SignUpSender { Id = "rt" }, token);
+                        break;
                     }
                 }
             }
@@ -94,6 +130,7 @@ namespace Michal.Balador.Server.Controllers
             };
             return response;
         }
+
     }
 
 }
