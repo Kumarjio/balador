@@ -10,17 +10,16 @@
     <script src="js/materialize.js"></script>
     <script>
         var _d = [];
+        window.$$ = function (selector) {
+            return document.querySelector(selector);
+        };
+
         $(function () {
             $(document).on('click', '#share form input[type=submit]', function (e) {
                 e.preventDefault();
                 debugger;
-                var idindex= $(this).data("index");
-                //for (var item in _d){
-                //    if (item.Id == idindex) {
-                //        break;
+                var idindex = $(this).data("index");
 
-                //    }
-                //}
                 var $form = $(this).parent();
                 var formData = $form.serialize();
                 $.ajax({
@@ -31,35 +30,65 @@
                     success: function (got) {
                         debugger;
                         //frmSignup_Michal.Balador.SimpleMessage.MockHttpSend
-                        var frmToken = "#frmToken_" + idindex;
-                        var frmSignup = "#frmSignup_" + idindex;
-                        $formToken = $(frmToken);
-                        $frmSignup = $(frmSignup);
-                        $formToken.show();
-                        $frmSignup.hide();
+                        var frmToken = "frmToken_" + idindex;
+                        var frmSignup = "frmSignup_" + idindex;
+
+                        formToken = document.getElementById(frmToken);
+                      //  ddd = formToken.length;
+                        formSignup = document.getElementById(frmSignup);
+                       formToken.style.display = "block";
+                       formSignup.style.display = "none";
+                        //formSignup.hide();
 
                     }
                 });
-                //$.post("/api/signup", {
-                //    formData
-                // }, function (r) {
-                //     debugger;
-                //     alert('ok');
-                // });
+
             });
+            $(document).on('click', '#share form input[type=button]', function (e) {
+                e.preventDefault();
+                debugger;
+                alert(1);
+                return;
+                var idindex = $(this).data("index");
+
+                var $form = $(this).parent();
+                var formData = $form.serialize();
+                $.ajax({
+                    url: '/api/signup',
+                    type: 'POST',
+                    data: formData,
+                    contentType: 'application/x-www-form-urlencoded',
+                    success: function (got) {
+                        debugger;
+                        //frmSignup_Michal.Balador.SimpleMessage.MockHttpSend
+                        var frmToken = "frmToken_" + idindex;
+                        var frmSignup = "frmSignup_" + idindex;
+
+                        formToken = document.getElementById(frmToken);
+                        //  ddd = formToken.length;
+                        formSignup = document.getElementById(frmSignup);
+                        formToken.style.display = "block";
+                        formSignup.style.display = "none";
+                        //formSignup.hide();
+
+                    }
+                });
+
+            });
+
             $.getJSON("/api/signup", function (data) {
                 var items = [];
                 $.each(data, function (key, val) {
                     _d.push(val);
                     $div_container = $('<div  />', { class: 'container',id:'div_'+val.Id });
                     $div_row = $('<div  />', { class: 'row' });
-               
+                    var frmTokenMessage= $('<div />', { text: val.Message });
                     var $frmToken = $('<form />', { action: '/api/setToken', method: 'POST', id: "frmToken_" + val.Id });
                     //$formToken.data("frmtokenid", val.Id);
                     var fTokenHidden = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
                     var $fieldToken = $('<input />', { name: "txtToken", placeholder: "Write Token", type: 'text' });
                     var btnValidate = $('<input />', { type: 'button', value: 'Validate' });
-                    $frmToken.append( fTokenHidden, $fieldToken, $('<br />'), btnValidate).appendTo($div_container);
+                    $frmToken.append(frmTokenMessage, fTokenHidden, $fieldToken, $('<br />'), btnValidate).appendTo($div_container);
                     $frmToken.hide();
 
                     var $form = $('<form />', { action: '/api/signup', method: 'POST', id: "frmSignup_" + val.Id });
@@ -69,15 +98,16 @@
                     var frmButton = $('<input />', { type: 'submit', value: 'Apply' });
                     frmButton.data("index", val.Id);
                     var fields = val.Fields;
-                
-                    $div_container.append($div_row);
+                    $form.show();
+              
                     for (var i = 0; i < fields.length; i++) {
                         var field = fields[i];
                         var $fieldForm = $('<input />', { name: field.Name, placeholder: field.Title, type: 'text' });
                         $div_row.append($fieldForm, $('<br />'));
                     }
-                    //$form.append(frmSave, frmRName, $('<br />'), $div_container, frmButton).appendTo($('#share'));
-                    $form.append(frmSave, $('<br />'),frmRName,  $('<br />'), frmButton).appendTo($div_container);
+                    frmSave.append($div_row);
+                
+                    $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
                     
                     $div_container.append($form).appendTo($('#share'));
                 });
@@ -90,7 +120,7 @@
 </head>
 <body>
     <div class="card-panel">
-        <span class="blue-text text-darken-2">Signup ThirdParty Messangers</span>
+        <span class="blue-text text-darken-2" >Signup ThirdParty Messangers</span>
     </div>
     <div class="container">
 
