@@ -44,7 +44,7 @@ namespace Michal.Balador.Server.Controllers
 
                 authentications.Add(new FormSignThirdPartyToken
                 {
-                    Id = configuration.Id,
+                    Id = configuration.Id.GetHashCode().ToString(),
                     Fields = configuration.ExtraFields,
                     Message = configuration.TextLandPageTemplate,
                     Name = authenticationManager.AuthenticationName,
@@ -60,7 +60,6 @@ namespace Michal.Balador.Server.Controllers
             return response;
         }
 
-
         [HttpPost]
         [Route("api/signIn")]
         public async Task<HttpResponseMessage> SignIn(HttpRequestMessage request)
@@ -73,7 +72,7 @@ namespace Michal.Balador.Server.Controllers
                 foreach (var senderRule in _senderRules)
                 {
                     var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
-                    if (!sender.IsError && sender.Result != null && sender.Result.ServiceName == id)
+                    if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
                     {
                         var authenticationManager = sender.Result.GetAuthenticationManager();
                         responseResult = await authenticationManager.SignIn(new SignUpSender { Id = "rt" }, formData);
@@ -108,7 +107,7 @@ namespace Michal.Balador.Server.Controllers
                 foreach (var senderRule in _senderRules)
                 {
                     var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
-                    if (!sender.IsError && sender.Result != null && sender.Result.ServiceName == id)
+                    if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
                     {
                         var authenticationManager = sender.Result.GetAuthenticationManager();
                         responseResult = await authenticationManager.GetObservableToken(new SignUpSender { Id = "rt" }, token);

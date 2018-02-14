@@ -32,6 +32,8 @@ namespace Michal.Balador.Infrastructures.Service
         {
             // throw new NotImplementedException();
             _logger.Log(System.Diagnostics.TraceLevel.Info, config.ToString());
+           // senderMessages.ServiceName.GetHashCode().ToString();
+
             return await Task.FromResult<ResponseBase>(new ResponseBase { IsError = false, Message = "" });
 
         }

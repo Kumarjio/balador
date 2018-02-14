@@ -1,4 +1,5 @@
 ﻿
+using Michal.Balador.Infrastructures.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
@@ -15,13 +16,14 @@ namespace minyangroups.api.Helper
     {
         public static string GetHash(string input)
         {
-            HashAlgorithm hashAlgorithm = new SHA256CryptoServiceProvider();
+            return DataSecurity.GetHash(input);
+            //HashAlgorithm hashAlgorithm = new SHA256CryptoServiceProvider();
 
-            byte[] byteValue = System.Text.Encoding.UTF8.GetBytes(input);
+            //byte[] byteValue = System.Text.Encoding.UTF8.GetBytes(input);
 
-            byte[] byteHash = hashAlgorithm.ComputeHash(byteValue);
+            //byte[] byteHash = hashAlgorithm.ComputeHash(byteValue);
 
-            return Convert.ToBase64String(byteHash);
+            //return Convert.ToBase64String(byteHash);
         }
 
         //    public static void SetClaims(ClaimsIdentity identity, ApplicationUser user, Organization org, Helper.JobType jobType, string jobTitle)
