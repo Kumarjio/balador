@@ -11,9 +11,9 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
-    public class MyClass
+    public class ConfigHttpLite
     {
-
+        public string Token { get; set; }
     }
     public class HttpLiteAuthentication : AuthenticationManager
     {
@@ -66,7 +66,7 @@ namespace Michal.Balador.SimpleMessage
             var dict = new Dictionary<string, string>();
 
             var pws = extraDataForm["token"];
-           await Context.SetConfiguration<MyClass>(this.SenderMessages, new MyClass());
+           await Context.SetConfiguration(this.SenderMessages, new ConfigHttpLite { Token=pws});
             return response;
 
         }

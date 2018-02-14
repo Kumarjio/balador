@@ -14,8 +14,8 @@ namespace Michal.Balador.Contracts
         //start:helper functions
         Task<T> GetConfiguration<T>(SenderMessages senderMessages);
         Task<ResponseBase> SetConfiguration<T>(SenderMessages senderMessages, T config);
-        Task<object> GetContact(SenderMessages senderMessages, string id);
-        Task<ResponseBase> SetContact(SenderMessages senderMessages, object contact);
+        Task<T> GetContact<T>(SenderMessages senderMessages, string id);
+        Task<ResponseBase> SetContact<T>(SenderMessages senderMessages, T contact);
 
         /// <summary>
         /// Notify Sender Message

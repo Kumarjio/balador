@@ -67,7 +67,7 @@ namespace Michal.Balador.Infrastructures.Service
 
         }
 
-        public  Task<object> GetContact(SenderMessages senderMessages, string id)
+        public  Task<T> GetContact<T>(SenderMessages senderMessages, string id)
         {
             return null;
             //throw new NotImplementedException();
@@ -79,7 +79,7 @@ namespace Michal.Balador.Infrastructures.Service
             throw new NotImplementedException();
         }
 
-        public Task<ResponseBase> SetContact(SenderMessages senderMessages, object contact)
+        public Task<ResponseBase> SetContact<T>(SenderMessages senderMessages, T contact)
         {
             return null;
             //throw new NotImplementedException();

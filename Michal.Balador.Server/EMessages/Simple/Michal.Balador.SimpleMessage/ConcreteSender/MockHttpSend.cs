@@ -9,6 +9,12 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
+    public class ContactHttpSend
+    {
+        public string Id { get; set; }
+        public string FullName { get; set; }
+
+    }
     public class MockHttpSend : SenderMessages
     {
         HttpClientTest _test;
@@ -34,7 +40,7 @@ namespace Michal.Balador.SimpleMessage
 
         public override async Task<ResponseSend> Send(SendRequest request)
         {
-           var contact= this.Context.GetContact(this, "ddd");
+           var contact= this.Context.GetContact< ContactHttpSend>(this, "ddd");
             this.Context.GetLogger().Log(System.Diagnostics.TraceLevel.Info, "dddd",null);
 
             ResponseSend res = new ResponseSend();
