@@ -11,10 +11,10 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
-   
+
     public class HttpLiteAuthentication : AuthenticationManager
     {
-        public HttpLiteAuthentication(IBaladorContext context,SenderMessages senderMessages) : base(context, senderMessages)
+        public HttpLiteAuthentication(IBaladorContext context, SenderMessages senderMessages) : base(context, senderMessages)
         {
         }
 
@@ -27,32 +27,26 @@ namespace Michal.Balador.SimpleMessage
             }
         }
 
-        public override string AuthenticationName {
-        get
+        public override string AuthenticationName
+        {
+            get
             {
                 return "HttpLiteAuthentication";
             }
         }
 
-       
-
-        //public override Task<ResponseBase> GetObservableToken(SignUpSender signUpSender, string token)
-        //{
-        //    return null;
-        //}
-
-        public override SenderLandPageConfiguration Register( SignUpSender signUpSender)
+        public override SenderLandPageConfiguration Register(SignUpSender signUpSender)
         {
 
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.SenderMessages)
             {
                 Logo = "",
-                MessageEmailTemplate= "http lite",
-                TextLandPageTemplate= "http lite",
-                
+                MessageEmailTemplate = "http lite",
+                TextLandPageTemplate = "http lite",
+
             };
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "token", Title = "write token only " });
- 
+
             return senderLandPageConfiguration;
         }
 
@@ -68,25 +62,8 @@ namespace Michal.Balador.SimpleMessage
              .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var dict = new Dictionary<string, string>();
 
-            var pws=extraDataForm["token"];
-            var grant_type = "password";
-            var client_id = "ngAutoApp";
-            
-            dict.Add("username", senderDetail.Id);
-            dict.Add("password", pws);
-            dict.Add("client_id", client_id);
-            dict.Add("grant_type", grant_type);
+            var pws = extraDataForm["token"];
 
-            var req = new HttpRequestMessage(HttpMethod.Post, url) { Content = new FormUrlEncodedContent(dict) };
-            var res = await httpClient.SendAsync(req);
-            //if (res.IsSuccessStatusCode)
-            //{
-            //    response.IsError = false;
-            //    var stringRes = await res.Content.ReadAsStringAsync();
-            //    Context.GetLogger().Log(System.Diagnostics.TraceLevel.Verbose, stringRes);
-
-            //}
-            //response.
             return response;
 
         }

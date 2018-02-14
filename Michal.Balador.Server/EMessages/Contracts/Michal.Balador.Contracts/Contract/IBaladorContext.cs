@@ -12,8 +12,8 @@ namespace Michal.Balador.Contracts
     {
         IBaladorLogger GetLogger();
         //start:helper functions
-        Task<object> GetConfiguration(SenderMessages senderMessages);
-        Task<ResponseBase> SetConfiguration(SenderMessages senderMessages, object config);
+        Task<T> GetConfiguration<T>(SenderMessages senderMessages);
+        Task<ResponseBase> SetConfiguration<T>(SenderMessages senderMessages, T config);
         Task<object> GetContact(SenderMessages senderMessages, string id);
         Task<ResponseBase> SetContact(SenderMessages senderMessages, object contact);
 

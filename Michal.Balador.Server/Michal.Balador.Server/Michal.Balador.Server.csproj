@@ -483,6 +483,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AccountsFolder\" />
     <Folder Include="App_Data\" />
     <Folder Include="logs\" />
     <Folder Include="Migrations\" />
