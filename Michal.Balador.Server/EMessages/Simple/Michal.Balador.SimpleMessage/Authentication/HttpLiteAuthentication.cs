@@ -11,7 +11,10 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
+    public class MyClass
+    {
 
+    }
     public class HttpLiteAuthentication : AuthenticationManager
     {
         public HttpLiteAuthentication(IBaladorContext context, SenderMessages senderMessages) : base(context, senderMessages)
@@ -63,7 +66,7 @@ namespace Michal.Balador.SimpleMessage
             var dict = new Dictionary<string, string>();
 
             var pws = extraDataForm["token"];
-
+            Context.SetConfiguration< MyClass>(senderDetail,new MyClass())
             return response;
 
         }
