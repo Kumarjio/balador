@@ -66,7 +66,7 @@ namespace Michal.Balador.SimpleMessage
             var dict = new Dictionary<string, string>();
 
             var pws = extraDataForm["token"];
-            Context.SetConfiguration<MyClass>(this.SenderMessages, new MyClass());
+           await Context.SetConfiguration<MyClass>(this.SenderMessages, new MyClass());
             return response;
 
         }
