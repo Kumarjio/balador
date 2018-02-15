@@ -28,24 +28,24 @@ namespace Michal.Balador.Infrastructures.Service
         [Import(typeof(IBaladorLogger))]
         IBaladorLogger _logger;
 
-        public Task<T> GetConfiguration<T>(SenderMessages senderMessages)
+        public Task<T> GetConfiguration<T>(SenderMessages senderMessages, string id)
         {
             throw new NotImplementedException();
         }
-        public bool GetFile(SenderMessages senderMessages,out string path)
+        public bool GetFile(string id,out string path)
         {
             var defaultAccountFolder = HttpContext.Current.Server.MapPath("~/AccountsFolder");
-            var filename = DataSecurity.GetHash(KeyServiceNameHash) + ".txt";
+            var filename = DataSecurity.GetHash(id) + ".txt";
             path = Path.Combine(defaultAccountFolder, filename);
             return File.Exists(path);
         }
-        public async Task<ResponseBase>  SetConfiguration<T>(SenderMessages senderMessages, T config)
+        public async Task<ResponseBase>  SetConfiguration<T>(SenderMessages senderMessages, string id, T config)
         {
             var key = senderMessages.ServiceName.GetHashCode();
             Dictionary<int, string> account = null;
             var configData = JsonConvert.SerializeObject(config);
             string pat;
-            if (GetFile(senderMessages,out pat))
+            if (GetFile(id,out pat))
             {
                 var accountConfig = File.ReadAllText(pat);
                  account = JsonConvert.DeserializeObject<Dictionary<int, string>>(accountConfig);

@@ -37,7 +37,7 @@ namespace Michal.Balador.SimpleMessage
       
         public override async Task<ResponseBase> GetObservableToken(SignUpSender signUpSender, string token)
         {
-            var result=await this.Context.SetConfiguration(this.SenderMessages, token);
+            var result=await this.Context.SetConfiguration(this.SenderMessages, signUpSender.Id, token);
 
             return result;
         }
