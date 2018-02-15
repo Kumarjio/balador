@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
+using Newtonsoft.Json.Linq;
 
 namespace Michal.Balador.SimpleMessage
 {
@@ -84,8 +85,13 @@ namespace Michal.Balador.SimpleMessage
             {
                 response.IsError = false;
                 var stringRes = await res.Content.ReadAsStringAsync();
+                dynamic d = JObject.Parse(stringRes);
+               // Console.WriteLine(d.access_token);
                 Context.GetLogger().Log(System.Diagnostics.TraceLevel.Verbose, stringRes);
-
+                if(d!=null )
+                {
+                    await Context.SetConfiguration(this.SenderMessages, senderDetail.Id, new ConfigHttp { UserId= senderDetail.Id,RefreshToken=d.refresh_token,  Token = d.access_token });
+                }
             }
 
             return response;

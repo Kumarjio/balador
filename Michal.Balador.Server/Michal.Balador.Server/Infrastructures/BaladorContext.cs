@@ -35,20 +35,20 @@ namespace Michal.Balador.Infrastructures.Service
         public bool GetFile(string id,out string path)
         {
             var defaultAccountFolder = HttpContext.Current.Server.MapPath("~/AccountsFolder");
-            var filename = DataSecurity.GetHash(id) + ".txt";
+            var filename = id+ ".txt";
             path = Path.Combine(defaultAccountFolder, filename);
             return File.Exists(path);
         }
         public async Task<ResponseBase>  SetConfiguration<T>(SenderMessages senderMessages, string id, T config)
         {
-            var key = senderMessages.ServiceName.GetHashCode();
-            Dictionary<int, string> account = null;
+            var key = DataSecurity.GetHash(senderMessages.ServiceName);// senderMessages.ServiceName.GetHashCode();
+            Dictionary<string, string> account = null;
             var configData = JsonConvert.SerializeObject(config);
             string pat;
             if (GetFile(id,out pat))
             {
                 var accountConfig = File.ReadAllText(pat);
-                 account = JsonConvert.DeserializeObject<Dictionary<int, string>>(accountConfig);
+                 account = JsonConvert.DeserializeObject<Dictionary<string, string>>(accountConfig);
                 if (account.ContainsKey(key))
                     account[key] = configData;
                 else
@@ -56,7 +56,7 @@ namespace Michal.Balador.Infrastructures.Service
             }
             else
             {
-                account = new Dictionary<int, string>();
+                account = new Dictionary<string, string>();
                 account.Add(key, configData);
             }
             var jsonData=JsonConvert.SerializeObject(account);

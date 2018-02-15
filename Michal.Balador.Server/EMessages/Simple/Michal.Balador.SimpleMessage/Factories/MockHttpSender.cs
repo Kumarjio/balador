@@ -22,6 +22,7 @@ namespace Michal.Balador.SimpleMessage
         public async override Task<ResponseSenderMessages> GetSender(RegisterSender register)
         {
             ResponseSenderMessages response = new ResponseSenderMessages();
+           // Context.GetConfiguration<>
             try
             {
                 response.Result = new MockHttpSend(this.Context);

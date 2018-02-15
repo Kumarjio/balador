@@ -11,10 +11,7 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
-    public class ConfigHttpLite
-    {
-        public string Token { get; set; }
-    }
+   
     public class HttpLiteAuthentication : AuthenticationManager
     {
         public HttpLiteAuthentication(IBaladorContext context, SenderMessages senderMessages) : base(context, senderMessages)
