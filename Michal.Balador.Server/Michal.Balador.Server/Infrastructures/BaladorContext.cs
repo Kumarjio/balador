@@ -34,10 +34,10 @@ namespace Michal.Balador.Infrastructures.Service
             var key = DataSecurity.GetHash(senderMessages.ServiceName);
             Dictionary<string, string> account = null;
       
-            if (GetFile(id, out pat))
+            if (GetConfigFile(id, out pat))
             {
                 var dataProtected = DataSecurity.GetDataProtector();
-                account = GetAccountConfig(pat);
+                account = await GetDataConfig(pat);
                 if (account.ContainsKey(key))
                 {
                    var data= account[key];
@@ -48,17 +48,32 @@ namespace Michal.Balador.Infrastructures.Service
             return await Task.FromResult(default(T));
         }
 
-        Dictionary<string, string> GetAccountConfig(string pat)
+        async Task<Dictionary<string, string>> GetDataConfig(string pat)
         {
-            var accountConfig = File.ReadAllText(pat);
-            Dictionary<string, string>  account = JsonConvert.DeserializeObject<Dictionary<string, string>>(accountConfig);
-            return account;
+            using (StreamReader reader = File.OpenText(pat))
+            {
+                var  config = await reader.ReadToEndAsync();
+                Dictionary<string, string> account = JsonConvert.DeserializeObject<Dictionary<string, string>>(config);
+                return account;
+            }
+          
+            //var accountConfig = File.ReadAllText(pat);
+            //Dictionary<string, string>  account = JsonConvert.DeserializeObject<Dictionary<string, string>>(accountConfig);
+            //return account;
         }
 
-        bool GetFile(string id,out string path)
+        bool GetConfigFile(string id,out string path)
         {
             var defaultAccountFolder = System.Configuration.ConfigurationManager.AppSettings["f"].ToString();// HttpContext.Current.Server.MapPath("~/AccountsFolder");
             var filename = id+ ".txt";
+            path = Path.Combine(defaultAccountFolder, filename);
+            return File.Exists(path);
+        }
+
+        bool GetContactFile(string id, out string path)
+        {
+            var defaultAccountFolder = System.Configuration.ConfigurationManager.AppSettings["c"].ToString();// HttpContext.Current.Server.MapPath("~/AccountsFolder");
+            var filename = id + ".txt";
             path = Path.Combine(defaultAccountFolder, filename);
             return File.Exists(path);
         }
@@ -72,9 +87,9 @@ namespace Michal.Balador.Infrastructures.Service
             var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(configData)));
 
             string pat;
-            if (GetFile(id,out pat))
+            if (GetConfigFile(id,out pat))
             {
-                account = GetAccountConfig(pat);
+                account =await GetDataConfig(pat);
                 if (account.ContainsKey(key))
                     account[key] = protectedData;
                 else
@@ -86,16 +101,36 @@ namespace Michal.Balador.Infrastructures.Service
                 account.Add(key, protectedData);
             }
             var jsonData=JsonConvert.SerializeObject(account);
-            File.WriteAllText(pat, jsonData);
+            using (StreamWriter outputFile = new StreamWriter(pat))
+            {
+                await outputFile.WriteAsync(jsonData);
+            }
+
+           // File.WriteAllText(pat, jsonData);
             _logger.Log(System.Diagnostics.TraceLevel.Info, config.ToString());
 
             return await Task.FromResult<ResponseBase>(new ResponseBase { IsError = false, Message = "" });
 
         }
 
-        public  Task<T> GetContact<T>(SenderMessages senderMessages, string id)
+        public async Task<T> GetContact<T>(SenderMessages senderMessages, string id)
         {
-            return null;
+            string pat;
+            var key = DataSecurity.GetHash(senderMessages.ServiceName);
+            Dictionary<string, string> contact = null;
+
+            if (GetContactFile(id, out pat))
+            {
+                var dataProtected = DataSecurity.GetDataProtector();
+                contact = await GetDataConfig(pat);
+                if (contact.ContainsKey(key))
+                {
+                    var data = contact[key];
+                    var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
+                    return JsonConvert.DeserializeObject<T>(unProtectedData);
+                }
+            }
+            return await Task.FromResult(default(T));
         }
 
         public Task<ResponseBase> NotifySenderMessage(SenderMessages senderMessages, string id, string message)
@@ -103,10 +138,37 @@ namespace Michal.Balador.Infrastructures.Service
             throw new NotImplementedException();
         }
 
-        public Task<ResponseBase> SetContact<T>(SenderMessages senderMessages, T contact)
+        public async Task<ResponseBase> SetContact<T>(SenderMessages senderMessages,string id, T contact)
         {
-            return null;
-            //throw new NotImplementedException();
+            var key = DataSecurity.GetHash(senderMessages.ServiceName);
+            Dictionary<string, string> contactData = null;
+            var configContactData = JsonConvert.SerializeObject(contact);
+            var dataProtected = DataSecurity.GetDataProtector();
+            var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(configContactData)));
+
+            string pat;
+            if (GetContactFile(id, out pat))
+            {
+                contactData = await GetDataConfig(pat);
+                if (contactData.ContainsKey(key))
+                    contactData[key] = protectedData;
+                else
+                    contactData.Add(key, protectedData);
+            }
+            else
+            {
+                contactData = new Dictionary<string, string>();
+                contactData.Add(key, protectedData);
+            }
+            var jsonData = JsonConvert.SerializeObject(contactData);
+            using (StreamWriter outputFile = new StreamWriter(pat))
+            {
+                await outputFile.WriteAsync(jsonData);
+            }
+
+            // File.WriteAllText(pat, jsonData);
+            _logger.Log(System.Diagnostics.TraceLevel.Info, contact.ToString());
+            return await Task.FromResult<ResponseBase>(new ResponseBase { IsError = false, Message = "" });
         }
 
         public IBaladorLogger GetLogger()

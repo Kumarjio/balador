@@ -33,7 +33,7 @@ namespace Michal.Balador.Server.Controllers
             var defaultLogFolder = HttpContext.Current.Server.MapPath("~/Logs");
             var pat = Path.Combine(defaultLogFolder, ("ping_Get_Empty" + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".txt"));
             File.WriteAllText(pat, "ok");
-            return Ok("test");
+            return Ok(HttpContext.Current.Server.MapPath("~/AccountsFolder"));
         }
         [Route("")]
        [AcceptVerbs("Post")]

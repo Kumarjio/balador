@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  michal.balador.server:
+    image: michal.balador.server
+    build:
+      context: .\Michal.Balador.Server
+      dockerfile: Dockerfile

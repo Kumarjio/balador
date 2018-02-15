@@ -339,6 +339,10 @@
     <Content Include="ssss\smurfs_25.jpg" />
     <Content Include="ssss\todo.txt" />
     <Content Include="webhooks.html" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="img\appsite_hero.png" />
     <Content Include="img\cover_image.jpg" />
@@ -485,6 +489,7 @@
   <ItemGroup>
     <Folder Include="AccountsFolder\" />
     <Folder Include="App_Data\" />
+    <Folder Include="ContactsFolder\" />
     <Folder Include="logs\" />
     <Folder Include="Migrations\" />
     <Folder Include="Plugins\" />
