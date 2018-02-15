@@ -50,6 +50,7 @@
     <Compile Include="Authentication\HttpSimpleAuthentication.cs" />
     <Compile Include="Config\ConfigHttp.cs" />
     <Compile Include="Config\ConfigHttpLite.cs" />
+    <Compile Include="Contact\ContactHttpSend.cs" />
     <Compile Include="Sockets\DisconnectedException.cs" />
     <Compile Include="Sockets\HttpClientTest.cs" />
     <Compile Include="ConcreteSender\MockHttpSend.cs" />

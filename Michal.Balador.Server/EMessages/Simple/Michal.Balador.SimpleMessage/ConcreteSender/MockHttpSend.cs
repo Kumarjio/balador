@@ -9,12 +9,6 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
-    public class ContactHttpSend
-    {
-        public string Id { get; set; }
-        public string FullName { get; set; }
-
-    }
     public class MockHttpSend : SenderMessages
     {
         HttpClientTest _test;
