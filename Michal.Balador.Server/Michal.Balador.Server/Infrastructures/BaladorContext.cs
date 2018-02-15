@@ -28,36 +28,62 @@ namespace Michal.Balador.Infrastructures.Service
         [Import(typeof(IBaladorLogger))]
         IBaladorLogger _logger;
 
-        public Task<T> GetConfiguration<T>(SenderMessages senderMessages, string id)
+        public async Task<T> GetConfiguration<T>(SenderMessages senderMessages, string id)
         {
-            throw new NotImplementedException();
+            string pat;
+            var key = DataSecurity.GetHash(senderMessages.ServiceName);
+            Dictionary<string, string> account = null;
+      
+            if (GetFile(id, out pat))
+            {
+                var dataProtected = DataSecurity.GetDataProtector();
+                account = GetAccountConfig(pat);
+                if (account.ContainsKey(key))
+                {
+                   var data= account[key];
+                   var unProtectedData=UTF8Encoding.UTF8.GetString( dataProtected.Unprotect(Convert.FromBase64String(data)));
+                   return JsonConvert.DeserializeObject<T>(unProtectedData);
+                }
+            }
+            return await Task.FromResult(default(T));
         }
-        public bool GetFile(string id,out string path)
+
+        Dictionary<string, string> GetAccountConfig(string pat)
         {
-            var defaultAccountFolder = HttpContext.Current.Server.MapPath("~/AccountsFolder");
+            var accountConfig = File.ReadAllText(pat);
+            Dictionary<string, string>  account = JsonConvert.DeserializeObject<Dictionary<string, string>>(accountConfig);
+            return account;
+        }
+
+        bool GetFile(string id,out string path)
+        {
+            var defaultAccountFolder = System.Configuration.ConfigurationManager.AppSettings["f"].ToString();// HttpContext.Current.Server.MapPath("~/AccountsFolder");
             var filename = id+ ".txt";
             path = Path.Combine(defaultAccountFolder, filename);
             return File.Exists(path);
         }
+
         public async Task<ResponseBase>  SetConfiguration<T>(SenderMessages senderMessages, string id, T config)
         {
-            var key = DataSecurity.GetHash(senderMessages.ServiceName);// senderMessages.ServiceName.GetHashCode();
+            var key = DataSecurity.GetHash(senderMessages.ServiceName);
             Dictionary<string, string> account = null;
             var configData = JsonConvert.SerializeObject(config);
+            var dataProtected= DataSecurity.GetDataProtector();
+            var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(configData)));
+
             string pat;
             if (GetFile(id,out pat))
             {
-                var accountConfig = File.ReadAllText(pat);
-                 account = JsonConvert.DeserializeObject<Dictionary<string, string>>(accountConfig);
+                account = GetAccountConfig(pat);
                 if (account.ContainsKey(key))
-                    account[key] = configData;
+                    account[key] = protectedData;
                 else
-                    account.Add(key, configData);
+                    account.Add(key, protectedData);
             }
             else
             {
                 account = new Dictionary<string, string>();
-                account.Add(key, configData);
+                account.Add(key, protectedData);
             }
             var jsonData=JsonConvert.SerializeObject(account);
             File.WriteAllText(pat, jsonData);
@@ -70,12 +96,10 @@ namespace Michal.Balador.Infrastructures.Service
         public  Task<T> GetContact<T>(SenderMessages senderMessages, string id)
         {
             return null;
-            //throw new NotImplementedException();
         }
 
         public Task<ResponseBase> NotifySenderMessage(SenderMessages senderMessages, string id, string message)
         {
-            //send to email adress of sender!!! 
             throw new NotImplementedException();
         }
 

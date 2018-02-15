@@ -8937,3 +8937,129 @@ INFO  2018-02-15 10:46:19,542 11153ms Logger                 Log                
 INFO  2018-02-15 10:46:19,838 11449ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-02-15 11:17:23,576 20983ms Logger                 Log                - {"access_token":"UDBFLDxkR2U0kUR-2uCCSvyGOCnB-Ccn4rSGcEFCht3wPBalvIvkn7BvdUiqs1HFxD-KnMDVyyWX1kllgsPIhQm3sfEOYV-b69gIQda89LQiAn6XAWWbWVOSDGtzR581lVhlyAp7MFgOpNAyPZBKlrAAPe4dL8hzivisBlQ2kgmgLJODHwEOGA5ZNqCAftPWTzT0flpBWWsglPGNimo6z8qYLHHngha0FB1tj0THOoeEfJc77yI4gg-nFSZJu-vJEL0ZfNHxIE_NmgLMpmGf19Euj3oBLly1gFjAxgwpjl-tILKkFlFw0C21pQhrlJJVDqvZpUl2Co0bUcdCrCPQZ8s9rTYCcZNf-RlmWM_wrMN8NmKlXDaxgqKpEILm3XVZoZdl3EmY6zrbABtXJyQGE4HsmmOyW_JJAOTa1oVVfxGRzM4qZMYbadi0jj-7XIdSqwDZgXA8MCV2tim_udH1z2qJpM09SIp5tKXZwV5g18Nw1f65aSyA-cB3wANcAUIHuV745-ejo0iGxUpAMEj_5HPxYsB1-UVLwpZoPWfToo2ghr1aPlymIr1DguhiRH05","token_type":"bearer","expires_in":1799,"refresh_token":"0b79f722042c4011b72870f955f965a1","as:client_id":"ngAutoApp","userName":"rt","m:userId":"1bfa6f8e-0000-0000-0000-b573b2c8f820","m:currentTime":"2018-02-15 09:17:23","m:expiredOn":"2018-02-15 09:47:23","roles":"[]",".issued":"Thu, 15 Feb 2018 09:17:19 GMT",".expires":"Thu, 15 Feb 2018 09:47:19 GMT"}
 INFO  2018-02-15 11:17:23,850 21257ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-02-15 13:03:05,906 31804ms Logger                 Log                - {"access_token":"WLnTsDXHLBYwXcs15F6ZBkaX_RRyPSeCxt1HvQsubOK8FdvSV2bJDCSytPWv10-hSJyOhF8-FjWeI_pX_Dyl3Pw5zqsGDXkkJbClOKWR63849cLoxvFLkdn3k_bJCt4-ZHKN7pATlJXDTc0ECliEvOjquZAJPFkDVM2JyXQVM_xuxI8NPiRqVkKMpfxGqjyKbrCWL5SpMd0agdIGABtLoIcaalDdYaYiBahnVvrukkiAj1siHC8p3OAhpOAM7M3N2oaYV58XUxoBe962cNjMhE8JoXWiZoc8IeoDOzFcFvvGhHiMkcBXVIOxIWXHlxsNzI9aXw_cRVt88sAd5PTmdsSqO2BK0A34sTVmreFZdXw69xzrXa69t8iiIln8Ri5hFuy_G2UpcuCvljY_1-4AriQBwGkllSgdTpzO9GjakOwhPTgXgaTVL3VNCgaG1w2xdnaHt847dacOvN8gLbZISUCNX1cmsl4Tygt7N1IPWRh4HEtzAsf6PnCTvZXona1u9RLmRvYKWSRHx762AiAYdYir4K078Hi6tvw5mlb_46OKGPrPzRmk8ljLB4X98ySF","token_type":"bearer","expires_in":1799,"refresh_token":"c16628577641460ab3b540ee98e8ca4c","as:client_id":"ngAutoApp","userName":"rt","m:userId":"1bfa6f8e-0000-0000-0000-b573b2c8f820","m:currentTime":"2018-02-15 11:03:03","m:expiredOn":"2018-02-15 11:33:03","roles":"[]",".issued":"Thu, 15 Feb 2018 11:02:58 GMT",".expires":"Thu, 15 Feb 2018 11:32:58 GMT"}
+INFO  2018-02-15 13:03:06,581 32479ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-02-15 13:03:22,766 48665ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-02-15 13:08:37,219   390ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-15 13:08:42,796  5967ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-15 13:08:43,039  6210ms EMessageController     MoveNext           - 13 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Infrastructures.Service.BaladorContext.GetFile(String id, String& path) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 59
+   at Michal.Balador.Infrastructures.Service.BaladorContext.<GetConfiguration>d__7`1.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.SimpleMessage.MockHttpSend.<Send>d__5.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteSender\MockHttpSend.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 70
+INFO  2018-02-15 13:09:18,836 42007ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-15 13:09:29,233 52404ms EMessageController     MoveNext           - 12 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Infrastructures.Service.BaladorContext.GetFile(String id, String& path) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 59
+   at Michal.Balador.Infrastructures.Service.BaladorContext.<GetConfiguration>d__7`1.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.SimpleMessage.MockHttpSend.<Send>d__5.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteSender\MockHttpSend.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 70
+INFO  2018-02-15 13:10:14,898  6679ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-15 13:10:21,425 13207ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-15 13:10:30,910 22692ms EMessageController     MoveNext           - 12 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Infrastructures.Service.BaladorContext.GetFile(String id, String& path) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 60
+   at Michal.Balador.Infrastructures.Service.BaladorContext.<GetConfiguration>d__7`1.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.SimpleMessage.MockHttpSend.<Send>d__5.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteSender\MockHttpSend.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 70
+INFO  2018-02-15 13:11:11,865 63646ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-15 13:11:16,144 67926ms EMessageController     MoveNext           - 17 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Infrastructures.Service.BaladorContext.GetFile(String id, String& path) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 60
+   at Michal.Balador.Infrastructures.Service.BaladorContext.<GetConfiguration>d__7`1.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.SimpleMessage.MockHttpSend.<Send>d__5.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteSender\MockHttpSend.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 70
+INFO  2018-02-15 13:11:22,008 73790ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-15 13:11:33,714 85496ms EMessageController     MoveNext           - 15 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Infrastructures.Service.BaladorContext.GetFile(String id, String& path) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 60
+   at Michal.Balador.Infrastructures.Service.BaladorContext.<GetConfiguration>d__7`1.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.SimpleMessage.MockHttpSend.<Send>d__5.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteSender\MockHttpSend.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 70
+INFO  2018-02-15 13:12:23,405 135186ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-15 13:12:31,851 143633ms EMessageController     MoveNext           - 32 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Infrastructures.Service.BaladorContext.GetFile(String id, String& path) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 60
+   at Michal.Balador.Infrastructures.Service.BaladorContext.<GetConfiguration>d__7`1.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.SimpleMessage.MockHttpSend.<Send>d__5.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteSender\MockHttpSend.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 70
+INFO  2018-02-15 13:12:38,653 150435ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+ERROR 2018-02-15 13:13:24,754 196536ms EMessageController     MoveNext           - 30 rt System.NullReferenceException: Object reference not set to an instance of an object.
+   at Michal.Balador.Infrastructures.Service.BaladorContext.GetFile(String id, String& path) in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 60
+   at Michal.Balador.Infrastructures.Service.BaladorContext.<GetConfiguration>d__7`1.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Infrastructures\BaladorContext.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.SimpleMessage.MockHttpSend.<Send>d__5.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteSender\MockHttpSend.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Server.Controllers.EMessageController.<>c__DisplayClass2_0.<<Get>b__1>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\Michal.Balador.Server\Controllers\EMessageController.cs:line 70
+INFO  2018-02-15 13:16:04,186   306ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-02-15 13:16:06,372  2492ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-15 13:16:06,413  2533ms Logger                 Log                - c16628577641460ab3b540ee98e8ca4c
+INFO  2018-02-15 13:16:14,639 10759ms EMessageController     MoveNext           - rt,37
+a,False,_lock=rt,37
+a,change a my value11b8fd81-63f5-40e5-845e-8cf405bd8f08
+aa,change aa my value072504a8-5c79-4ed3-8fbd-ccfadc9df223 id=a ,Message=change a my value11b8fd81-63f5-40e5-845e-8cf405bd8f08
+aa,False,_lock=rt,37
+a,change a my value11b8fd81-63f5-40e5-845e-8cf405bd8f08
+aa,change aa my value072504a8-5c79-4ed3-8fbd-ccfadc9df223 id=aa ,Message=change aa my value072504a8-5c79-4ed3-8fbd-ccfadc9df223
+
+INFO  2018-02-15 13:16:14,666 10786ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-15 13:16:51,013 47133ms Logger                 Log                - WebHook 'e956dd63b52a4c05870222229f4600fd' resulted in status code 'OK' on attempt '0'.
+INFO  2018-02-15 13:17:32,562 88682ms Logger                 Log                - c16628577641460ab3b540ee98e8ca4c
+INFO  2018-02-15 13:17:33,427 89547ms EMessageController     MoveNext           - rt,32
+a,False,_lock=rt,32
+a,change a my value8cbb8f92-6ee9-49cc-b3a4-85382aff7025
+aa,change aa my value0d3cc227-b9cc-4f1f-a071-e7bd3eab7a8a id=a ,Message=change a my value8cbb8f92-6ee9-49cc-b3a4-85382aff7025
+aa,False,_lock=rt,32
+a,change a my value8cbb8f92-6ee9-49cc-b3a4-85382aff7025
+aa,change aa my value0d3cc227-b9cc-4f1f-a071-e7bd3eab7a8a id=aa ,Message=change aa my value0d3cc227-b9cc-4f1f-a071-e7bd3eab7a8a
+
+INFO  2018-02-15 13:17:33,460 89580ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
