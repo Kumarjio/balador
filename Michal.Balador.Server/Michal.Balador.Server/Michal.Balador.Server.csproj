@@ -424,6 +424,7 @@
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\NotifyApiController.cs" />
     <Compile Include="Controllers\PingController.cs" />
+    <Compile Include="Dal\MessageRepository.cs" />
     <Compile Include="Dal\MockRepository.cs" />
     <Compile Include="Dal\UserRepository.cs" />
     <Compile Include="Default.aspx.cs">
