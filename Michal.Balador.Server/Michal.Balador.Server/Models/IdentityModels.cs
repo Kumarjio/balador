@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using Michal.Balador.Server.Models;
 namespace lior.api.Models
 {
     public class UserRole : IdentityUserRole<string>
@@ -82,6 +82,8 @@ namespace lior.api.Models
         }
         public DbSet<Client> Client { get; set; }
         public DbSet<RefreshToken> RefreshToken { get; set; }
+        public DbSet<ClientMessage> ClientMessages { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

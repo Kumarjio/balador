@@ -417,6 +417,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\SendToClientController.cs" />
     <Compile Include="Controllers\BaladorRegistrationsController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\EMessageController.cs" />
@@ -451,6 +452,8 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
+    <Compile Include="Models\ClientMessage.cs" />
+    <Compile Include="ViewModel\ClientMessageRequest.cs" />
     <Compile Include="Models\FormSignThirdPartyToken.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\RefreshToken.cs" />

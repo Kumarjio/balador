@@ -105,7 +105,7 @@ namespace minyangroups.api.Helper.Providers
              //   MemeryCacheDataService cache = new MemeryCacheDataService();
               //  organization = cache.GetOrgEntity(dBContext); //await context.Organization.ToListAsync();
                 userManager = new ApplicationUserManager(dBContext);
-                var dd=await userManager.FindByEmailAsync("no@no");
+             
 
                 user = await userManager.FindAsync(context.UserName, context.Password);
 

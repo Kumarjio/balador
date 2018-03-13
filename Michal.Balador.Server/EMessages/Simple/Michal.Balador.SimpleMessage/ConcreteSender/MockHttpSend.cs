@@ -36,7 +36,7 @@ namespace Michal.Balador.SimpleMessage
         {
             var configAccount=await Context.GetConfiguration<ConfigHttp>(this, request.Id);
 
-              var contact= this.Context.GetContact< ContactHttpSend>(this, "ddd");
+              var contact= this.Context.GetContact<ContactHttpSend>(this, "ddd");
             this.Context.GetLogger().Log(System.Diagnostics.TraceLevel.Info, configAccount.RefreshToken, null);
 
             ResponseSend res = new ResponseSend();

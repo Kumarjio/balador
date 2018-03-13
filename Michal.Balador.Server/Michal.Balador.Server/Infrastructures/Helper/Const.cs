@@ -19,7 +19,7 @@ namespace lior.api.Helper
 
         public const string Empty = "---";
 
-        public const double MAXMinutesExpiredApiToken = 30;
+        public const double MAXMinutesExpiredApiToken = 60 * 60 ;
 
         public const string NgAutoApp = "ngAutoApp";
     }
