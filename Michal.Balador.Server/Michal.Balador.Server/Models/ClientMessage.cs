@@ -15,5 +15,9 @@ namespace Michal.Balador.Server.Models
         public string ClientId { get; set; }
         public string AccountId { get; set; }
         public string Messsage { get; set; }
+        [Required]
+        public DateTime CreatedOn { get; set; }
+        [Required]
+        public DateTime ModifiedOn { get; set; }
     }
 }

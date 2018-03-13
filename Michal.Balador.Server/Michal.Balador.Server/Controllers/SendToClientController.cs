@@ -33,10 +33,18 @@ namespace Michal.Balador.Server.Controllers
                    var id = Guid.NewGuid();
                 using (ApplicationDbContext context=new ApplicationDbContext())
                 {
+                    var dt=DateTime.UtcNow;
+
                     var userModel=context.Users.Where(d => d.UserName == user).FirstOrDefault();
                     if (userModel == null)
                         throw new ArgumentNullException($"no found user {user}");
-                    context.ClientMessages.Add(new ClientMessage { Id=Guid.NewGuid(),ClientId=request.ClientId,Messsage=request.Messsage,AccountId=userModel.Id });
+                    context.ClientMessages.Add(new ClientMessage { Id=Guid.NewGuid(),
+                        ClientId =request.ClientId,
+                        Messsage =request.Messsage,
+                        AccountId =userModel.Id,
+                        CreatedOn=dt,
+                        ModifiedOn= dt
+                    });
                     await context.SaveChangesAsync();
 
                 }
