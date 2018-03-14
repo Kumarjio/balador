@@ -12,6 +12,7 @@ CREATE TABLE [dbo].[Balador_ClientMessage](
 	[Id] [uniqueidentifier] NOT NULL,
 	[ClientId] [nvarchar](50) NOT NULL,
 	[Messsage] [nvarchar](max) NOT NULL,
+   [MesssageType] [nvarchar](50) NOT NULL,
 	[AccountId] [nvarchar](128) NOT NULL,
 	[CreatedOn] [datetime] NOT NULL,
 	[ModifiedOn] [datetime] NOT NULL,

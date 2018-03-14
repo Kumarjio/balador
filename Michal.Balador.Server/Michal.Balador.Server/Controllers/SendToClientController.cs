@@ -42,7 +42,8 @@ namespace Michal.Balador.Server.Controllers
                         ClientId =request.ClientId,
                         Messsage =request.Messsage,
                         AccountId =userModel.Id,
-                        CreatedOn=dt,
+                        MesssageType= request.MesssageType,
+                        CreatedOn =dt,
                         ModifiedOn= dt
                     });
                     await context.SaveChangesAsync();
