@@ -531,6 +531,18 @@
       <Project>{41bd1ff6-1eaa-47eb-a388-143eb5614ab7}</Project>
       <Name>Michal.Balador.Infrastructures</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EMessages\Telegram\TeleSharp.TL\TeleSharp.TL.csproj">
+      <Project>{d6144517-91d2-4880-86df-e9ff5d7f383a}</Project>
+      <Name>TeleSharp.TL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMessages\Telegram\TLSharp.Core\TLSharp.Core.csproj">
+      <Project>{400d2544-1cc6-4d8a-a62c-2292d9947a16}</Project>
+      <Name>TLSharp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMessages\WhatsApp\WhatsAppApi\WhatsAppApi.csproj">
+      <Project>{3fc9096a-c4d2-40c7-be7b-d98acab3bd2b}</Project>
+      <Name>WhatsAppApi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebHooks\Microsoft.AspNet.WebHooks\Microsoft.AspNet.WebHooks.csproj">
       <Project>{C89C330E-8B78-4257-BCA0-F2D1A9403CF6}</Project>
       <Name>Microsoft.AspNet.WebHooks</Name>

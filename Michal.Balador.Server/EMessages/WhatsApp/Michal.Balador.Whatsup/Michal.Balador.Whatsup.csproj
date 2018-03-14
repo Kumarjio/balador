@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +47,23 @@
       <Project>{7f9deb2f-4803-4165-a1e2-d3ba1a50c7e3}</Project>
       <Name>Michal.Balador.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WhatsAppApi\WhatsAppApi.csproj">
+      <Project>{3fc9096a-c4d2-40c7-be7b-d98acab3bd2b}</Project>
+      <Name>WhatsAppApi</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Authentication\" />
+    <Folder Include="ConcreteSender\" />
+    <Folder Include="Config\" />
+    <Folder Include="Contact\" />
+    <Folder Include="Factories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).*" "$(SolutionDir)Michal.Balador.Server\Plugins\$(ProjectName).*"
+
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>
