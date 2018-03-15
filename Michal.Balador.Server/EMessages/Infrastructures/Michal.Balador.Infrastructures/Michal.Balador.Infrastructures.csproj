@@ -101,9 +101,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Const.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunAllAppClients.cs" />
     <Compile Include="Security\DataSecurity.cs" />
+    <Compile Include="Security\HelperSecurity.cs" />
     <Compile Include="Utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
