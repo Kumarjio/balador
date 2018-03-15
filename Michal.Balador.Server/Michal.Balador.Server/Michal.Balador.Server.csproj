@@ -327,6 +327,7 @@
     <Content Include="font\roboto\Roboto-Thin.ttf" />
     <Content Include="font\roboto\Roboto-Thin.woff" />
     <Content Include="font\roboto\Roboto-Thin.woff2" />
+    <Content Include="login.html" />
     <Content Include="Schema\all.sql" />
     <Content Include="Schema\Tables\Balador_ClientMessage.sql" />
     <Content Include="Schema\Tables\Role.sql" />
@@ -334,6 +335,8 @@
     <Content Include="Schema\Tables\UserClaim.sql" />
     <Content Include="Schema\Tables\UserRole.sql" />
     <Content Include="Schema\Tables\WebHooks.sql" />
+    <Content Include="registration.html" />
+    <Content Include="Scripts\storage.js" />
     <Content Include="signup.html" />
     <Content Include="ssss\cash.png" />
     <Content Include="ssss\covered-food-tray-on-a-hand-of-hotel-room-service %281%29.png" />
