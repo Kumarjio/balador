@@ -14,8 +14,8 @@ using Michal.Balador.Infrastructures.Security;
 
 namespace Michal.Balador.Infrastructures.Service
 {
-   [Export(typeof(IBaladorContext))]
-   [PartCreationPolicy(CreationPolicy.NonShared)]
+    [Export(typeof(IBaladorContext))]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class BaladorContext : IBaladorContext
     {
         public const string KeyServiceNameHash = "baladorService";
@@ -33,19 +33,42 @@ namespace Michal.Balador.Infrastructures.Service
             string pat;
             var key = DataSecurity.GetHash(senderMessages.ServiceName);
             Dictionary<string, string> account = null;
-      
+
             if (GetConfigFile(id, out pat))
             {
-                var dataProtected = DataSecurity.GetDataProtector();
+                //var dataProtected = DataSecurity.GetDataProtector();
                 account = await GetDataConfig(pat);
                 if (account.ContainsKey(key))
                 {
-                   var data= account[key];
-                   var unProtectedData=UTF8Encoding.UTF8.GetString( dataProtected.Unprotect(Convert.FromBase64String(data)));
-                   return JsonConvert.DeserializeObject<T>(unProtectedData);
+                    var data = account[key];
+                    return DeserializeObject<T>(data);
+                    //var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
+                    //return JsonConvert.DeserializeObject<T>(unProtectedData);
                 }
             }
             return await Task.FromResult(default(T));
+        }
+
+        T DeserializeObject<T>(string data)
+        {
+            #if DEBUG
+            return JsonConvert.DeserializeObject<T>(data);
+            #else
+                 var dataProtected = DataSecurity.GetDataProtector();
+                 var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
+                 return JsonConvert.DeserializeObject<T>(unProtectedData);
+            #endif
+            }
+
+        string GetprotectedData(string data)
+        {
+            #if DEBUG
+                  return data;
+            #else
+                var dataProtected = DataSecurity.GetDataProtector();
+                var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(data)));
+                 return protectedData;
+            #endif
         }
 
         async Task<Dictionary<string, string>> GetDataConfig(string pat)
@@ -56,10 +79,6 @@ namespace Michal.Balador.Infrastructures.Service
                 Dictionary<string, string> account = JsonConvert.DeserializeObject<Dictionary<string, string>>(config);
                 return account;
             }
-          
-            //var accountConfig = File.ReadAllText(pat);
-            //Dictionary<string, string>  account = JsonConvert.DeserializeObject<Dictionary<string, string>>(accountConfig);
-            //return account;
         }
 
         bool GetConfigFile(string id,out string path)
@@ -83,8 +102,9 @@ namespace Michal.Balador.Infrastructures.Service
             var key = DataSecurity.GetHash(senderMessages.ServiceName);
             Dictionary<string, string> account = null;
             var configData = JsonConvert.SerializeObject(config);
-            var dataProtected= DataSecurity.GetDataProtector();
-            var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(configData)));
+            // var dataProtected= DataSecurity.GetDataProtector();
+            // var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(configData)));
+            var protectedData = GetprotectedData(configData);
 
             string pat;
             if (GetConfigFile(id,out pat))
@@ -105,10 +125,7 @@ namespace Michal.Balador.Infrastructures.Service
             {
                 await outputFile.WriteAsync(jsonData);
             }
-
-           // File.WriteAllText(pat, jsonData);
             _logger.Log(System.Diagnostics.TraceLevel.Info, config.ToString());
-
             return await Task.FromResult<ResponseBase>(new ResponseBase { IsError = false, Message = "" });
 
         }
@@ -121,13 +138,14 @@ namespace Michal.Balador.Infrastructures.Service
 
             if (GetContactFile(id, out pat))
             {
-                var dataProtected = DataSecurity.GetDataProtector();
+               // var dataProtected = DataSecurity.GetDataProtector();
                 contact = await GetDataConfig(pat);
                 if (contact.ContainsKey(key))
                 {
                     var data = contact[key];
-                    var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
-                    return JsonConvert.DeserializeObject<T>(unProtectedData);
+                     return DeserializeObject<T>(data);
+                    //var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
+                    //return JsonConvert.DeserializeObject<T>(unProtectedData);
                 }
             }
             return await Task.FromResult(default(T));
@@ -143,9 +161,9 @@ namespace Michal.Balador.Infrastructures.Service
             var key = DataSecurity.GetHash(senderMessages.ServiceName);
             Dictionary<string, string> contactData = null;
             var configContactData = JsonConvert.SerializeObject(contact);
-            var dataProtected = DataSecurity.GetDataProtector();
-            var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(configContactData)));
-
+          //  var dataProtected = DataSecurity.GetDataProtector();
+            //var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(configContactData)));
+            var protectedData = GetprotectedData(configContactData);
             string pat;
             if (GetContactFile(id, out pat))
             {
@@ -165,8 +183,6 @@ namespace Michal.Balador.Infrastructures.Service
             {
                 await outputFile.WriteAsync(jsonData);
             }
-
-            // File.WriteAllText(pat, jsonData);
             _logger.Log(System.Diagnostics.TraceLevel.Info, contact.ToString());
             return await Task.FromResult<ResponseBase>(new ResponseBase { IsError = false, Message = "" });
         }

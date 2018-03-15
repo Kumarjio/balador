@@ -9064,3 +9064,4 @@ aa,change aa my value0d3cc227-b9cc-4f1f-a071-e7bd3eab7a8a id=aa ,Message=change 
 
 INFO  2018-02-15 13:17:33,460 89580ms Logger                 Log                - WebHook 'fc8fafb90dc945bb8c714e1dc3e33ad0' resulted in status code 'OK' on attempt '0'.
 INFO  2018-03-13 11:24:08,188  4643ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-03-15 11:27:01,742 40628ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
