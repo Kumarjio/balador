@@ -336,6 +336,7 @@
     <Content Include="Schema\Tables\UserRole.sql" />
     <Content Include="Schema\Tables\WebHooks.sql" />
     <Content Include="registration.html" />
+    <Content Include="Scripts\registration.js" />
     <Content Include="Scripts\storage.js" />
     <Content Include="signup.html" />
     <Content Include="ssss\cash.png" />

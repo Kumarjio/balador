@@ -23,6 +23,7 @@ using Microsoft.AspNet.WebHooks;
 namespace Michal.Balador.Server.Controllers
 {//http://kennytordeur.blogspot.co.il/2012/08/mef-in-aspnet-mvc-4-and-webapi.html
     [Export]
+    [Authorize]
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class SignUpController : ApiController
     {
@@ -30,7 +31,7 @@ namespace Michal.Balador.Server.Controllers
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(SignUpController));
         [ImportMany(typeof(IFactrorySendMessages))]
         IEnumerable<Lazy<IFactrorySendMessages>> _senderRules;
-
+        [AllowAnonymous]
         public async Task<HttpResponseMessage> Get()
         {
             List<FormSignThirdPartyToken> authentications = new List<FormSignThirdPartyToken>();
@@ -40,7 +41,7 @@ namespace Michal.Balador.Server.Controllers
             {
                 var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
                 var authenticationManager = sender.Result.GetAuthenticationManager();
-                var configuration = authenticationManager.Register(new SignUpSender { Id = "rt" });
+                var configuration = authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
 
                 authentications.Add(new FormSignThirdPartyToken
                 {
@@ -59,7 +60,7 @@ namespace Michal.Balador.Server.Controllers
             };
             return response;
         }
-
+     
         [HttpPost]
         [Route("api/signIn")]
         public async Task<HttpResponseMessage> SignIn(HttpRequestMessage request)
@@ -75,7 +76,7 @@ namespace Michal.Balador.Server.Controllers
                     if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
                     {
                         var authenticationManager = sender.Result.GetAuthenticationManager();
-                        responseResult = await authenticationManager.SignIn(new SignUpSender { Id = "rt" }, formData);
+                        responseResult = await authenticationManager.SignIn(new SignUpSender { Id = User.Identity.Name }, formData);
                         break;
                     }
                 }
@@ -103,14 +104,14 @@ namespace Michal.Balador.Server.Controllers
             {
                 NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
                 var id = formData["formType"];
-                var token = formData["txtToken"];
+                var token = formData["token"];
                 foreach (var senderRule in _senderRules)
                 {
                     var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
                     if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
                     {
                         var authenticationManager = sender.Result.GetAuthenticationManager();
-                        responseResult = await authenticationManager.GetObservableToken(new SignUpSender { Id = "rt" }, token);
+                        responseResult = await authenticationManager.GetObservableToken(new SignUpSender { Id = User.Identity.Name }, token);
                         break;
                     }
                 }
