@@ -3,182 +3,60 @@
 <head>
     <title></title>
     <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<meta charset="utf-8" /><script src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-        crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/materialize.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="Scripts/storage.js"></script>
+    <script src="js/materialize.js"></script>
 </head>
 <body>
-    token: <input type="text" id="txtToken" value="" />
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">.</p>
-        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div class="card-panel">
+        <span class="blue-text text-darken-2">Config WebHook Uri</span>
     </div>
-    <form onsubmit="return subscribe()">
-        Subscribe to all events <input type="submit" value="submit">
-    </form>
-    <form onsubmit="return subscribePreUpdate()">
-        Subscribe PreUpdate <input type="submit" value="submit">
-    </form>
-    <form onsubmit="return subscribePostUpdate()">
-        Subscribe PostUpdate <input type="submit" value="submit">
-    </form>
-    <form onsubmit="return unsubscribe()">
-        Unsubscribe from all events <input type="submit" value="submit">
-    </form>
-    <form onsubmit="return notifymvc()">
-        Trigger notification through MVC controller <input type="submit" value="submit">
-    </form>
-    <form onsubmit="return notifyapi()">
-        Trigger notification through Web API controller <input type="submit" value="submit">
-    </form>
-    <script>
+    <div class="container">
 
-        function subscribePreUpdate() {
-            debugger;
-            //var access_token = "bearer ZzOcyv05FectwOiAgvjjVHkGi4sIBlcNsPTNjkTEzXOB4vx8U2YGu1XYwKsPyeSJI-tmzgJNsHftFeRkLZWW-8F6AV_euwN94Nc0i4B-y0sNtnWhZO1irNTcGJ_ZAGg-vVUOmfMX38E6P32Njh_VztKV0Qi7MfYpfCy5sipctn8IjMApKftg8kq0kzyEob1ZKxnkjWHi47AKq8pmgtfVQsIqbn1HcSAqs8nXbvAE5ky30PLJ0v64z2c9ocsxZr6izs_9trzypWM0pcYq8G3BI04x_7-LFzL0qYwrAANxIeMTTWjuyWZ29KBAwoo-Q1KUrQIRVAzDm4O8gqeEKFptq4T1hNsin8B3g0Y0xOLawCpGyIptIMZQuJyZ5cdVGvQ1NkF45t9ufEjoWCgSMoEF6-_RBXvsGd9BnZOeMC0RTwwpJfUJavPL66pJJMbXTVACmlqMva-pehSvpL_Os5N1f0UJC41IjFJp4H0SC9-87E5_DoO5m0tATVtzGwHk0sjU-P5VsW8kz9UqFwfm5XRshT8Bqin9hCoOnNl8OagY3YvouKcCpDvScXHMV9dW-vFh";
-            var access_token = "bearer " + $("#txtToken").val();
-            $.ajax({
-                type: "POST",
-                url: "/api/balador/registrations",
-                data: JSON.stringify({
-                    WebHookUri: "http://localhost:1945/api/PreUpdate",
-                    Secret: "12345678901234567890123456789012",
-                    Description: "My first WebHook!",
-                    Filters: ["preUpdate"]
-                }),
-                headers: { "Authorization": access_token },
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data, status) {
-                    debugger;
-                    alert(data.Message ? data.Message : status);
-                },
-                error: function (errMsg) {
-                    debugger;
-                    alert(errMsg.responseJSON.Message);
-                }
-            });
-            return false;
-        }
-        function subscribePostUpdate() {
-            debugger;
-            //var access_token = "bearer ZzOcyv05FectwOiAgvjjVHkGi4sIBlcNsPTNjkTEzXOB4vx8U2YGu1XYwKsPyeSJI-tmzgJNsHftFeRkLZWW-8F6AV_euwN94Nc0i4B-y0sNtnWhZO1irNTcGJ_ZAGg-vVUOmfMX38E6P32Njh_VztKV0Qi7MfYpfCy5sipctn8IjMApKftg8kq0kzyEob1ZKxnkjWHi47AKq8pmgtfVQsIqbn1HcSAqs8nXbvAE5ky30PLJ0v64z2c9ocsxZr6izs_9trzypWM0pcYq8G3BI04x_7-LFzL0qYwrAANxIeMTTWjuyWZ29KBAwoo-Q1KUrQIRVAzDm4O8gqeEKFptq4T1hNsin8B3g0Y0xOLawCpGyIptIMZQuJyZ5cdVGvQ1NkF45t9ufEjoWCgSMoEF6-_RBXvsGd9BnZOeMC0RTwwpJfUJavPL66pJJMbXTVACmlqMva-pehSvpL_Os5N1f0UJC41IjFJp4H0SC9-87E5_DoO5m0tATVtzGwHk0sjU-P5VsW8kz9UqFwfm5XRshT8Bqin9hCoOnNl8OagY3YvouKcCpDvScXHMV9dW-vFh";
-            var access_token = "bearer " + $("#txtToken").val();
-            $.ajax({
-                type: "POST",
-                url: "/api/balador/registrations",
-                data: JSON.stringify({
-                    WebHookUri: "http://localhost:1945/api/PostUpdate",
-                    Secret: "12345678901234567890123456789012",
-                    Description: "My first WebHook!",
-                    Filters: ["postUpdate"]
-                }),
-                headers: { "Authorization": access_token },
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data, status) {
-                    debugger;
-                    alert(data.Message ? data.Message : status);
-                },
-                error: function (errMsg) {
-                    debugger;
-                    alert(errMsg.responseJSON.Message);
-                }
-            });
-            return false;
-        }
-        function subscribe() {
-            debugger;
-            //var access_token = "bearer ZzOcyv05FectwOiAgvjjVHkGi4sIBlcNsPTNjkTEzXOB4vx8U2YGu1XYwKsPyeSJI-tmzgJNsHftFeRkLZWW-8F6AV_euwN94Nc0i4B-y0sNtnWhZO1irNTcGJ_ZAGg-vVUOmfMX38E6P32Njh_VztKV0Qi7MfYpfCy5sipctn8IjMApKftg8kq0kzyEob1ZKxnkjWHi47AKq8pmgtfVQsIqbn1HcSAqs8nXbvAE5ky30PLJ0v64z2c9ocsxZr6izs_9trzypWM0pcYq8G3BI04x_7-LFzL0qYwrAANxIeMTTWjuyWZ29KBAwoo-Q1KUrQIRVAzDm4O8gqeEKFptq4T1hNsin8B3g0Y0xOLawCpGyIptIMZQuJyZ5cdVGvQ1NkF45t9ufEjoWCgSMoEF6-_RBXvsGd9BnZOeMC0RTwwpJfUJavPL66pJJMbXTVACmlqMva-pehSvpL_Os5N1f0UJC41IjFJp4H0SC9-87E5_DoO5m0tATVtzGwHk0sjU-P5VsW8kz9UqFwfm5XRshT8Bqin9hCoOnNl8OagY3YvouKcCpDvScXHMV9dW-vFh";
-            var access_token = "bearer " + $("#txtToken").val();
-            $.ajax({
-                type: "POST",
-                url: "/api/balador/registrations",
-                data: JSON.stringify({
-                    WebHookUri: "http://localhost:1945/api/TestEmail",
-                    Secret: "12345678901234567890123456789012",
-                    Description: "My first WebHook!"
-                }),
-                headers: { "Authorization": access_token },
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data, status) {
-                    debugger;
-                    alert(data.Message ? data.Message : status);
-                },
-                error: function (errMsg) {
-                    debugger;
-                    alert(errMsg.responseJSON.Message);
-                }
-            });
-            return false;
-        }
+        <div class="row">
+            <form id="login-form" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="mdi-action-account-circle prefix "></i>
+                        <input id="icon_prefix" name="preSendUri" type="text">
+                        <label for="icon_prefix">Pre Send</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <button class="btn waves-effect waves-light red darken-1" id="loginsubmit" type="text">
+                            Send
+                            <i class="mdi-content-send right white-text"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="mdi-action-https prefix "></i>
+                        <input id="icon_email" name="postSendUri" type="text">
+                        <label for="icon_email">Post Send</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <button class="btn waves-effect waves-light red darken-1" id="loginsubmit" type="text">
+                            Send
+                            <i class="mdi-content-send right white-text"></i>
+                        </button>
+                    </div>
+                </div>
+                <input id="id_secret" name="secret" value="123456" type="hidden">
 
-        function unsubscribe() {
-            $.ajax({
-                url: "/api/webhooks/registrations",
-                type: 'DELETE',
-                success: function (data, status) { alert(data.Message ? data.Message : status); },
-                error: function (errMsg) { alert(errMsg.responseJSON.Message); }
-            });
-            return false;
-        }
 
-        function notifymvc() {
-            $.post("/notify/submit",
-                {},
-                function (data, status) { alert("Data: " + data + "\nStatus: " + status); });
-            return false;
-        }
-        function notifyapi() {
-            var access_token = "bearer " + $("#txtToken").val();
-            $.ajax({
-                type: "POST",
-                url: "/api/notifyapi",
-                data: JSON.stringify({}),
-                headers: { "Authorization": access_token },
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data, status) {
-                    debugger;
-                    alert(data.Message ? data.Message : status);
-                },
-                error: function (errMsg) {
-                    debugger;
-                    alert(errMsg.responseJSON.Message);
-                }
-            });
-            return false;
-        }
-        function notifyapi2() {
-            $.post("/api/notifyapi",
-                {},
-                function (data, status) { alert("Data: " + data + "\nStatus: " + status); });
-            return false;
-        }
-    </script>
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </form>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
+
     </div>
+
+    <script src="Scripts/Webhook.js"></script>
 </body>
 </html>

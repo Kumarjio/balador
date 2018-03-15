@@ -338,6 +338,7 @@
     <Content Include="registration.html" />
     <Content Include="Scripts\registration.js" />
     <Content Include="Scripts\storage.js" />
+    <Content Include="Scripts\Webhook.js" />
     <Content Include="signup.html" />
     <Content Include="ssss\cash.png" />
     <Content Include="ssss\covered-food-tray-on-a-hand-of-hotel-room-service %281%29.png" />
@@ -348,6 +349,7 @@
     <Content Include="ssss\shay.png" />
     <Content Include="ssss\smurfs_25.jpg" />
     <Content Include="ssss\todo.txt" />
+    <Content Include="test_webhooks.html" />
     <Content Include="webhooks.html" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
