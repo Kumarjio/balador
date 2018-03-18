@@ -52,3 +52,25 @@ function subscribePostUpdate() {
     });
     return false;
 }
+
+function getAllWebhooks() {
+    debugger;
+    ajax_token(null, '/api/balador/registrations', 'GET', 'application/json; charset=utf-8', function (data) {
+        debugger;
+        var items = data;
+        $.each(items, function (key, val) {
+            debugger;
+            var webhook = items[key];
+            if (webhook!=null && webhook.Filters != null && webhook.Filters[0] != null) {
+                if (webhook.Filters[0] == 'preUpdate') {
+
+                }
+                else {
+
+                }
+            }
+         
+        });
+
+    });
+}

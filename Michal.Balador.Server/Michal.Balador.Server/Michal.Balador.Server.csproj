@@ -301,6 +301,7 @@
     <Content Include="LICENSE" />
     <Content Include="min\custom-min.css" />
     <Content Include="min\custom-min.js" />
+    <Content Include="min\materialdesignicons.min.css" />
     <Content Include="min\plugin-min.css" />
     <Content Include="min\plugin-min.js" />
     <Content Include="README.md" />

@@ -10,7 +10,7 @@
             window.location.href = "login.html";
    
         else {
-            $('#txtuser').text("Hello " + localStorage.getItem("user") + " Signup ThirdParty Messangers");
+            $('#txtuser').text("Hello " + localStorage.getItem("user") + " ");
             init();
         }
     }
@@ -34,7 +34,7 @@
                 if (response != null && response.access_token != null) {
                     sessionStorage.setItem('token', response.token_type+ " "+ response.access_token);
                     localStorage.setItem('user', response.userName);
-                    setTimeout('window.location.href = "registration.html"', 4000);
+                    setTimeout('window.location.href = "registration.html"', 1000);
                 }
             }
         });
