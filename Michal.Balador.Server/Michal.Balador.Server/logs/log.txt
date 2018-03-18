@@ -9078,3 +9078,4 @@ INFO  2018-03-18 16:02:55,870   644ms Logger                 Log                
 INFO  2018-03-18 16:14:13,603   267ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
 INFO  2018-03-18 16:16:44,486 151150ms Logger                 Log                - Could not register WebHook due to error: The following filters are not valid: 'http://localhost:1945/api/preupdate'.
 INFO  2018-03-18 16:17:31,983 198648ms Logger                 Log                - Could not register WebHook due to error: The following filters are not valid: 'http://localhost:1945/api/preupdate'.
+INFO  2018-03-18 16:50:57,693   589ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.

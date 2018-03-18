@@ -7,7 +7,7 @@
         if (sessionStorage.token != null) {
             $('.clogin').hide();
             $('.show_a').show();
-            $('.show_aherf').text("Hello " + localStorage.getItem("user") + ".. ");
+            $('.show_aherf').text("Hello " + localStorage.getItem("user") + ".");
         }
         else {
             $('.clogin').show();
