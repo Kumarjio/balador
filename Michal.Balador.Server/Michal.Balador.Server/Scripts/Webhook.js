@@ -55,6 +55,7 @@ function subscribePostUpdate() {
 
 function getAllWebhooks() {
     debugger;
+
     ajax_token(null, '/api/balador/registrations', 'GET', 'application/json; charset=utf-8', function (data) {
         debugger;
         var items = data;
@@ -73,4 +74,6 @@ function getAllWebhooks() {
         });
 
     });
+}
+function init() {
 }

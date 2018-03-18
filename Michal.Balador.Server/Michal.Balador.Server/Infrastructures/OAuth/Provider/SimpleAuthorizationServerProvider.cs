@@ -79,7 +79,7 @@ namespace minyangroups.api.Helper.Providers
             }
             //http://leastprivilege.com/2013/11/15/adding-refresh-tokens-to-a-web-api-v2-authorization-server/
             context.OwinContext.Set<string>("as:client_id", context.ClientId);
-
+            
             context.OwinContext.Set<string>("as:clientAllowedOrigin", client.AllowedOrigin);
             context.OwinContext.Set<string>("as:clientRefreshTokenLifeTime", client.RefreshTokenLifeTime.ToString());
 
@@ -131,6 +131,9 @@ namespace minyangroups.api.Helper.Providers
                     },
                     { 
                         "m:userId", user.Id
+                    },
+                    {
+                        "m:secret", user.Discriminator
                     },
                     { 
                         "m:currentTime", currentTime.ToString("yyyy-MM-dd HH:mm:ss")
