@@ -46,27 +46,49 @@ function getAllWebhooks() {
     }
 function unsubscribe(id) {
     debugger;
-    var fromdata = id;
-    ajax_token(null, '/api/balador/registrations/'+id, 'DELETE', 'application/json; charset=utf-8',
+    var deferred = $.Deferred();
+    ajax_token(null, '/api/balador/registrations/' + id, 'DELETE', 'application/json; charset=utf-8',
         function (data) {
             debugger;
             alert(data.Message ? data.Message : status);
+            deferred.resolve(resp);
         },
         function (errMsg) {
+            debugger;
             alert(errMsg.responseJSON.Message);
-        })
+            deferred.reject();
+        });
+    return deferred.promise();
 }
 
 function init() {
     $("#sendPre").click(function () {
         debugger;
-       // unsubscribe($("#preSendId").val());
-       // subscribe($("#preSendUri").val(), "preUpdate")
+        var preSendId=$("#preSendId").val();
+        if (preSendId != null && preSendId!='') {
+            var chained = unsubscribe(preSendId).then(subscribe($("#preSendUri").val(), "preUpdate")).fail(function (merr) {
+                debugger;
+            });
+        }
+        else {
+            subscribe($("#preSendUri").val(), "preUpdate");
+        }
+     
+        
     });
     $("#sendPost").click(function () {
         debugger;
         //unsubscribe($("#postSendId").val());
         //subscribe( $("#postSendUri").val(), "postUpdate")
+        var postSendId = $("#postSendId").val();
+        if (postSendId != null && postSendId != '') {
+            var chained = unsubscribe(postSendId).then(subscribe($("#postSendUri").val(), "postUpdate")).fail(function (merr) {
+                debugger;
+            });
+        }
+        else {
+            subscribe($("#postSendUri").val(), "postUpdate");
+        }
     });
     getAllWebhooks();
 }
