@@ -1,5 +1,4 @@
 ﻿$('document').ready(function () {
-    debugger;
     $(".dropdown-button").dropdown();
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/') + 1)
@@ -14,13 +13,10 @@
             $('.clogin').show();
             $('.show_a').hide();
         }
-        debugger;
-     
         return;
     }
 
     if (filename != 'login.html') {
-
         if (sessionStorage.token === undefined && filename != 'login.html') 
             window.location.href = "login.html";
    
@@ -29,8 +25,10 @@
             init();
         }
     }
-
-    /* login submit */
+    $("#Logout").click(function () {
+        debugger;
+        logout();
+    });
     $("#loginsubmit").click(function () {
         debugger;
         var alerttextempty = "Field can't be empty!";
@@ -53,23 +51,19 @@
         return false;
     });
 });
-function ajax_token(data, url,typ,contentType,callback) {
-    debugger;
-    
+
+function ajax_token(data, url, typ, contentType, callback) {
+     
      var access_token = sessionStorage.token;
     $.ajax({
-       // type: "POST",
         type: typ,
         url: url,
         data: data,
         headers: { "Authorization": access_token },
-        //contentType: "application/json; charset=utf-8",
         contentType: contentType,
-     //   dataType: "json",
         success: function (data, status) {
             debugger;
             callback(data, status)
-            //alert(data.Message ? data.Message : status);
         },
         error: function (errMsg) {
             debugger;
@@ -78,4 +72,8 @@ function ajax_token(data, url,typ,contentType,callback) {
         }
     });
     return false;
+}
+function logout()
+{
+    alert(1);
 }
