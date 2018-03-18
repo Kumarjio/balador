@@ -64,11 +64,16 @@ function getAllWebhooks() {
             var webhook = items[key];
             if (webhook!=null && webhook.Filters != null && webhook.Filters[0] != null) {
                 if (webhook.Filters[0] == 'preUpdate') {
+                   // $("#preSendUri").MaterialTextfield.checkDirty();
+                   // $("#preSendUri").MaterialTextfield.change(webhook.WebHookUri);
+                    //$("#preSendUri").get(0).MaterialTextfield.change('test');
 
+                   $("#preSendUri").val(webhook.WebHookUri);
                 }
                 else {
-
+                    $("#postSendUri").val(webhook.WebHookUri);
                 }
+                Materialize.updateTextFields();
             }
          
         });
