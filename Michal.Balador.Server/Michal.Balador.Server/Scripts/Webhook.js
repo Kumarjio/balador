@@ -1,56 +1,20 @@
-﻿function subscribePreUpdate(url,secret) {
+﻿
+function subscribe(url,filter) {
     debugger;
-    //var access_token = "bearer ZzOcyv05FectwOiAgvjjVHkGi4sIBlcNsPTNjkTEzXOB4vx8U2YGu1XYwKsPyeSJI-tmzgJNsHftFeRkLZWW-8F6AV_euwN94Nc0i4B-y0sNtnWhZO1irNTcGJ_ZAGg-vVUOmfMX38E6P32Njh_VztKV0Qi7MfYpfCy5sipctn8IjMApKftg8kq0kzyEob1ZKxnkjWHi47AKq8pmgtfVQsIqbn1HcSAqs8nXbvAE5ky30PLJ0v64z2c9ocsxZr6izs_9trzypWM0pcYq8G3BI04x_7-LFzL0qYwrAANxIeMTTWjuyWZ29KBAwoo-Q1KUrQIRVAzDm4O8gqeEKFptq4T1hNsin8B3g0Y0xOLawCpGyIptIMZQuJyZ5cdVGvQ1NkF45t9ufEjoWCgSMoEF6-_RBXvsGd9BnZOeMC0RTwwpJfUJavPL66pJJMbXTVACmlqMva-pehSvpL_Os5N1f0UJC41IjFJp4H0SC9-87E5_DoO5m0tATVtzGwHk0sjU-P5VsW8kz9UqFwfm5XRshT8Bqin9hCoOnNl8OagY3YvouKcCpDvScXHMV9dW-vFh";
-    var access_token = "bearer " + $("#txtToken").val();
-    $.ajax({
-        type: "POST",
-        url: "/api/balador/registrations",
-        data: JSON.stringify({
-            WebHookUri: "http://localhost:1945/api/PreUpdate",
-            Secret: "12345678901234567890123456789012",
-            Description: "My first WebHook!",
-            Filters: ["preUpdate"]
-        }),
-        headers: { "Authorization": access_token },
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (data, status) {
+    var fromdata = JSON.stringify({
+        WebHookUri: url,
+        Secret: sessionStorage.secret,
+        Description: " WebHook!",
+        Filters: [filter]
+    });
+        ajax_token(fromdata, '/api/balador/registrations', 'POST', 'application/json; charset=utf-8',
+        function (data) {
             debugger;
             alert(data.Message ? data.Message : status);
         },
-        error: function (errMsg) {
-            debugger;
+        function (errMsg) {
             alert(errMsg.responseJSON.Message);
-        }
-    });
-    return false;
-}
-function subscribePostUpdate() {
-    debugger;
-    //var access_token = "bearer ZzOcyv05FectwOiAgvjjVHkGi4sIBlcNsPTNjkTEzXOB4vx8U2YGu1XYwKsPyeSJI-tmzgJNsHftFeRkLZWW-8F6AV_euwN94Nc0i4B-y0sNtnWhZO1irNTcGJ_ZAGg-vVUOmfMX38E6P32Njh_VztKV0Qi7MfYpfCy5sipctn8IjMApKftg8kq0kzyEob1ZKxnkjWHi47AKq8pmgtfVQsIqbn1HcSAqs8nXbvAE5ky30PLJ0v64z2c9ocsxZr6izs_9trzypWM0pcYq8G3BI04x_7-LFzL0qYwrAANxIeMTTWjuyWZ29KBAwoo-Q1KUrQIRVAzDm4O8gqeEKFptq4T1hNsin8B3g0Y0xOLawCpGyIptIMZQuJyZ5cdVGvQ1NkF45t9ufEjoWCgSMoEF6-_RBXvsGd9BnZOeMC0RTwwpJfUJavPL66pJJMbXTVACmlqMva-pehSvpL_Os5N1f0UJC41IjFJp4H0SC9-87E5_DoO5m0tATVtzGwHk0sjU-P5VsW8kz9UqFwfm5XRshT8Bqin9hCoOnNl8OagY3YvouKcCpDvScXHMV9dW-vFh";
-    var access_token = "bearer " + $("#txtToken").val();
-    $.ajax({
-        type: "POST",
-        url: "/api/balador/registrations",
-        data: JSON.stringify({
-            WebHookUri: "http://localhost:1945/api/PostUpdate",
-            Secret: "12345678901234567890123456789012",
-            Description: "My first WebHook!",
-            Filters: ["postUpdate"]
-        }),
-        headers: { "Authorization": access_token },
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (data, status) {
-            debugger;
-            alert(data.Message ? data.Message : status);
-        },
-        error: function (errMsg) {
-            debugger;
-            alert(errMsg.responseJSON.Message);
-        }
-    });
-    return false;
+        });
 }
 
 function getAllWebhooks() {
@@ -67,18 +31,42 @@ function getAllWebhooks() {
                    // $("#preSendUri").MaterialTextfield.checkDirty();
                    // $("#preSendUri").MaterialTextfield.change(webhook.WebHookUri);
                     //$("#preSendUri").get(0).MaterialTextfield.change('test');
-
+                    $("#preSendId").val(webhook.Id);
                    $("#preSendUri").val(webhook.WebHookUri);
                 }
                 else {
+                    $("#postSendId").val(webhook.Id);
                     $("#postSendUri").val(webhook.WebHookUri);
                 }
                 Materialize.updateTextFields();
             }
-         
         });
 
     });
+    }
+function unsubscribe(id) {
+    debugger;
+    var fromdata = id;
+    ajax_token(null, '/api/balador/registrations/'+id, 'DELETE', 'application/json; charset=utf-8',
+        function (data) {
+            debugger;
+            alert(data.Message ? data.Message : status);
+        },
+        function (errMsg) {
+            alert(errMsg.responseJSON.Message);
+        })
 }
+
 function init() {
+    $("#sendPre").click(function () {
+        debugger;
+       // unsubscribe($("#preSendId").val());
+       // subscribe($("#preSendUri").val(), "preUpdate")
+    });
+    $("#sendPost").click(function () {
+        debugger;
+        //unsubscribe($("#postSendId").val());
+        //subscribe( $("#postSendUri").val(), "postUpdate")
+    });
+    getAllWebhooks();
 }
