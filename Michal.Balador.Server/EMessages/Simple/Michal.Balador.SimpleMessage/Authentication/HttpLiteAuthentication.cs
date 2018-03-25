@@ -35,7 +35,7 @@ namespace Michal.Balador.SimpleMessage
             }
         }
 
-        public override SenderLandPageConfiguration Register(SignUpSender signUpSender)
+        public override async Task<SenderLandPageConfiguration> Register(SignUpSender signUpSender)
         {
 
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.SenderMessages)
@@ -46,7 +46,11 @@ namespace Michal.Balador.SimpleMessage
 
             };
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "token", Title = "write token only " });
-
+            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages,signUpSender.Id);
+            if(config!=null && !String.IsNullOrEmpty( config.Token))
+            {
+                senderLandPageConfiguration.IsAlreadyRegister = true;
+            }
             return senderLandPageConfiguration;
         }
 
@@ -66,6 +70,17 @@ namespace Michal.Balador.SimpleMessage
            await Context.SetConfiguration(this.SenderMessages, senderDetail.Id, new ConfigHttpLite { Token=pws});
             return response;
 
+        }
+        public override async Task<ResponseBase> UnRegister(SignUpSender signUpSender)
+        {
+            ResponseBase response = new ResponseBase();
+            var config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages, signUpSender.Id);
+            if (config != null && !String.IsNullOrEmpty(config.Token))
+            {
+                await Context.SetConfiguration(this.SenderMessages, signUpSender.Id, new ConfigHttpLite());
+
+            }
+            return response;
         }
     }
 }

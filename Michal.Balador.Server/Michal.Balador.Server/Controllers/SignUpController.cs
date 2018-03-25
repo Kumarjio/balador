@@ -41,7 +41,7 @@ namespace Michal.Balador.Server.Controllers
             {
                 var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
                 var authenticationManager = sender.Result.GetAuthenticationManager();
-                var configuration = authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
+                var configuration =await authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
 
                 authentications.Add(new FormSignThirdPartyToken
                 {
@@ -49,7 +49,8 @@ namespace Michal.Balador.Server.Controllers
                     Fields = configuration.ExtraFields,
                     Message = configuration.TextLandPageTemplate,
                     Name = authenticationManager.AuthenticationName,
-                    Title = authenticationManager.AuthenticationTitle
+                    Title = authenticationManager.AuthenticationTitle,
+                    IsAlreadyRegister= configuration.IsAlreadyRegister
                 });
             }
             var response = new HttpResponseMessage(HttpStatusCode.OK)

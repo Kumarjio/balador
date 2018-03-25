@@ -21,7 +21,7 @@ namespace Michal.Balador.Contracts.DataModel
 
   
         //step 1 after set signup sender register page or email
-        public abstract SenderLandPageConfiguration Register( SignUpSender signUpSender);
+        public abstract Task<SenderLandPageConfiguration> Register(SignUpSender signUpSender);
 
         //step 2 signin
         public abstract Task<Response<AuthenticationUser>> SignIn(SignUpSender senderDetail, NameValueCollection extraDataForm);
@@ -32,6 +32,8 @@ namespace Michal.Balador.Contracts.DataModel
         {
             return await Task.FromResult<ResponseBase>(new ResponseBase {IsError=false,Message="" });
         }
+
+        public abstract Task<ResponseBase> UnRegister(SignUpSender signUpSender);
 
     }
 }

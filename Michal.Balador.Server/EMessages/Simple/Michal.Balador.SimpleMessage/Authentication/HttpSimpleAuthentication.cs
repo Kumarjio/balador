@@ -43,7 +43,7 @@ namespace Michal.Balador.SimpleMessage
             return result;
         }
 
-        public override SenderLandPageConfiguration Register(SignUpSender signUpSender)
+        public override async Task<SenderLandPageConfiguration> Register(SignUpSender signUpSender)
         {
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.SenderMessages)
             {
@@ -55,6 +55,12 @@ namespace Michal.Balador.SimpleMessage
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "pws", Title = "write password" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "client_id", Title = "client" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "grant_type", Title = "grant type" });
+            var config = await Context.GetConfiguration<ConfigHttp>(this.SenderMessages, signUpSender.Id);
+            if (config != null && !String.IsNullOrEmpty(config.Token))
+            {
+                senderLandPageConfiguration.IsAlreadyRegister = true;
+            }
+
             return senderLandPageConfiguration;
         }
 
@@ -96,6 +102,18 @@ namespace Michal.Balador.SimpleMessage
 
             return response;
 
+        }
+
+        public override async Task<ResponseBase> UnRegister(SignUpSender signUpSender)
+        {
+            ResponseBase response = new ResponseBase();
+            var config = await Context.GetConfiguration<ConfigHttp>(this.SenderMessages, signUpSender.Id);
+            if (config != null && !String.IsNullOrEmpty(config.Token))
+            {
+                await Context.SetConfiguration(this.SenderMessages, signUpSender.Id, new ConfigHttp());
+
+            }
+            return response;
         }
     }
 }

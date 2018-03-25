@@ -13,6 +13,7 @@ namespace Michal.Balador.Server.Models
         public string Name { get; set; }
         public string Message { get; set; }
         public List<FieldView> Fields { get; set; }
+        public bool  IsAlreadyRegister { get; set; }
 
     }
     public class FormsSignThirdPartyToken
