@@ -100,7 +100,7 @@ namespace Michal.Balador.SimpleMessage
                 {
                     await Context.SetConfiguration(this.SenderMessages, senderDetail.Id, new ConfigHttp { UserId= senderDetail.Id,RefreshToken=d.refresh_token,  Token = d.access_token });
                 }
-            }
+            } 
 
             return response;
 
