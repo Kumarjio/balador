@@ -27,5 +27,7 @@ namespace Michal.Balador.Contracts.DataModel
         // public Dictionary<string,string> ExtraFields { get; set; }//fieldname,title
         public List<FieldView> ExtraFields { get; set; }//fieldname,title
         public bool IsAlreadyRegister { get; set; }
+        public bool TwoFactorAuthentication { get; set; }
+
     }
 }

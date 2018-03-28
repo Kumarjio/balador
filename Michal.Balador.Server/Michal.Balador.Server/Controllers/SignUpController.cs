@@ -31,35 +31,50 @@ namespace Michal.Balador.Server.Controllers
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(SignUpController));
         [ImportMany(typeof(IFactrorySendMessages))]
         IEnumerable<Lazy<IFactrorySendMessages>> _senderRules;
-        [AllowAnonymous]
+      //  [AllowAnonymous]
         public async Task<HttpResponseMessage> Get()
         {
             List<FormSignThirdPartyToken> authentications = new List<FormSignThirdPartyToken>();
-
-            MockRepository mockData = new MockRepository();
-            foreach (var senderRule in _senderRules)
+            try
             {
-                var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
-                var authenticationManager = sender.Result.GetAuthenticationManager();
-                var configuration =await authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
-
-                authentications.Add(new FormSignThirdPartyToken
+                MockRepository mockData = new MockRepository();
+                foreach (var senderRule in _senderRules)
                 {
-                    Id = configuration.Id.GetHashCode().ToString(),
-                    Fields = configuration.ExtraFields,
-                    Message = configuration.TextLandPageTemplate,
-                    Name = authenticationManager.AuthenticationName,
-                    Title = authenticationManager.AuthenticationTitle,
-                    IsAlreadyRegister= configuration.IsAlreadyRegister
-                });
+                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = User.Identity.Name });
+                    var authenticationManager = sender.Result.GetAuthenticationManager();
+                    var configuration = await authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
+
+                    authentications.Add(new FormSignThirdPartyToken
+                    {
+                        Id = configuration.Id.GetHashCode().ToString(),
+                        Fields = configuration.ExtraFields,
+                        Message = configuration.TextLandPageTemplate,
+                        Name = authenticationManager.AuthenticationName,
+                        Title = authenticationManager.AuthenticationTitle,
+                        IsAlreadyRegister = configuration.IsAlreadyRegister,
+                        TwoFactorAuthentication = configuration.TwoFactorAuthentication
+                    });
+                }
+                var response = new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new ObjectContent<FormSignThirdPartyToken[]>(authentications.ToArray(),
+                             new JsonMediaTypeFormatter(),
+                              new MediaTypeWithQualityHeaderValue("application/json"))
+                };
+                return response;
             }
-            var response = new HttpResponseMessage(HttpStatusCode.OK)
+            catch (Exception ee)
             {
-                Content = new ObjectContent<FormSignThirdPartyToken[]>(authentications.ToArray(),
-                         new JsonMediaTypeFormatter(),
-                          new MediaTypeWithQualityHeaderValue("application/json"))
-            };
-            return response;
+                Console.WriteLine(ee);
+                var response = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                {
+                    Content = new ObjectContent<FormSignThirdPartyToken[]>(authentications.ToArray(),
+                             new JsonMediaTypeFormatter(),
+                              new MediaTypeWithQualityHeaderValue("application/json"))
+                };
+                return response;
+            }
+           
         }
      
         [HttpPost]
@@ -73,7 +88,7 @@ namespace Michal.Balador.Server.Controllers
                 var id = formData["formType"];
                 foreach (var senderRule in _senderRules)
                 {
-                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
+                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = User.Identity.Name });
                     if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
                     {
                         var authenticationManager = sender.Result.GetAuthenticationManager();
@@ -97,6 +112,43 @@ namespace Michal.Balador.Server.Controllers
         }
 
         [HttpPost]
+        [Route("api/unRegister")]
+        public async Task<HttpResponseMessage> UnRegister(HttpRequestMessage request)
+        {
+            ResponseBase responseResult = new ResponseBase();
+            try
+            {
+                NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
+                var id = formData["formType"];
+              
+                foreach (var senderRule in _senderRules)
+                {
+                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = User.Identity.Name });
+                    if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
+                    {
+                        var authenticationManager = sender.Result.GetAuthenticationManager();
+                        responseResult = await authenticationManager.UnRegister(new SignUpSender { Id = User.Identity.Name });
+                        break;
+                    }
+                }
+            }
+            catch (Exception eee)
+            {
+                responseResult.IsError = true;
+                responseResult.Message = eee.Message;
+                //throw;
+            }
+            var response = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ObjectContent<ResponseBase>(responseResult,
+                        new JsonMediaTypeFormatter(),
+                         new MediaTypeWithQualityHeaderValue("application/json"))
+            };
+            return response;
+        }
+
+
+        [HttpPost]
         [Route("api/SetToken")]
         public async Task<HttpResponseMessage> SetToken(HttpRequestMessage request)
         {
@@ -108,7 +160,7 @@ namespace Michal.Balador.Server.Controllers
                 var token = formData["token"];
                 foreach (var senderRule in _senderRules)
                 {
-                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = "1" });
+                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = User.Identity.Name });
                     if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
                     {
                         var authenticationManager = sender.Result.GetAuthenticationManager();
@@ -131,7 +183,5 @@ namespace Michal.Balador.Server.Controllers
             };
             return response;
         }
-
     }
-
 }

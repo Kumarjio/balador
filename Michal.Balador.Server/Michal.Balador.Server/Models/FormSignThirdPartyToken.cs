@@ -14,7 +14,7 @@ namespace Michal.Balador.Server.Models
         public string Message { get; set; }
         public List<FieldView> Fields { get; set; }
         public bool  IsAlreadyRegister { get; set; }
-
+        public bool TwoFactorAuthentication { get; set; }
     }
     public class FormsSignThirdPartyToken
     {

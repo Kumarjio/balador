@@ -51,24 +51,24 @@ namespace Michal.Balador.Infrastructures.Service
 
         T DeserializeObject<T>(string data)
         {
-            #if DEBUG
-            return JsonConvert.DeserializeObject<T>(data);
-            #else
+         ////   #if DEBUG
+          //  return JsonConvert.DeserializeObject<T>(data);
+           // #else
                  var dataProtected = DataSecurity.GetDataProtector();
                  var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
                  return JsonConvert.DeserializeObject<T>(unProtectedData);
-            #endif
+         //   #endif
             }
 
         string GetprotectedData(string data)
         {
-            #if DEBUG
-                  return data;
-            #else
+           // #if DEBUG
+          //        return data;
+          //  #else
                 var dataProtected = DataSecurity.GetDataProtector();
                 var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(data)));
                  return protectedData;
-            #endif
+         //   #endif
         }
 
         async Task<Dictionary<string, string>> GetDataConfig(string pat)

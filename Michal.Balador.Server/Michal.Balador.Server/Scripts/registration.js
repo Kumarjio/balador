@@ -40,12 +40,12 @@ function init() {
     $(document).on('click', '#share form input[type=submit]', function (e) {
         e.preventDefault();
         debugger;
-
         var idindex = $(this).data("index");
 
         var $form = $(this).parent();
+        var action = $form.attr('action');
         var formData = $form.serialize();
-        ajax_token(formData, '/api/setToken','POST' ,'application/x-www-form-urlencoded', function (got) {
+        ajax_token(formData, action,'POST' ,'application/x-www-form-urlencoded', function (got) {
                 debugger;
                 var tokenText = "frmToken_" + idindex;
                 var signupText = "frmSignup_" + idindex;
@@ -80,6 +80,7 @@ function init() {
         debugger;
         var items = [];
         $.each(data, function (key, val) {
+            debugger;
             _d.push(val);
 
             var $div_container = $('<div  />', { class: 'container', id: 'div_' + val.Id });
@@ -91,34 +92,58 @@ function init() {
             errText.appendTo($div_container);
             completeText.hide();
             errText.hide();
+            $form = $('<form />', { action: '/api/signIn', method: 'POST', id: "frmSignup_" + val.Id });
+            $form.data("frmsignupid", val.Id);
+            var frmRName = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
 
 
             var frmTokenMessage = $('<div />', { text: val.Message });
             var $frmToken = $('<form />', { action: '/api/setToken', method: 'POST', id: "frmToken_" + val.Id });
             var fTokenHidden = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
-            var $fieldToken = $('<input />', { name: "txtToken", placeholder: "Write Token", type: 'text' });
+            var $fieldToken = $('<input />', { name: "token", placeholder: "Write Token", type: 'text' });
             var btnValidate = $('<input />', { type: 'button', value: 'Validate' });
             btnValidate.data("index", val.Id);
             $frmToken.append(frmTokenMessage, fTokenHidden, $fieldToken, $('<br />'), btnValidate).appendTo($div_container);
             $frmToken.hide();
 
-            var $form = $('<form />', { action: '/api/signup', method: 'POST', id: "frmSignup_" + val.Id });
-            $form.data("frmsignupid", val.Id);
-            var frmSave = $('<div />', { text: val.Message });
-            var frmRName = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
-            var frmButton = $('<input />', { type: 'submit', value: 'Apply' });
-            frmButton.data("index", val.Id);
-            var fields = val.Fields;
-            $form.show();
-
-            for (var i = 0; i < fields.length; i++) {
-                var field = fields[i];
-                var $fieldForm = $('<input />', { name: field.Name, placeholder: field.Title, type: 'text' });
-                $div_row.append($fieldForm, $('<br />'));
-            }
-            frmSave.append($div_row);
-            $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
             var $hr = $('<hr />', { class: 'style16' });
+            if (!val.IsAlreadyRegister) {
+                if (val.TwoFactorAuthentication) {
+                    $form.attr('action', '/api/SignIn');
+                }
+                else {
+                    $form.attr('action', '/api/setToken');
+                }
+            
+                $form.data("frmsignupid", val.Id);
+                var frmSave = $('<div />', { text: val.Message });
+                var frmRName = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
+                var frmButton = $('<input />', { type: 'submit', value: 'Register' });
+                frmButton.data("index", val.Id);
+                var fields = val.Fields;
+                $form.show();
+
+                for (var i = 0; i < fields.length; i++) {
+                    var field = fields[i];
+                    var $fieldForm = $('<input />', { name: field.Name, placeholder: field.Title, type: 'text' });
+                    $div_row.append($fieldForm, $('<br />'));
+                }
+                frmSave.append($div_row);
+                $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
+            }
+            else {
+              //  $form = $('<form />', { action: '/api/UnRegister', method: 'POST', id: "frmUnregister_" + val.Id });
+                $form.attr('action', '/api/unRegister');
+              
+                var frmSave = $('<div />', { text: val.Message });
+                var frmButton = $('<input />', { type: 'submit', value: 'Unregister' });
+                frmButton.data("index", val.Id);
+           
+                $form.show();
+                frmSave.append($div_row);
+                $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
+             
+            }
             $div_container.append($form, $hr).appendTo($('#share'));
         });
     

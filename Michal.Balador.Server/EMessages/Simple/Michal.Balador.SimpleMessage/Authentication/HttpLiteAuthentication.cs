@@ -47,7 +47,8 @@ namespace Michal.Balador.SimpleMessage
             };
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "token", Title = "write token only " });
             ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages,signUpSender.Id);
-            if(config!=null && !String.IsNullOrEmpty( config.Token))
+            senderLandPageConfiguration.TwoFactorAuthentication = false;
+            if (config!=null && !String.IsNullOrEmpty(config.Token))
             {
                 senderLandPageConfiguration.IsAlreadyRegister = true;
             }

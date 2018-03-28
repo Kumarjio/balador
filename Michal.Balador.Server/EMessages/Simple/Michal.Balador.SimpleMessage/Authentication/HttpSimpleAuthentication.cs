@@ -38,7 +38,9 @@ namespace Michal.Balador.SimpleMessage
       
         public override async Task<ResponseBase> GetObservableToken(SignUpSender signUpSender, string token)
         {
-            var result=await this.Context.SetConfiguration(this.SenderMessages, signUpSender.Id, token);
+            var config = await Context.GetConfiguration<ConfigHttp>(this.SenderMessages, signUpSender.Id);
+            config.Token = token;
+            var result=await this.Context.SetConfiguration(this.SenderMessages, signUpSender.Id, config);
 
             return result;
         }
@@ -60,7 +62,7 @@ namespace Michal.Balador.SimpleMessage
             {
                 senderLandPageConfiguration.IsAlreadyRegister = true;
             }
-
+            senderLandPageConfiguration.TwoFactorAuthentication = true;
             return senderLandPageConfiguration;
         }
 
