@@ -109,6 +109,7 @@ namespace Michal.Balador.SimpleMessage
         public override async Task<ResponseBase> UnRegister(SignUpSender signUpSender)
         {
             ResponseBase response = new ResponseBase();
+            response.Message = "unregister done";
             var config = await Context.GetConfiguration<ConfigHttp>(this.SenderMessages, signUpSender.Id);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
