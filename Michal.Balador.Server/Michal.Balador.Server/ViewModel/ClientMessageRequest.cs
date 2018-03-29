@@ -7,7 +7,7 @@ namespace Michal.Balador.Server.ViewModel
 {
     public class ClientMessageRequest
     {
-        public string ClientId { get; set; }
+        public string ContactId { get; set; }
         public string Messsage { get; set; }
         public string MesssageType { get; set; }
         

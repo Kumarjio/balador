@@ -1,5 +1,5 @@
 ﻿
-function subscribe(url,filter) {
+function subscribe(url, filter) {
     debugger;
     var fromdata = JSON.stringify({
         WebHookUri: url,
@@ -7,7 +7,7 @@ function subscribe(url,filter) {
         Description: " WebHook!",
         Filters: [filter]
     });
-        ajax_token(fromdata, '/api/balador/registrations', 'POST', 'application/json; charset=utf-8',
+    ajax_token(fromdata, '/api/balador/registrations', 'POST', 'application/json; charset=utf-8',
         function (data) {
             debugger;
             alert(data.Message ? data.Message : status);
@@ -26,13 +26,13 @@ function getAllWebhooks() {
         $.each(items, function (key, val) {
             debugger;
             var webhook = items[key];
-            if (webhook!=null && webhook.Filters != null && webhook.Filters[0] != null) {
+            if (webhook != null && webhook.Filters != null && webhook.Filters[0] != null) {
                 if (webhook.Filters[0] == 'preUpdate') {
-                   // $("#preSendUri").MaterialTextfield.checkDirty();
-                   // $("#preSendUri").MaterialTextfield.change(webhook.WebHookUri);
+                    // $("#preSendUri").MaterialTextfield.checkDirty();
+                    // $("#preSendUri").MaterialTextfield.change(webhook.WebHookUri);
                     //$("#preSendUri").get(0).MaterialTextfield.change('test');
                     $("#preSendId").val(webhook.Id);
-                   $("#preSendUri").val(webhook.WebHookUri);
+                    $("#preSendUri").val(webhook.WebHookUri);
                 }
                 else {
                     $("#postSendId").val(webhook.Id);
@@ -43,7 +43,7 @@ function getAllWebhooks() {
         });
 
     });
-    }
+}
 function unsubscribe(id) {
     debugger;
     var deferred = $.Deferred();
@@ -64,8 +64,8 @@ function unsubscribe(id) {
 function init() {
     $("#sendPre").click(function () {
         debugger;
-        var preSendId=$("#preSendId").val();
-        if (preSendId != null && preSendId!='') {
+        var preSendId = $("#preSendId").val();
+        if (preSendId != null && preSendId != '') {
             var chained = unsubscribe(preSendId).then(subscribe($("#preSendUri").val(), "preUpdate")).fail(function (merr) {
                 debugger;
             });
@@ -73,8 +73,8 @@ function init() {
         else {
             subscribe($("#preSendUri").val(), "preUpdate");
         }
-     
-        
+
+
     });
     $("#sendPost").click(function () {
         debugger;

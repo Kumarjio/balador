@@ -8,6 +8,7 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
+using lior.api.Helper;
 using lior.api.Models;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Infrastructures.Utils;
@@ -27,24 +28,27 @@ namespace Michal.Balador.Server.Controllers
             Response<string> responseResult = new Response<string>();
             try
             {
+                var id = Guid.NewGuid();
                 var user= await Utils.GetUserIdAsync(User);
                 if (user == null)
                     throw new ArgumentNullException("no found any user");
-                   var id = Guid.NewGuid();
+                  
                 using (ApplicationDbContext context=new ApplicationDbContext())
                 {
                     var dt=DateTime.UtcNow;
-
+                   
                     var userModel=context.Users.Where(d => d.UserName == user).FirstOrDefault();
                     if (userModel == null)
                         throw new ArgumentNullException($"no found user {user}");
-                    context.ClientMessages.Add(new ClientMessage { Id=Guid.NewGuid(),
-                        ClientId =request.ClientId,
+                    context.ClientMessages.Add(new ClientMessage { Id= id,
+                        ClientId =request.ContactId,
                         Messsage =request.Messsage,
                         AccountId =userModel.Id,
                         MesssageType= request.MesssageType,
+                        Status= General.MessageStatus.Pending,
                         CreatedOn =dt,
-                        ModifiedOn= dt
+                        ModifiedOn= dt,
+                        ConversationId= id
                     });
                     await context.SaveChangesAsync();
 

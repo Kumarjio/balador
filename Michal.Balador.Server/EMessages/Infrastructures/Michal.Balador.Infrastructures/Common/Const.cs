@@ -22,6 +22,11 @@ namespace lior.api.Helper
         public const double MAXMinutesExpiredApiToken = 60 * 60 ;
 
         public const string NgAutoApp = "ngAutoApp";
+        public static class MessageStatus
+        {
+            public const int Pending = 0;
+        }
+
     }
 
 }

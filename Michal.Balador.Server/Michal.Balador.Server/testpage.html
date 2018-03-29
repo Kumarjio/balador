@@ -16,37 +16,47 @@
 <body>
 
     <div class="card-panel">
-        <span  class="blue-text text-darken-2"><span id="txtuser"></span> Test Page</span>
+        <span class="blue-text text-darken-2"><span id="txtuser"></span> Test Page</span>
     </div>
     <div class="container">
         <div class="row">
-            <form id="login-form" class="col s12">
-            
-                    <div class="input-field col s12">
-                        <i class="mdi-action-account-circle  prefix "></i>
-                        <input id="preSendUri" name="preSendUri"  type="text">
-                        <label for="preSendUri">Contact</label>
-                    </div>
-                 
+            <form id="testform" class="col s12">
+                <div class="mdl-selectfield col s12">
+                    <label for="MesssageType">messageType</label>
+                    <select id="MesssageType" name="MesssageType" class="browser-default">
+                        <option value="" selected>Select..</option>
+
+                        <option value="MockHttpSender" >MockHttpSender</option>
+                        <option value="MockSender">MockSender</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <i class="mdi-communication-quick-contacts-dialer  prefix "></i>
+                    <input id="ContactId" name="ContactId" type="text">
+                    <label for="ContactId">Contact</label>
+                </div>
+
                 <div class="input-field col s12">
                     <i class="mdi-editor-mode-edit prefix "></i>
-                    <textarea id="icon_prefix2" name="message" class="materialize-textarea"></textarea>
-                    <label for="icon_prefix2" >Message</label>
+                    <textarea id="Messsage" name="Messsage" class="materialize-textarea"></textarea>
+                    <label for="Messsage">Message</label>
                 </div>
-                    <div class="col offset-s7 s5">
-                        <button class="btn waves-effect waves-light red darken-1" id="loginsubmit" >
-                            Test
-                            <i class="mdi-content-send right white-text"></i>
-                        </button>
-                    </div>
-                  
-              
+
+
+                <div class="col offset-s7 s5">
+                    <button class="btn waves-effect waves-light red darken-1" id="send">
+                        Test
+                        <i class="mdi-content-send right white-text"></i>
+                    </button>
+                </div>
+
+
             </form>
         </div>
 
     </div>
     <script src="Scripts/storage.js"></script>
-   
-   
+    <script src="Scripts/testpage.js"></script>
+
 </body>
 </html>

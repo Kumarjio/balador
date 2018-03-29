@@ -27,8 +27,9 @@ namespace Michal.Balador.Server.Models
         public DateTime ModifiedOn { get; set; }
 
         public Guid? ConversationId { get; set; }
+
         public Guid? JobId { get; set; }
-
-
+        [Required]
+        public int Status { get; set; }
     }
 }
