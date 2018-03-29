@@ -15,6 +15,7 @@ using System.Web.Http;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Server.Dal;
+using Michal.Balador.Server.Infrastructures;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
 using Microsoft.AspNet.WebHooks;
 
@@ -39,60 +40,11 @@ namespace Michal.Balador.Server.Controllers
             var doStuffBlock = new ActionBlock<RegisterSender>(async rs =>
             {
                 rs.Log = Thread.CurrentThread.ManagedThreadId;
-                var sender = await _utah.Value.GetSender(rs);
-                try
-                {
-                    if (!sender.IsError)
-                    {
-                        var requestToSend = await mockData.FindMessagesById(rs.Id);
+                SenderManager senderManager = new SenderManager(Log, this.Configuration);
+                resultError= await senderManager.Send(_utah.Value, rs);
 
-                        if (requestToSend != null)
-                        {
-                            IWebHookManager manager = this.Configuration.DependencyResolver.GetManager();
-                            List<NotificationDictionary> notifications = new List<NotificationDictionary>();
-                            notifications.Add(new NotificationDictionary(BaladorConst.PreUpdate, new { Request = requestToSend }));
-                            await manager.NotifyAsync(rs.Id, notifications, null);
-                            if (manager is IExposeResult)
-                            {
-
-                                IExposeResult iexposeResult = (IExposeResult)manager;
-                                if (iexposeResult != null && iexposeResult.NotificationResult != null)
-                                {
-                                    foreach (var messageWebHookClient in iexposeResult.NotificationResult.Messages)
-                                    {
-                                        var messageToChange = requestToSend.Messages.Where(p => p.Id == messageWebHookClient.Id).FirstOrDefault();
-                                        if (messageToChange != null)
-                                          messageToChange.Message = messageWebHookClient.Message; 
-                                    }
-                                }
-                            }
-                            requestToSend.Log = rs.Log;
-                            var responseToSendWait = await sender.Result.Send(requestToSend);
-                            resultError.Add(responseToSendWait);
-                            Log.Info(responseToSendWait.ToString());
-                            notifications = new List<NotificationDictionary>();
-                            notifications.Add(new NotificationDictionary(BaladorConst.PostUpdate, new { Response = requestToSend }));
-                            await manager.NotifyAsync(rs.Id, notifications, null);
-                        }
-                    }
-                    else
-                    {
-                        var mes = rs.Log + " " + rs.Id + " " + sender.Message;
-                        resultError.Add(new ResponseSend { IsError = true, Message = mes });
-                        Log.Error(mes);
-                    }
-                }
-                catch (Exception ee)
-                {
-                    resultError.Add(new ResponseSend { IsError = true, Message = "unhandle" });
-                    Log.Error(rs.Log + " " + rs.Id + " " + ee);
-                }
-                finally
-                {
-                    if (sender != null && sender.Result != null)
-                        sender.Result.Dispose();
-                }
             });
+
             foreach (var item in mockData.mocks.Senders)
             {
                 doStuffBlock.Post(item);

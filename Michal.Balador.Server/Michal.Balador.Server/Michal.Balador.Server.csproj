@@ -429,6 +429,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\EMessageOldController.cs" />
     <Compile Include="Controllers\SendToClientController.cs" />
     <Compile Include="Controllers\BaladorRegistrationsController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
@@ -455,6 +456,7 @@
     <Compile Include="Infrastructures\OAuth\Provider\SimpleRefreshTokenProvider.cs" />
     <Compile Include="Infrastructures\HttpSqlConfigurationExtensions.cs" />
     <Compile Include="Infrastructures\Logger.cs" />
+    <Compile Include="Infrastructures\SenderManager.cs" />
     <Compile Include="Infrastructures\WebHookExstension\BaladorConst.cs" />
     <Compile Include="Infrastructures\WebHookExstension\BaladorDataflowWebHookSender.cs" />
     <Compile Include="Infrastructures\WebHookExstension\BaladorRegistrationsManager.cs" />
