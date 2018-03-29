@@ -18,7 +18,12 @@ namespace lior.api.Dal
             _context = context;
         }
 
-       
+        public ApplicationUser GetUser(string userid)
+        {
+            var user = _context.Users.Find(userid);
+
+            return user;
+        }
         public Client FindClient(string clientId)
         {
             var client = _context.Client.Find(clientId);

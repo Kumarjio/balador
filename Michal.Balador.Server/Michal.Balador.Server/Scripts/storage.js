@@ -1,10 +1,11 @@
 ﻿$('document').ready(function () {
+    debugger;
     $(".dropdown-button").dropdown();
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/') + 1)
     if (filename == null || filename == '' || filename == 'index.html')
     {
-        if (sessionStorage.token != null) {
+        if (sessionStorage.token != null && sessionStorage.token !='' ) {
             $('.clogin').hide();
             $('.show_a').show();
             $('.show_aherf').text("Hello " + localStorage.getItem("user") + ".");
@@ -75,5 +76,8 @@ function ajax_token(data, url, typ, contentType, callback) {
 }
 function logout()
 {
-    alert(1);
+  //  alert(1);
+    debugger;
+    sessionStorage.setItem('token', '');
+    setTimeout('window.location.href = "index.html"', 200);
 }

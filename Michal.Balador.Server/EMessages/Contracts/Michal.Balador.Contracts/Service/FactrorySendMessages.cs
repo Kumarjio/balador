@@ -24,7 +24,7 @@ namespace Michal.Balador.Contracts.Service
         {
             _context = context;
         }
-        public virtual async Task<ResponseSenderMessages> GetSenderFactory(RegisterSender register)
+        public virtual async Task<ResponseSenderMessages> GetInstance(RegisterSender register)
         {
             ResponseSenderMessages response = await GetSender(register);
             if (!response.IsError)
@@ -43,13 +43,23 @@ namespace Michal.Balador.Contracts.Service
         protected abstract Task<ResponseSenderMessages> GetSender(RegisterSender register);
 
 
-
-        public virtual AuthenticationManager AuthenticationManager
+        public virtual async Task<AuthenticationManager> GetAuthenticationManager(RegisterSender register)
         {
-            get
+            ResponseSenderMessages response = await GetSender(register);
+            if (!response.IsError)
             {
-                return _authenticationManager;
+                return response.Result.GetAuthenticationManager();
+                
             }
+            return null;
         }
+
+        //public virtual AuthenticationManager AuthenticationManager
+        //{
+        //    get
+        //    {
+        //        return _authenticationManager;
+        //    }
+        //}
     }
 }

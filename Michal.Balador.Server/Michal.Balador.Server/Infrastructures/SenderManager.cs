@@ -33,7 +33,7 @@ namespace Michal.Balador.Server.Infrastructures
             MockRepository mockData = new MockRepository();
             //ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
             registerSender.Log = Thread.CurrentThread.ManagedThreadId;
-            var sender = await factrorySendMessages.GetSenderFactory(registerSender);
+            var sender = await factrorySendMessages.GetInstance(registerSender);
             try
             {
                 if (!sender.IsError)

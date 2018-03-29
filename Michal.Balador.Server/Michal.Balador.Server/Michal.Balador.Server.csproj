@@ -298,6 +298,7 @@
     <Content Include="js\materialize.min.js" />
     <Content Include="js\modernizr.js" />
     <Content Include="LICENSE" />
+    <Content Include="signup.html" />
     <Content Include="min\custom-min.css" />
     <Content Include="min\custom-min.js" />
     <Content Include="min\materialdesignicons.min.css" />
