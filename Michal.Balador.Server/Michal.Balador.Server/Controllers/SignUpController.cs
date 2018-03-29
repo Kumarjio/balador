@@ -31,50 +31,17 @@ namespace Michal.Balador.Server.Controllers
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(SignUpController));
         [ImportMany(typeof(IFactrorySendMessages))]
         IEnumerable<Lazy<IFactrorySendMessages>> _senderRules;
-      //  [AllowAnonymous]
-        public async Task<HttpResponseMessage> Get()
-        {
-            List<FormSignThirdPartyToken> authentications = new List<FormSignThirdPartyToken>();
-            try
-            {
-                MockRepository mockData = new MockRepository();
-                foreach (var senderRule in _senderRules)
-                {
-                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = User.Identity.Name });
-                    var authenticationManager = sender.Result.GetAuthenticationManager();
-                    var configuration = await authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
 
-                    authentications.Add(new FormSignThirdPartyToken
-                    {
-                        Id = configuration.Id.GetHashCode().ToString(),
-                        Fields = configuration.ExtraFields,
-                        Message = configuration.TextLandPageTemplate,
-                        Name = authenticationManager.AuthenticationName,
-                        Title = authenticationManager.AuthenticationTitle,
-                        IsAlreadyRegister = configuration.IsAlreadyRegister,
-                        TwoFactorAuthentication = configuration.TwoFactorAuthentication
-                    });
-                }
-                var response = new HttpResponseMessage(HttpStatusCode.OK)
-                {
-                    Content = new ObjectContent<FormSignThirdPartyToken[]>(authentications.ToArray(),
-                             new JsonMediaTypeFormatter(),
-                              new MediaTypeWithQualityHeaderValue("application/json"))
-                };
-                return response;
-            }
-            catch (Exception ee)
+        [AllowAnonymous]
+        public HttpResponseMessage  Get()
+        {
+            var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Console.WriteLine(ee);
-                var response = new HttpResponseMessage(HttpStatusCode.InternalServerError)
-                {
-                    Content = new ObjectContent<FormSignThirdPartyToken[]>(authentications.ToArray(),
-                             new JsonMediaTypeFormatter(),
-                              new MediaTypeWithQualityHeaderValue("application/json"))
-                };
-                return response;
-            }
-           
+                Content = new ObjectContent<ResponseBase>(new ResponseBase(),
+                        new JsonMediaTypeFormatter(),
+                         new MediaTypeWithQualityHeaderValue("application/json"))
+            };
+            return response;
         }
      
         [HttpPost]

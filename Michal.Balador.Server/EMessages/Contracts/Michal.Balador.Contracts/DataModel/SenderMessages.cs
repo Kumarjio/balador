@@ -8,8 +8,7 @@ namespace Michal.Balador.Contracts.DataModel
 {
    public abstract class SenderMessages:IDisposable
     {
-        //check autor
-        public abstract bool IsAuthorized();
+     
         public string ServiceName
         {
             get
