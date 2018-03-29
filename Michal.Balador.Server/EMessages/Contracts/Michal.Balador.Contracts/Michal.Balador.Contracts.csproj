@@ -47,6 +47,7 @@
     <Compile Include="Contract\IBaladorLogger.cs" />
     <Compile Include="DataModel\AuthenticationManager.cs" />
     <Compile Include="DataModel\AuthenticationUser.cs" />
+    <Compile Include="DataModel\BToken.cs" />
     <Compile Include="DataModel\MessageItem.cs" />
     <Compile Include="DataModel\NotificationManager.cs" />
     <Compile Include="DataModel\RegisterSender.cs" />

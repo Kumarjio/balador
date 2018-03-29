@@ -16,6 +16,8 @@ namespace Michal.Balador.Contracts.DataModel
                 return this.GetType().FullName;
             }
         }
+
+
         public abstract void Dispose();
         public abstract  Task<ResponseSend> Send(SendRequest request);
         IBaladorContext _context;
@@ -26,6 +28,6 @@ namespace Michal.Balador.Contracts.DataModel
             _context = context;
         }
 
-       public abstract AuthenticationManager GetAuthenticationManager();
+        public abstract AuthenticationManager GetAuthenticationManager();
     }
 }

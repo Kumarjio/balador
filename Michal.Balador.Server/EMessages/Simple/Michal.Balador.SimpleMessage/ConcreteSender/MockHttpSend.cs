@@ -17,6 +17,7 @@ namespace Michal.Balador.SimpleMessage
         {
             _test = new HttpClientTest();
         }
+
         public override void Dispose()
         {
             _test.Disconnect();
@@ -26,9 +27,7 @@ namespace Michal.Balador.SimpleMessage
         {
             return new HttpSimpleAuthentication(Context,this);
         }
-
-       
-
+        
         public override async Task<ResponseSend> Send(SendRequest request)
         {
             var configAccount=await Context.GetConfiguration<ConfigHttp>(this, request.Id);

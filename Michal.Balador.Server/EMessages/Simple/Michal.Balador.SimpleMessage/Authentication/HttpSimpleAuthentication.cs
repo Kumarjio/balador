@@ -36,13 +36,23 @@ namespace Michal.Balador.SimpleMessage
             }
         }
       
-        public override async Task<ResponseBase> GetObservableToken(SignUpSender signUpSender, string token)
+        public override async Task<ResponseBase> SetObservableToken(SignUpSender signUpSender, BToken token)
         {
             var config = await Context.GetConfiguration<ConfigHttp>(this.SenderMessages, signUpSender.Id);
-            config.Token = token;
+            config.Token = token.Token;
             var result=await this.Context.SetConfiguration(this.SenderMessages, signUpSender.Id, config);
 
             return result;
+        }
+
+        public override async Task<BToken> GetToken(SenderMessages senderMessages, SignUpSender signUpSender)
+        {
+            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages, signUpSender.Id);
+            if (config != null && !String.IsNullOrEmpty(config.Token))
+            {
+                return config;
+            }
+            return null;
         }
 
         public override async Task<SenderLandPageConfiguration> Register(SignUpSender signUpSender)
@@ -52,7 +62,8 @@ namespace Michal.Balador.SimpleMessage
                 Logo = "",
                 MessageEmailTemplate= "http test",
                 TextLandPageTemplate="http test",
-                
+                TwoFactorAuthentication = true
+
             };
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "pws", Title = "write password" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "client_id", Title = "client" });
@@ -62,7 +73,7 @@ namespace Michal.Balador.SimpleMessage
             {
                 senderLandPageConfiguration.IsAlreadyRegister = true;
             }
-            senderLandPageConfiguration.TwoFactorAuthentication = true;
+    
             return senderLandPageConfiguration;
         }
 

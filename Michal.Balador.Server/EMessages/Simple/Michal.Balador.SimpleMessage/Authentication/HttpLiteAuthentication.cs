@@ -35,23 +35,34 @@ namespace Michal.Balador.SimpleMessage
             }
         }
 
+        public override async Task<BToken> GetToken(SenderMessages senderMessages, SignUpSender signUpSender)
+        {
+            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages, signUpSender.Id);
+            if (config != null && !String.IsNullOrEmpty(config.Token))
+            {
+                return config;
+            }
+            return null; 
+        }
+
         public override async Task<SenderLandPageConfiguration> Register(SignUpSender signUpSender)
         {
-
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.SenderMessages)
             {
                 Logo = "",
                 MessageEmailTemplate = "http lite",
                 TextLandPageTemplate = "http lite",
+                TwoFactorAuthentication=false
 
             };
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "token", Title = "write token only " });
-            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages,signUpSender.Id);
-            senderLandPageConfiguration.TwoFactorAuthentication = false;
-            if (config!=null && !String.IsNullOrEmpty(config.Token))
+
+            var token = await GetToken(this.SenderMessages, signUpSender);
+            if (token != null)
             {
                 senderLandPageConfiguration.IsAlreadyRegister = true;
             }
+           
             return senderLandPageConfiguration;
         }
 

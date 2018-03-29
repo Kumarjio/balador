@@ -8,7 +8,7 @@ namespace Michal.Balador.Contracts.DataModel
 {
     public class ResponseSenderMessages : Response<SenderMessages>
     {
-
+        public bool IsAutorize { get; set; }
 
     }
 }

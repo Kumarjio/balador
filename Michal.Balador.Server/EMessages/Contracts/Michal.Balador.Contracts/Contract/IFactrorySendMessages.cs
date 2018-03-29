@@ -9,6 +9,11 @@ namespace Michal.Balador.Contracts
 {
     public interface IFactrorySendMessages
     {
-        Task<ResponseSenderMessages> GetSender(RegisterSender register);
+        Task<ResponseSenderMessages> GetSenderFactory(RegisterSender register);
+
+        AuthenticationManager AuthenticationManager
+        {
+            get;
+        }
     }
 }

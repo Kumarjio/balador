@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Michal.Balador.Contracts.DataModel
 {
-
+   
     public class Response<T> : ResponseBase
     {
         public T Result { get; set; }
+     
     }
 }

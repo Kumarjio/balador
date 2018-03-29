@@ -22,13 +22,18 @@ namespace Michal.Balador.Server.Infrastructures
         {
             _log = log; _httpConfiguration = httpConfiguration;
         }
+        public async Task RunJob()
+        {
+            ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
 
-        public async Task<ConcurrentBag<ResponseSend>>  Send(IFactrorySendMessages factrorySendMessages, RegisterSender registerSender)
+
+        }
+            public async Task<ConcurrentBag<ResponseSend>>  Send(IFactrorySendMessages factrorySendMessages, RegisterSender registerSender, ConcurrentBag<ResponseSend> resultError)
         {
             MockRepository mockData = new MockRepository();
-            ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
+            //ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
             registerSender.Log = Thread.CurrentThread.ManagedThreadId;
-            var sender = await factrorySendMessages.GetSender(registerSender);
+            var sender = await factrorySendMessages.GetSenderFactory(registerSender);
             try
             {
                 if (!sender.IsError)

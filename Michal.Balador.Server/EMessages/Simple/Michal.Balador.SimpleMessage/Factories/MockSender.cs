@@ -19,34 +19,20 @@ namespace Michal.Balador.SimpleMessage
         {
 
         }
-        public override async Task<ResponseSenderMessages> GetSender(RegisterSender register)
+        protected override async Task<ResponseSenderMessages> GetSender(RegisterSender register)
         {
             ResponseSenderMessages response = new ResponseSenderMessages();
             try
             {
-                if(!register.IsAuthenticate)
-                {
-                    response.Result = new MockSend(new SocketClientTest(register.Id,register.Pws), this.Context);
-                    return response;
-                }
-                SenderMessagesFactory sendFactory = new SenderMessagesFactory(this.Context);
-                var respndFactory = await sendFactory.ConnectAndLogin(register.Id, register.Pws);
-                if (respndFactory.IsError)
-                {
-                    response.IsError = true;
-                    response.Message = respndFactory.Message;
-                }
-                else
-                    response.Result = respndFactory.Result;
+                var mockSend = new MockSend(Context);
+                response =await mockSend.SetSocketClient(new SignUpSender { Id= register.Id});
+                return response;
             }
             catch (Exception e)
             {
-
                 response.IsError = true;
                 response.Message = e.Message;
             }
-        
-            
             return response;
         }
 

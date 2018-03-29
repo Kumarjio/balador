@@ -39,7 +39,7 @@ namespace Michal.Balador.Server.Controllers
             var doStuffBlock = new ActionBlock<RegisterSender>(async rs =>
             {
                 rs.Log = Thread.CurrentThread.ManagedThreadId;
-                var sender = await _utah.Value.GetSender(rs);
+                var sender = await _utah.Value.GetSenderFactory(rs);
                 try
                 {
                     if (!sender.IsError)

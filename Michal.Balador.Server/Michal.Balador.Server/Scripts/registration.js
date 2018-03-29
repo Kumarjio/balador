@@ -76,7 +76,7 @@ function init() {
       
     });
 
-    ajax_token(null, '/api/signup','GET', 'application/json; charset=utf-8', function (data) {
+    ajax_token(null, '/api/getMessagers','GET', 'application/json; charset=utf-8', function (data) {
         debugger;
         var items = [];
         $.each(data, function (key, val) {

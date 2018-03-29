@@ -11,8 +11,8 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.SimpleMessage
 {
-    public class ConfigHttpLite
+    public class ConfigHttpLite: BToken
     {
-        public string Token { get; set; }
+       
     }
 }

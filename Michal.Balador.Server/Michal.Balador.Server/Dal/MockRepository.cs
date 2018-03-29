@@ -28,7 +28,7 @@ namespace Michal.Balador.Server.Dal
 
             signUpSenders = new List<SignUpSender>();
 
-            mocks.Senders.Add(new RegisterSender { Id = "rt", Pws = "111" });
+            mocks.Senders.Add(new RegisterSender { Id = "rt" });
            // mocks.Senders.Add(new RegisterSender { Id = "2", Pws = "222" });
           //  mocks.Senders.Add(new RegisterSender { Id = "3", Pws = "333" });
 

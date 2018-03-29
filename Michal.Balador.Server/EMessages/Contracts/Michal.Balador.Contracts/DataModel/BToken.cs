@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
 
-namespace Michal.Balador.SimpleMessage
+namespace Michal.Balador.Contracts.DataModel
 {
-    public class ConfigHttp: BToken
+    public class BToken
     {
-        public string UserId { get; set; }
-        public string RefreshToken { get; set; }
+     
+        public string Token { get; set; }
+     
+        
     }
 }

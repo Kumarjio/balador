@@ -43,7 +43,59 @@ namespace Michal.Balador.Server.Controllers
             };
             return response;
         }
-     
+        [HttpGet]
+        [Route("api/getMessagers")]
+        public async Task<HttpResponseMessage> GetMessagers()
+        {
+            List<FormSignThirdPartyToken> authentications = new List<FormSignThirdPartyToken>();
+            try
+            {
+                Michal.Balador.Contracts.DataModel.AuthenticationManager authenticationManager = null;
+                MockRepository mockData = new MockRepository();
+                foreach (var senderRule in _senderRules)
+                {
+                    authenticationManager = null;
+                    var factory=senderRule.Value;
+                   
+                      var sender = await factory.GetSenderFactory(new RegisterSender { Id = User.Identity.Name });
+                  
+                        authenticationManager = factory.AuthenticationManager;
+                    
+                
+                    var configuration = await authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
+
+                    authentications.Add(new FormSignThirdPartyToken
+                    {
+                        Id = configuration.Id.GetHashCode().ToString(),
+                        Fields = configuration.ExtraFields,
+                        Message = configuration.TextLandPageTemplate,
+                        Name = authenticationManager.AuthenticationName,
+                        Title = authenticationManager.AuthenticationTitle,
+                        IsAlreadyRegister = configuration.IsAlreadyRegister,
+                        TwoFactorAuthentication = configuration.TwoFactorAuthentication
+                    });
+                }
+                var response = new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new ObjectContent<FormSignThirdPartyToken[]>(authentications.ToArray(),
+                             new JsonMediaTypeFormatter(),
+                              new MediaTypeWithQualityHeaderValue("application/json"))
+                };
+                return response;
+            }
+            catch (Exception ee)
+            {
+                Console.WriteLine(ee);
+                var response = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                {
+                    Content = new ObjectContent<FormSignThirdPartyToken[]>(authentications.ToArray(),
+                             new JsonMediaTypeFormatter(),
+                              new MediaTypeWithQualityHeaderValue("application/json"))
+                };
+                return response;
+            }
+
+        }
         [HttpPost]
         [Route("api/signIn")]
         public async Task<HttpResponseMessage> SignIn(HttpRequestMessage request)
@@ -55,10 +107,10 @@ namespace Michal.Balador.Server.Controllers
                 var id = formData["formType"];
                 foreach (var senderRule in _senderRules)
                 {
-                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = User.Identity.Name });
+                    var sender = await senderRule.Value.GetSenderFactory(new RegisterSender {  Id = User.Identity.Name });
                     if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
                     {
-                        var authenticationManager = sender.Result.GetAuthenticationManager();
+                        var authenticationManager = senderRule.Value.AuthenticationManager;
                         responseResult = await authenticationManager.SignIn(new SignUpSender { Id = User.Identity.Name }, formData);
                         break;
                     }
@@ -90,10 +142,10 @@ namespace Michal.Balador.Server.Controllers
               
                 foreach (var senderRule in _senderRules)
                 {
-                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = User.Identity.Name });
+                    var sender = await senderRule.Value.GetSenderFactory(new RegisterSender {  Id = User.Identity.Name });
                     if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
                     {
-                        var authenticationManager = sender.Result.GetAuthenticationManager();
+                        var authenticationManager = senderRule.Value.AuthenticationManager;
                         responseResult = await authenticationManager.UnRegister(new SignUpSender { Id = User.Identity.Name });
                         break;
                     }
@@ -127,11 +179,11 @@ namespace Michal.Balador.Server.Controllers
                 var token = formData["token"];
                 foreach (var senderRule in _senderRules)
                 {
-                    var sender = await senderRule.Value.GetSender(new RegisterSender { IsAuthenticate = false, Id = User.Identity.Name });
-                    if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
+                    var sender = await senderRule.Value.GetSenderFactory(new RegisterSender {  Id = User.Identity.Name });
+                    if (!sender.IsError &&  sender.Result.ServiceName.GetHashCode().ToString() == id)
                     {
-                        var authenticationManager = sender.Result.GetAuthenticationManager();
-                        responseResult = await authenticationManager.GetObservableToken(new SignUpSender { Id = User.Identity.Name }, token);
+                        var authenticationManager = senderRule.Value.AuthenticationManager;
+                        responseResult = await authenticationManager.SetObservableToken(new SignUpSender { Id = User.Identity.Name },new BToken { Token = token });
                         break;
                     }
                 }

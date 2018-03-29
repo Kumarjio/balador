@@ -16,26 +16,26 @@ namespace Michal.Balador.SimpleMessage
         {
             _context = context;
         }
-        public async Task<Response<MockSend>> ConnectAndLogin(string user, string pws)
+        public async Task<Response<SocketClientTest>> ConnectAndLogin(string user, string pws)
         {
-            var tcs = new TaskCompletionSource<Response<MockSend>>();
+            var tcs = new TaskCompletionSource<Response<SocketClientTest>>();
             try
             {
                 SocketClientTest test = new SocketClientTest(user, pws);
                 test.Connect();
-
+               // mockSend.SetSocketClient()
                 test.OnLoginSuccess += (a, b) =>
                 {
                     Console.WriteLine("data ok={0}", a);
                     string m = "test me...";
                     test.SendData(Encoding.ASCII.GetBytes(m));
-                    tcs.SetResult(new Response<MockSend> { IsError = false, Result = new MockSend(test,this._context) });
+                    tcs.SetResult(new Response<SocketClientTest> { IsError = false, Result = test });
                 };
                 test.OnLoginFailed += (a) =>
                 {
 
                     Console.WriteLine("data error={0}", a);
-                    tcs.SetResult(new Response<MockSend> { IsError = true, Message = a });
+                    tcs.SetResult(new Response<SocketClientTest> { IsError = true, Message = a });
                 };
                 test.Login(true);
             }

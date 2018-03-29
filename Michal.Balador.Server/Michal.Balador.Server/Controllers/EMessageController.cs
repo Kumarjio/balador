@@ -41,7 +41,7 @@ namespace Michal.Balador.Server.Controllers
             {
                 rs.Log = Thread.CurrentThread.ManagedThreadId;
                 SenderManager senderManager = new SenderManager(Log, this.Configuration);
-                resultError= await senderManager.Send(_utah.Value, rs);
+                resultError= await senderManager.Send(_utah.Value, rs, resultError);
 
             });
 

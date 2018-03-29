@@ -17,15 +17,14 @@ namespace Michal.Balador.SimpleMessage
         [ImportingConstructor()]
         public MockHttpSender(IBaladorContext context) : base(context)
         {
-
         }
-        public async override Task<ResponseSenderMessages> GetSender(RegisterSender register)
+        protected async override Task<ResponseSenderMessages> GetSender(RegisterSender register)
         {
             ResponseSenderMessages response = new ResponseSenderMessages();
-           // Context.GetConfiguration<>
             try
             {
-                response.Result = new MockHttpSend(this.Context);
+                var mckHttpSend = new MockHttpSend(this.Context);
+                response.Result = mckHttpSend;
             }
             catch (Exception e)
             {
