@@ -75,7 +75,7 @@ namespace lior.api.Models
             : base("MS_SqlStoreConnectionString", throwIfV1Schema: false)
         {
         }
-        
+       
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

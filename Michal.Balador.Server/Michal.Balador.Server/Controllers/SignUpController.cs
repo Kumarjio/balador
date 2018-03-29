@@ -13,6 +13,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Web.Http;
+using lior.api.Models;
+using lior.AppStart.api;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Server.Dal;
@@ -32,16 +34,57 @@ namespace Michal.Balador.Server.Controllers
         [ImportMany(typeof(IFactrorySendMessages))]
         IEnumerable<Lazy<IFactrorySendMessages>> _senderRules;
 
+
+        [HttpPost]
         [AllowAnonymous]
-        public HttpResponseMessage Get()
+        public async Task<HttpResponseMessage> Post(RegisterBindingModel model)
         {
-            var response = new HttpResponseMessage(HttpStatusCode.OK)
+            ResponseBase response = new ResponseBase();
+            try
             {
-                Content = new ObjectContent<ResponseBase>(new ResponseBase(),
+                using (ApplicationDbContext context = new ApplicationDbContext())
+                {
+                   var userManager = new ApplicationUserManager(context);
+
+                    ApplicationUser applicationUser = new ApplicationUser
+                    {
+                        Discriminator = Guid.NewGuid().ToString("N"),
+                        PhoneNumber = model.Tel,
+                        Email = model.Email,
+                        EmailConfirmed = true,
+                        PasswordHash = userManager.PasswordHasher.HashPassword(model.Password),
+                        SecurityStamp = Guid.NewGuid().ToString(),
+                        TwoFactorEnabled=true,
+                         PhoneNumberConfirmed=true,
+                         Id=Guid.NewGuid().ToString(),
+                        UserName = model.Tel
+                    };
+                    var creatr=await userManager.CreateAsync(applicationUser);
+                   if(creatr.Succeeded)
+                    {
+                        response.IsError = false;
+                        response.Message = ""; 
+                    }
+                    else
+                    {
+                        response.IsError = true;
+                        response.Message =String.Join(",", creatr.Errors);
+                    }
+                }
+              
+            }
+            catch (Exception e)
+            {
+                response.IsError = true;
+                response.Message = e.Message;
+            }
+            var responseToClient = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ObjectContent<ResponseBase>(response,
                         new JsonMediaTypeFormatter(),
                          new MediaTypeWithQualityHeaderValue("application/json"))
             };
-            return response;
+            return responseToClient;
         }
         [HttpGet]
         [Route("api/getMessagers")]
@@ -150,9 +193,9 @@ namespace Michal.Balador.Server.Controllers
                     var authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
 
                     //var authenticationManager = senderRule.Value.AuthenticationManager;
-                        responseResult = await authenticationManager.UnRegister(new SignUpSender { Id = User.Identity.Name });
-                        break;
-                  //  }
+                    responseResult = await authenticationManager.UnRegister(new SignUpSender { Id = User.Identity.Name });
+                    break;
+                    //  }
                 }
             }
             catch (Exception eee)
@@ -191,8 +234,8 @@ namespace Michal.Balador.Server.Controllers
 
                     //   var authenticationManager = senderRule.Value.AuthenticationManager;
                     responseResult = await authenticationManager.SetObservableToken(new SignUpSender { Id = User.Identity.Name }, new BToken { Token = token });
-                        break;
-                   // }
+                    break;
+                    // }
                 }
             }
             catch (Exception eee)
