@@ -9102,3 +9102,12 @@ INFO  2018-03-28 18:27:03,590 12116ms Logger                 Log                
 INFO  2018-03-28 18:27:03,785 12311ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
 INFO  2018-03-28 18:27:05,681 14207ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
 INFO  2018-03-28 18:27:58,655 67181ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-04-02 00:08:50,477   549ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+ERROR 2018-04-02 00:08:57,351  7423ms Logger                 Log                - The WebHook URI must be absolute with a scheme of either 'http' or 'https' but received 'z'.
+INFO  2018-04-02 00:08:57,371  7443ms Logger                 Log                - Could not register WebHook due to error: The WebHook URI must be absolute with a scheme of either 'http' or 'https' but received 'z'.
+ERROR 2018-04-02 00:09:01,527 11599ms Logger                 Log                - The WebHook URI must be absolute with a scheme of either 'http' or 'https' but received 'c'.
+INFO  2018-04-02 00:09:01,579 11651ms Logger                 Log                - Could not register WebHook due to error: The WebHook URI must be absolute with a scheme of either 'http' or 'https' but received 'c'.
+INFO  2018-04-02 00:09:56,334 66405ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-04-02 00:12:50,786  3628ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-04-02 00:12:55,305  8147ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-04-02 00:15:48,332 181174ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp

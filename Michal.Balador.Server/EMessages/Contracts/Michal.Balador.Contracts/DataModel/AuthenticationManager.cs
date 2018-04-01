@@ -20,10 +20,17 @@ namespace Michal.Balador.Contracts.DataModel
         public abstract string AuthenticationTitle { get; }
         public abstract string AuthenticationName { get; }
 
-        public abstract Task<BToken> GetToken(SenderMessages senderMessages,SignUpSender signUpSender);
-        
-            
-        
+        public string ServiceName
+        {
+            get
+            {
+                return SenderMessages.ServiceName;
+            }
+        }
+        public abstract Task<BToken> GetToken(SenderMessages senderMessages, SignUpSender signUpSender);
+
+
+
 
         //step 1 after set signup sender register page or email
         public abstract Task<SenderLandPageConfiguration> Register(SignUpSender signUpSender);
@@ -33,14 +40,14 @@ namespace Michal.Balador.Contracts.DataModel
 
 
         //step 3 after get from sms message token ,the sender write token and send it back to manager
-        public virtual async Task<ResponseBase> SetObservableToken(SignUpSender signUpSender,BToken token)
+        public virtual async Task<ResponseBase> SetObservableToken(SignUpSender signUpSender, BToken token)
         {
             if (token == null)
             {
                 throw new ArgumentNullException(nameof(token));
             }
 
-            return await Task.FromResult<ResponseBase>(new ResponseBase {IsError=false,Message="" });
+            return await Task.FromResult<ResponseBase>(new ResponseBase { IsError = false, Message = "" });
         }
 
         public abstract Task<ResponseBase> UnRegister(SignUpSender signUpSender);

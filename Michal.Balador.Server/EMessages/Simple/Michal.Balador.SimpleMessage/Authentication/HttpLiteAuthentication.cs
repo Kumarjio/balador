@@ -94,5 +94,13 @@ namespace Michal.Balador.SimpleMessage
             }
             return response;
         }
+        public override async Task<ResponseBase> SetObservableToken(SignUpSender signUpSender, BToken token)
+        {
+            var config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages, signUpSender.Id);
+            config.Token = token.Token;
+            var result = await this.Context.SetConfiguration(this.SenderMessages, signUpSender.Id, config);
+
+            return result;
+        }
     }
 }

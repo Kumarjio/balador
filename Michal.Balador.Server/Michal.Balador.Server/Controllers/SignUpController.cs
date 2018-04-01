@@ -100,15 +100,12 @@ namespace Michal.Balador.Server.Controllers
                 {
                     authenticationManager = null;
                     var factory = senderRule.Value;
-
-                    // var sender = await factory.GetInstance(new RegisterSender { Id = User.Identity.Name });
-
                     authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
                     var configuration = await authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
 
                     authentications.Add(new FormSignThirdPartyToken
                     {
-                        Id = configuration.Id.GetHashCode().ToString(),
+                        Id = configuration.Id.ToString(),
                         Fields = configuration.ExtraFields,
                         Message = configuration.TextLandPageTemplate,
                         Name = authenticationManager.AuthenticationName,
@@ -149,16 +146,13 @@ namespace Michal.Balador.Server.Controllers
                 var id = formData["formType"];
                 foreach (var senderRule in _senderRules)
                 {
-                    //var sender = await senderRule.Value.GetInstance(new RegisterSender {  Id = User.Identity.Name });
-                    // if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
-                    //  {
-                    //var authenticationManager = senderRule.Value.AuthenticationManager;
                     var factory = senderRule.Value;
                     var authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
-
-                    responseResult = await authenticationManager.SignIn(new SignUpSender { Id = User.Identity.Name }, formData);
-                    break;
-                    // }
+                    if (authenticationManager.ServiceName == id)
+                    {
+                        responseResult = await authenticationManager.SignIn(new SignUpSender { Id = User.Identity.Name }, formData);
+                        break;
+                    }
                 }
             }
             catch (Exception eee)
@@ -187,16 +181,13 @@ namespace Michal.Balador.Server.Controllers
 
                 foreach (var senderRule in _senderRules)
                 {
-                    // var sender = await senderRule.Value.GetInstance(new RegisterSender { Id = User.Identity.Name });
-                    // if (!sender.IsError && sender.Result != null && sender.Result.ServiceName.GetHashCode().ToString() == id)
-                    // {
                     var factory = senderRule.Value;
                     var authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
-
-                    //var authenticationManager = senderRule.Value.AuthenticationManager;
-                    responseResult = await authenticationManager.UnRegister(new SignUpSender { Id = User.Identity.Name });
-                    break;
-                    //  }
+                    if (authenticationManager.ServiceName == id)
+                    {
+                        responseResult = await authenticationManager.UnRegister(new SignUpSender { Id = User.Identity.Name });
+                        break;
+                    }
                 }
             }
             catch (Exception eee)
@@ -227,16 +218,14 @@ namespace Michal.Balador.Server.Controllers
                 var token = formData["token"];
                 foreach (var senderRule in _senderRules)
                 {
-                    //var sender = await senderRule.Value.GetInstance(new RegisterSender { Id = User.Identity.Name });
-                    //  if (!sender.IsError && sender.Result.ServiceName.GetHashCode().ToString() == id)
-                    // {
+
                     var factory = senderRule.Value;
                     var authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
-
-                    //   var authenticationManager = senderRule.Value.AuthenticationManager;
-                    responseResult = await authenticationManager.SetObservableToken(new SignUpSender { Id = User.Identity.Name }, new BToken { Token = token });
-                    break;
-                    // }
+                    if (authenticationManager.ServiceName == id)
+                    {
+                        responseResult = await authenticationManager.SetObservableToken(new SignUpSender { Id = User.Identity.Name }, new BToken { Token = token });
+                        break;
+                    }
                 }
             }
             catch (Exception eee)
