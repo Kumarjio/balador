@@ -24,6 +24,7 @@ CREATE TABLE [dbo].[Balador_ClientMessage](
 	[Archive] [bit] NOT NULL,
 	[NickName] [nvarchar](50) NOT NULL,
 	[Retry] [int] NOT NULL,
+	Direction [bit] NOT NULL,
  CONSTRAINT [PK_Balador_ClientMessage] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
