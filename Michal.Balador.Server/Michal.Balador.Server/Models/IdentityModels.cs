@@ -59,6 +59,10 @@ namespace lior.api.Models
     {
        
         public string Discriminator { get; set; }
+
+        [Required]
+        public string NickName { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager,
             string authenticationType)
         {
@@ -90,16 +94,9 @@ namespace lior.api.Models
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ApplicationUser>().ToTable("User");
             modelBuilder.Entity<ApplicationRole>().ToTable("Role");
-
-          //  modelBuilder.Entity<IdentityUserRole<string>>().ToTable("UserRole");
+            
             modelBuilder.Entity<UserRole>().ToTable("UserRole");
-          //     modelBuilder.Entity<UserClaim>().ToTable("UserClaim");
             modelBuilder.Entity<IdentityUserClaim>().ToTable("userclaim");
-            //  modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("UserClaim");
-            //modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("UserLogin");
-
-            //modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaim");
-            //modelBuilder.Entity<IdentityUserToken<string>>().ToTable("UserToken");
         }
 
     }

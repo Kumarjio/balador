@@ -298,6 +298,10 @@
     <Content Include="js\materialize.min.js" />
     <Content Include="js\modernizr.js" />
     <Content Include="LICENSE" />
+    <Content Include="Schema\StoreProcedures\createMessage.sql" />
+    <Content Include="Schema\StoreProcedures\jobrunner.sql" />
+    <Content Include="Schema\Tables\Balador_JobSender.sql" />
+    <Content Include="Schema\Tables\Balador_lead.sql" />
     <Content Include="Scripts\testpage.js" />
     <Content Include="signup.html" />
     <Content Include="min\custom-min.css" />
@@ -511,7 +515,6 @@
     <Folder Include="logs\" />
     <Folder Include="Migrations\" />
     <Folder Include="Plugins\" />
-    <Folder Include="Schema\StoreProcedures\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -36,26 +37,35 @@ namespace Michal.Balador.Server.Controllers
                 using (ApplicationDbContext context=new ApplicationDbContext())
                 {
                     var dt=DateTime.UtcNow;
-                   
-                    var userModel=context.Users.Where(d => d.UserName == user).FirstOrDefault();
-                    if (userModel == null)
-                        throw new ArgumentNullException($"no found user {user}");
-                    context.ClientMessages.Add(new ClientMessage { Id= id,
-                        ClientId =request.ContactId,
-                        Messsage =request.Messsage,
-                        AccountId =userModel.Id,
-                        MesssageType= request.MesssageType,
-                        Status= General.MessageStatus.Pending,
-                        CreatedOn =dt,
-                        ModifiedOn= dt,
-                        ConversationId= id
-                    });
-                    await context.SaveChangesAsync();
+                    List<object> parameters = new List<object>();
+                    var query = "exec [dbo].[createMessage] @message,@user,@clientid,@messageType,@nickName,@replay ";
+                    parameters.Add(new SqlParameter("@message", request.Messsage));
+                    parameters.Add(new SqlParameter("@user", user));
+                    parameters.Add(new SqlParameter("@clientid", request.ClientId));
+                    parameters.Add(new SqlParameter("@messageType", request.MesssageType));
+                    parameters.Add(new SqlParameter("@nickName", request.NickName));
+                    parameters.Add(new SqlParameter("@replay", true));
+
+
+
+                    var resultSp = await context.Database.SqlQuery<object>(query, parameters.ToArray()).FirstOrDefaultAsync();
+                    
+                    //context.ClientMessages.Add(new ClientMessage { Id= id,
+                    //    ClientId =request.ContactId,
+                    //    Messsage =request.Messsage,
+                    //    AccountId =userModel.Id,
+                    //    MesssageType= request.MesssageType,
+                    //    Status= General.MessageStatus.Pending,
+                    //    CreatedOn =dt,
+                    //    ModifiedOn= dt,
+                    //    ConversationId= id
+                    //});
+                   // await context.SaveChangesAsync();
 
                 }
                 
                 responseResult.Message = "add to queue";
-                responseResult.Result = id.ToString();
+                responseResult.Result = "";// resultSp.ToString();
             }
             catch (Exception eee)
             {

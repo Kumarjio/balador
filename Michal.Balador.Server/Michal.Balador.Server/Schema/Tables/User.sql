@@ -1,7 +1,7 @@
 USE [runnerdevice]
 GO
 
-/****** Object:  Table [dbo].[User]    Script Date: 3/13/2018 4:02:28 PM ******/
+/****** Object:  Table [dbo].[User]    Script Date: 4/1/2018 9:32:32 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -27,6 +27,7 @@ CREATE TABLE [dbo].[User](
 	[AccessFailedCount] [int] NULL,
 	[TwoFactorEnabled] [bit] NULL,
 	[Discriminator] [nvarchar](50) NULL,
+	[NickName] [nvarchar](50) NULL,
  CONSTRAINT [PK_dbo.User] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

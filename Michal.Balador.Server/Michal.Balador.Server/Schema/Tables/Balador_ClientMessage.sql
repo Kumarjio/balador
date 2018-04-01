@@ -1,7 +1,7 @@
 USE [runnerdevice]
 GO
 
-/****** Object:  Table [dbo].[Balador_ClientMessage]    Script Date: 3/29/2018 2:33:25 PM ******/
+/****** Object:  Table [dbo].[Balador_ClientMessage]    Script Date: 4/1/2018 9:31:56 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,20 +10,24 @@ GO
 
 CREATE TABLE [dbo].[Balador_ClientMessage](
 	[Id] [uniqueidentifier] NOT NULL,
-	[ClientId] [nvarchar](50) NOT NULL,
+	[ContactId] [nvarchar](128) NULL,
+	[ClientId] [nvarchar](128) NOT NULL,
 	[Messsage] [nvarchar](max) NOT NULL,
 	[AccountId] [nvarchar](128) NOT NULL,
 	[CreatedOn] [datetime] NOT NULL,
 	[ModifiedOn] [datetime] NOT NULL,
 	[Status] [int] NOT NULL,
 	[MesssageType] [nvarchar](50) NOT NULL,
-	[ConversationId] [uniqueidentifier] NULL,
+	[ConversationId] [uniqueidentifier] NOT NULL,
 	[JobId] [uniqueidentifier] NULL,
+	[Replay] [bit] NOT NULL,
+	[Archive] [bit] NOT NULL,
+	[NickName] [nvarchar](50) NOT NULL,
+	[Retry] [int] NOT NULL,
  CONSTRAINT [PK_Balador_ClientMessage] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-
 

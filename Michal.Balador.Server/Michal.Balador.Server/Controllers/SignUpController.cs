@@ -44,7 +44,7 @@ namespace Michal.Balador.Server.Controllers
             {
                 using (ApplicationDbContext context = new ApplicationDbContext())
                 {
-                   var userManager = new ApplicationUserManager(context);
+                    var userManager = new ApplicationUserManager(context);
 
                     ApplicationUser applicationUser = new ApplicationUser
                     {
@@ -54,24 +54,25 @@ namespace Michal.Balador.Server.Controllers
                         EmailConfirmed = true,
                         PasswordHash = userManager.PasswordHasher.HashPassword(model.Password),
                         SecurityStamp = Guid.NewGuid().ToString(),
-                        TwoFactorEnabled=true,
-                         PhoneNumberConfirmed=true,
-                         Id=Guid.NewGuid().ToString(),
-                        UserName = model.Tel
+                        TwoFactorEnabled = true,
+                        PhoneNumberConfirmed = true,
+                        Id = Guid.NewGuid().ToString(),
+                        UserName = model.Tel,
+                        NickName = model.NickName
                     };
-                    var creatr=await userManager.CreateAsync(applicationUser);
-                   if(creatr.Succeeded)
+                    var creatr = await userManager.CreateAsync(applicationUser);
+                    if (creatr.Succeeded)
                     {
                         response.IsError = false;
-                        response.Message = ""; 
+                        response.Message = "";
                     }
                     else
                     {
                         response.IsError = true;
-                        response.Message =String.Join(",", creatr.Errors);
+                        response.Message = String.Join(",", creatr.Errors);
                     }
                 }
-              
+
             }
             catch (Exception e)
             {
