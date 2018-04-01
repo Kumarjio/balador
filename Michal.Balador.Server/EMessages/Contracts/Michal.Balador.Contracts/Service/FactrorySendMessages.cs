@@ -51,6 +51,7 @@ namespace Michal.Balador.Contracts.Service
                 return response.Result.GetAuthenticationManager();
                 
             }
+
             return null;
         }
 

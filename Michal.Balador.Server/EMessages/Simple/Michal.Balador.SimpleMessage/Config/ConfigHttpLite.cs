@@ -13,6 +13,7 @@ namespace Michal.Balador.SimpleMessage
 {
     public class ConfigHttpLite: BToken
     {
-       
+        public string UserId { get; set; }
+
     }
 }

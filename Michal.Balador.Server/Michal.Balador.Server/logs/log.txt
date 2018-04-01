@@ -9111,3 +9111,4 @@ INFO  2018-04-02 00:09:56,334 66405ms Logger                 Log                
 INFO  2018-04-02 00:12:50,786  3628ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
 INFO  2018-04-02 00:12:55,305  8147ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
 INFO  2018-04-02 00:15:48,332 181174ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-04-02 00:44:44,667 36843ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite

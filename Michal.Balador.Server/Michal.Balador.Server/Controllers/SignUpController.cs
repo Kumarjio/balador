@@ -101,18 +101,23 @@ namespace Michal.Balador.Server.Controllers
                     authenticationManager = null;
                     var factory = senderRule.Value;
                     authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
-                    var configuration = await authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
-
-                    authentications.Add(new FormSignThirdPartyToken
+                    if (authenticationManager != null)
                     {
-                        Id = configuration.Id.ToString(),
-                        Fields = configuration.ExtraFields,
-                        Message = configuration.TextLandPageTemplate,
-                        Name = authenticationManager.AuthenticationName,
-                        Title = authenticationManager.AuthenticationTitle,
-                        IsAlreadyRegister = configuration.IsAlreadyRegister,
-                        TwoFactorAuthentication = configuration.TwoFactorAuthentication
-                    });
+
+
+                        var configuration = await authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
+
+                        authentications.Add(new FormSignThirdPartyToken
+                        {
+                            Id = authenticationManager.ServiceName.ToString(),
+                            Fields = configuration.ExtraFields,
+                            Message = configuration.TextLandPageTemplate,
+                            Name = authenticationManager.AuthenticationName,
+                            Title = authenticationManager.AuthenticationTitle,
+                            IsAlreadyRegister = configuration.IsAlreadyRegister,
+                            TwoFactorAuthentication = configuration.TwoFactorAuthentication
+                        });
+                    }
                 }
                 var response = new HttpResponseMessage(HttpStatusCode.OK)
                 {
