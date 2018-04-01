@@ -25,7 +25,7 @@ namespace Michal.Balador.SimpleMessage
             try
             {
                 var mockSend = new MockSend(Context);
-                response =await mockSend.SetSocketClient(new SignUpSender { Id= register.Id});
+                response =await mockSend.SetSocketClient(new SignUpSender { Id= register.Id},register.CanExcute);
                 return response;
             }
             catch (Exception e)

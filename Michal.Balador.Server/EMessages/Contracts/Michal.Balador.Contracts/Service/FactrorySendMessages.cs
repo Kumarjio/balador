@@ -26,6 +26,7 @@ namespace Michal.Balador.Contracts.Service
         }
         public virtual async Task<ResponseSenderMessages> GetInstance(RegisterSender register)
         {
+            register.CanExcute = true;
             ResponseSenderMessages response = await GetSender(register);
             if (!response.IsError)
             {
@@ -45,7 +46,8 @@ namespace Michal.Balador.Contracts.Service
 
         public virtual async Task<AuthenticationManager> GetAuthenticationManager(RegisterSender register)
         {
-            ResponseSenderMessages response = await GetSender(register);
+            register.CanExcute = false;
+               ResponseSenderMessages response = await GetSender(register);
             if (!response.IsError)
             {
                 return response.Result.GetAuthenticationManager();

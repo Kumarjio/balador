@@ -25,7 +25,7 @@ namespace Michal.Balador.SimpleMessage
 
         }
 
-        public async Task<ResponseSenderMessages> SetSocketClient(SignUpSender sender)
+        public async Task<ResponseSenderMessages> SetSocketClient(SignUpSender sender, bool canExcute = true)
         {
             ResponseSenderMessages response = new ResponseSenderMessages();
             response.Result = this;
@@ -44,19 +44,27 @@ namespace Michal.Balador.SimpleMessage
             }
             else
             {
-                SenderMessagesFactory sendFactory = new SenderMessagesFactory(this.Context);
-                var respndFactory = await sendFactory.ConnectAndLogin(sender.Id, token.Token);
-                if (respndFactory.IsError)
+                if (canExcute)
                 {
-                    response.IsAutorize = true;
-                    response.IsError = true;
-                    response.Message = respndFactory.Message;
+                    SenderMessagesFactory sendFactory = new SenderMessagesFactory(this.Context);
+                    var respndFactory = await sendFactory.ConnectAndLogin(sender.Id, token.Token);
+                    if (respndFactory.IsError)
+                    {
+                        response.IsAutorize = true;
+                        response.IsError = true;
+                        response.Message = respndFactory.Message;
 
+                    }
+                    else
+                    {
+                        _test = respndFactory.Result;
+
+                    }
                 }
                 else
                 {
-                    _test = respndFactory.Result;
-                  
+                    response.IsAutorize = true;
+                    response.IsError = false;
                 }
                     
             }
