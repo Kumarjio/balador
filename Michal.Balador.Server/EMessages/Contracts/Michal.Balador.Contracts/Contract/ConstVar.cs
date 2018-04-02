@@ -10,5 +10,8 @@ namespace Michal.Balador.Contracts.Contract
     {
         public const string MESSAGE_TYPE = "MessageType";
         public const string  DOMAIN_NAME= "Domain";
+        public const string FORM_TYPE = "formType";
+
+       
     }
 }

@@ -34,10 +34,7 @@ namespace Michal.Balador.Contracts.DataModel
                         else if (a.Name == ConstVariable.DOMAIN_NAME)
                         {
                             domain = a.Value.ToString();
-                        }
-
-                        System.Console.WriteLine("   {0}, version {1}", a.Name, a.Value);
-                    }
+                        } }
                 }
 
                 return $"{domain}.{message_type}";//this.GetType().FullName;

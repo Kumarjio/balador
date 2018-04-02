@@ -16,6 +16,7 @@ using System.Web.Http;
 using lior.api.Models;
 using lior.AppStart.api;
 using Michal.Balador.Contracts;
+using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Server.Dal;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
@@ -109,7 +110,7 @@ namespace Michal.Balador.Server.Controllers
 
                         authentications.Add(new FormSignThirdPartyToken
                         {
-                            Id = authenticationManager.ServiceName.ToString(),
+                            Id = configuration.Id.ToString(),
                             Fields = configuration.ExtraFields,
                             Message = configuration.TextLandPageTemplate,
                             Name = authenticationManager.AuthenticationName,
@@ -148,7 +149,7 @@ namespace Michal.Balador.Server.Controllers
             try
             {
                 NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
-                var id = formData["formType"];
+                var id = formData[ConstVariable.FORM_TYPE];
                 foreach (var senderRule in _senderRules)
                 {
                     var factory = senderRule.Value;
@@ -182,7 +183,7 @@ namespace Michal.Balador.Server.Controllers
             try
             {
                 NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
-                var id = formData["formType"];
+                var id = formData[ConstVariable.FORM_TYPE];
 
                 foreach (var senderRule in _senderRules)
                 {
@@ -219,7 +220,7 @@ namespace Michal.Balador.Server.Controllers
             try
             {
                 NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
-                var id = formData["formType"];
+                var id = formData[ConstVariable.FORM_TYPE];
                 var token = formData["token"];
                 foreach (var senderRule in _senderRules)
                 {
