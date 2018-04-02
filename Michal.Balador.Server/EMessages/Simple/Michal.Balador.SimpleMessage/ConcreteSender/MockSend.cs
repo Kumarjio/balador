@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.SimpleMessage
 {
@@ -13,13 +14,13 @@ namespace Michal.Balador.SimpleMessage
     {
         SocketClientTest _test;
 
-        public MockSend(SocketClientTest test, IBaladorContext context) : base(context)
-        {
+        //public MockSend(SocketClientTest test, IBaladorContext context, FactrorySendMessages factrorySendMessages) : base(context, factrorySendMessages)
+        //{
 
-            _test = test;
-        }
+        //    _test = test;
+        //}
 
-        public MockSend(IBaladorContext context) : base(context)
+        public MockSend(IBaladorContext context, FactrorySendMessages provider) : base(context, provider)
         {
 
 

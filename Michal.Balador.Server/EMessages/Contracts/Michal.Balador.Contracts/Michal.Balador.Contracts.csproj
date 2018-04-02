@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\ConstVar.cs" />
     <Compile Include="Contract\IBaladorLogger.cs" />
     <Compile Include="DataModel\AuthenticationManager.cs" />
     <Compile Include="DataModel\AuthenticationUser.cs" />

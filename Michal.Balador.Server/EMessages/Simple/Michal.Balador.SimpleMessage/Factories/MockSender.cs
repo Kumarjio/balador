@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
+using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.SimpleMessage
 {
     [Export(typeof(IFactrorySendMessages))]
-    [ExportMetadata("MessageType", "MockSender")]
+    [ExportMetadata(ConstVariable.MESSAGE_TYPE, "MockSender")]
+    [ExportMetadata(ConstVariable.DOMAIN_NAME, "com.baladorPlant")]
     public class MockSender : FactrorySendMessages
     {
         [ImportingConstructor()]
@@ -24,7 +26,7 @@ namespace Michal.Balador.SimpleMessage
             ResponseSenderMessages response = new ResponseSenderMessages();
             try
             {
-                var mockSend = new MockSend(Context);
+                var mockSend = new MockSend(Context,this);
                 response =await mockSend.SetSocketClient(new SignUpSender { Id= register.Id},register.CanExcute);
                 return response;
             }

@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
+using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.SimpleMessage
 {
     [Export(typeof(IFactrorySendMessages))]
-    [ExportMetadata("MessageType", "MockHttpSender")]
+    [ExportMetadata(ConstVariable.MESSAGE_TYPE, "MockHttpSender")]
+    [ExportMetadata(ConstVariable.DOMAIN_NAME, "com.baladorPlant")]
     public class MockHttpSender : FactrorySendMessages
     {
         [ImportingConstructor()]
@@ -23,7 +25,7 @@ namespace Michal.Balador.SimpleMessage
             ResponseSenderMessages response = new ResponseSenderMessages();
             try
             {
-                var mckHttpSend = new MockHttpSend(this.Context);
+                var mckHttpSend = new MockHttpSend(this.Context,this);
                 response.Result = mckHttpSend;
             }
             catch (Exception e)
