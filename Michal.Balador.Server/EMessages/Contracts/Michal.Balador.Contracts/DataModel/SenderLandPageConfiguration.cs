@@ -14,7 +14,7 @@ namespace Michal.Balador.Contracts.DataModel
     public class SenderLandPageConfiguration
     {
 
-        public SenderLandPageConfiguration(SenderMessages senderMessages)
+        public SenderLandPageConfiguration(SenderMessagesService senderMessages)
         {
             ExtraFields = new List<FieldView>();
             Id = senderMessages.ServiceName;

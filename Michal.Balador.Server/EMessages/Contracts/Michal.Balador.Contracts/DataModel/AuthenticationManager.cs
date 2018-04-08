@@ -11,8 +11,8 @@ namespace Michal.Balador.Contracts.DataModel
     {
         protected BToken _token;
         public IBaladorContext Context { private set; get; }
-        public SenderMessages SenderMessages { private set; get; }
-        public AuthenticationManager(IBaladorContext context, SenderMessages senderMessages)
+        public SenderMessagesService SenderMessages { private set; get; }
+        public AuthenticationManager(IBaladorContext context, SenderMessagesService senderMessages)
         {
             Context = context;
             SenderMessages = senderMessages;
@@ -27,7 +27,7 @@ namespace Michal.Balador.Contracts.DataModel
                 return SenderMessages.ServiceName;
             }
         }
-        public abstract Task<BToken> GetToken(SenderMessages senderMessages, SignUpSender signUpSender);
+        public abstract Task<BToken> GetToken(SenderMessagesService senderMessages, SignUpSender signUpSender);
 
 
 

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Michal.Balador.Contracts.DataModel
 {
-    public class ResponseSenderMessages : Response<SenderMessagesService>
+   public class ContactInfo
     {
-        public bool IsAutorize { get; set; }
-
+        public string Id { get; set; }
+        public string NickName { get; set; }
     }
 }

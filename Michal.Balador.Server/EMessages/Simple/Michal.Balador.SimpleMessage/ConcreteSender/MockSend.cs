@@ -10,7 +10,7 @@ using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.SimpleMessage
 {
-    public class MockSend : SenderMessages
+    public class MockSend : SenderMessagesService
     {
         SocketClientTest _test;
 

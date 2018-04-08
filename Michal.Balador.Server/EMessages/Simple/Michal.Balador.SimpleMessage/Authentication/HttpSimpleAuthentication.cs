@@ -15,7 +15,7 @@ namespace Michal.Balador.SimpleMessage
    
     public class HttpSimpleAuthentication : AuthenticationManager
     {
-        public HttpSimpleAuthentication(IBaladorContext context,SenderMessages senderMessages) : base(context, senderMessages)
+        public HttpSimpleAuthentication(IBaladorContext context,SenderMessagesService senderMessages) : base(context, senderMessages)
         {
         }
 
@@ -45,7 +45,7 @@ namespace Michal.Balador.SimpleMessage
             return result;
         }
 
-        public override async Task<BToken> GetToken(SenderMessages senderMessages, SignUpSender signUpSender)
+        public override async Task<BToken> GetToken(SenderMessagesService senderMessages, SignUpSender signUpSender)
         {
             ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages, signUpSender.Id);
             if (config != null && !String.IsNullOrEmpty(config.Token))

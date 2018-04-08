@@ -12,10 +12,10 @@ namespace Michal.Balador.Contracts
     {
         IBaladorLogger GetLogger();
         //start:helper functions
-        Task<T> GetConfiguration<T>(SenderMessages senderMessages, string id);
-        Task<ResponseBase> SetConfiguration<T>(SenderMessages senderMessages, string id, T config);
-        Task<T> GetContact<T>(SenderMessages senderMessages, string id);
-        Task<ResponseBase> SetContact<T>(SenderMessages senderMessages, string id, T contact);
+        Task<T> GetConfiguration<T>(SenderMessagesService senderMessages, string id);
+        Task<ResponseBase> SetConfiguration<T>(SenderMessagesService senderMessages, string id, T config);
+        Task<T> GetContact<T>(SenderMessagesService senderMessages, string id);
+        Task<ResponseBase> SetContact<T>(SenderMessagesService senderMessages, string id, T contact);
 
         /// <summary>
         /// Notify Sender Message
@@ -24,7 +24,7 @@ namespace Michal.Balador.Contracts
         /// <param name="id">phone of sender find out email adress</param>
         /// <param name="message">message to email</param>
         /// <returns></returns>
-        Task<ResponseBase> NotifySenderMessage(SenderMessages senderMessages, string id, string message);
+        Task<ResponseBase> NotifySenderMessage(SenderMessagesService senderMessages, string id, string message);
 
         //end:helper functions}
     }

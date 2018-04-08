@@ -28,7 +28,7 @@ namespace Michal.Balador.Infrastructures.Service
         [Import(typeof(IBaladorLogger))]
         IBaladorLogger _logger;
 
-        public async Task<T> GetConfiguration<T>(SenderMessages senderMessages, string id)
+        public async Task<T> GetConfiguration<T>(SenderMessagesService senderMessages, string id)
         {
             string pat;
             var key = DataSecurity.GetHash(senderMessages.ServiceName);
@@ -97,7 +97,7 @@ namespace Michal.Balador.Infrastructures.Service
             return File.Exists(path);
         }
 
-        public async Task<ResponseBase>  SetConfiguration<T>(SenderMessages senderMessages, string id, T config)
+        public async Task<ResponseBase>  SetConfiguration<T>(SenderMessagesService senderMessages, string id, T config)
         {
             var key = DataSecurity.GetHash(senderMessages.ServiceName);
             Dictionary<string, string> account = null;
@@ -130,7 +130,7 @@ namespace Michal.Balador.Infrastructures.Service
 
         }
 
-        public async Task<T> GetContact<T>(SenderMessages senderMessages, string id)
+        public async Task<T> GetContact<T>(SenderMessagesService senderMessages, string id)
         {
             string pat;
             var key = DataSecurity.GetHash(senderMessages.ServiceName);
@@ -151,12 +151,12 @@ namespace Michal.Balador.Infrastructures.Service
             return await Task.FromResult(default(T));
         }
 
-        public Task<ResponseBase> NotifySenderMessage(SenderMessages senderMessages, string id, string message)
+        public Task<ResponseBase> NotifySenderMessage(SenderMessagesService senderMessages, string id, string message)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<ResponseBase> SetContact<T>(SenderMessages senderMessages,string id, T contact)
+        public async Task<ResponseBase> SetContact<T>(SenderMessagesService senderMessages,string id, T contact)
         {
             var key = DataSecurity.GetHash(senderMessages.ServiceName);
             Dictionary<string, string> contactData = null;

@@ -49,6 +49,9 @@
     <Compile Include="DataModel\AuthenticationManager.cs" />
     <Compile Include="DataModel\AuthenticationUser.cs" />
     <Compile Include="DataModel\BToken.cs" />
+    <Compile Include="DataModel\AccountInfo.cs" />
+    <Compile Include="DataModel\MessageInfo.cs" />
+    <Compile Include="DataModel\ContactInfo.cs" />
     <Compile Include="DataModel\MessageItem.cs" />
     <Compile Include="DataModel\NotificationManager.cs" />
     <Compile Include="DataModel\RegisterSender.cs" />
@@ -60,7 +63,8 @@
     <Compile Include="DataModel\ResponseSenderMessages.cs" />
     <Compile Include="DataModel\Sender.cs" />
     <Compile Include="DataModel\SenderLandPageConfiguration.cs" />
-    <Compile Include="DataModel\SenderMessages.cs" />
+    <Compile Include="Service\ContactService.cs" />
+    <Compile Include="Service\SenderMessages.cs" />
     <Compile Include="DataModel\SendRequest.cs" />
     <Compile Include="Contract\IBaladorContext.cs" />
     <Compile Include="Contract\IEMessage.cs" />
