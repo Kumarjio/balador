@@ -39,9 +39,9 @@ namespace Michal.Balador.SimpleMessage
             }
         }
 
-        public override async Task<BToken> GetToken(string serviceName, SignUpSender signUpSender)
+        public override async Task<BToken> GetToken( SignUpSender signUpSender)
         {
-            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(serviceName, signUpSender.Id);
+            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(Provider.ServiceName, signUpSender.Id);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
                 return config;
@@ -61,7 +61,7 @@ namespace Michal.Balador.SimpleMessage
             };
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "token", Title = "write token only " });
 
-            var token = await GetToken(this.Provider.ServiceName, signUpSender);
+            var token = await GetToken(signUpSender);
             if (token != null)
             {
                 senderLandPageConfiguration.IsAlreadyRegister = true;

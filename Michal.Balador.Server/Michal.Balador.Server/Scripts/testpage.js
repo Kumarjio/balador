@@ -2,13 +2,13 @@
 function send() {
     debugger;
     var da = $("#testform").serialize(); 
-    debugger;
-    alert(da);
+   // debugger;
+  //  alert(da);
     ajax_token(da, '/api/SendToClient', 'POST', 'application/x-www-form-urlencoded',
         function (data) {
             debugger;
             alert(data.Message ? data.Message : status);
-            setTimeout('window.location.href = "index.html"', 100);
+            window.location.assign("index.html");
         },
         function (errMsg) {
             alert(errMsg.responseJSON.Message);
@@ -17,8 +17,17 @@ function send() {
 
 function init() {
     debugger;
-    $("#send").click(function () {
+    var selectBox = document.getElementById('MesssageType');
+
+    for (var i = 0, l = ms.length; i < l; i++) {
+        var option = ms[i];
+        selectBox.options.add(new Option(option, option));
+
+    }
+
+    $("#send").click(function (event) {
         debugger;
+        event.preventDefault();
         send();
         
     });

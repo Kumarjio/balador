@@ -36,7 +36,7 @@ namespace Michal.Balador.SimpleMessage
             }
           
             var authenticationManager = GetAuthenticationManager();
-            var token = await authenticationManager.GetToken(this.Provider.ServiceName, sender);
+            var token = await authenticationManager.GetToken( sender);
             if (token == null)
             {
 

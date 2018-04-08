@@ -47,9 +47,9 @@ namespace Michal.Balador.SimpleMessage
             return result;
         }
 
-        public override async Task<BToken> GetToken(string serviceName, SignUpSender signUpSender)
+        public override async Task<BToken> GetToken(SignUpSender signUpSender)
         {
-            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(serviceName, signUpSender.Id);
+            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(Provider.ServiceName, signUpSender.Id);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
                 return config;

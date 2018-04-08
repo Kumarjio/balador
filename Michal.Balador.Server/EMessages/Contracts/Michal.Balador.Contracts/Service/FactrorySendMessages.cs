@@ -33,7 +33,7 @@ namespace Michal.Balador.Contracts.Service
             if (!response.IsError)
             {
                 _authenticationManager = this.GetAuthenticationManager();
-                var token = await _authenticationManager.GetToken(ServiceName, new SignUpSender { Id = register.Id });
+                var token = await _authenticationManager.GetToken(new SignUpSender { Id = register.Id });
                 if (token == null || String.IsNullOrWhiteSpace(token.Token))
                 {
                     response.IsAutorize = false;
@@ -72,7 +72,7 @@ namespace Michal.Balador.Contracts.Service
                         }
                     }
 
-                    _serviceName= $"{domain}.{message_type}";//this.GetType().FullName;
+                    _serviceName= $"{domain}${message_type}";//this.GetType().FullName;
                 }
                 return _serviceName;
             }

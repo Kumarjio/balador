@@ -89,6 +89,40 @@ namespace Michal.Balador.Server.Controllers
             return responseToClient;
         }
         [HttpGet]
+        [AllowAnonymous]
+        [Route("api/getAllMessageTypes")]
+        public HttpResponseMessage GetAllMessageTypes()
+        {
+            var js = "var ms=[];";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(js);
+            Michal.Balador.Contracts.DataModel.AuthenticationManager authenticationManager = null;
+            MockRepository mockData = new MockRepository();
+            foreach (var senderRule in _senderRules)
+            {
+                authenticationManager = null;
+                var factory = senderRule.Value;
+                authenticationManager = factory.GetAuthenticationManager();
+                if (authenticationManager != null)
+                {
+                    var configuration = authenticationManager.ServiceName;
+                    //var token = await authenticationManager.GetToken( new SignUpSender { Id = User.Identity.Name });
+                  //  if(token!=null && token.Token!=null && !String.IsNullOrWhiteSpace(token.Token))
+                   // {
+                        var djs = $"ms.push('{authenticationManager.ServiceName}');";
+                    sb.AppendLine(djs);
+                   // }
+                }
+            }
+                //// Return the echo response
+                var response = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(sb.ToString(), Encoding.UTF8, "application/javascript")
+            };
+            return response;
+
+        }
+        [HttpGet]
         [Route("api/getMessagers")]
         public async Task<HttpResponseMessage> GetMessagers()
         {

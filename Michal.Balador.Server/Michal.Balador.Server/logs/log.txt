@@ -9123,3 +9123,4 @@ INFO  2018-04-08 14:23:50,348 167514ms Logger                 Log               
 INFO  2018-04-08 14:23:54,961 172126ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
 INFO  2018-04-08 14:24:00,483 177649ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-08 14:24:26,212 203378ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-08 15:34:30,412   967ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp

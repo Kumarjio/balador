@@ -54,7 +54,7 @@
 });
 
 function ajax_token(data, url, typ, contentType, callback) {
-     
+    debugger;
      var access_token = sessionStorage.token;
     $.ajax({
         type: typ,
