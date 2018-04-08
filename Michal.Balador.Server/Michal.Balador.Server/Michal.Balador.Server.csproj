@@ -300,6 +300,7 @@
     <Content Include="LICENSE" />
     <Content Include="Schema\StoreProcedures\createMessage.sql" />
     <Content Include="Schema\StoreProcedures\jobrunner.sql" />
+    <Content Include="Schema\StoreProcedures\usp_RethrowError.sql" />
     <Content Include="Schema\Tables\Balador_JobSender.sql" />
     <Content Include="Schema\Tables\Balador_lead.sql" />
     <Content Include="Scripts\testpage.js" />
