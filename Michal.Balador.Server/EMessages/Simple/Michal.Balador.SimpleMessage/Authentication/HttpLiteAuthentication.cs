@@ -14,7 +14,11 @@ namespace Michal.Balador.SimpleMessage
    
     public class HttpLiteAuthentication : AuthenticationManager
     {
-        public HttpLiteAuthentication(IBaladorContext context, SenderMessagesService senderMessages) : base(context, senderMessages)
+        //public HttpLiteAuthentication(IBaladorContext context, SenderMessagesService senderMessages) : base(context, senderMessages)
+        //{
+        //}
+
+        public HttpLiteAuthentication(IBaladorContext context, IFactrorySendMessages provider) : base(context, provider)
         {
         }
 
@@ -35,9 +39,9 @@ namespace Michal.Balador.SimpleMessage
             }
         }
 
-        public override async Task<BToken> GetToken(SenderMessagesService senderMessages, SignUpSender signUpSender)
+        public override async Task<BToken> GetToken(string serviceName, SignUpSender signUpSender)
         {
-            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages, signUpSender.Id);
+            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(serviceName, signUpSender.Id);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
                 return config;
@@ -47,7 +51,7 @@ namespace Michal.Balador.SimpleMessage
 
         public override async Task<SenderLandPageConfiguration> Register(SignUpSender signUpSender)
         {
-            var senderLandPageConfiguration = new SenderLandPageConfiguration(this.SenderMessages)
+            var senderLandPageConfiguration = new SenderLandPageConfiguration(this.Provider.ServiceName)
             {
                 Logo = "",
                 MessageEmailTemplate = "http lite",
@@ -57,7 +61,7 @@ namespace Michal.Balador.SimpleMessage
             };
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "token", Title = "write token only " });
 
-            var token = await GetToken(this.SenderMessages, signUpSender);
+            var token = await GetToken(this.Provider.ServiceName, signUpSender);
             if (token != null)
             {
                 senderLandPageConfiguration.IsAlreadyRegister = true;
@@ -79,24 +83,24 @@ namespace Michal.Balador.SimpleMessage
             var dict = new Dictionary<string, string>();
 
             var pws = extraDataForm["token"];
-           await Context.SetConfiguration(this.SenderMessages, senderDetail.Id, new ConfigHttpLite { Token=pws});
+           await Context.SetConfiguration(this.Provider.ServiceName, senderDetail.Id, new ConfigHttpLite { Token=pws});
             return response;
 
         }
         public override async Task<ResponseBase> UnRegister(SignUpSender signUpSender)
         {
             ResponseBase response = new ResponseBase();
-            var config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages, signUpSender.Id);
+            var config = await Context.GetConfiguration<ConfigHttpLite>(this.Provider.ServiceName, signUpSender.Id);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
-                await Context.SetConfiguration(this.SenderMessages, signUpSender.Id, new ConfigHttpLite());
+                await Context.SetConfiguration(this.Provider.ServiceName, signUpSender.Id, new ConfigHttpLite());
 
             }
             return response;
         }
         public override async Task<ResponseBase> SetObservableToken(SignUpSender signUpSender, BToken token)
         {
-            var config = await Context.GetConfiguration<ConfigHttpLite>(this.SenderMessages, signUpSender.Id);
+            var config = await Context.GetConfiguration<ConfigHttpLite>(this.Provider.ServiceName, signUpSender.Id);
             if (config == null)
             {
                 config = new ConfigHttpLite { Token = token.Token, UserId = signUpSender.Id };
@@ -105,7 +109,7 @@ namespace Michal.Balador.SimpleMessage
             {
                 config.Token = token.Token;
             }
-            var result = await this.Context.SetConfiguration(this.SenderMessages, signUpSender.Id, config);
+            var result = await this.Context.SetConfiguration(this.Provider.ServiceName, signUpSender.Id, config);
 
             return result;
         }

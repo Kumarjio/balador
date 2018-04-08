@@ -101,7 +101,7 @@ namespace Michal.Balador.Server.Controllers
                 {
                     authenticationManager = null;
                     var factory = senderRule.Value;
-                    authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
+                    authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager != null)
                     {
 
@@ -153,7 +153,7 @@ namespace Michal.Balador.Server.Controllers
                 foreach (var senderRule in _senderRules)
                 {
                     var factory = senderRule.Value;
-                    var authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
+                    var authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager.ServiceName == id)
                     {
                         responseResult = await authenticationManager.SignIn(new SignUpSender { Id = User.Identity.Name }, formData);
@@ -188,7 +188,7 @@ namespace Michal.Balador.Server.Controllers
                 foreach (var senderRule in _senderRules)
                 {
                     var factory = senderRule.Value;
-                    var authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
+                    var authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager.ServiceName == id)
                     {
                         responseResult = await authenticationManager.UnRegister(new SignUpSender { Id = User.Identity.Name });
@@ -226,7 +226,7 @@ namespace Michal.Balador.Server.Controllers
                 {
 
                     var factory = senderRule.Value;
-                    var authenticationManager = await factory.GetAuthenticationManager(new RegisterSender { Id = User.Identity.Name });
+                    var authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager.ServiceName == id)
                     {
                         responseResult = await authenticationManager.SetObservableToken(new SignUpSender { Id = User.Identity.Name }, new BToken { Token = token });

@@ -36,7 +36,7 @@ namespace Michal.Balador.SimpleMessage
             }
           
             var authenticationManager = GetAuthenticationManager();
-            var token = await authenticationManager.GetToken(this, sender);
+            var token = await authenticationManager.GetToken(this.Provider.ServiceName, sender);
             if (token == null)
             {
 
@@ -79,7 +79,7 @@ namespace Michal.Balador.SimpleMessage
 
         public override AuthenticationManager GetAuthenticationManager()
         {
-            return new HttpLiteAuthentication(Context, this);
+            return new HttpLiteAuthentication(Context, this.Provider);
         }
 
         public override async Task<ResponseSend> Send(SendRequest request)

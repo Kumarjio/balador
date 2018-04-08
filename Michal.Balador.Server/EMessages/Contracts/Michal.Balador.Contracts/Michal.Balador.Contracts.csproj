@@ -63,8 +63,8 @@
     <Compile Include="DataModel\ResponseSenderMessages.cs" />
     <Compile Include="DataModel\Sender.cs" />
     <Compile Include="DataModel\SenderLandPageConfiguration.cs" />
-    <Compile Include="Service\ContactService.cs" />
-    <Compile Include="Service\SenderMessages.cs" />
+    <Compile Include="Service\ContactManager.cs" />
+    <Compile Include="Service\SenderMessagesService.cs" />
     <Compile Include="DataModel\SendRequest.cs" />
     <Compile Include="Contract\IBaladorContext.cs" />
     <Compile Include="Contract\IEMessage.cs" />

@@ -21,6 +21,12 @@ namespace Michal.Balador.SimpleMessage
         {
 
         }
+
+        public override AuthenticationManager GetAuthenticationManager()
+        {
+            return new HttpLiteAuthentication(Context, this);
+        }
+
         protected override async Task<ResponseSenderMessages> GetSender(RegisterSender register)
         {
             ResponseSenderMessages response = new ResponseSenderMessages();

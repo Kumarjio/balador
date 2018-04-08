@@ -20,6 +20,12 @@ namespace Michal.Balador.SimpleMessage
         public MockHttpSender(IBaladorContext context) : base(context)
         {
         }
+
+        public override AuthenticationManager GetAuthenticationManager()
+        {
+             return new HttpSimpleAuthentication(Context,this);
+        }
+
         protected async override Task<ResponseSenderMessages> GetSender(RegisterSender register)
         {
             ResponseSenderMessages response = new ResponseSenderMessages();

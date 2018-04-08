@@ -13,12 +13,16 @@ namespace Michal.Balador.Contracts.DataModel
     }
     public class SenderLandPageConfiguration
     {
-
-        public SenderLandPageConfiguration(SenderMessagesService senderMessages)
+        public SenderLandPageConfiguration(string serviceName)
         {
             ExtraFields = new List<FieldView>();
-            Id = senderMessages.ServiceName;
+            Id = serviceName;
         }
+        //public SenderLandPageConfiguration(SenderMessagesService senderMessages)
+        //{
+        //    ExtraFields = new List<FieldView>();
+        //    Id = senderMessages.ServiceName;
+        //}
         public string Id { private set; get; }
         public string Logo { get; set; }
         public string MessageEmailTemplate { get; set; }

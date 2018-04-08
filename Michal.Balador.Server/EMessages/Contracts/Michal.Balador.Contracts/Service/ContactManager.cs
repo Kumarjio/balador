@@ -7,11 +7,11 @@ using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Contracts.Service
 {
-   public abstract class ContactService
+   public abstract class ContactManager
     {
         protected SenderMessagesService _provider;
 
-        public ContactService(SenderMessagesService provider)
+        public ContactManager(SenderMessagesService provider)
         {
             _provider = provider;
         }

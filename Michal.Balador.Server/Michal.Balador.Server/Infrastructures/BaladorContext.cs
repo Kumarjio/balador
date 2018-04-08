@@ -28,10 +28,10 @@ namespace Michal.Balador.Infrastructures.Service
         [Import(typeof(IBaladorLogger))]
         IBaladorLogger _logger;
 
-        public async Task<T> GetConfiguration<T>(SenderMessagesService senderMessages, string id)
+        public async Task<T> GetConfiguration<T>(string serviceName, string id)
         {
             string pat;
-            var key = DataSecurity.GetHash(senderMessages.ServiceName);
+            var key = DataSecurity.GetHash(serviceName);
             Dictionary<string, string> account = null;
 
             if (GetConfigFile(id, out pat))
@@ -97,9 +97,9 @@ namespace Michal.Balador.Infrastructures.Service
             return File.Exists(path);
         }
 
-        public async Task<ResponseBase>  SetConfiguration<T>(SenderMessagesService senderMessages, string id, T config)
+        public async Task<ResponseBase>  SetConfiguration<T>(string serviceName, string id, T config)
         {
-            var key = DataSecurity.GetHash(senderMessages.ServiceName);
+            var key = DataSecurity.GetHash(serviceName);
             Dictionary<string, string> account = null;
             var configData = JsonConvert.SerializeObject(config);
             // var dataProtected= DataSecurity.GetDataProtector();
@@ -130,10 +130,10 @@ namespace Michal.Balador.Infrastructures.Service
 
         }
 
-        public async Task<T> GetContact<T>(SenderMessagesService senderMessages, string id)
+        public async Task<T> GetContact<T>(string serviceName, string id)
         {
             string pat;
-            var key = DataSecurity.GetHash(senderMessages.ServiceName);
+            var key = DataSecurity.GetHash(serviceName);
             Dictionary<string, string> contact = null;
 
             if (GetContactFile(id, out pat))
@@ -151,14 +151,14 @@ namespace Michal.Balador.Infrastructures.Service
             return await Task.FromResult(default(T));
         }
 
-        public Task<ResponseBase> NotifySenderMessage(SenderMessagesService senderMessages, string id, string message)
+        public Task<ResponseBase> NotifySenderMessage(string serviceName, string id, string message)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<ResponseBase> SetContact<T>(SenderMessagesService senderMessages,string id, T contact)
+        public async Task<ResponseBase> SetContact<T>(string serviceName, string id, T contact)
         {
-            var key = DataSecurity.GetHash(senderMessages.ServiceName);
+            var key = DataSecurity.GetHash(serviceName);
             Dictionary<string, string> contactData = null;
             var configContactData = JsonConvert.SerializeObject(contact);
           //  var dataProtected = DataSecurity.GetDataProtector();

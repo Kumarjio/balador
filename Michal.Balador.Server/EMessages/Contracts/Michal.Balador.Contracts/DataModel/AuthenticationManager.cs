@@ -9,27 +9,40 @@ namespace Michal.Balador.Contracts.DataModel
 {
     public abstract class AuthenticationManager
     {
+        protected IFactrorySendMessages _provider;
         protected BToken _token;
         public IBaladorContext Context { private set; get; }
-        public SenderMessagesService SenderMessages { private set; get; }
-        public AuthenticationManager(IBaladorContext context, SenderMessagesService senderMessages)
+       // public SenderMessagesService SenderMessages { private set; get; }
+
+        //public AuthenticationManager(IBaladorContext context, SenderMessagesService senderMessages)
+        //{
+        //    Context = context;
+        //    SenderMessages = senderMessages;
+        //}
+        public AuthenticationManager(IBaladorContext context, IFactrorySendMessages provider)
         {
-            Context = context;
-            SenderMessages = senderMessages;
+            Context = context; _provider = provider;
+           // SenderMessages = senderMessages;
         }
+
         public abstract string AuthenticationTitle { get; }
         public abstract string AuthenticationName { get; }
+
+        public IFactrorySendMessages Provider {
+            get
+            {
+                return _provider;
+            }
+        }
 
         public string ServiceName
         {
             get
             {
-                return SenderMessages.ServiceName;
+                return _provider.ServiceName;
             }
         }
-        public abstract Task<BToken> GetToken(SenderMessagesService senderMessages, SignUpSender signUpSender);
-
-
+        public abstract Task<BToken> GetToken(string serviceName, SignUpSender signUpSender);
 
 
         //step 1 after set signup sender register page or email

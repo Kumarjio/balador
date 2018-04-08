@@ -26,14 +26,14 @@ namespace Michal.Balador.SimpleMessage
 
         public override AuthenticationManager GetAuthenticationManager()
         {
-            return new HttpSimpleAuthentication(Context,this);
+            return new HttpSimpleAuthentication(Context, this.Provider);
         }
         
         public override async Task<ResponseSend> Send(SendRequest request)
         {
-            var configAccount=await Context.GetConfiguration<ConfigHttp>(this, request.Id);
+            var configAccount=await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, request.Id);
 
-              var contact= this.Context.GetContact<ContactHttpSend>(this, "ddd");
+              var contact= this.Context.GetContact<ContactHttpSend>(this.Provider.ServiceName, "ddd");
             this.Context.GetLogger().Log(System.Diagnostics.TraceLevel.Info, configAccount.RefreshToken, null);
 
             ResponseSend res = new ResponseSend();

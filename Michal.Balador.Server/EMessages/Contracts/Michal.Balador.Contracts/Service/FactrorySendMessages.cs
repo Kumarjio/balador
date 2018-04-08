@@ -4,12 +4,14 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Contracts.Service
 {
     public abstract class FactrorySendMessages : IFactrorySendMessages
     {
+        protected string _serviceName = "";
         protected IBaladorContext _context;
         protected AuthenticationManager _authenticationManager;
         public IBaladorContext Context
@@ -30,8 +32,8 @@ namespace Michal.Balador.Contracts.Service
             ResponseSenderMessages response = await GetSender(register);
             if (!response.IsError)
             {
-                _authenticationManager = response.Result.GetAuthenticationManager();
-                var token = await _authenticationManager.GetToken(response.Result, new SignUpSender { Id = register.Id });
+                _authenticationManager = this.GetAuthenticationManager();
+                var token = await _authenticationManager.GetToken(ServiceName, new SignUpSender { Id = register.Id });
                 if (token == null || String.IsNullOrWhiteSpace(token.Token))
                 {
                     response.IsAutorize = false;
@@ -44,25 +46,51 @@ namespace Michal.Balador.Contracts.Service
         protected abstract Task<ResponseSenderMessages> GetSender(RegisterSender register);
 
 
-        public virtual async Task<AuthenticationManager> GetAuthenticationManager(RegisterSender register)
+        public virtual string ServiceName
         {
-            register.CanExcute = false;
-               ResponseSenderMessages response = await GetSender(register);
-            if (!response.IsError)
+            get
             {
-                return response.Result.GetAuthenticationManager();
-                
-            }
+                if (String.IsNullOrEmpty(_serviceName))
+                {
+                    System.Attribute[] attrs = System.Attribute.GetCustomAttributes(this.GetType());  // Reflection.  
+                    var message_type = "";
 
-            return null;
+                    var domain = "";
+                    foreach (System.Attribute attr in attrs)
+                    {
+                        if (attr is ExportMetadataAttribute)
+                        {
+                            ExportMetadataAttribute a = (ExportMetadataAttribute)attr;
+                            if (a.Name == ConstVariable.MESSAGE_TYPE)
+                            {
+                                message_type = a.Value.ToString();
+                            }
+                            else if (a.Name == ConstVariable.DOMAIN_NAME)
+                            {
+                                domain = a.Value.ToString();
+                            }
+                        }
+                    }
+
+                    _serviceName= $"{domain}.{message_type}";//this.GetType().FullName;
+                }
+                return _serviceName;
+            }
         }
 
-        //public virtual AuthenticationManager AuthenticationManager
+        public abstract AuthenticationManager GetAuthenticationManager();
+        //public virtual async Task<AuthenticationManager> GetAuthenticationManager(RegisterSender register)
         //{
-        //    get
+        //    register.CanExcute = false;
+        //       ResponseSenderMessages response = await GetSender(register);
+        //    if (!response.IsError)
         //    {
-        //        return _authenticationManager;
+        //        return response.Result.GetAuthenticationManager();
+
         //    }
+
+        //    return null;
         //}
+        
     }
 }
