@@ -9124,3 +9124,15 @@ INFO  2018-04-08 14:23:54,961 172126ms Logger                 Log               
 INFO  2018-04-08 14:24:00,483 177649ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-08 14:24:26,212 203378ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-08 15:34:30,412   967ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-04-08 16:41:48,014 1433243ms Logger                 Log                - {"access_token":"ruBMt0h8vWsFsCVwLlehO78YEOeRfi4a5zVP3zA-s3VeohGuHecbKlkmBrQdtKpyps7QhVCHPllquLABaIR7k-Awtmu4PkfPmfowwYPMoT9XU2gAqk3-nVe4fI8k7F95QFRnBzMFOUOpoWWrxzpNR2KrybGBeRpd_21nbvWqZ2xm_tg3MLuDaQkZebEAUs3RevIZL0PhW_VdVehh1hxJXpSOWCGJGM39tVEVGCFzAqRinxpAPCiLisYo4LyzLmAIv0EY8E7Hi23srAjr-ya3_G-QeLvqp6shEBM0y-AZW0jKOaw25KkvtL2_zDE2YeEbs38lskk3FUCclgjUk55X7c_xa8wXuZMNRph1f6okdeM9mT7fRQCyVKhBWFUJvMl0JFlEq8I-uLvpIL4Vb_bMZ1bMbZRCFkqKSYuIu52uyi42YaIqz06iw99CGzWgTT687yK3WczOy8xDNw1uu-4GQuYBiQUQQCVUI7TKNiZ84mEdBikyyTMGOOMUs1Tsb-zkleXnKqm6vQ8zzMsOP0o-ozBv8Q6iPuif9SLUEWr01Ka66ey6u2wCu7xagebXTkD1Wx8icacvOQINpZL6SoVBvw","token_type":"bearer","expires_in":215999,"refresh_token":"6d90ff4731064372a78922be33072633","as:client_id":"ngAutoApp","userName":"rt","m:userId":"1bfa6f8e-0000-0000-0000-b573b2c8f820","m:secret":"12345678901234567890123456789010","m:currentTime":"2018-04-08 13:41:47","m:expiredOn":"2018-04-11 01:41:47","roles":"[]",".issued":"Sun, 08 Apr 2018 13:41:47 GMT",".expires":"Wed, 11 Apr 2018 01:41:47 GMT"}
+INFO  2018-04-08 16:41:48,379 1433608ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-04-08 17:16:25,629 3510858ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-04-08 17:16:31,367 3516596ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
+INFO  2018-04-08 17:23:33,497 3938726ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-08 17:24:40,171 4005400ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-08 17:24:56,179 4021408ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-08 17:33:15,403 4520632ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-08 17:34:08,065 4573293ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-08 17:34:52,964 4618193ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-08 17:34:55,595 4620824ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-08 17:34:57,524 4622753ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite

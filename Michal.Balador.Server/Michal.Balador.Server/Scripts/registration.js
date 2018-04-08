@@ -57,16 +57,16 @@ function init() {
                     //  formErr.style.display = "block";
                     return;
                 }
-                if (got.Result == null) {
-                    alert("NULL!!!");
-                    return;
-                }
+                //if (got.Result == null) {
+                //    alert("NULL!!!");
+                //    return;
+                //}
                 formToken = document.getElementById(tokenText);
                 formSignup = document.getElementById(signupText);
                 formOkComplete = document.getElementById(okText);
                 formSignup.style.display = "none";
 
-                if (got.Result.IsTwoFactorAuthentication == true) {
+                if (got.Result!=null && got.Result.IsTwoFactorAuthentication == true) {
                     formToken.style.display = "block";
                     return;
                 }
