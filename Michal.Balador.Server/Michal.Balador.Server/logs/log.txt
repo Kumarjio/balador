@@ -9137,3 +9137,4 @@ INFO  2018-04-08 17:34:52,964 4618193ms Logger                 Log              
 INFO  2018-04-08 17:34:55,595 4620824ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-08 17:34:57,524 4622753ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-09 16:06:58,092 10240ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-04-09 17:27:08,688 35008ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
