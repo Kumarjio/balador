@@ -8,9 +8,9 @@ namespace Michal.Balador.Contracts.DataModel
 {
     public class AccountInfo
     {
-        public string ID { get; set; }
+        public string Id { get; set; }
         public string Email { get; set; }
-        public string NickName { get; set; }
+        public string Name { get; set; }
         public string MessagesType { get; set; }
     }
 }

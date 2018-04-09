@@ -101,17 +101,15 @@ namespace Michal.Balador.Server.Controllers
             foreach (var senderRule in _senderRules)
             {
                 authenticationManager = null;
-                var factory = senderRule.Value;
-                authenticationManager = factory.GetAuthenticationManager();
-                if (authenticationManager != null)
+                using (var factory = senderRule.Value)
                 {
-                    var configuration = authenticationManager.ServiceName;
-                    //var token = await authenticationManager.GetToken( new SignUpSender { Id = User.Identity.Name });
-                  //  if(token!=null && token.Token!=null && !String.IsNullOrWhiteSpace(token.Token))
-                   // {
+                    authenticationManager = factory.GetAuthenticationManager();
+                    if (authenticationManager != null)
+                    {
+                        var configuration = authenticationManager.ServiceName;
                         var djs = $"ms.push('{authenticationManager.ServiceName}');";
-                    sb.AppendLine(djs);
-                   // }
+                        sb.AppendLine(djs);
+                    }
                 }
             }
                 //// Return the echo response

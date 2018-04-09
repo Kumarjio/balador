@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.DataModel;
 using Michal.Balador.Contracts.Service;
 
@@ -17,7 +18,7 @@ namespace Michal.Balador.SimpleMessage
     public class MockSender : FactrorySendMessages
     {
         [ImportingConstructor()]
-        public MockSender(IBaladorContext context) :base(context)
+        public MockSender(IBaladorContext context, ITaskSchedulerRepository taskSchedulerRepository) :base(context, taskSchedulerRepository)
         {
 
         }

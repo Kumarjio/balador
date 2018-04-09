@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Contracts.Behaviors
@@ -15,13 +16,13 @@ namespace Michal.Balador.Contracts.Behaviors
 
         }
 
-        public override async Task<ResponseBase> Excute<TRequest>(TRequest request)
+        public override async Task<ResponseBase> Excute<TRequestBehavior>(TRequestBehavior request) 
         {
-            MessageItem obj = (MessageItem)Convert.ChangeType(request, typeof(MessageItem));
-
-            return await ChangeMessage(obj);
+            //MessageItem obj = (MessageItem)Convert.ChangeType(request, typeof(MessageItem));
+            return null;
+            //return await ChangeMessage(obj);
         }
-        public abstract Task<ResponseBase> ChangeMessage(MessageItem messageItem);
+       // public abstract Task<ResponseBase> ChangeMessage(MessageItem messageItem);
        
     }
 }

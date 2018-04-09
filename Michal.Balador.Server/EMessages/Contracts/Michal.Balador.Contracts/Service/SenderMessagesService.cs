@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.Contracts.DataModel
@@ -17,6 +18,7 @@ namespace Michal.Balador.Contracts.DataModel
         public IBaladorContext Context { get { return _context; } }
         public IFactrorySendMessages Provider { get { return _provider; } }
         protected List<ContactManager> _contactsManager;
+
         public SenderMessagesService(IBaladorContext context, FactrorySendMessages provider)
         {
             _context = context; _provider = provider;
@@ -27,32 +29,45 @@ namespace Michal.Balador.Contracts.DataModel
         {
             return null;
         }
-        public async Task<ResponseSend> SendAsync(IContactRepository repository, AccountInfo accountInfo)
+        public async Task<ResponseSend> SendAsync(AccountInfo accountInfo)
         {
+            ITaskSchedulerRepository repository = Provider.TaskSchedulerRepository;
             var contacts = await repository.GetContacts(accountInfo);
             await LoadContactsManager(contacts.ToList());
             foreach (var contactManagerItem in _contactsManager)
             {
                 var messages = await repository.GetMessagesContact(contactManagerItem.ContactInfo);
-                var preSends = Provider.BehaviorItems?.Get<PreMessageBehavior>();
 
                 foreach (var message_item in messages)
                 {
-                    if (preSends != null && preSends.Any())
-                    {
-                        foreach (var preSend in preSends)
-                        {
-                           var responseMessage= await preSend.ChangeMessage(message_item);
-
-                        }
-                    }      
-                
-                   await contactManagerItem.SendMessage(message_item);
+                    await PreSend(accountInfo, contactManagerItem.ContactInfo, message_item);
+                    await contactManagerItem.SendMessage(message_item);
                 }
 
             }
             return new ResponseSend { IsError = false };
         }
+        protected async Task PreSend(AccountInfo accountInfo, ContactInfo contact, MessageItem messageItem)
+        {
+            var preSends = Provider.BehaviorItems?.Get<PreMessageBehavior>();
+            if (preSends != null && preSends.Any())
+            {
+                foreach (var preSend in preSends)
+                {
+                    var responseMessage = await preSend.Excute(
+                        new RequestMessageBehavior
+                    {
+                        TaskSchedulerRepository=Provider.TaskSchedulerRepository,
+                        AccountInfo=accountInfo,
+                        ContactInfo=contact,
+                        Message=messageItem
+                    });
+
+                }
+            }
+
+        }
+
         public async Task<ResponseSend> LoadContactsManager(List<ContactInfo> contacts)
         {
             foreach (var contact in contacts)

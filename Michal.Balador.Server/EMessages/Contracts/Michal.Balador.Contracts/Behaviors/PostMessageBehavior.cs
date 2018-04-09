@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Contracts.Behaviors
@@ -14,7 +15,7 @@ namespace Michal.Balador.Contracts.Behaviors
 
         }
 
-        public override Task<ResponseBase> Excute<TRequest>(TRequest request)
+        public override Task<ResponseBase> Excute<TRequestBehavior>(TRequestBehavior request)
         {
             return Task.FromResult<ResponseBase>(new ResponseBase { });
         }

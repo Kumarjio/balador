@@ -14,9 +14,9 @@ namespace Michal.Balador.Contracts.Behaviors
         {
 
         }
-        public override Task<ResponseBase> ChangeMessage(MessageItem messageItem)
-        {
-            return Task.FromResult<ResponseBase>(new ResponseBase { });
-        }
+        //public override Task<ResponseBase> ChangeMessage(MessageItem messageItem)
+        //{
+        //    return Task.FromResult<ResponseBase>(new ResponseBase { });
+        //}
     }
 }

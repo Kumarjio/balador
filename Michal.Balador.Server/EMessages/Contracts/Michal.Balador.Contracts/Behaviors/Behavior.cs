@@ -18,7 +18,7 @@ namespace Michal.Balador.Contracts.Behaviors
         }
         public IBaladorContext BaladorContext { get { return _baladorContext; } }
 
-        public abstract Task<ResponseBase> Excute<TRequest>(TRequest request) where TRequest : RequestBehavior;
+        public abstract Task<ResponseBase> Excute<TRequestBehavior>(TRequestBehavior request) where TRequestBehavior : RequestBehavior;
     }
     
 }

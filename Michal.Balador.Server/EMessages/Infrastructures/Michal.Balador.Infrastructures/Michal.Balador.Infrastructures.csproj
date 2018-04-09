@@ -118,6 +118,7 @@
     <Compile Include="Dal\JobRepository.cs" />
     <Compile Include="Dal\MessageRepository.cs" />
     <Compile Include="Dal\MockRepository.cs" />
+    <Compile Include="Dal\TaskSchedulerRepository.cs" />
     <Compile Include="Dal\UserRepository.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />

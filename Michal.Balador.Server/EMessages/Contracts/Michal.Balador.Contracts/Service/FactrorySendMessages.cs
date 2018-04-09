@@ -14,12 +14,11 @@ namespace Michal.Balador.Contracts.Service
     public abstract class FactrorySendMessages : IFactrorySendMessages
     {
         protected string _serviceName = "";
-        protected IUnitOfWork _unitOfWork;
+        //protected IUnitOfWork _unitOfWork;
         protected IBaladorContext _context;
         protected BehaviorItems<Behavior> _behaviorItems;
         protected AuthenticationManager _authenticationManager;
-       
-     
+        ITaskSchedulerRepository _taskSchedulerRepository;
         public IBaladorContext Context
         {
             get
@@ -27,7 +26,13 @@ namespace Michal.Balador.Contracts.Service
                 return _context;
             }
         }
-
+        public IUnitOfWork UnitOfWork
+        {
+            get
+            {
+                return _taskSchedulerRepository.DbContext;
+            }
+        }
         public BehaviorItems<Behavior> BehaviorItems
         {
             get
@@ -36,19 +41,27 @@ namespace Michal.Balador.Contracts.Service
             }
         }
 
-        public FactrorySendMessages(IBaladorContext context)
+        public ITaskSchedulerRepository TaskSchedulerRepository
         {
-            _context = context;
-        
+            get
+            {
+                return _taskSchedulerRepository;
+            }
         }
-        public void EnrolInBehaviors(BehaviorItems<Behavior> behaviorItems)
+
+        public FactrorySendMessages(IBaladorContext context, ITaskSchedulerRepository taskSchedulerRepository)
+        {
+            _context = context; _taskSchedulerRepository = taskSchedulerRepository;
+        }
+
+        protected void EnrolInBehaviors(BehaviorItems<Behavior> behaviorItems)
         {
             _behaviorItems = behaviorItems;
         }
 
-
-        public virtual async Task<ResponseSenderMessages> GetInstance(RegisterSender register)
+        public virtual async Task<ResponseSenderMessages> GetInstance(RegisterSender register, BehaviorItems<Behavior> behaviorItems=null)
         {
+            EnrolInBehaviors(behaviorItems);
             register.CanExcute = true;
             ResponseSenderMessages response = await GetSender(register);
             if (!response.IsError)
@@ -100,18 +113,11 @@ namespace Michal.Balador.Contracts.Service
         }
 
         public abstract AuthenticationManager GetAuthenticationManager();
-        //public virtual async Task<AuthenticationManager> GetAuthenticationManager(RegisterSender register)
-        //{
-        //    register.CanExcute = false;
-        //       ResponseSenderMessages response = await GetSender(register);
-        //    if (!response.IsError)
-        //    {
-        //        return response.Result.GetAuthenticationManager();
 
-        //    }
+        public virtual void Dispose()
+        {
+            _taskSchedulerRepository.Dispose();
+        }
 
-        //    return null;
-        //}
-        
     }
 }
