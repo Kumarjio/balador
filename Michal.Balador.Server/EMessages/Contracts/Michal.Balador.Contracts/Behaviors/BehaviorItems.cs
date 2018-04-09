@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Michal.Balador.Contracts.Behaviors
 {
-    class BehaviorItems<T> where T : Behavior
+    public  class BehaviorItems<T> where T : Behavior
     {
         List<Behavior> _List = new List<Behavior>();
         public void Add(T behavior)

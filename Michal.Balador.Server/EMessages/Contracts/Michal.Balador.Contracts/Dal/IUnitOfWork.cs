@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,5 +21,7 @@ namespace Michal.Balador.Contracts.Dal
          void Attach<T>(T obj) where T : class;
 
         void Add<T>(T obj) where T : class;
+
+        Database Database { get; }
     }
 }

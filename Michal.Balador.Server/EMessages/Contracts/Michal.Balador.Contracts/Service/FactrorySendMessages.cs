@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Contracts.Service
@@ -13,10 +14,12 @@ namespace Michal.Balador.Contracts.Service
     public abstract class FactrorySendMessages : IFactrorySendMessages
     {
         protected string _serviceName = "";
+        protected IUnitOfWork _unitOfWork;
         protected IBaladorContext _context;
+        protected BehaviorItems<Behavior> _behaviorItems;
         protected AuthenticationManager _authenticationManager;
        
-      //  protected List<pre>
+     
         public IBaladorContext Context
         {
             get
@@ -25,13 +28,25 @@ namespace Michal.Balador.Contracts.Service
             }
         }
 
+        public BehaviorItems<Behavior> BehaviorItems
+        {
+            get
+            {
+                return _behaviorItems;
+            }
+        }
+
         public FactrorySendMessages(IBaladorContext context)
         {
             _context = context;
         
         }
+        public void EnrolInBehaviors(BehaviorItems<Behavior> behaviorItems)
+        {
+            _behaviorItems = behaviorItems;
+        }
 
-       
+
         public virtual async Task<ResponseSenderMessages> GetInstance(RegisterSender register)
         {
             register.CanExcute = true;
