@@ -4,6 +4,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.DataModel;
 
@@ -14,6 +15,8 @@ namespace Michal.Balador.Contracts.Service
         protected string _serviceName = "";
         protected IBaladorContext _context;
         protected AuthenticationManager _authenticationManager;
+       
+      //  protected List<pre>
         public IBaladorContext Context
         {
             get
@@ -25,7 +28,10 @@ namespace Michal.Balador.Contracts.Service
         public FactrorySendMessages(IBaladorContext context)
         {
             _context = context;
+        
         }
+
+       
         public virtual async Task<ResponseSenderMessages> GetInstance(RegisterSender register)
         {
             register.CanExcute = true;

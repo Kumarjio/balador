@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Http.Dependencies;
+using lior.api.Models;
 using Michal.Balador.Contracts;
 using Michal.Balador.Infrastructures.Service;
 using Microsoft.AspNet.WebHooks;
@@ -73,6 +74,9 @@ namespace Michal.Balador.Server.App_Start
         public static void RegisterMef()
         {
            var container = ConfigureContainer();
+            // use MEF for providing instances
+           // RegistrationBuilder context = new RegistrationBuilder();
+
             // Install MEF dependency resolver for Web API
             var dependencyResolver = System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver;
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new MefDependencyResolver(container);
@@ -93,17 +97,19 @@ namespace Michal.Balador.Server.App_Start
            // CustomServices.SetStore(store);
             container.ComposeExportedValue<IWebHookStore>(store);
             //it's singleton!!
-       //     var context = new BaladorContext();
-         //  container.ComposeExportedValue<IBaladorContext>(context);
-
+            //     var context = new BaladorContext();
+            //  container.ComposeExportedValue<IBaladorContext>(context);
+          //  container.ForType(typeof(ApplicationDbContext))
+          //.Export(builder => builder.AsContractType(typeof(IUnitOfWork)))
+          //.SetCreationPolicy(CreationPolicy.NonShared);
         }
 
         private static CompositionContainer ConfigureContainer()
         {
             var assemblyCatalog = new AssemblyCatalog(Assembly.GetExecutingAssembly());
-
-           var businessRulesCatalog = new AssemblyCatalog(typeof(IEMessage).Assembly);
-           var catalogs = new AggregateCatalog(assemblyCatalog, businessRulesCatalog,  new DirectoryCatalog("plugins"));
+            var InfrastructuresAssembly = new AssemblyCatalog(typeof(ApplicationDbContext).Assembly);
+            var businessRulesCatalog = new AssemblyCatalog(typeof(IEMessage).Assembly);
+           var catalogs = new AggregateCatalog(assemblyCatalog, businessRulesCatalog, InfrastructuresAssembly,  new DirectoryCatalog("plugins"));
          
             var container = new CompositionContainer(catalogs);
           return container;

@@ -15,61 +15,46 @@ namespace Michal.Balador.Contracts.DataModel
         protected IBaladorContext _context;
         public IBaladorContext Context { get { return _context; } }
         public IFactrorySendMessages Provider { get { return _provider; } }
-        protected List<ContactManager> _contacts;
+        protected List<ContactManager> _contactsManager;
         public SenderMessagesService(IBaladorContext context, FactrorySendMessages provider)
         {
             _context = context; _provider = provider;
-            _contacts = new List<ContactManager>();
+            _contactsManager = new List<ContactManager>();
         }
 
-        protected virtual ContactManager GetInstanceContactService()
+        protected virtual ContactManager GetInstanceContactManger(ContactInfo contact)
         {
             return null;
         }
-
-        public virtual async Task<ResponseSend> SendMessages(List<ContactInfo> request)
+       public async Task<ResponseSend> SendAsync(IContactRepository repository,AccountInfo accountInfo)
         {
-            foreach (var contact in request)
+            var contacts= await repository.GetContacts(accountInfo);
+            await LoadContactsManager(contacts.ToList());
+            foreach (var contactManagerItem in _contactsManager)
             {
-                ContactManager contactService = GetInstanceContactService();
-               var contactsender=await contactService.Init(contact);
-                _contacts.Add(contactService);
+               var messages=await repository.GetMessagesContact(contactManagerItem.ContactInfo);
+
+                foreach (var message_item in messages)
+                {
+                   await contactManagerItem.SendMessage(message_item);
+                }
 
             }
-            return null;
+            return new ResponseSend { IsError = false };
         }
+        public  async Task<ResponseSend> LoadContactsManager(List<ContactInfo> contacts)
+        {
+            foreach (var contact in contacts)
+            {
+                ContactManager contactManager= GetInstanceContactManger(contact);
+               var contactsender=await contactManager.Init();
+               
+                _contactsManager.Add(contactManager);
 
-
-        //public virtual string ServiceName
-        //{
-        //    get
-        //    {
-        //        //System.Attribute[] attrs = System.Attribute.GetCustomAttributes(_provider.GetType());  // Reflection.  
-        //        //var message_type = "";
-
-        //        //var domain = "";
-        //        //foreach (System.Attribute attr in attrs)
-        //        //{
-        //        //    if (attr is ExportMetadataAttribute)
-        //        //    {
-        //        //        ExportMetadataAttribute a = (ExportMetadataAttribute)attr;
-        //        //        if (a.Name == ConstVariable.MESSAGE_TYPE)
-        //        //        {
-        //        //            message_type = a.Value.ToString();
-        //        //        }
-        //        //        else if (a.Name == ConstVariable.DOMAIN_NAME)
-        //        //        {
-        //        //            domain = a.Value.ToString();
-        //        //        }
-        //        //    }
-        //        //}
-
-        //        //return $"{domain}.{message_type}";//this.GetType().FullName;
-        //        return _provider.ServiceName;
-        //    }
-        //}
-
-
+            }
+            return new ResponseSend { IsError=false};
+        }
+        
         public abstract void Dispose();
 
         public abstract Task<ResponseSend> Send(SendRequest request);

@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Michal.Balador.Contracts;
+using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.DataModel;
 
 namespace Michal.Balador.Server.Controllers
@@ -16,6 +17,8 @@ namespace Michal.Balador.Server.Controllers
     public class JobController : ApiController
     {
         [Import]
+        private IUnitOfWork _unitOfWork;
+        [Import]
         private IMyTest _myTest;
         [ImportMany(typeof(IEMessage))]
         IEnumerable<Lazy<IEMessage>> _messages;
@@ -24,6 +27,8 @@ namespace Michal.Balador.Server.Controllers
         // GET api/<controller>
         public async Task<IEnumerable<string>> Get()
         {
+           
+            //  _unitOfWork.Get<a>
             List<ResponseSender> senders = new List<ResponseSender>();
             List<string> ss = new List<string>();
             Lazy<IEMessage> _utah = __messagesRules.Where(s => (string)s.Metadata["MessageType"] == "Simple_2").FirstOrDefault();

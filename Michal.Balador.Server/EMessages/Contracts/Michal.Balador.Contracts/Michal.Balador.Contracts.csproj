@@ -44,8 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\Behavior.cs" />
+    <Compile Include="Behaviors\BehaviorItems.cs" />
+    <Compile Include="Behaviors\ChangeMessageItem.cs" />
+    <Compile Include="Behaviors\PostContactLoadBehavior.cs" />
+    <Compile Include="Behaviors\PostMessageBehavior.cs" />
+    <Compile Include="Behaviors\PreMessageBehavior.cs" />
+    <Compile Include="Behaviors\RequestBehavior.cs" />
     <Compile Include="Contract\ConstVar.cs" />
     <Compile Include="Contract\IBaladorLogger.cs" />
+    <Compile Include="Contract\IContactRepository.cs" />
+    <Compile Include="Dal\IUnitOfWork.cs" />
     <Compile Include="DataModel\AuthenticationManager.cs" />
     <Compile Include="DataModel\AuthenticationUser.cs" />
     <Compile Include="DataModel\BToken.cs" />
@@ -76,5 +85,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

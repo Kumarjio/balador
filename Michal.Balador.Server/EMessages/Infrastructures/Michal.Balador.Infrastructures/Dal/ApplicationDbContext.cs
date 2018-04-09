@@ -7,9 +7,16 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Michal.Balador.Server.Models;
+using System.Linq;
+using System;
+using Michal.Balador.Contracts.Dal;
+using System.ComponentModel.Composition;
+
 namespace lior.api.Models
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    [Export(typeof(IUnitOfWork))]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IUnitOfWork
     {
         public ApplicationDbContext()
             : base("MS_SqlStoreConnectionString", throwIfV1Schema: false)
@@ -34,6 +41,37 @@ namespace lior.api.Models
             modelBuilder.Entity<UserRole>().ToTable("UserRole");
             modelBuilder.Entity<IdentityUserClaim>().ToTable("userclaim");
         }
+        public IQueryable<T> Get<T>() where T : class
+        {
+            return Set<T>();
+        }
 
+        public bool Remove<T>(T item) where T : class
+        {
+            try
+            {
+                Set<T>().Remove(item);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async Task Commit()
+        {
+          await base.SaveChangesAsync();
+        }
+
+        public void Attach<T>(T obj) where T : class
+        {
+            Set<T>().Attach(obj);
+        }
+
+        public void Add<T>(T obj) where T : class
+        {
+            Set<T>().Add(obj);
+        }
     }
 }

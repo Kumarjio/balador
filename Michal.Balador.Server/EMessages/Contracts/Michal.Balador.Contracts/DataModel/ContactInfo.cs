@@ -10,5 +10,6 @@ namespace Michal.Balador.Contracts.DataModel
     {
         public string Id { get; set; }
         public string NickName { get; set; }
+        public bool  IsAutorize { get; set; }
     }
 }

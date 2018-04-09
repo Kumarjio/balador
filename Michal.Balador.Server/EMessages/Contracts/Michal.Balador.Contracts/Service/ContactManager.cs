@@ -10,16 +10,20 @@ namespace Michal.Balador.Contracts.Service
    public abstract class ContactManager
     {
         protected SenderMessagesService _provider;
-
-        public ContactManager(SenderMessagesService provider)
+        protected ContactInfo _contact;
+        public ContactInfo ContactInfo { get { return _contact; } }
+        public ContactManager(SenderMessagesService provider, ContactInfo contact)
         {
-            _provider = provider;
+            _provider = provider; _contact = contact; 
         }
 
-        public abstract  Task<ResponseBase> Init(ContactInfo contact);
+        public abstract  Task<ResponseBase> Init( );
 
-        public abstract Task<ResponseBase> SendMessage(MessageInfo messageInfo);
+        public abstract Task<ResponseBase> SendMessage(MessageItem messageItem);
 
+        //public void SetMessageItems(ref List<MessageItem> list)
+        //{
 
+        //}
     }
 }

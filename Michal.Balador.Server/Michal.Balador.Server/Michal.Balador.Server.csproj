@@ -444,9 +444,6 @@
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\NotifyApiController.cs" />
     <Compile Include="Controllers\PingController.cs" />
-    <Compile Include="Dal\MessageRepository.cs" />
-    <Compile Include="Dal\MockRepository.cs" />
-    <Compile Include="Dal\UserRepository.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -513,6 +510,7 @@
     <Folder Include="AccountsFolder\" />
     <Folder Include="App_Data\" />
     <Folder Include="ContactsFolder\" />
+    <Folder Include="Dal\" />
     <Folder Include="logs\" />
     <Folder Include="Migrations\" />
     <Folder Include="Plugins\" />
