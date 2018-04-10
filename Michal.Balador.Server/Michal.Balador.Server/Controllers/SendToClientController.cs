@@ -24,11 +24,13 @@ namespace Michal.Balador.Server.Controllers
     [Export]
     [PartCreationPolicy(CreationPolicy.NonShared)]
     [Authorize]
-    //[RoutePrefix("api/balador/SendToClient")]
     public class SendToClientController : ApiController
     {
         [Import]
         private IUnitOfWork _unitOfWork;
+
+        [Import]
+        private IMessageRepository _messageRepository;
         [HttpPost]
         public async Task<HttpResponseMessage> Post(ClientMessageRequest request)
         {
@@ -36,25 +38,38 @@ namespace Michal.Balador.Server.Controllers
             try
             {
                 var id = Guid.NewGuid();
-                var user= await Utils.GetUserIdAsync(User);
+                var user = await Utils.GetUserIdAsync(User);
                 if (user == null)
                     throw new ArgumentNullException("no found any user");
-                  
-                using (_unitOfWork)
+                using (_messageRepository)
                 {
-                    var dt=DateTime.UtcNow;
-                    List<object> parameters = new List<object>();
-                    var query = "exec [dbo].[createMessage] @message,@user,@clientid,@messageType,@nickName,@replay ";
-                    parameters.Add(new SqlParameter("@message", request.Messsage));
-                    parameters.Add(new SqlParameter("@user", user));
-                    parameters.Add(new SqlParameter("@clientid", request.ClientId));
-                    parameters.Add(new SqlParameter("@messageType", request.MesssageType));
-                    parameters.Add(new SqlParameter("@nickName", request.NickName));
-                    parameters.Add(new SqlParameter("@replay", true));
-
-                    var resultSp = await _unitOfWork.Database.SqlQuery<object>(query, parameters.ToArray()).FirstOrDefaultAsync();
+                    var res = await _messageRepository.CreateMessage(
+                    new MessageRequest
+                    {
+                        ClientId = request.ClientId,
+                        Messsage = request.Messsage,
+                        MesssageType = request.MesssageType,
+                        NickName = request.NickName,
+                        User = user
+                    });
                 }
-                
+                    
+
+                //using (_unitOfWork)
+                //{
+                //    var dt=DateTime.UtcNow;
+                //    List<object> parameters = new List<object>();
+                //    var query = "exec [dbo].[createMessage] @message,@user,@clientid,@messageType,@nickName,@replay ";
+                //    parameters.Add(new SqlParameter("@message", request.Messsage));
+                //    parameters.Add(new SqlParameter("@user", user));
+                //    parameters.Add(new SqlParameter("@clientid", request.ClientId));
+                //    parameters.Add(new SqlParameter("@messageType", request.MesssageType));
+                //    parameters.Add(new SqlParameter("@nickName", request.NickName));
+                //    parameters.Add(new SqlParameter("@replay", true));
+
+                //    var resultSp = await _unitOfWork.Database.SqlQuery<object>(query, parameters.ToArray()).FirstOrDefaultAsync();
+                //}
+
                 responseResult.Message = "add to queue";
                 responseResult.Result = "";// resultSp.ToString();
             }

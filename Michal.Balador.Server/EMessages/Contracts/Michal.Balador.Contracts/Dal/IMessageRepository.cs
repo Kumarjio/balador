@@ -9,5 +9,6 @@ namespace Michal.Balador.Contracts.Dal
 {
     public interface IMessageRepository : IRepository
     {
+        Task<ResponseBase> CreateMessage(MessageRequest request);
     }
 }

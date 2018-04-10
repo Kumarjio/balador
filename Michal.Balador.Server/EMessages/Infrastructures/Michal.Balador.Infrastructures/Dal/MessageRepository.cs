@@ -11,7 +11,7 @@ using Michal.Balador.Infrastructures.Dal;
 
 namespace Michal.Balador.Server.Dal
 {
-    [Export(typeof(ITaskSchedulerRepository))]
+    [Export(typeof(IMessageRepository))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class MessageRepository : Repository, IMessageRepository
 
