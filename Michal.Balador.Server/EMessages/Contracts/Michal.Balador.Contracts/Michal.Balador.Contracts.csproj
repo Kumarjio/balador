@@ -62,12 +62,14 @@
     <Compile Include="Contract\IBaladorLogger.cs" />
     <Compile Include="Contract\IContactRepository.cs" />
     <Compile Include="Dal\IRepository.cs" />
+    <Compile Include="Dal\IMessageRepository.cs" />
     <Compile Include="Dal\ITaskSchedulerRepository.cs" />
     <Compile Include="Dal\IUnitOfWork.cs" />
     <Compile Include="DataModel\AuthenticationManager.cs" />
     <Compile Include="DataModel\AuthenticationUser.cs" />
     <Compile Include="DataModel\BToken.cs" />
     <Compile Include="DataModel\AccountInfo.cs" />
+    <Compile Include="DataModel\ClientMessageRequest.cs" />
     <Compile Include="DataModel\MessageInfo.cs" />
     <Compile Include="DataModel\ContactInfo.cs" />
     <Compile Include="DataModel\MessageItem.cs" />
@@ -81,7 +83,7 @@
     <Compile Include="DataModel\ResponseSenderMessages.cs" />
     <Compile Include="DataModel\Sender.cs" />
     <Compile Include="DataModel\SenderLandPageConfiguration.cs" />
-    <Compile Include="Job\ITaskSchedulerManager.cs" />
+    <Compile Include="Contract\ITaskSchedulerManager.cs" />
     <Compile Include="Service\ContactManager.cs" />
     <Compile Include="Service\SenderMessagesService.cs" />
     <Compile Include="DataModel\SendRequest.cs" />

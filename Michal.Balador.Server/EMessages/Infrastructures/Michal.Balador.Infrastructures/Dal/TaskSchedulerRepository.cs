@@ -11,20 +11,15 @@ namespace Michal.Balador.Infrastructures.Dal
 {
     [Export(typeof(ITaskSchedulerRepository))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    public class TaskSchedulerRepository : ITaskSchedulerRepository
+    public class TaskSchedulerRepository : Repository,ITaskSchedulerRepository
     {
-        protected IUnitOfWork _unitOfWork;
+      
         [ImportingConstructor()]
-        public TaskSchedulerRepository(IUnitOfWork unitOfWork)
+        public TaskSchedulerRepository(IUnitOfWork unitOfWork):base(unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        public IUnitOfWork DbContext { get { return _unitOfWork; } }
-
-        public void Dispose()
-        {
-            _unitOfWork.Dispose();
-        }
+      
 
         public async Task<List<AccountInfo>> GetAccountsJob()
         {

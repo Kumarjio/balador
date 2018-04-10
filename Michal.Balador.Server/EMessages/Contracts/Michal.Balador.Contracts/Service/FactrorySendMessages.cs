@@ -19,6 +19,7 @@ namespace Michal.Balador.Contracts.Service
         protected BehaviorItems<Behavior> _behaviorItems;
         protected AuthenticationManager _authenticationManager;
         ITaskSchedulerRepository _taskSchedulerRepository;
+
         public IBaladorContext Context
         {
             get

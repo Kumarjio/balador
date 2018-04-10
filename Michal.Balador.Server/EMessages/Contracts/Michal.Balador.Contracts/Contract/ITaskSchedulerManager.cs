@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.DataModel;
 
-namespace Michal.Balador.Contracts.Job
+namespace Michal.Balador.Contracts
 {
     public interface ITaskSchedulerManager
     {

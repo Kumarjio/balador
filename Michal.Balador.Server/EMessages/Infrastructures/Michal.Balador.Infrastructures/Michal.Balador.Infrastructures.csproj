@@ -113,11 +113,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Const.cs" />
+    <Compile Include="Common\General.cs" />
     <Compile Include="Dal\ApplicationDbContext.cs" />
     <Compile Include="Dal\JobRepository.cs" />
+    <Compile Include="Dal\MessageOldRepository.cs" />
     <Compile Include="Dal\MessageRepository.cs" />
     <Compile Include="Dal\MockRepository.cs" />
+    <Compile Include="Dal\Repository.cs" />
     <Compile Include="Dal\TaskSchedulerRepository.cs" />
     <Compile Include="Dal\UserRepository.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
