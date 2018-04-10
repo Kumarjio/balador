@@ -42,6 +42,7 @@ namespace Michal.Balador.Contracts.DataModel
                 {
                     await PreSend(accountInfo, contactManagerItem.ContactInfo, message_item);
                     await contactManagerItem.SendMessage(message_item);
+                    await PostSend(accountInfo, contactManagerItem.ContactInfo, message_item);
                 }
 
             }
@@ -67,7 +68,26 @@ namespace Michal.Balador.Contracts.DataModel
             }
 
         }
+        protected async Task PostSend(AccountInfo accountInfo, ContactInfo contact, MessageItem messageItem)
+        {
+            var preSends = Provider.BehaviorItems?.Get<PostMessageBehavior>();
+            if (preSends != null && preSends.Any())
+            {
+                foreach (var preSend in preSends)
+                {
+                    var responseMessage = await preSend.Excute(
+                        new RequestMessageBehavior
+                        {
+                            TaskSchedulerRepository = Provider.TaskSchedulerRepository,
+                            AccountInfo = accountInfo,
+                            ContactInfo = contact,
+                            Message = messageItem
+                        });
 
+                }
+            }
+
+        }
         public async Task<ResponseSend> LoadContactsManager(List<ContactInfo> contacts)
         {
             foreach (var contact in contacts)

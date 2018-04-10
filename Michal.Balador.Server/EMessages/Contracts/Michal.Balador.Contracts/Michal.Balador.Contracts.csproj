@@ -60,7 +60,6 @@
     <Compile Include="Behaviors\RequestBehavior.cs" />
     <Compile Include="Contract\ConstVar.cs" />
     <Compile Include="Contract\IBaladorLogger.cs" />
-    <Compile Include="Contract\IContactRepository.cs" />
     <Compile Include="Dal\IRepository.cs" />
     <Compile Include="Dal\IMessageRepository.cs" />
     <Compile Include="Dal\ITaskSchedulerRepository.cs" />

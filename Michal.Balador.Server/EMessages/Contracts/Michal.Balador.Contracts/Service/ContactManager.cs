@@ -20,10 +20,6 @@ namespace Michal.Balador.Contracts.Service
         public abstract  Task<ResponseBase> Init( );
 
         public abstract Task<ResponseBase> SendMessage(MessageItem messageItem);
-
-        //public void SetMessageItems(ref List<MessageItem> list)
-        //{
-
-        //}
+        
     }
 }
