@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.Contracts.Behaviors
 {
@@ -13,7 +14,7 @@ namespace Michal.Balador.Contracts.Behaviors
     {
         public AccountInfo AccountInfo { get; set; }
         public ContactInfo ContactInfo { get; set; }
-        public ITaskSchedulerRepository TaskSchedulerRepository { get; set; }
+        public ITaskService TaskService { get; set; }
     }
 
     public class RequestContactLoaderBehavior: RequestBehavior

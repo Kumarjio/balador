@@ -58,7 +58,7 @@ namespace Michal.Balador.Contracts.Mechanism
                     var responseMessage = await preSend.Excute(
                         new RequestMessageBehavior
                     {
-                        TaskSchedulerRepository=Provider.TaskService.TaskSchedulerRepository,
+                        TaskService=Provider.TaskService,
                         AccountInfo=accountInfo,
                         ContactInfo=contact,
                         Message=messageItem
@@ -78,7 +78,7 @@ namespace Michal.Balador.Contracts.Mechanism
                     var responseMessage = await preSend.Excute(
                         new RequestMessageBehavior
                         {
-                            TaskSchedulerRepository = Provider.TaskService.TaskSchedulerRepository,
+                            TaskService = Provider.TaskService,
                             AccountInfo = accountInfo,
                             ContactInfo = contact,
                             Message = messageItem
