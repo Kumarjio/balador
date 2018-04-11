@@ -87,7 +87,7 @@ namespace Michal.Balador.Server.App_Start
             //
             //https://weblog.west-wind.com/posts/2016/Dec/12/Loading-NET-Assemblies-out-of-Seperate-Folders
             Database.SetInitializer<WebHookStoreContext>(null);
-            IDataProtector protector = Michal.Balador.Infrastructures.Security.DataSecurity.GetDataProtector();
+            IDataProtector protector = Michal.Balador.Infrastructures.Security.DataSecurity.GetDataProtector(System.Configuration.ConfigurationManager.AppSettings["k"].ToString());
             ILogger logger = dependencyResolver.GetLogger();
 
             Microsoft.AspNet.WebHooks.Config.SettingsDictionary settings  = dependencyResolver.GetSettings();

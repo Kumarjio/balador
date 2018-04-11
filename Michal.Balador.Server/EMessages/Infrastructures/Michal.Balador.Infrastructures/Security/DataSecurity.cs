@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.IO;
 using System.Security.Cryptography;
 using System.Threading;
 using Microsoft.AspNetCore.DataProtection;
@@ -23,7 +24,7 @@ namespace Michal.Balador.Infrastructures.Security
         /// is initialized within ASP.NET Core 1.0 Dependency Injection.
         /// </summary>
         /// <returns>A fully initialized <see cref="IDataProtectionProvider"/>.</returns>
-        public static IDataProtector GetDataProtector()
+        public static IDataProtector GetDataProtector(string path)
         {
             if (_dataProtector != null)
             {
@@ -31,7 +32,8 @@ namespace Michal.Balador.Infrastructures.Security
             }
 
             ServiceCollection serviceCollection = new ServiceCollection();
-            serviceCollection.AddDataProtection();
+            serviceCollection.AddDataProtection()
+             .PersistKeysToFileSystem(new DirectoryInfo(path));
             IServiceProvider services = serviceCollection.BuildServiceProvider();
             IDataProtectionProvider provider = services.GetDataProtectionProvider();
             IDataProtector instance = provider.CreateProtector(Purpose);

@@ -54,7 +54,7 @@ namespace Michal.Balador.Infrastructures.Service
          ////   #if DEBUG
           //  return JsonConvert.DeserializeObject<T>(data);
            // #else
-                 var dataProtected = DataSecurity.GetDataProtector();
+                 var dataProtected = DataSecurity.GetDataProtector(System.Configuration.ConfigurationManager.AppSettings["k"].ToString());
                  var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
                  return JsonConvert.DeserializeObject<T>(unProtectedData);
          //   #endif
@@ -65,7 +65,7 @@ namespace Michal.Balador.Infrastructures.Service
            // #if DEBUG
           //        return data;
           //  #else
-                var dataProtected = DataSecurity.GetDataProtector();
+                var dataProtected = DataSecurity.GetDataProtector(System.Configuration.ConfigurationManager.AppSettings["k"].ToString());
                 var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(data)));
                  return protectedData;
          //   #endif
