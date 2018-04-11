@@ -42,5 +42,21 @@ namespace Michal.Balador.SimpleMessage
             }
             return await  Task.FromResult<ResponseAppMessanger>( response);
         }
+
+        protected override async Task<ResponseAppMessanger> GetSender(AccountSend accountSend)
+        {
+            ResponseAppMessanger response = new ResponseAppMessanger();
+            try
+            {
+                var mckHttpSend = new MockHttpSend(this.Context, this);
+                response.Result = mckHttpSend;
+            }
+            catch (Exception e)
+            {
+                response.IsError = true;
+                response.Message = e.Message;
+            }
+            return await Task.FromResult<ResponseAppMessanger>(response);
+        }
     }
 }

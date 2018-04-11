@@ -46,6 +46,23 @@ namespace Michal.Balador.SimpleMessage
             return response;
         }
 
-       
+        protected override async Task<ResponseAppMessanger> GetSender(AccountSend accountSend)
+        {
+            ResponseAppMessanger response = new ResponseAppMessanger();
+            try
+            {
+                var mockSend = new MockTcpSend(Context, this);
+                response = await mockSend.SetSocketClient(new SignUpSender { Id = accountSend.Id }, true);
+                return response;
+            }
+            catch (Exception e)
+            {
+                response.IsError = true;
+                response.Message = e.Message;
+            }
+            return response;
+        }
+
+
     }
 }

@@ -37,42 +37,66 @@ namespace Michal.Balador.Infrastructures.Mechanism
             {
                 var tasks_job = await _taskService.TaskSchedulerRepository.GetAccountsJob();
                 //var mockdata=await _taskService.
+                List<AccountSend> accountsenders = new List<AccountSend>();
                 foreach (var task_job in tasks_job)
                 {
-                    var messaggerShrotName=task_job.MessagesType.GetMessaggerShrotName();
-                    Lazy<IAppMessangerFactrory> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == messaggerShrotName).FirstOrDefault();
-
-                    var doStuffBlock = new ActionBlock<RegisterSender>(async rs =>
+                    var messaggerShrotName = "";
+                    var hasAlready=accountsenders.Where(s => s.Messassnger == messaggerShrotName && s.Id == task_job.Id).FirstOrDefault();
+                    if (hasAlready!=null)
+                       continue;
+                    var  messangers=  task_job.MessagesType.Split(',');
+                    foreach (var messassnger in messangers)
                     {
-                        rs.Log = Thread.CurrentThread.ManagedThreadId;
-                        var sender = await _utah.Value.GetInstance(rs);
+                        messaggerShrotName = messassnger.GetMessaggerShrotName();
+                        accountsenders.Add(new AccountSend
+                        {
+                            Email = task_job.Email,
+                            Id = task_job.Id,
+                            MessagesType = task_job.MessagesType,
+                            Messassnger = messaggerShrotName,
+                            Name = task_job.Name
+                        });
+
+                    }
+                }
+                var doStuffBlock = new ActionBlock<AccountSend>(async rs =>
+                    {
+                        Lazy<IAppMessangerFactrory> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == rs.Messassnger).FirstOrDefault();
+                       
+                        rs.ManagedThreadId = Thread.CurrentThread.ManagedThreadId;
+                        if (!_utah.IsValueCreated)
+                        {
+                            _utah.Value.EnrolInBehaviors(behaviors);
+
+                        }
+                        var sender = await _utah.Value.GetAppMessanger(rs);
                         try
                         {
-                            //if (!sender.IsError)
-                            //{
-                            //    var requestToSend = await mockData.FindMessagesById(rs.Id);
-
+                            if (!sender.IsError)
+                            {
+                                //    var requestToSend = await mockData.FindMessagesById(rs.Id);
+                                var requestToSend = sender.Result.SendAsync(rs);
                             //    if (requestToSend != null)
                             //    {
-                                    
-                            //        requestToSend.Log = rs.Log;
-                            //        var responseToSendWait = await sender.Result.Send(requestToSend);
-                            //        resultError.Add(responseToSendWait);
-                            //        Log.Info(responseToSendWait.ToString());
-                            //        await manager.NotifyAsync(rs.Id, notifications, null);
-                            //    }
-                            //}
-                            //else
-                            //{
-                            //    var mes = rs.Log + " " + rs.Id + " " + sender.Message;
-                            //    resultError.Add(new ResponseSend { IsError = true, Message = mes });
-                            //    Log.Error(mes);
-                            //}
+
+                                //        requestToSend.Log = rs.Log;
+                                //        var responseToSendWait = await sender.Result.Send(requestToSend);
+                                //        resultError.Add(responseToSendWait);
+                                //        Log.Info(responseToSendWait.ToString());
+                                //        await manager.NotifyAsync(rs.Id, notifications, null);
+                                //    }
+                            }
+                            else
+                            {
+                               var mes = rs.ManagedThreadId + " " + rs.Id + " " + sender.Message;
+                             resultError.Add(new ResponseSend { IsError = true, Message = mes });
+                              Log.Error(mes);
+                            }
                         }
                         catch (Exception ee)
                         {
                             resultError.Add(new ResponseSend { IsError = true, Message = "unhandle" });
-                            Log.Error(rs.Log + " " + rs.Id + " " + ee);
+                            Log.Error(rs.ManagedThreadId + " " + rs.Id + " " + ee);
                         }
                         finally
                         {
@@ -81,15 +105,15 @@ namespace Michal.Balador.Infrastructures.Mechanism
                         }
                     });
 
-                    //foreach (var item in mockData.mocks.Senders)
-                    //{
-                    //    doStuffBlock.Post(item);
-                    //}
-                    doStuffBlock.Complete();
+                foreach (var item in accountsenders)
+                {
+                    doStuffBlock.Post(item);
+                }
+                doStuffBlock.Complete();
                     await doStuffBlock.Completion;
 
 
-                }
+                
             }
             catch (Exception e)
             {

@@ -48,6 +48,7 @@ namespace Michal.Balador.Contracts.Mechanism
             }
             return new ResponseSend { IsError = false };
         }
+
         protected async Task PreSend(AccountInfo accountInfo, ContactInfo contact, MessageItem messageItem)
         {
             var preSends = Provider.BehaviorItems?.Get<PreMessageBehavior>();
@@ -68,6 +69,7 @@ namespace Michal.Balador.Contracts.Mechanism
             }
 
         }
+
         protected async Task PostSend(AccountInfo accountInfo, ContactInfo contact, MessageItem messageItem)
         {
             var preSends = Provider.BehaviorItems?.Get<PostMessageBehavior>();
@@ -88,6 +90,7 @@ namespace Michal.Balador.Contracts.Mechanism
             }
 
         }
+
         public async Task<ResponseSend> LoadContactsManager(List<ContactInfo> contacts)
         {
             foreach (var contact in contacts)
@@ -103,6 +106,7 @@ namespace Michal.Balador.Contracts.Mechanism
 
         public abstract void Dispose();
 
+        [Obsolete("WILL REMOVE", false)]
         public abstract Task<ResponseSend> Send(SendRequest request);
 
         public  AuthenticationManager GetAuthenticationManager()

@@ -19,7 +19,7 @@ namespace Michal.Balador.Contracts.Mechanism
         protected IBaladorContext _context;
         protected BehaviorItems<Behavior> _behaviorItems;
         protected AuthenticationManager _authenticationManager;
-        ITaskService _taskService;
+        ITaskService _taskService;//per appmassanger no per account!!!
 
         public IBaladorContext Context
         {
@@ -56,12 +56,13 @@ namespace Michal.Balador.Contracts.Mechanism
             _context = context; _taskService = taskService;
         }
 
-        protected void EnrolInBehaviors(BehaviorItems<Behavior> behaviorItems)
+        public void EnrolInBehaviors(BehaviorItems<Behavior> behaviorItems)
         {
             _behaviorItems = behaviorItems;
         }
 
-        public virtual async Task<ResponseAppMessanger> GetInstance(RegisterSender register, BehaviorItems<Behavior> behaviorItems=null)
+        [Obsolete("WILL REMOVE", false)]
+        public virtual async Task<ResponseAppMessanger> GetInstance(RegisterSender register, BehaviorItems<Behavior> behaviorItems = null)
         {
             EnrolInBehaviors(behaviorItems);
             register.CanExcute = true;
@@ -79,8 +80,10 @@ namespace Michal.Balador.Contracts.Mechanism
 
         }
 
+        [Obsolete("WILL REMOVE", false)]
         protected abstract Task<ResponseAppMessanger> GetSender(RegisterSender register);
-
+        
+        protected abstract Task<ResponseAppMessanger> GetSender(AccountSend accountSend);
 
         public virtual string ServiceName
         {
@@ -121,5 +124,21 @@ namespace Michal.Balador.Contracts.Mechanism
             _taskService.Dispose();
         }
 
+        public async Task<ResponseAppMessanger> GetAppMessanger(AccountSend accountSend)
+        {
+            
+           
+            ResponseAppMessanger response = await GetSender(accountSend);
+            if (!response.IsError)
+            {
+                _authenticationManager = this.GetAuthenticationManager();
+                var token = await _authenticationManager.GetToken(new SignUpSender { Id = accountSend.Id });
+                if (token == null || String.IsNullOrWhiteSpace(token.Token))
+                {
+                    response.IsAutorize = false;
+                }
+            }
+            return response;
+        }
     }
-}
+}   
