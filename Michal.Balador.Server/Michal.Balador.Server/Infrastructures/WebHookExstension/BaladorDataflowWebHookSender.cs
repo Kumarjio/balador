@@ -17,7 +17,7 @@ using Michal.Balador.Server.Properties;
 using System.ComponentModel.Composition;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
 using Newtonsoft.Json;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 {

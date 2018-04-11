@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Http.Dependencies;
 using lior.api.Models;
 using Michal.Balador.Contracts;
+using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Infrastructures.Service;
 using Microsoft.AspNet.WebHooks;
 using Microsoft.AspNet.WebHooks.Diagnostics;

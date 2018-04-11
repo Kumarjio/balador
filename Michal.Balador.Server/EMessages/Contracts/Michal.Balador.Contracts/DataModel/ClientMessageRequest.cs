@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Michal.Balador.Contracts.DataModel
+namespace Michal.Balador.Contracts.Mechanism
 {
     public class MessageRequest
     {

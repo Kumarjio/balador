@@ -14,7 +14,7 @@ using lior.api.Helper;
 using lior.api.Models;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Dal;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Infrastructures.Utils;
 using Michal.Balador.Server.Models;
 using Michal.Balador.Server.ViewModel;

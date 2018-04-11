@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
-using Michal.Balador.Contracts.DataModel;
-using Michal.Balador.Contracts.Service;
+using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.SimpleMessage
 {
-    public class MockHttpSend : SenderMessagesService
+    public class MockHttpSend : AppMessanger
     {
         HttpClientTest _test;
         
-        public MockHttpSend(IBaladorContext context, FactrorySendMessages provider) :base(context, provider)
+        public MockHttpSend(IBaladorContext context, AppMessangerFactrory provider) :base(context, provider)
         {
             _test = new HttpClientTest();
         }

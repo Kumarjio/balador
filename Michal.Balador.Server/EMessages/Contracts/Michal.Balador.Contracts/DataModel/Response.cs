@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Michal.Balador.Contracts.DataModel
+namespace Michal.Balador.Contracts.Mechanism
 {
    
     public class Response<T> : ResponseBase

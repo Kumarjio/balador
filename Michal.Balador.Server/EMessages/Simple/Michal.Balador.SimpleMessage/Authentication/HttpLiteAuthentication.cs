@@ -7,7 +7,8 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.SimpleMessage
 {
@@ -18,7 +19,7 @@ namespace Michal.Balador.SimpleMessage
         //{
         //}
 
-        public HttpLiteAuthentication(IBaladorContext context, IFactrorySendMessages provider) : base(context, provider)
+        public HttpLiteAuthentication(IBaladorContext context, IAppMessangerFactrory provider) : base(context, provider)
         {
         }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.Server.Models
 {

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Dal;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 
-namespace Michal.Balador.Contracts.Service
+namespace Michal.Balador.Contracts.Mechanism
 {
-    public abstract class FactrorySendMessages : IFactrorySendMessages
+    public abstract class AppMessangerFactrory : IAppMessangerFactrory
     {
         protected string _serviceName = "";
         //protected IUnitOfWork _unitOfWork;
@@ -50,7 +50,7 @@ namespace Michal.Balador.Contracts.Service
             }
         }
 
-        public FactrorySendMessages(IBaladorContext context, ITaskSchedulerRepository taskSchedulerRepository)
+        public AppMessangerFactrory(IBaladorContext context, ITaskSchedulerRepository taskSchedulerRepository)
         {
             _context = context; _taskSchedulerRepository = taskSchedulerRepository;
         }
@@ -60,11 +60,11 @@ namespace Michal.Balador.Contracts.Service
             _behaviorItems = behaviorItems;
         }
 
-        public virtual async Task<ResponseSenderMessages> GetInstance(RegisterSender register, BehaviorItems<Behavior> behaviorItems=null)
+        public virtual async Task<ResponseAppMessanger> GetInstance(RegisterSender register, BehaviorItems<Behavior> behaviorItems=null)
         {
             EnrolInBehaviors(behaviorItems);
             register.CanExcute = true;
-            ResponseSenderMessages response = await GetSender(register);
+            ResponseAppMessanger response = await GetSender(register);
             if (!response.IsError)
             {
                 _authenticationManager = this.GetAuthenticationManager();
@@ -78,7 +78,7 @@ namespace Michal.Balador.Contracts.Service
 
         }
 
-        protected abstract Task<ResponseSenderMessages> GetSender(RegisterSender register);
+        protected abstract Task<ResponseAppMessanger> GetSender(RegisterSender register);
 
 
         public virtual string ServiceName

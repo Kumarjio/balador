@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using Michal.Balador.Contracts.Dal;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Infrastructures.Dal;
 
 namespace Michal.Balador.Server.Dal

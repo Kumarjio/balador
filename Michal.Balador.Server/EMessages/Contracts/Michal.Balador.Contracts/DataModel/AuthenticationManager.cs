@@ -4,12 +4,13 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Michal.Balador.Contracts.Contract;
 
-namespace Michal.Balador.Contracts.DataModel
+namespace Michal.Balador.Contracts.Mechanism
 {
     public abstract class AuthenticationManager
     {
-        protected IFactrorySendMessages _provider;
+        protected IAppMessangerFactrory _provider;
         protected BToken _token;
         public IBaladorContext Context { private set; get; }
        // public SenderMessagesService SenderMessages { private set; get; }
@@ -19,7 +20,7 @@ namespace Michal.Balador.Contracts.DataModel
         //    Context = context;
         //    SenderMessages = senderMessages;
         //}
-        public AuthenticationManager(IBaladorContext context, IFactrorySendMessages provider)
+        public AuthenticationManager(IBaladorContext context, IAppMessangerFactrory provider)
         {
             Context = context; _provider = provider;
            // SenderMessages = senderMessages;
@@ -28,7 +29,7 @@ namespace Michal.Balador.Contracts.DataModel
         public abstract string AuthenticationTitle { get; }
         public abstract string AuthenticationName { get; }
 
-        public IFactrorySendMessages Provider {
+        public IAppMessangerFactrory Provider {
             get
             {
                 return _provider;

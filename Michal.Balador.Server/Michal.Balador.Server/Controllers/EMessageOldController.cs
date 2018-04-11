@@ -13,7 +13,8 @@ using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Web.Http;
 using Michal.Balador.Contracts;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Server.Dal;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
 using Microsoft.AspNet.WebHooks;
@@ -26,14 +27,14 @@ namespace Michal.Balador.Server.Controllers
     {
 
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(EMessageController));
-        [ImportMany(typeof(IFactrorySendMessages))]
-        IEnumerable<Lazy<IFactrorySendMessages, IDictionary<string, object>>> _senderRules;
+        [ImportMany(typeof(IAppMessangerFactrory))]
+        IEnumerable<Lazy<IAppMessangerFactrory, IDictionary<string, object>>> _senderRules;
 
         public async Task<HttpResponseMessage> Get()
         {
             ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
             List<ResponseSender> senders = new List<ResponseSender>();
-            Lazy<IFactrorySendMessages> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
+            Lazy<IAppMessangerFactrory> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
             MockRepository mockData = new MockRepository();
 
             var doStuffBlock = new ActionBlock<RegisterSender>(async rs =>

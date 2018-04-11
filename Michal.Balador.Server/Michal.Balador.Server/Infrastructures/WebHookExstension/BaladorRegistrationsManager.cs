@@ -13,7 +13,7 @@ using Microsoft.AspNet.WebHooks.Properties;
 using Microsoft.AspNet.WebHooks;
 using System.ComponentModel.Composition;
 using Michal.Balador.Server.Properties;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.Server.Infrastructures.WebHookExstension
 {

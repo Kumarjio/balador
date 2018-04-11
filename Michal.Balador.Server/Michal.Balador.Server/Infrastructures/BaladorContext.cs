@@ -1,5 +1,5 @@
 ﻿using Michal.Balador.Contracts;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;

@@ -7,7 +7,8 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Mechanism;
 using Newtonsoft.Json.Linq;
 
 namespace Michal.Balador.SimpleMessage
@@ -18,7 +19,7 @@ namespace Michal.Balador.SimpleMessage
         //public HttpSimpleAuthentication(IBaladorContext context,SenderMessagesService senderMessages) : base(context, senderMessages)
         //{
         //}
-        public HttpSimpleAuthentication(IBaladorContext context, IFactrorySendMessages provider) : base(context, provider)
+        public HttpSimpleAuthentication(IBaladorContext context, IAppMessangerFactrory provider) : base(context, provider)
         {
         }
         public override string AuthenticationTitle

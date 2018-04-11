@@ -7,8 +7,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Michal.Balador.Contracts;
+using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Dal;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.Server.Controllers
 {//http://kennytordeur.blogspot.co.il/2012/08/mef-in-aspnet-mvc-4-and-webapi.html
@@ -34,13 +35,13 @@ namespace Michal.Balador.Server.Controllers
             Lazy<IEMessage> _utah = __messagesRules.Where(s => (string)s.Metadata["MessageType"] == "Simple_2").FirstOrDefault();
             if(_utah!=null && _utah.Value != null)
             {
-                var sender2 = await _utah.Value.ConnectAndSend(new Contracts.DataModel.Sender());
+                var sender2 = await _utah.Value.ConnectAndSend(new Contracts.Mechanism.Sender());
                 ss.Add(sender2.Message);
             }
 
             foreach (var item in _messages)
             {
-                var sender = await item.Value.ConnectAndSend(new Contracts.DataModel.Sender());
+                var sender = await item.Value.ConnectAndSend(new Contracts.Mechanism.Sender());
                 senders.Add(sender);
                 ss.Add(sender.Message);
             }

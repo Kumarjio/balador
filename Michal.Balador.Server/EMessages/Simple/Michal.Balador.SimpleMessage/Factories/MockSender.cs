@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Dal;
-using Michal.Balador.Contracts.DataModel;
-using Michal.Balador.Contracts.Service;
+using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.SimpleMessage
 {
-    [Export(typeof(IFactrorySendMessages))]
+    [Export(typeof(IAppMessangerFactrory))]
     [ExportMetadata(ConstVariable.MESSAGE_TYPE, "MockSender")]
     [ExportMetadata(ConstVariable.DOMAIN_NAME, "com.baladorPlant")]
-    public class MockSender : FactrorySendMessages
+    public class MockSender : AppMessangerFactrory
     {
         [ImportingConstructor()]
         public MockSender(IBaladorContext context, ITaskSchedulerRepository taskSchedulerRepository) :base(context, taskSchedulerRepository)
@@ -28,9 +28,9 @@ namespace Michal.Balador.SimpleMessage
             return new HttpLiteAuthentication(Context, this);
         }
 
-        protected override async Task<ResponseSenderMessages> GetSender(RegisterSender register)
+        protected override async Task<ResponseAppMessanger> GetSender(RegisterSender register)
         {
-            ResponseSenderMessages response = new ResponseSenderMessages();
+            ResponseAppMessanger response = new ResponseAppMessanger();
             try
             {
                 var mockSend = new MockSend(Context,this);

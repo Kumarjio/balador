@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Dal;
-using Michal.Balador.Contracts.Service;
+using Michal.Balador.Contracts.Mechanism;
 
-namespace Michal.Balador.Contracts.DataModel
+namespace Michal.Balador.Contracts.Mechanism
 {
-    public abstract class SenderMessagesService : IDisposable
+    public abstract class AppMessanger : IDisposable
     {
-        protected IFactrorySendMessages _provider;
+        protected IAppMessangerFactrory _provider;
         protected IBaladorContext _context;
         public IBaladorContext Context { get { return _context; } }
-        public IFactrorySendMessages Provider { get { return _provider; } }
+        public IAppMessangerFactrory Provider { get { return _provider; } }
         protected List<ContactManager> _contactsManager;
 
-        public SenderMessagesService(IBaladorContext context, FactrorySendMessages provider)
+        public AppMessanger(IBaladorContext context, AppMessangerFactrory provider)
         {
             _context = context; _provider = provider;
             _contactsManager = new List<ContactManager>();

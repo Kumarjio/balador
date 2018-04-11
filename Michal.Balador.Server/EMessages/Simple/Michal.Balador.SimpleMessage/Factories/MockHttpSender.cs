@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Dal;
-using Michal.Balador.Contracts.DataModel;
-using Michal.Balador.Contracts.Service;
+using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.SimpleMessage
 {
-    [Export(typeof(IFactrorySendMessages))]
+    [Export(typeof(IAppMessangerFactrory))]
     [ExportMetadata(ConstVariable.MESSAGE_TYPE, "MockHttpSender")]
     [ExportMetadata(ConstVariable.DOMAIN_NAME, "com.baladorPlant")]
-    public class MockHttpSender : FactrorySendMessages
+    public class MockHttpSender : AppMessangerFactrory
     {
         [ImportingConstructor()]
         public MockHttpSender(IBaladorContext context, ITaskSchedulerRepository taskSchedulerRepository) : base(context, taskSchedulerRepository)
@@ -27,9 +27,9 @@ namespace Michal.Balador.SimpleMessage
              return new HttpSimpleAuthentication(Context,this);
         }
 
-        protected async override Task<ResponseSenderMessages> GetSender(RegisterSender register)
+        protected async override Task<ResponseAppMessanger> GetSender(RegisterSender register)
         {
-            ResponseSenderMessages response = new ResponseSenderMessages();
+            ResponseAppMessanger response = new ResponseAppMessanger();
             try
             {
                 var mckHttpSend = new MockHttpSend(this.Context,this);
@@ -40,7 +40,7 @@ namespace Michal.Balador.SimpleMessage
                 response.IsError = true;
                 response.Message = e.Message;
             }
-            return await  Task.FromResult<ResponseSenderMessages>( response);
+            return await  Task.FromResult<ResponseAppMessanger>( response);
         }
     }
 }

@@ -17,7 +17,7 @@ using lior.api.Models;
 using lior.AppStart.api;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Server.Dal;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
 using Michal.Balador.Server.Models;
@@ -32,8 +32,8 @@ namespace Michal.Balador.Server.Controllers
     {
 
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(SignUpController));
-        [ImportMany(typeof(IFactrorySendMessages))]
-        IEnumerable<Lazy<IFactrorySendMessages>> _senderRules;
+        [ImportMany(typeof(IAppMessangerFactrory))]
+        IEnumerable<Lazy<IAppMessangerFactrory>> _senderRules;
 
 
         [HttpPost]
@@ -96,7 +96,7 @@ namespace Michal.Balador.Server.Controllers
             var js = "var ms=[];";
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(js);
-            Michal.Balador.Contracts.DataModel.AuthenticationManager authenticationManager = null;
+            Michal.Balador.Contracts.Mechanism.AuthenticationManager authenticationManager = null;
             MockRepository mockData = new MockRepository();
             foreach (var senderRule in _senderRules)
             {
@@ -127,7 +127,7 @@ namespace Michal.Balador.Server.Controllers
             List<FormSignThirdPartyToken> authentications = new List<FormSignThirdPartyToken>();
             try
             {
-                Michal.Balador.Contracts.DataModel.AuthenticationManager authenticationManager = null;
+                Michal.Balador.Contracts.Mechanism.AuthenticationManager authenticationManager = null;
                 MockRepository mockData = new MockRepository();
                 foreach (var senderRule in _senderRules)
                 {

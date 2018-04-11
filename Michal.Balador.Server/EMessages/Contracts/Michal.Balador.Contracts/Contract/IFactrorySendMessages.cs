@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Dal;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Mechanism;
 
-namespace Michal.Balador.Contracts
+namespace Michal.Balador.Contracts.Contract
 {
-    public interface IFactrorySendMessages:IDisposable
+    public interface IAppMessangerFactrory:IDisposable
     {
-        Task<ResponseSenderMessages> GetInstance(RegisterSender register, BehaviorItems<Behavior> behaviorItems=null);
+        Task<ResponseAppMessanger> GetInstance(RegisterSender register, BehaviorItems<Behavior> behaviorItems=null);
         string ServiceName { get; }
         AuthenticationManager GetAuthenticationManager();
         BehaviorItems<Behavior> BehaviorItems { get; }

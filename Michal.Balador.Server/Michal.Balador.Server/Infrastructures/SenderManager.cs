@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using Michal.Balador.Contracts;
-using Michal.Balador.Contracts.DataModel;
+using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Server.Dal;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
 using Microsoft.AspNet.WebHooks;
@@ -28,7 +29,7 @@ namespace Michal.Balador.Server.Infrastructures
 
 
         }
-            public async Task<ConcurrentBag<ResponseSend>>  Send(IFactrorySendMessages factrorySendMessages, RegisterSender registerSender, ConcurrentBag<ResponseSend> resultError)
+            public async Task<ConcurrentBag<ResponseSend>>  Send(IAppMessangerFactrory factrorySendMessages, RegisterSender registerSender, ConcurrentBag<ResponseSend> resultError)
         {
             MockRepository mockData = new MockRepository();
             //ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();

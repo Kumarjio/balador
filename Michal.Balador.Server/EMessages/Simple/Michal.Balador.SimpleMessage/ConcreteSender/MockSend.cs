@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts;
-using Michal.Balador.Contracts.DataModel;
-using Michal.Balador.Contracts.Service;
+using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.SimpleMessage
 {
-    public class MockSend : SenderMessagesService
+    public class MockSend : AppMessanger
     {
         SocketClientTest _test;
 
@@ -20,15 +21,15 @@ namespace Michal.Balador.SimpleMessage
         //    _test = test;
         //}
 
-        public MockSend(IBaladorContext context, FactrorySendMessages provider) : base(context, provider)
+        public MockSend(IBaladorContext context, AppMessangerFactrory provider) : base(context, provider)
         {
 
 
         }
 
-        public async Task<ResponseSenderMessages> SetSocketClient(SignUpSender sender, bool canExcute = true)
+        public async Task<ResponseAppMessanger> SetSocketClient(SignUpSender sender, bool canExcute = true)
         {
-            ResponseSenderMessages response = new ResponseSenderMessages();
+            ResponseAppMessanger response = new ResponseAppMessanger();
             response.Result = this;
             if (_test != null)
             {

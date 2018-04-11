@@ -20,7 +20,7 @@ namespace Michal.Balador.Infrastructures.Service
             _logger = logger;_context = context;
             _jobRepository = new JobRepository(_logger,_context);
         }
-        public async Task  JobRun(IEnumerable<Lazy<IFactrorySendMessages, IDictionary<string, object>>> senderRules)
+        public async Task  JobRun(IEnumerable<Lazy<IAppMessangerFactrory, IDictionary<string, object>>> senderRules)
         {
             try
             {
