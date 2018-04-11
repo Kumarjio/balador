@@ -9,6 +9,7 @@ using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.SimpleMessage
 {
@@ -18,7 +19,7 @@ namespace Michal.Balador.SimpleMessage
     public class MockSender : AppMessangerFactrory
     {
         [ImportingConstructor()]
-        public MockSender(IBaladorContext context, ITaskSchedulerRepository taskSchedulerRepository) :base(context, taskSchedulerRepository)
+        public MockSender(IBaladorContext context, ITaskService taskService) : base(context, taskService)
         {
 
         }

@@ -8,6 +8,7 @@ using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.Contracts.Mechanism
 {
@@ -18,7 +19,7 @@ namespace Michal.Balador.Contracts.Mechanism
         protected IBaladorContext _context;
         protected BehaviorItems<Behavior> _behaviorItems;
         protected AuthenticationManager _authenticationManager;
-        ITaskSchedulerRepository _taskSchedulerRepository;
+        ITaskService _taskService;
 
         public IBaladorContext Context
         {
@@ -27,13 +28,13 @@ namespace Michal.Balador.Contracts.Mechanism
                 return _context;
             }
         }
-        public IUnitOfWork UnitOfWork
-        {
-            get
-            {
-                return _taskSchedulerRepository.DbContext;
-            }
-        }
+        //public IUnitOfWork UnitOfWork
+        //{
+        //    get
+        //    {
+        //        return _taskService.DbContext;
+        //    }
+        //}
         public BehaviorItems<Behavior> BehaviorItems
         {
             get
@@ -42,17 +43,17 @@ namespace Michal.Balador.Contracts.Mechanism
             }
         }
 
-        public ITaskSchedulerRepository TaskSchedulerRepository
+        public ITaskService TaskService
         {
             get
             {
-                return _taskSchedulerRepository;
+                return _taskService;
             }
         }
 
-        public AppMessangerFactrory(IBaladorContext context, ITaskSchedulerRepository taskSchedulerRepository)
+        public AppMessangerFactrory(IBaladorContext context, ITaskService taskService)
         {
-            _context = context; _taskSchedulerRepository = taskSchedulerRepository;
+            _context = context; _taskService = taskService;
         }
 
         protected void EnrolInBehaviors(BehaviorItems<Behavior> behaviorItems)
@@ -117,7 +118,7 @@ namespace Michal.Balador.Contracts.Mechanism
 
         public virtual void Dispose()
         {
-            _taskSchedulerRepository.Dispose();
+            _taskService.Dispose();
         }
 
     }

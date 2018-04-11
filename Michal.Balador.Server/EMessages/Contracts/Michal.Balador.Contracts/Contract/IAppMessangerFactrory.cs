@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.Contracts.Contract
 {
@@ -16,6 +17,6 @@ namespace Michal.Balador.Contracts.Contract
         AuthenticationManager GetAuthenticationManager();
         BehaviorItems<Behavior> BehaviorItems { get; }
 
-        ITaskSchedulerRepository TaskSchedulerRepository { get; }
+        ITaskService TaskService { get; }
     }
 }

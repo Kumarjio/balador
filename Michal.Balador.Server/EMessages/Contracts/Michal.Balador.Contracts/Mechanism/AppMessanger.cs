@@ -31,7 +31,7 @@ namespace Michal.Balador.Contracts.Mechanism
         }
         public async Task<ResponseSend> SendAsync(AccountInfo accountInfo)
         {
-            ITaskSchedulerRepository repository = Provider.TaskSchedulerRepository;
+            ITaskSchedulerRepository repository = Provider.TaskService.TaskSchedulerRepository;
             var contacts = await repository.GetContacts(accountInfo);
             await LoadContactsManager(contacts.ToList());
             foreach (var contactManagerItem in _contactsManager)
@@ -58,7 +58,7 @@ namespace Michal.Balador.Contracts.Mechanism
                     var responseMessage = await preSend.Excute(
                         new RequestMessageBehavior
                     {
-                        TaskSchedulerRepository=Provider.TaskSchedulerRepository,
+                        TaskSchedulerRepository=Provider.TaskService.TaskSchedulerRepository,
                         AccountInfo=accountInfo,
                         ContactInfo=contact,
                         Message=messageItem
@@ -78,7 +78,7 @@ namespace Michal.Balador.Contracts.Mechanism
                     var responseMessage = await preSend.Excute(
                         new RequestMessageBehavior
                         {
-                            TaskSchedulerRepository = Provider.TaskSchedulerRepository,
+                            TaskSchedulerRepository = Provider.TaskService.TaskSchedulerRepository,
                             AccountInfo = accountInfo,
                             ContactInfo = contact,
                             Message = messageItem

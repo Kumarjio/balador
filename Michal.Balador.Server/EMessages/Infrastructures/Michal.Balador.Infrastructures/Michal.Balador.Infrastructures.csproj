@@ -135,6 +135,7 @@
     <Compile Include="Security\DataSecurity.cs" />
     <Compile Include="Security\HelperSecurity.cs" />
     <Compile Include="Service\JobManager.cs" />
+    <Compile Include="Service\TaskService.cs" />
     <Compile Include="Utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,8 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Mechanism\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
