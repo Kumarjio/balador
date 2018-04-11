@@ -82,7 +82,7 @@
     <Compile Include="DataModel\ResponseAppMessanger.cs" />
     <Compile Include="DataModel\Sender.cs" />
     <Compile Include="DataModel\SenderLandPageConfiguration.cs" />
-    <Compile Include="Contract\ITaskSchedulerManager.cs" />
+    <Compile Include="Contract\ITaskSendsScheduler.cs" />
     <Compile Include="Service\ContactManager.cs" />
     <Compile Include="Mechanism\AppMessanger.cs" />
     <Compile Include="DataModel\SendRequest.cs" />
@@ -93,6 +93,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Mechanism\AppMessangerFactrory.cs" />
     <Compile Include="Service\ITaskService.cs" />
+    <Compile Include="Util\SExstenstion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

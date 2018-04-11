@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,8 @@ using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.Contracts.Contract
 {
-    public interface ITaskSchedulerManager
+    public interface ITaskSendsScheduler
     {
-        Task<ResponseBase> Run(BehaviorItems<Behavior> behaviors=null);
+        Task<ConcurrentBag<ResponseSend>> Run(BehaviorItems<Behavior> behaviors = null);
     }
 }
