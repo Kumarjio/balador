@@ -105,7 +105,7 @@ namespace Michal.Balador.Contracts.Mechanism
 
         public abstract Task<ResponseSend> Send(SendRequest request);
 
-        public virtual AuthenticationManager GetAuthenticationManager()
+        public  AuthenticationManager GetAuthenticationManager()
         {
             return _provider.GetAuthenticationManager();
         }

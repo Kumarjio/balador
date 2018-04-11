@@ -9,17 +9,23 @@ namespace Michal.Balador.Contracts.Mechanism
 {
    public abstract class ContactManager
     {
-        protected AppMessanger _provider;
+        protected AppMessanger _appMessanger;
         protected ContactInfo _contact;
         public ContactInfo ContactInfo { get { return _contact; } }
-        public ContactManager(AppMessanger provider, ContactInfo contact)
+        public AppMessanger AppMessanger { get { return _appMessanger; } }
+
+        public ContactManager(AppMessanger appMessanger, ContactInfo contact)
         {
-            _provider = provider; _contact = contact; 
+            _appMessanger = appMessanger; _contact = contact; 
         }
 
-        public abstract  Task<ResponseBase> Init( );
+        public virtual async  Task<ResponseBase> Init()
+        {
+           return await Task.FromResult(new ResponseBase());
+        }
 
-        public abstract Task<ResponseBase> SendMessage(MessageItem messageItem);
+
+        public abstract Task<ResponseMessage> SendMessage(MessageItem messageItem);
         
     }
 }

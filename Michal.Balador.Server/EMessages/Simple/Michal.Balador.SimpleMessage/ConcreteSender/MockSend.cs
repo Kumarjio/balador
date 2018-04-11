@@ -8,6 +8,7 @@ using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.SimpleMessage.ConcreteContact;
 
 namespace Michal.Balador.SimpleMessage
 {
@@ -78,9 +79,9 @@ namespace Michal.Balador.SimpleMessage
             _test.Disconnect();
         }
 
-        public override AuthenticationManager GetAuthenticationManager()
+        protected override ContactManager GetInstanceContactManger(ContactInfo contact)
         {
-            return new HttpLiteAuthentication(Context, this.Provider);
+            return new ContactTcpSimple(this, contact);
         }
 
         public override async Task<ResponseSend> Send(SendRequest request)

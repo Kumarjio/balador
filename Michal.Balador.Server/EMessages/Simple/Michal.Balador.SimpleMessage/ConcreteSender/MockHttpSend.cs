@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.SimpleMessage.ConcreteContact;
 
 namespace Michal.Balador.SimpleMessage
 {
@@ -24,11 +25,11 @@ namespace Michal.Balador.SimpleMessage
             _test.Disconnect();
         }
 
-        public override AuthenticationManager GetAuthenticationManager()
+        protected override ContactManager GetInstanceContactManger(ContactInfo contact)
         {
-            return new HttpSimpleAuthentication(Context, this.Provider);
+            return new ContactHttpSimple(this, contact);
         }
-        
+
         public override async Task<ResponseSend> Send(SendRequest request)
         {
             var configAccount=await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, request.Id);

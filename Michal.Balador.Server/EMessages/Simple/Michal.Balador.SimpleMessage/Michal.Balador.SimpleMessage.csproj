@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Authentication\HttpLiteAuthentication.cs" />
     <Compile Include="Authentication\HttpSimpleAuthentication.cs" />
+    <Compile Include="ConcreteContact\ContactHttpSimple.cs" />
+    <Compile Include="ConcreteContact\ContactTcpSimple.cs" />
     <Compile Include="Config\ConfigHttp.cs" />
     <Compile Include="Config\ConfigHttpLite.cs" />
     <Compile Include="Contact\ContactHttpSend.cs" />
@@ -75,9 +77,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ConcreteContact\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).*" "$(SolutionDir)Michal.Balador.Server\Plugins\$(ProjectName).*"

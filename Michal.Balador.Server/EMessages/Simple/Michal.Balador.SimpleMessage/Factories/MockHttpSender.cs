@@ -8,7 +8,6 @@ using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.Mechanism;
-using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Contracts.Service;
 
 namespace Michal.Balador.SimpleMessage
