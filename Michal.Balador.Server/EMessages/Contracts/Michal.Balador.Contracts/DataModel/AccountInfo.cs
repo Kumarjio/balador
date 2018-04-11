@@ -13,10 +13,12 @@ namespace Michal.Balador.Contracts.Mechanism
         public string Email { get; set; }
         public string Name { get; set; }
         public string MessagesType { get; set; }
+        public Guid JobId { get; set; }
     }
 
     public class AccountSend: AccountInfo
     {
         public string Messassnger { get; set; }
+        public string MessaggerShrotName { get; set; }
     }
 }

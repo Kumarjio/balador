@@ -29,7 +29,7 @@ namespace Michal.Balador.Contracts.Mechanism
         {
             return null;
         }
-        public async Task<ResponseSend> SendAsync(AccountInfo accountInfo)
+        public async Task<ResponseSend> SendAsync(AccountSend accountInfo)
         {
             ITaskSchedulerRepository repository = Provider.TaskService.TaskSchedulerRepository;
             var contacts = await repository.GetContacts(accountInfo);

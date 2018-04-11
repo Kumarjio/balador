@@ -298,6 +298,7 @@
     <Content Include="js\materialize.min.js" />
     <Content Include="js\modernizr.js" />
     <Content Include="LICENSE" />
+    <Content Include="Schema\StoreProcedures\balador_sp_getContacts.sql" />
     <Content Include="Schema\StoreProcedures\createMessage.sql" />
     <Content Include="Schema\StoreProcedures\jobrunner.sql" />
     <Content Include="Schema\StoreProcedures\usp_RethrowError.sql" />

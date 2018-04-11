@@ -53,7 +53,8 @@ namespace Michal.Balador.Infrastructures.Mechanism
                             Email = task_job.Email,
                             Id = task_job.Id,
                             MessagesType = task_job.MessagesType,
-                            Messassnger = messaggerShrotName,
+                            Messassnger = messassnger,
+                            MessaggerShrotName= messaggerShrotName,
                             Name = task_job.Name
                         });
 

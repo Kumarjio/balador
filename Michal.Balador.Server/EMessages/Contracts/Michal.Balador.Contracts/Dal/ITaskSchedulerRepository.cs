@@ -10,7 +10,7 @@ namespace Michal.Balador.Contracts.Dal
     public interface ITaskSchedulerRepository : IRepository
     {
         Task<List<AccountInfo>> GetAccountsJob();
-        Task<IEnumerable<ContactInfo>> GetContacts(AccountInfo accountInfo);
+        Task<IEnumerable<ContactInfo>> GetContacts(AccountSend accountInfo);
         Task<List<MessageItem>> GetMessagesContact(ContactInfo contactInfo);
     }
 }
