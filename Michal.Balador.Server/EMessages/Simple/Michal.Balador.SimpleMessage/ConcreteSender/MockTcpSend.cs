@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
-using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.SimpleMessage.ConcreteContact;
 
 namespace Michal.Balador.SimpleMessage
 {
-    public class MockSend : AppMessanger
+    public class MockTcpSend : AppMessanger
     {
         SocketClientTest _test;
+        public SocketClientTest SocketClientTest { get { return _test; } }
 
         //public MockSend(SocketClientTest test, IBaladorContext context, FactrorySendMessages factrorySendMessages) : base(context, factrorySendMessages)
         //{
@@ -22,7 +18,7 @@ namespace Michal.Balador.SimpleMessage
         //    _test = test;
         //}
 
-        public MockSend(IBaladorContext context, AppMessangerFactrory provider) : base(context, provider)
+        public MockTcpSend(IBaladorContext context, AppMessangerFactrory provider) : base(context, provider)
         {
 
 

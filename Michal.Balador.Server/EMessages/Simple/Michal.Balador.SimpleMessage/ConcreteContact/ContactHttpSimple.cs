@@ -14,10 +14,19 @@ namespace Michal.Balador.SimpleMessage.ConcreteContact
         }
 
        
-        public override Task<ResponseMessage> SendMessage(MessageItem messageItem)
+        public override async Task<ResponseMessage> SendMessage(MessageItem messageItem)
         {
-           
-            //AppMessanger.
+            var convert=(MockHttpSend)this.AppMessanger;
+            var _test = convert.HttpClientTest;
+            try
+            {
+                var message = await _test.SendMessage($"Id={messageItem.Id},Message={messageItem.Message}");
+                return new ResponseMessage { Id = messageItem.Id, IsError = false, Message = message + " id=" + messageItem.Id + " ,Message=" + messageItem.Message };
+            }
+            catch (Exception e)
+            {
+                return new ResponseMessage { Id = messageItem.Id, IsError = true, ErrMessage = e.ToString(), Message = messageItem.Message };
+            }
         }
     }
 }

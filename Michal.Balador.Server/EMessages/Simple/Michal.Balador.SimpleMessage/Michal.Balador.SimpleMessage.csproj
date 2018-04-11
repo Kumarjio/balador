@@ -57,7 +57,7 @@
     <Compile Include="Sockets\HttpClientTest.cs" />
     <Compile Include="ConcreteSender\MockHttpSend.cs" />
     <Compile Include="Factories\MockHttpSender.cs" />
-    <Compile Include="ConcreteSender\MockSend.cs" />
+    <Compile Include="ConcreteSender\MockTcpSend.cs" />
     <Compile Include="Factories\MockSender.cs" />
     <Compile Include="ConcreteSender\SenderMessagesFactory.cs" />
     <Compile Include="Simple\Simple2.cs" />

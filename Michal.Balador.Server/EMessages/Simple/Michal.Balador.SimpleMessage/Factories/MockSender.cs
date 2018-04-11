@@ -34,7 +34,7 @@ namespace Michal.Balador.SimpleMessage
             ResponseAppMessanger response = new ResponseAppMessanger();
             try
             {
-                var mockSend = new MockSend(Context,this);
+                var mockSend = new MockTcpSend(Context,this);
                 response =await mockSend.SetSocketClient(new SignUpSender { Id= register.Id},register.CanExcute);
                 return response;
             }

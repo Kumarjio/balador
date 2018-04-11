@@ -19,6 +19,7 @@ namespace Michal.Balador.SimpleMessage
         {
             _test = new HttpClientTest();
         }
+        public HttpClientTest HttpClientTest { get { return _test; } }
 
         public override void Dispose()
         {
