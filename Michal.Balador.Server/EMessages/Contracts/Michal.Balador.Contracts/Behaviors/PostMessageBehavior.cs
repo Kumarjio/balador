@@ -11,14 +11,19 @@ namespace Michal.Balador.Contracts.Behaviors
 {
     public abstract class PostMessageBehavior: Behavior
     {
-        public PostMessageBehavior(IBaladorContext baladorContext):base(baladorContext)
-        {
+        //public PostMessageBehavior(IBaladorContext baladorContext):base(baladorContext)
+        //{
 
-        }
+        //}
 
-        public override Task<ResponseBase> Excute<TRequestBehavior>(TRequestBehavior request)
+        
+        public override async Task<ResponseBase> Excute<TRequestBehavior>(TRequestBehavior request)
         {
-            return Task.FromResult<ResponseBase>(new ResponseBase { });
+            RequestPostMessageBehavior requestMessageBehavior = (RequestPostMessageBehavior)Convert.ChangeType(request, typeof(RequestPostMessageBehavior));
+
+            //return null;
+            return await PostSend(requestMessageBehavior);
         }
+        public abstract Task<ResponseBase> PostSend(RequestPostMessageBehavior requestMessageBehavior);
     }
 }

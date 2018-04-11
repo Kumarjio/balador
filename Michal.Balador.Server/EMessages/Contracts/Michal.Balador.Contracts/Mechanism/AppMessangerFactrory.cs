@@ -15,9 +15,12 @@ namespace Michal.Balador.Contracts.Mechanism
     public abstract class AppMessangerFactrory : IAppMessangerFactrory
     {
         protected string _serviceName = "";
-        //protected IUnitOfWork _unitOfWork;
         protected IBaladorContext _context;
+
+        [Import]
         protected BehaviorItems<Behavior> _behaviorItems;
+      
+
         protected AuthenticationManager _authenticationManager;
         ITaskService _taskService;//per appmassanger no per account!!!
 
@@ -28,13 +31,7 @@ namespace Michal.Balador.Contracts.Mechanism
                 return _context;
             }
         }
-        //public IUnitOfWork UnitOfWork
-        //{
-        //    get
-        //    {
-        //        return _taskService.DbContext;
-        //    }
-        //}
+       
         public BehaviorItems<Behavior> BehaviorItems
         {
             get
@@ -56,15 +53,12 @@ namespace Michal.Balador.Contracts.Mechanism
             _context = context; _taskService = taskService;
         }
 
-        public void EnrolInBehaviors(BehaviorItems<Behavior> behaviorItems)
-        {
-            _behaviorItems = behaviorItems;
-        }
+        
 
         [Obsolete("WILL REMOVE", false)]
-        public virtual async Task<ResponseAppMessanger> GetInstance(RegisterSender register, BehaviorItems<Behavior> behaviorItems = null)
+        public virtual async Task<ResponseAppMessanger> GetInstance(RegisterSender register)
         {
-            EnrolInBehaviors(behaviorItems);
+           
             register.CanExcute = true;
             ResponseAppMessanger response = await GetSender(register);
             if (!response.IsError)
@@ -126,8 +120,6 @@ namespace Michal.Balador.Contracts.Mechanism
 
         public async Task<ResponseAppMessanger> GetAppMessanger(AccountSend accountSend)
         {
-            
-           
             ResponseAppMessanger response = await GetSender(accountSend);
             if (!response.IsError)
             {

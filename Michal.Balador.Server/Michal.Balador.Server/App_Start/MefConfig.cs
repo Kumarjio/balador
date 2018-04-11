@@ -9,8 +9,10 @@ using System.Web;
 using System.Web.Http.Dependencies;
 using lior.api.Models;
 using Michal.Balador.Contracts;
+using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Infrastructures.Service;
+using Michal.Balador.Server.Infrastructures.Behaviors;
 using Microsoft.AspNet.WebHooks;
 using Microsoft.AspNet.WebHooks.Diagnostics;
 using Microsoft.AspNet.WebHooks.Services;
@@ -95,14 +97,19 @@ namespace Michal.Balador.Server.App_Start
             string tableName = null;
             var store = new SqlWebHookStore(settings, protector, logger, nameOrConnectionString, schemaName, tableName);
 
-           // CustomServices.SetStore(store);
+            //it's singleton!!
             container.ComposeExportedValue<IWebHookStore>(store);
+            var behaviors = new BehaviorItems<Behavior>();
+            behaviors.Add(new ChangeMessageItemBehavior());
+            behaviors.Add(new PostMessageItemBehavior());
+            container.ComposeExportedValue(behaviors);
+
             //it's singleton!!
             //     var context = new BaladorContext();
             //  container.ComposeExportedValue<IBaladorContext>(context);
-          //  container.ForType(typeof(ApplicationDbContext))
-          //.Export(builder => builder.AsContractType(typeof(IUnitOfWork)))
-          //.SetCreationPolicy(CreationPolicy.NonShared);
+            //  container.ForType(typeof(ApplicationDbContext))
+            //.Export(builder => builder.AsContractType(typeof(IUnitOfWork)))
+            //.SetCreationPolicy(CreationPolicy.NonShared);
         }
 
         private static CompositionContainer ConfigureContainer()

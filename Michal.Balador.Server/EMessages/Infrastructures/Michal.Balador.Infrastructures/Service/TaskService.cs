@@ -24,8 +24,9 @@ namespace Michal.Balador.Infrastructures.Service
         [ImportingConstructor()]
         public TaskService(IUnitOfWork unitOfWork)
         {
-            _taskSchedulerRepository = new TaskSchedulerRepository(unitOfWork);
-            _messageRepository = new MessageRepository(unitOfWork);
+            _unitOfWork = unitOfWork;
+               _taskSchedulerRepository = new TaskSchedulerRepository(_unitOfWork);
+            _messageRepository = new MessageRepository(_unitOfWork);
 
         }
         public ITaskSchedulerRepository TaskSchedulerRepository { get { return _taskSchedulerRepository; } }

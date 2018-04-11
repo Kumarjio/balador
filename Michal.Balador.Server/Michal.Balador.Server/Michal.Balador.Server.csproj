@@ -455,6 +455,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructures\BaladorContext.cs" />
+    <Compile Include="Infrastructures\Behaviors\PostMessageItemBehavior.cs" />
+    <Compile Include="Infrastructures\Behaviors\ChangeMessageItemBehavior.cs" />
     <Compile Include="Infrastructures\OAuth\Provider\CustomPasswordValidator.cs" />
     <Compile Include="Infrastructures\OAuth\Provider\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Infrastructures\OAuth\Provider\SimpleRefreshTokenProvider.cs" />

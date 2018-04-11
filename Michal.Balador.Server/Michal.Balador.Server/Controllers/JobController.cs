@@ -7,9 +7,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Michal.Balador.Contracts;
+using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.Mechanism;
+using Michal.Balador.Server.Infrastructures.Behaviors;
 
 namespace Michal.Balador.Server.Controllers
 {//http://kennytordeur.blogspot.co.il/2012/08/mef-in-aspnet-mvc-4-and-webapi.html
@@ -17,6 +19,9 @@ namespace Michal.Balador.Server.Controllers
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class JobController : ApiController
     {
+        [Import]
+        private BehaviorItems<Behavior> _behaviors;
+
         [Import]
         private IUnitOfWork _unitOfWork;
         [Import]
@@ -28,7 +33,11 @@ namespace Michal.Balador.Server.Controllers
         // GET api/<controller>
         public async Task<IEnumerable<string>> Get()
         {
-           
+            var preMessageBehaviors = _behaviors.Get<PreMessageBehavior>();
+            foreach (var preMessageBehavior in preMessageBehaviors)
+            {
+                Console.WriteLine("");
+            }
             //  _unitOfWork.Get<a>
             List<ResponseSender> senders = new List<ResponseSender>();
             List<string> ss = new List<string>();

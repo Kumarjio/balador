@@ -17,7 +17,13 @@ namespace Michal.Balador.Contracts.Behaviors
         {
             foreach (var item in _List)
             {
-                if (item.GetType() == typeof(TItem))
+                Type t=item.GetType();
+
+                if (t == typeof(TItem) )
+                {
+                    yield return (TItem)item;
+                }
+                else if( t.IsSubclassOf(typeof(TItem)))
                 {
                     yield return (TItem)item;
                 }

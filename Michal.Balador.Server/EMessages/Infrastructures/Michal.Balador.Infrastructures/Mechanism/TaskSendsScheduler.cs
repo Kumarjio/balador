@@ -19,6 +19,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
     public class TaskSendsScheduler : ITaskSendsScheduler
     {
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(TaskSendsScheduler));
+
         [ImportMany(typeof(IAppMessangerFactrory))]
         private IEnumerable<Lazy<IAppMessangerFactrory, IDictionary<string, object>>> _senderRules;
 
@@ -36,7 +37,6 @@ namespace Michal.Balador.Infrastructures.Mechanism
             try
             {
                 var tasks_job = await _taskService.TaskSchedulerRepository.GetAccountsJob();
-                //var mockdata=await _taskService.
                 List<AccountSend> accountsenders = new List<AccountSend>();
                 foreach (var task_job in tasks_job)
                 {
@@ -59,32 +59,19 @@ namespace Michal.Balador.Infrastructures.Mechanism
 
                     }
                 }
+
                 var doStuffBlock = new ActionBlock<AccountSend>(async rs =>
                     {
-                        Lazy<IAppMessangerFactrory> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == rs.Messassnger).FirstOrDefault();
+                        Lazy<IAppMessangerFactrory> _utah = _senderRules.Where(s => (string)s.Metadata[ConstVariable.MESSAGE_TYPE] == rs.Messassnger).FirstOrDefault();
                        
                         rs.ManagedThreadId = Thread.CurrentThread.ManagedThreadId;
-                        if (!_utah.IsValueCreated)
-                        {
-                            _utah.Value.EnrolInBehaviors(behaviors);
-
-                        }
+                       
                         var sender = await _utah.Value.GetAppMessanger(rs);
                         try
                         {
                             if (!sender.IsError)
                             {
-                                //    var requestToSend = await mockData.FindMessagesById(rs.Id);
                                 var requestToSend = sender.Result.SendAsync(rs);
-                            //    if (requestToSend != null)
-                            //    {
-
-                                //        requestToSend.Log = rs.Log;
-                                //        var responseToSendWait = await sender.Result.Send(requestToSend);
-                                //        resultError.Add(responseToSendWait);
-                                //        Log.Info(responseToSendWait.ToString());
-                                //        await manager.NotifyAsync(rs.Id, notifications, null);
-                                //    }
                             }
                             else
                             {

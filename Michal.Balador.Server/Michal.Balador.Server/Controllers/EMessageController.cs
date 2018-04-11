@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Web.Http;
 using Michal.Balador.Contracts;
+using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Server.Dal;
@@ -30,8 +31,22 @@ namespace Michal.Balador.Server.Controllers
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(EMessageController));
         [ImportMany(typeof(IAppMessangerFactrory))]
         IEnumerable<Lazy<IAppMessangerFactrory, IDictionary<string, object>>> _senderRules;
+        [Import(typeof(ITaskSendsScheduler))]
+        ITaskSendsScheduler _taskSendsScheduler;
 
         public async Task<HttpResponseMessage> Get()
+        {
+            var resultError = await _taskSendsScheduler.Run(new Contracts.Behaviors.BehaviorItems<Behavior>());
+
+            var response = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ObjectContent<ResponseSend[]>(resultError.ToArray(),
+                        new JsonMediaTypeFormatter(),
+                         new MediaTypeWithQualityHeaderValue("application/json"))
+            };
+            return response;
+        }
+            public async Task<HttpResponseMessage> Get1()
         {
             ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
             List<ResponseSender> senders = new List<ResponseSender>();
