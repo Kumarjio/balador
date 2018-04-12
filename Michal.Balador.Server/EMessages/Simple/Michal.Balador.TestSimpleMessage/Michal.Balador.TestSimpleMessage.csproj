@@ -32,7 +32,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,8 +60,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Contracts\Michal.Balador.Contracts\Michal.Balador.Contracts.csproj">
+      <Project>{7f9deb2f-4803-4165-a1e2-d3ba1a50c7e3}</Project>
+      <Name>Michal.Balador.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructures\Michal.Balador.Infrastructures\Michal.Balador.Infrastructures.csproj">
+      <Project>{41bd1ff6-1eaa-47eb-a388-143eb5614ab7}</Project>
+      <Name>Michal.Balador.Infrastructures</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Michal.Balador.SimpleMessage\Michal.Balador.SimpleMessage.csproj">
       <Project>{2411f175-07e3-4d01-bbb9-376b24d7148a}</Project>
       <Name>Michal.Balador.SimpleMessage</Name>

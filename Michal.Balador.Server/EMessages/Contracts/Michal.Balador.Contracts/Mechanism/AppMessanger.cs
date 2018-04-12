@@ -62,7 +62,8 @@ namespace Michal.Balador.Contracts.Mechanism
                         TaskService=Provider.TaskService,
                         AccountInfo=accountInfo,
                         ContactInfo=contact,
-                        Message=messageItem
+                        Message=messageItem,
+                        BaladorContext=this.Context
                     });
 
                 }
@@ -83,7 +84,8 @@ namespace Michal.Balador.Contracts.Mechanism
                             TaskService = Provider.TaskService,
                             AccountInfo = accountInfo,
                             ContactInfo = contact,
-                            Message = messageItem
+                            Message = messageItem,
+                            BaladorContext = this.Context
                         });
 
                 }

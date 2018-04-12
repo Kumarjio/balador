@@ -50,5 +50,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\EMessages\Infrastructures\Michal.Balador.Infrastructures\Michal.Balador.Infrastructures.csproj">
+      <Project>{41BD1FF6-1EAA-47EB-A388-143EB5614AB7}</Project>
+      <Name>Michal.Balador.Infrastructures</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

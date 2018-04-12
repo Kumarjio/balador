@@ -20,7 +20,7 @@ namespace Michal.Balador.Server.Infrastructures.Behaviors
         public override async Task<ResponseBase> PreSend(RequestPreMessageBehavior requestMessageBehavior)
         {
 
-            BaladorContext.GetLogger().Log( System.Diagnostics.TraceLevel.Info, $"test presend {requestMessageBehavior.Message}");
+            requestMessageBehavior.BaladorContext.GetLogger().Log( System.Diagnostics.TraceLevel.Info, $"test presend {requestMessageBehavior.Message}");
 
             return await Task.FromResult(new ResponseBase());
         }
