@@ -30,6 +30,11 @@ namespace Michal.Balador.Infrastructures.Mechanism
             _taskService = taskService;
         }
 
+        public void Dispose()
+        {
+            _taskService.Dispose();
+        }
+
         public async Task<ConcurrentBag<ResponseSend>> Run()
         {
             ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
@@ -43,29 +48,36 @@ namespace Michal.Balador.Infrastructures.Mechanism
                     rs.ManagedThreadId = Thread.CurrentThread.ManagedThreadId;
                     if (_utah == null || _utah.Value == null)
                         return;
-                    var sender = await _utah.Value.GetAppMessanger(rs);
-                    try
+                    var appMessangerFactrory = _utah.Value;
+                    //using (var appMessangerFactrory = _utah.Value)
                     {
-                        if (!sender.IsError && sender.IsAutorize)
+                        AppMessanger appMessanger = null;
+                        var sender = await _utah.Value.GetAppMessanger(rs);
+                        try
                         {
-                            var requestToSend = await sender.Result.SendAsync(rs);
+                            if (!sender.IsError && sender.IsAutorize)
+                            {
+                                appMessanger = sender.Result;
+                                var requestToSend = await appMessanger.SendAsync(rs);
+
+                            }
+                            else
+                            {
+                                var mes = rs.ManagedThreadId + " " + rs.Id + " " + sender.Message;
+                                resultError.Add(new ResponseSend { IsError = true, Message = mes });
+                                Log.Error(mes);
+                            }
                         }
-                        else
+                        catch (Exception ee)
                         {
-                            var mes = rs.ManagedThreadId + " " + rs.Id + " " + sender.Message;
-                            resultError.Add(new ResponseSend { IsError = true, Message = mes });
-                            Log.Error(mes);
+                            resultError.Add(new ResponseSend { IsError = true, Message = ee.Message });
+                            Log.Error(rs.ManagedThreadId + " " + rs.Id + " " + ee);
                         }
-                    }
-                    catch (Exception ee)
-                    {
-                        resultError.Add(new ResponseSend { IsError = true, Message = "unhandle" });
-                        Log.Error(rs.ManagedThreadId + " " + rs.Id + " " + ee);
-                    }
-                    finally
-                    {
-                        if (sender != null && sender.Result != null)
-                            sender.Result.Dispose();
+                        finally
+                        {
+                            if (sender != null && appMessanger != null)
+                                appMessanger.Dispose();
+                        }
                     }
                 });
                 var tasks_job = await _taskService.TaskSchedulerRepository.GetAccountsJob();
@@ -94,14 +106,12 @@ namespace Michal.Balador.Infrastructures.Mechanism
                             MessaggerShrotName = messaggerShrotName,
                             Name = task_job.Name,
                             UserName = task_job.UserName,
-                            JobId = task_job.JobId
+                            JobId = task_job.JobId,
+                            spid= task_job.spid
                         });
 
                     }
                 }
-
-
-
                 foreach (var item in accountsenders)
                 {
                     doStuffBlock.Post(item);
@@ -111,6 +121,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
 
                 await _taskService.TaskSchedulerRepository.Complete(jobid);
 
+                
             }
             catch (Exception e)
             {
@@ -118,6 +129,17 @@ namespace Michal.Balador.Infrastructures.Mechanism
                 //resultError.IsError = true;
                 //   resultError.Message = e.Message;
             }
+            finally
+            {
+                foreach (var _senderRule in _senderRules)
+                {
+                    if (_senderRule.IsValueCreated && _senderRule.Value != null)
+                    {
+                        _senderRule.Value.Dispose();
+                    }
+                }
+            }
+           
             return resultError;
 
 

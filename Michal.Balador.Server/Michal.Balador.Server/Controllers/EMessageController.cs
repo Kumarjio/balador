@@ -34,8 +34,11 @@ namespace Michal.Balador.Server.Controllers
 
         public async Task<HttpResponseMessage> Get()
         {
-            var resultError = await _taskSendsScheduler.Run();
-
+            var resultError = new ConcurrentBag<ResponseSend>();
+            using (_taskSendsScheduler)
+            {
+                 resultError = await _taskSendsScheduler.Run();
+            }
             var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
                 Content = new ObjectContent<ResponseSend[]>(resultError.ToArray(),

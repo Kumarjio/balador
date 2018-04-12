@@ -9446,3 +9446,1371 @@ ERROR 2018-04-12 12:55:46,035 77711ms TaskSendsScheduler     MoveNext           
    at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
    at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 51
 ERROR 2018-04-12 12:56:33,070 124746ms TaskSendsScheduler     MoveNext           - 9 4b665b2d-e27a-40d1-930e-d34328d74630 
+ERROR 2018-04-12 12:58:50,941 69083ms TaskSendsScheduler     MoveNext           - 8 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 61
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 51
+ERROR 2018-04-12 12:58:57,099 75242ms TaskSendsScheduler     MoveNext           - 6 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 61
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 51
+ERROR 2018-04-12 12:59:23,802 101944ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 13:00:07,452 145594ms TaskSendsScheduler     MoveNext           - 6 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 13:03:28,613 346755ms TaskSendsScheduler     MoveNext           - 17 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.LazyInternalContext.get_ObjectContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync[TElement](String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync(Type elementType, String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalSqlNonSetQuery.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.DbRawSqlQuery`1.System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TElement>.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ForEachAsync[T](IDbAsyncEnumerable`1 source, Action`1 action, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source)
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 61
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 51
+ERROR 2018-04-12 13:03:29,636 347778ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 13:17:07,481 43137ms TaskSendsScheduler     MoveNext           - 12 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 13:17:42,852 78508ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 61
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 55
+ERROR 2018-04-12 13:18:48,648 144304ms TaskSendsScheduler     MoveNext           - 12 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 13:20:45,111 260767ms TaskSendsScheduler     MoveNext           - 13 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.LazyInternalContext.get_ObjectContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync[TElement](String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync(Type elementType, String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalSqlNonSetQuery.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.DbRawSqlQuery`1.System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TElement>.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ForEachAsync[T](IDbAsyncEnumerable`1 source, Action`1 action, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source)
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 61
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 55
+ERROR 2018-04-12 13:20:45,155 260811ms TaskSendsScheduler     MoveNext           - 20 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.LazyInternalContext.get_ObjectContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync[TElement](String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync(Type elementType, String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalSqlNonSetQuery.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.DbRawSqlQuery`1.System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TElement>.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ForEachAsync[T](IDbAsyncEnumerable`1 source, Action`1 action, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source)
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 61
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 55
+ERROR 2018-04-12 13:20:45,201 260857ms TaskSendsScheduler     MoveNext           - 13 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.LazyInternalContext.get_ObjectContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync[TElement](String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync(Type elementType, String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalSqlNonSetQuery.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.DbRawSqlQuery`1.System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TElement>.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ForEachAsync[T](IDbAsyncEnumerable`1 source, Action`1 action, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source)
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 61
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 55
+ERROR 2018-04-12 13:25:29,744 136330ms TaskSendsScheduler     MoveNext           - 17 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 59
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 13:25:29,894 136479ms TaskSendsScheduler     MoveNext           - 11 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 59
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 13:25:30,024 136609ms TaskSendsScheduler     MoveNext           - 11 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 59
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 13:29:31,878  5272ms TaskSendsScheduler     MoveNext           - 8 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 59
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 13:29:31,968  5362ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 59
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 13:29:32,019  5413ms TaskSendsScheduler     MoveNext           - 11 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__174_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 59
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 13:31:49,759 143152ms TaskSendsScheduler     MoveNext           - 13 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.LazyInternalContext.get_ObjectContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync[TElement](String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync(Type elementType, String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalSqlNonSetQuery.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.DbRawSqlQuery`1.System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TElement>.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ForEachAsync[T](IDbAsyncEnumerable`1 source, Action`1 action, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source)
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 59
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 13:33:13,781 227174ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.LazyInternalContext.get_ObjectContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync[TElement](String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync(Type elementType, String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalSqlNonSetQuery.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.DbRawSqlQuery`1.System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TElement>.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ForEachAsync[T](IDbAsyncEnumerable`1 source, Action`1 action, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source)
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 59
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 13:33:29,726 243120ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 13:34:09,538 282932ms TaskSendsScheduler     MoveNext           - 11 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 13:35:18,481 351874ms TaskSendsScheduler     MoveNext           - 35 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.LazyInternalContext.get_ObjectContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync[TElement](String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlQueryAsync(Type elementType, String sql, Nullable`1 streaming, Object[] parameters)
+   at System.Data.Entity.Internal.InternalSqlNonSetQuery.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.DbRawSqlQuery`1.System.Data.Entity.Infrastructure.IDbAsyncEnumerable<TElement>.GetAsyncEnumerator()
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ForEachAsync[T](IDbAsyncEnumerable`1 source, Action`1 action, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.ToListAsync[T](IDbAsyncEnumerable`1 source)
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 59
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 13:36:09,119 402513ms TaskSendsScheduler     MoveNext           - 35 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 14:36:10,228 163669ms TaskSendsScheduler     MoveNext           - 5 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 14:38:02,872 276313ms TaskSendsScheduler     MoveNext           - 12 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:38:25,882 299323ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 14:40:14,812 408253ms TaskSendsScheduler     MoveNext           - 13 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 14:41:51,224 504665ms TaskSendsScheduler     MoveNext           - 13 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:41:51,266 504707ms TaskSendsScheduler     MoveNext           - 6 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 67
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:49:58,135  4833ms TaskSendsScheduler     MoveNext           - 35 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:49:58,226  4924ms TaskSendsScheduler     MoveNext           - 35 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:49:58,284  4982ms TaskSendsScheduler     MoveNext           - 40 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:52:26,899 153598ms TaskSendsScheduler     MoveNext           - 30 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:52:28,960 155658ms TaskSendsScheduler     MoveNext           - 38 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:52:28,986 155684ms TaskSendsScheduler     MoveNext           - 38 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:53:28,355  5127ms TaskSendsScheduler     MoveNext           - 12 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:53:28,422  5194ms TaskSendsScheduler     MoveNext           - 11 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:53:28,471  5243ms TaskSendsScheduler     MoveNext           - 11 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:56:41,502 198274ms TaskSendsScheduler     MoveNext           - 5 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:56:41,530 198302ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 14:56:41,582 198355ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:01:17,509 40937ms TaskSendsScheduler     MoveNext           - 13 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:01:42,495 65924ms TaskSendsScheduler     MoveNext           - 13 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:01:48,039 71468ms TaskSendsScheduler     MoveNext           - 25 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 15:02:43,292 126721ms TaskSendsScheduler     MoveNext           - 26 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 15:03:35,195 178623ms TaskSendsScheduler     MoveNext           - 26 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:03:44,215 187644ms TaskSendsScheduler     MoveNext           - 25 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 15:04:46,863 250291ms TaskSendsScheduler     MoveNext           - 12 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 15:05:15,812 279241ms TaskSendsScheduler     MoveNext           - 25 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:05:16,847 280276ms TaskSendsScheduler     MoveNext           - 41 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 15:25:16,187  5407ms TaskSendsScheduler     MoveNext           - 11 1bfa6f8e-0000-0000-0000-b573b2c8f820 No connection could be made because the target machine actively refused it 127.0.0.1:5150
+ERROR 2018-04-12 15:25:16,266  5486ms TaskSendsScheduler     MoveNext           - 12 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:25:17,304  6524ms TaskSendsScheduler     MoveNext           - 12 4b665b2d-e27a-40d1-930e-d34328d74630 No connection could be made because the target machine actively refused it 127.0.0.1:5150
+ERROR 2018-04-12 15:27:54,458 163678ms TaskSendsScheduler     MoveNext           - 23 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 15:29:12,885 242105ms TaskSendsScheduler     MoveNext           - 8 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:29:16,715 245935ms TaskSendsScheduler     MoveNext           - 8 4b665b2d-e27a-40d1-930e-d34328d74630 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-12 15:34:22,660 167428ms TaskSendsScheduler     MoveNext           - 6 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:35:13,265 218034ms TaskSendsScheduler     MoveNext           - 26 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:40:13,244 64584ms TaskSendsScheduler     MoveNext           - 12 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:40:37,500 88840ms TaskSendsScheduler     MoveNext           - 26 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:49:20,964 78548ms TaskSendsScheduler     MoveNext           - 35 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:49:28,740 86324ms TaskSendsScheduler     MoveNext           - 8 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:53:05,243  4991ms TaskSendsScheduler     MoveNext           - 11 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:53:05,308  5056ms TaskSendsScheduler     MoveNext           - 10 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:54:05,239 64987ms TaskSendsScheduler     MoveNext           - 5 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 15:54:19,581 79329ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:02:01,844 81300ms TaskSendsScheduler     MoveNext           - 20 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:02:25,118 104574ms TaskSendsScheduler     MoveNext           - 8 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:04:24,544 224000ms TaskSendsScheduler     MoveNext           - 8 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:04:42,073 241529ms TaskSendsScheduler     MoveNext           - 8 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:21:38,276 89185ms TaskSendsScheduler     MoveNext           - 5 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:21:38,330 89239ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:24:46,135 80063ms TaskSendsScheduler     MoveNext           - 7 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:24:46,220 80148ms TaskSendsScheduler     MoveNext           - 13 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:27:58,548 129536ms TaskSendsScheduler     MoveNext           - 32 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:28:30,628 161616ms TaskSendsScheduler     MoveNext           - 32 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:33:29,928  4925ms TaskSendsScheduler     MoveNext           - 6 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:33:29,979  4976ms TaskSendsScheduler     MoveNext           - 12 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:33:49,459 24456ms TaskSendsScheduler     MoveNext           - 6 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:33:49,489 24486ms TaskSendsScheduler     MoveNext           - 12 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:33:56,250 31247ms TaskSendsScheduler     MoveNext           - 13 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:33:56,272 31269ms TaskSendsScheduler     MoveNext           - 6 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:34:12,973 47970ms TaskSendsScheduler     MoveNext           - 5 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:34:12,992 47989ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:34:18,375 53372ms TaskSendsScheduler     MoveNext           - 5 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:34:18,400 53397ms TaskSendsScheduler     MoveNext           - 12 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:34:26,151 61148ms TaskSendsScheduler     MoveNext           - 9 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:34:26,191 61188ms TaskSendsScheduler     MoveNext           - 9 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:36:14,573 169571ms TaskSendsScheduler     MoveNext           - 20 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:36:19,769 174767ms TaskSendsScheduler     MoveNext           - 16 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:37:24,665 239662ms TaskSendsScheduler     MoveNext           - 18 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:37:29,342 244339ms TaskSendsScheduler     MoveNext           - 20 4b665b2d-e27a-40d1-930e-d34328d74630 System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass4_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 56
+ERROR 2018-04-12 16:44:30,395 123510ms TaskSendsScheduler     MoveNext           - 15 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61
+ERROR 2018-04-12 16:44:57,770 150885ms TaskSendsScheduler     MoveNext           - 35 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61
+ERROR 2018-04-12 16:52:26,594  4838ms TaskSendsScheduler     MoveNext           - 6 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61
+ERROR 2018-04-12 16:52:26,644  4888ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61
+ERROR 2018-04-12 16:52:42,186 20430ms TaskSendsScheduler     MoveNext           - 5 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61
+ERROR 2018-04-12 16:52:42,219 20463ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61
+ERROR 2018-04-12 16:54:39,011 137255ms TaskSendsScheduler     MoveNext           - 5 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61
+ERROR 2018-04-12 16:54:42,706 140950ms TaskSendsScheduler     MoveNext           - 5 4b665b2d-e27a-40d1-930e-d34328d74630 System.ArgumentException: No mapping exists from object type System.Collections.Generic.List`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] to a known managed provider native type.
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetContacts>d__3.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 35
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61

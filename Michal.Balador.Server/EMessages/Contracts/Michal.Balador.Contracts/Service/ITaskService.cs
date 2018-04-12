@@ -7,7 +7,7 @@ using Michal.Balador.Contracts.Dal;
 
 namespace Michal.Balador.Contracts.Service
 {
-  public  interface ITaskService: IRepository
+  public  interface ITaskService:IDisposable//: IRepository
     {
         ITaskSchedulerRepository TaskSchedulerRepository { get; }
         IMessageRepository MessageRepository { get; }

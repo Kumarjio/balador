@@ -9,7 +9,7 @@ using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.Contracts.Contract
 {
-    public interface ITaskSendsScheduler
+    public interface ITaskSendsScheduler:IDisposable
     {
         Task<ConcurrentBag<ResponseSend>> Run();
     }

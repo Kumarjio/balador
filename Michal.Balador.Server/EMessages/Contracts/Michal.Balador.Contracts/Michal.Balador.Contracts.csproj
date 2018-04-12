@@ -69,6 +69,7 @@
     <Compile Include="DataModel\BToken.cs" />
     <Compile Include="DataModel\AccountInfo.cs" />
     <Compile Include="DataModel\ClientMessageRequest.cs" />
+    <Compile Include="DataModel\LogInfo.cs" />
     <Compile Include="DataModel\MessageInfo.cs" />
     <Compile Include="DataModel\ContactInfo.cs" />
     <Compile Include="DataModel\MessageItem.cs" />

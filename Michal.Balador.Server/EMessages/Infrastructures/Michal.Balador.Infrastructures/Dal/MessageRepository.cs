@@ -19,14 +19,14 @@ namespace Michal.Balador.Server.Dal
         [ImportingConstructor()]
         public MessageRepository(IUnitOfWork unitOfWork):base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+          
         }
 
         public async Task<ResponseBase> CreateMessage(MessageRequest request)
         {
 
-            using (_unitOfWork)
-            {
+          //  using (_unitOfWork)
+          //  {
                 var dt = DateTime.UtcNow;
                 List<object> parameters = new List<object>();
                 var query = "exec [dbo].[createMessage] @message,@user,@clientid,@messageType,@nickName,@replay ";
@@ -38,7 +38,7 @@ namespace Michal.Balador.Server.Dal
                 parameters.Add(new SqlParameter("@replay", true));
 
                 var resultSp = await _unitOfWork.Database.SqlQuery<object>(query, parameters.ToArray()).FirstOrDefaultAsync();
-            }
+           // }
 
             return await Task.FromResult(new ResponseBase());
 

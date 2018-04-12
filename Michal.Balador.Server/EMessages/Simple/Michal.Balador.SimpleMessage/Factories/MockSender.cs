@@ -14,6 +14,7 @@ using Michal.Balador.Contracts.Service;
 namespace Michal.Balador.SimpleMessage
 {
     [Export(typeof(IAppMessangerFactrory))]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     [ExportMetadata(ConstVariable.MESSAGE_TYPE, "MockSender")]
     [ExportMetadata(ConstVariable.DOMAIN_NAME, "com.baladorPlant")]
     public class MockSender : AppMessangerFactrory

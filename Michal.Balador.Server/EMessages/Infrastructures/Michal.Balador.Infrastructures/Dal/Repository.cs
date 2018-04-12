@@ -18,7 +18,7 @@ namespace Michal.Balador.Infrastructures.Dal
 
         public virtual void Dispose()
         {
-            _unitOfWork.Dispose();
+           _unitOfWork.Dispose();
         }
     }
 }

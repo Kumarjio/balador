@@ -21,6 +21,9 @@ namespace lior.api.Models
         public ApplicationDbContext()
             : base("MS_SqlStoreConnectionString", throwIfV1Schema: false)
         {
+            tid = Guid.NewGuid();
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = true;
         }
 
         public static ApplicationDbContext Create()
@@ -31,6 +34,7 @@ namespace lior.api.Models
         public DbSet<RefreshToken> RefreshToken { get; set; }
         public DbSet<ClientMessage> ClientMessages { get; set; }
 
+        public Guid tid { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

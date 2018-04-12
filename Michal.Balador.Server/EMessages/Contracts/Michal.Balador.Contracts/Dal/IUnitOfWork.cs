@@ -12,7 +12,7 @@ namespace Michal.Balador.Contracts.Dal
     {
         IQueryable<T> Get<T>() where T : class;
 
-
+        Guid tid { get; set; }
         bool Remove<T>(T item) where T : class;
 
 

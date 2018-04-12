@@ -11,6 +11,7 @@ using lior.api.Models;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Behaviors;
 using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Infrastructures.Service;
 using Michal.Balador.Server.Infrastructures.Behaviors;
 using Microsoft.AspNet.WebHooks;
@@ -69,6 +70,7 @@ namespace Michal.Balador.Server.App_Start
 
         public void Dispose()
         {
+           
         }
     }
 
