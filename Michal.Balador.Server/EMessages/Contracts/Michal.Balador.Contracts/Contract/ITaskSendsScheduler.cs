@@ -11,6 +11,6 @@ namespace Michal.Balador.Contracts.Contract
 {
     public interface ITaskSendsScheduler
     {
-        Task<ConcurrentBag<ResponseSend>> Run(BehaviorItems<Behavior> behaviors = null);
+        Task<ConcurrentBag<ResponseSend>> Run();
     }
 }

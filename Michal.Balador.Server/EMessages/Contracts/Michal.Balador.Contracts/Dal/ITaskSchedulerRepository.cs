@@ -12,5 +12,6 @@ namespace Michal.Balador.Contracts.Dal
         Task<List<AccountInfo>> GetAccountsJob();
         Task<IEnumerable<ContactInfo>> GetContacts(AccountSend accountInfo);
         Task<List<MessageItem>> GetMessagesContact(ContactInfo contactInfo);
+        Task<ResponseBase> Complete(Guid jobid);
     }
 }

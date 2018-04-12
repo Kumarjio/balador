@@ -28,15 +28,13 @@ namespace Michal.Balador.Server.Controllers
     public class EMessageController : ApiController
     {
 
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(EMessageController));
-        [ImportMany(typeof(IAppMessangerFactrory))]
-        IEnumerable<Lazy<IAppMessangerFactrory, IDictionary<string, object>>> _senderRules;
+       
         [Import(typeof(ITaskSendsScheduler))]
         ITaskSendsScheduler _taskSendsScheduler;
 
         public async Task<HttpResponseMessage> Get()
         {
-            var resultError = await _taskSendsScheduler.Run(new Contracts.Behaviors.BehaviorItems<Behavior>());
+            var resultError = await _taskSendsScheduler.Run();
 
             var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
@@ -46,35 +44,6 @@ namespace Michal.Balador.Server.Controllers
             };
             return response;
         }
-            public async Task<HttpResponseMessage> Get1()
-        {
-            ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
-            List<ResponseSender> senders = new List<ResponseSender>();
-            Lazy<IAppMessangerFactrory> _utah = _senderRules.Where(s => (string)s.Metadata["MessageType"] == "MockHttpSender").FirstOrDefault();
-            MockRepository mockData = new MockRepository();
-
-            var doStuffBlock = new ActionBlock<RegisterSender>(async rs =>
-            {
-                rs.Log = Thread.CurrentThread.ManagedThreadId;
-                SenderManager senderManager = new SenderManager(Log, this.Configuration);
-                resultError= await senderManager.Send(_utah.Value, rs, resultError);
-
-            });
-
-            foreach (var item in mockData.mocks.Senders)
-            {
-                doStuffBlock.Post(item);
-            }
-            doStuffBlock.Complete();
-            await doStuffBlock.Completion;
-
-            var response = new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new ObjectContent<ResponseSend[]>(resultError.ToArray(),
-                         new JsonMediaTypeFormatter(),
-                          new MediaTypeWithQualityHeaderValue("application/json"))
-            };
-            return response;
-        }
+         
     }
 }

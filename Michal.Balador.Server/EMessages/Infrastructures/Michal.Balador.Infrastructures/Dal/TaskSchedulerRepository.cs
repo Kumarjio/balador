@@ -20,7 +20,25 @@ namespace Michal.Balador.Infrastructures.Dal
         {
             _unitOfWork = unitOfWork;
         }
-      
+
+        public async Task<ResponseBase> Complete(Guid jobid)
+        {
+            ResponseBase responseBase = new ResponseBase();
+            try
+            {
+                List<object> parameters = new List<object>();
+                var query = "exec [dbo].[job_complete] @jobid";
+                parameters.Add(new SqlParameter("@jobid", jobid));
+                var resultSp = await _unitOfWork.Database.SqlQuery<object>(query, parameters.ToArray()).FirstOrDefaultAsync();
+
+            }
+            catch (Exception ee)
+            {
+                responseBase.IsError = true;
+                responseBase.Message = ee.Message;
+            }
+            return responseBase;
+        }
 
         public async Task<List<AccountInfo>> GetAccountsJob()
         {

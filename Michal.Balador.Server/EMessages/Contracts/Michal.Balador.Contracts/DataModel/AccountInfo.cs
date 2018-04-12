@@ -13,6 +13,7 @@ namespace Michal.Balador.Contracts.Mechanism
         public string Email { get; set; }
         public string Name { get; set; }
         public string MessagesType { get; set; }
+        public string UserName { get; set; }
         public Guid JobId { get; set; }
     }
 

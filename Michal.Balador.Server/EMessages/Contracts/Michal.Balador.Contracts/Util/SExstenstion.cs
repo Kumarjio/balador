@@ -10,7 +10,7 @@ namespace Michal.Balador.Contracts.Util
     {
         static string[] Helper(string name)
         {
-            return name.Split('%');
+            return name.Split('$');
         }
         public static string GetMessaggerShrotName(this string name)
         {
