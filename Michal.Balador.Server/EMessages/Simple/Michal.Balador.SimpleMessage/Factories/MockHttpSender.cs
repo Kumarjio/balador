@@ -45,7 +45,7 @@ namespace Michal.Balador.SimpleMessage
 
         protected override async Task<ResponseAppMessanger> GetSender(AccountSend accountSend)
         {
-            ResponseAppMessanger response = new ResponseAppMessanger();
+            ResponseAppMessanger response = new ResponseAppMessanger{ IsAutorize=true};
             try
             {
                 var mckHttpSend = new MockHttpSend(this.Context, this);

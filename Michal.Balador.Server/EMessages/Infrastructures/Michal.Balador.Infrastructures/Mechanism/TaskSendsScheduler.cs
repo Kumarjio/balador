@@ -46,7 +46,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
                     var sender = await _utah.Value.GetAppMessanger(rs);
                     try
                     {
-                        if (!sender.IsError)
+                        if (!sender.IsError && sender.IsAutorize)
                         {
                             var requestToSend = await sender.Result.SendAsync(rs);
                         }

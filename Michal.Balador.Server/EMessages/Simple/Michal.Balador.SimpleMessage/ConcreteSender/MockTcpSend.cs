@@ -43,7 +43,7 @@ namespace Michal.Balador.SimpleMessage
             }
             else
             {
-
+                response.IsAutorize = true;
                 SenderMessagesFactory sendFactory = new SenderMessagesFactory(this.Context);
                 var respndFactory = await sendFactory.ConnectAndLogin(sender.Id, token.Token);
                 if (respndFactory.IsError)

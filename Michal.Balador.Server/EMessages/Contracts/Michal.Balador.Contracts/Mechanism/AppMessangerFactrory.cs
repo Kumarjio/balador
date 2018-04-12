@@ -87,25 +87,19 @@ namespace Michal.Balador.Contracts.Mechanism
                 {
                     System.Attribute[] attrs = System.Attribute.GetCustomAttributes(this.GetType());  // Reflection.  
                     var message_type = "";
-
                     var domain = "";
-                    foreach (System.Attribute attr in attrs)
+                    foreach (Attribute attr in attrs)
                     {
                         if (attr is ExportMetadataAttribute)
                         {
                             ExportMetadataAttribute a = (ExportMetadataAttribute)attr;
                             if (a.Name == ConstVariable.MESSAGE_TYPE)
-                            {
-                                message_type = a.Value.ToString();
-                            }
+                               message_type = a.Value.ToString();
                             else if (a.Name == ConstVariable.DOMAIN_NAME)
-                            {
-                                domain = a.Value.ToString();
-                            }
+                             domain = a.Value.ToString();
                         }
                     }
-
-                    _serviceName= $"{domain}${message_type}";//this.GetType().FullName;
+                    _serviceName= $"{domain}${message_type}";
                 }
                 return _serviceName;
             }
@@ -120,7 +114,7 @@ namespace Michal.Balador.Contracts.Mechanism
 
         public async Task<ResponseAppMessanger> GetAppMessanger(AccountSend accountSend)
         {
-            ResponseAppMessanger response = new ResponseAppMessanger();
+            ResponseAppMessanger response = new ResponseAppMessanger{ IsAutorize=true};
                _authenticationManager = this.GetAuthenticationManager();
             var token = await _authenticationManager.GetToken(new SignUpSender { Id = accountSend.UserName });
             if (token == null || String.IsNullOrWhiteSpace(token.Token))
@@ -129,7 +123,8 @@ namespace Michal.Balador.Contracts.Mechanism
                 return response;
 
             }
-           response = await GetSender(accountSend);
+        
+          response = await GetSender(accountSend);
             return response;
         }
     }
