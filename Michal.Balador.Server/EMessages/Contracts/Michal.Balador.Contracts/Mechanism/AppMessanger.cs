@@ -78,7 +78,7 @@ namespace Michal.Balador.Contracts.Mechanism
                 foreach (var preSend in preSends)
                 {
                     var responseMessage = await preSend.Excute(
-                        new RequestPreMessageBehavior
+                        new RequestPostMessageBehavior
                         {
                             TaskService = Provider.TaskService,
                             AccountInfo = accountInfo,

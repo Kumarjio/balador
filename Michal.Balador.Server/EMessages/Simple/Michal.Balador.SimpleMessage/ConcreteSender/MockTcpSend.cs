@@ -32,9 +32,9 @@ namespace Michal.Balador.SimpleMessage
             {
                 return response;
             }
-          
+
             var authenticationManager = GetAuthenticationManager();
-            var token = await authenticationManager.GetToken( sender);
+            var token = await authenticationManager.GetToken(sender);
             if (token == null)
             {
 
@@ -43,29 +43,24 @@ namespace Michal.Balador.SimpleMessage
             }
             else
             {
-                if (canExcute)
+
+                SenderMessagesFactory sendFactory = new SenderMessagesFactory(this.Context);
+                var respndFactory = await sendFactory.ConnectAndLogin(sender.Id, token.Token);
+                if (respndFactory.IsError)
                 {
-                    SenderMessagesFactory sendFactory = new SenderMessagesFactory(this.Context);
-                    var respndFactory = await sendFactory.ConnectAndLogin(sender.Id, token.Token);
-                    if (respndFactory.IsError)
-                    {
-                        response.IsAutorize = true;
-                        response.IsError = true;
-                        response.Message = respndFactory.Message;
+                    response.IsAutorize = true;
+                    response.IsError = true;
+                    response.Message = respndFactory.Message;
 
-                    }
-                    else
-                    {
-                        _test = respndFactory.Result;
-
-                    }
                 }
                 else
                 {
-                    response.IsAutorize = true;
-                    response.IsError = false;
+                    _test = respndFactory.Result;
+
                 }
-                    
+
+
+
             }
             return response;
         }

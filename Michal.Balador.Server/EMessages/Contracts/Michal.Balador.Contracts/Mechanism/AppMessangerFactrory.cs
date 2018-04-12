@@ -120,16 +120,16 @@ namespace Michal.Balador.Contracts.Mechanism
 
         public async Task<ResponseAppMessanger> GetAppMessanger(AccountSend accountSend)
         {
-            ResponseAppMessanger response = await GetSender(accountSend);
-            if (!response.IsError)
+            ResponseAppMessanger response = new ResponseAppMessanger();
+               _authenticationManager = this.GetAuthenticationManager();
+            var token = await _authenticationManager.GetToken(new SignUpSender { Id = accountSend.UserName });
+            if (token == null || String.IsNullOrWhiteSpace(token.Token))
             {
-                _authenticationManager = this.GetAuthenticationManager();
-                var token = await _authenticationManager.GetToken(new SignUpSender { Id = accountSend.Id });
-                if (token == null || String.IsNullOrWhiteSpace(token.Token))
-                {
-                    response.IsAutorize = false;
-                }
+                response.IsAutorize = false;
+                return response;
+
             }
+           response = await GetSender(accountSend);
             return response;
         }
     }
