@@ -20,7 +20,7 @@ namespace Michal.Balador.Contracts.Mechanism
             {
                 foreach (var item in this.Messages)
                 {
-                    log.AppendFormat("{0},{1}", item.Id,  item.Message);
+                    log.AppendFormat("{0},{1}", item.ClientId,  item.Message);
                     log.AppendLine();
                 }
 

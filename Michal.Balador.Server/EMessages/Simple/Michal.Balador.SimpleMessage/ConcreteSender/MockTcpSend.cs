@@ -87,12 +87,12 @@ namespace Michal.Balador.SimpleMessage
                {
                    try
                    {
-                       var message = _test.SendMessage(itemMessage.Id, itemMessage.Message);
-                       res.Result.Add(new ResponseMessage { Id = itemMessage.Id, IsError = false, Message = message + " id=" + itemMessage.Id + " ,Message=" + itemMessage.Message });
+                       var message = _test.SendMessage(itemMessage.ClientId, itemMessage.Message);
+                       res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = false, Message = message + " id=" + itemMessage.ClientId + " ,Message=" + itemMessage.Message });
                    }
                    catch (Exception e)
                    {
-                       res.Result.Add(new ResponseMessage { Id = itemMessage.Id, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
+                       res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
                    }
                }
              );

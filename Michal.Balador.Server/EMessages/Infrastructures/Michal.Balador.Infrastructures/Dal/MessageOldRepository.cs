@@ -30,16 +30,16 @@ namespace Michal.Balador.Server.Dal
             var se2 = new SendRequest { Id = "2", Messages = new List<MessageItem>() };
             var se3 = new SendRequest { Id = "3", Messages = new List<MessageItem>() };
           
-            se1.Messages.Add(new MessageItem { Id = "a", Message = "x" });
-            se1.Messages.Add(new MessageItem { Id = "aa", Message = "xx" });
+            se1.Messages.Add(new MessageItem { ClientId = "a", Message = "x" });
+            se1.Messages.Add(new MessageItem { ClientId = "aa", Message = "xx" });
            
-            se2.Messages.Add(new MessageItem { Id = "b", Message = "q" });
-            se2.Messages.Add(new MessageItem { Id = "bb", Message = "qq" });
+            se2.Messages.Add(new MessageItem { ClientId = "b", Message = "q" });
+            se2.Messages.Add(new MessageItem { ClientId = "bb", Message = "qq" });
         //    se2.Messages.Add(new MessageItem { Id = "bbb", Message = "qqq" });
 
-            se3.Messages.Add(new MessageItem { Id = "c", Message = "m" });
-            se3.Messages.Add(new MessageItem { Id = "cc", Message = "mm" });
-            se3.Messages.Add(new MessageItem { Id = "ccc", Message = "mmm" });
+            se3.Messages.Add(new MessageItem { ClientId = "c", Message = "m" });
+            se3.Messages.Add(new MessageItem { ClientId = "cc", Message = "mm" });
+            se3.Messages.Add(new MessageItem { ClientId = "ccc", Message = "mmm" });
             sendRequests.Add(se1);
             sendRequests.Add(se2);
             sendRequests.Add(se3);

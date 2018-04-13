@@ -11822,3 +11822,37 @@ INFO  2018-04-12 17:41:02,860 18434ms Logger                 Log                
 INFO  2018-04-12 17:41:03,290 18863ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
 INFO  2018-04-12 17:41:03,309 18882ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
 INFO  2018-04-12 17:41:03,739 19312ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:54:51,240 54846814ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:55:16,462 54872035ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:18,151 54933724ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:33,199 54948773ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:33,228 54948801ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:33,721 54949294ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:33,753 54949326ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:34,191 54949765ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:34,211 54949785ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:34,649 54950222ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:34,678 54950251ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 08:56:35,110 54950684ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-13 11:48:36,268  8857ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-13 11:48:36,352  8940ms TaskSendsScheduler     MoveNext           - 11 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.MissingMethodException: Method not found: 'System.String Michal.Balador.Contracts.Mechanism.MessageItem.get_Id()'.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactHttpSimple.<SendMessage>d__1.MoveNext()
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactHttpSimple.SendMessage(MessageItem messageItem)
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61
+INFO  2018-04-13 11:48:36,416  9004ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-13 11:48:36,461  9049ms TaskSendsScheduler     MoveNext           - 12 4b665b2d-e27a-40d1-930e-d34328d74630 System.MissingMethodException: Method not found: 'System.String Michal.Balador.Contracts.Mechanism.MessageItem.get_Id()'.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactHttpSimple.<SendMessage>d__1.MoveNext()
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactHttpSimple.SendMessage(MessageItem messageItem)
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<>c__DisplayClass5_0.<<Run>b__0>d.MoveNext() in C:\Users\lior_gr\Documents\GitHub\balador\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 61

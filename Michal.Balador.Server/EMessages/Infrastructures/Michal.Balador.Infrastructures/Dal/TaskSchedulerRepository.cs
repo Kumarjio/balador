@@ -60,7 +60,7 @@ namespace Michal.Balador.Infrastructures.Dal
                 var query = "exec [dbo].[balador_sp_getContacts] @jobid,@messassnger,@accountid ";
                 parameters.Add(new SqlParameter("@jobid", accountInfo.JobId));
                 parameters.Add(new SqlParameter("@messassnger", accountInfo.Messassnger));
-                parameters.Add(new SqlParameter("@accountid", accountInfo.Id));
+                parameters.Add(new SqlParameter("@accountid", accountInfo.AccountId));
                 if (_unitOfWork.Database.Connection != null)
                 {
                     return await _unitOfWork.Database.SqlQuery<ContactInfo>(query, parameters.ToArray()).ToListAsync();
@@ -85,7 +85,7 @@ namespace Michal.Balador.Infrastructures.Dal
             parameters.Add(new SqlParameter("@jobid", contactInfo.JobId));
             parameters.Add(new SqlParameter("@messassnger", contactInfo.MesssageType));
             parameters.Add(new SqlParameter("@accountid", contactInfo.AccountId));
-            parameters.Add(new SqlParameter("@clientid", contactInfo.Id));
+            parameters.Add(new SqlParameter("@clientid", contactInfo.ClientId));
 
             return await _unitOfWork.Database.SqlQuery<MessageItem>(query, parameters.ToArray()).ToListAsync();
 

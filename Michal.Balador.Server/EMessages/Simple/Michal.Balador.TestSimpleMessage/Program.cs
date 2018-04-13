@@ -19,14 +19,14 @@ namespace Michal.Balador.TestSimpleMessage
                 AccountSend accountInfo = new AccountSend
                 {
                     JobId = Guid.Parse("70117B21-CA0C-44C0-9C5D-3E340BBC3452"),
-                    Id = "1bfa6f8e-0000-0000-0000-b573b2c8f820",
+                    UserId = "1bfa6f8e-0000-0000-0000-b573b2c8f820",
                     Messassnger = "com.baladorPlant$MockHttpSender"
                 };
                 List<object> parameters = new List<object>();
                 var query = "exec [dbo].[balador_sp_getContacts] @jobid,@messassnger,@accountid ; ";
                 parameters.Add(new SqlParameter("@jobid", accountInfo.JobId));
                 parameters.Add(new SqlParameter("@messassnger", accountInfo.Messassnger));
-                parameters.Add(new SqlParameter("@accountid", accountInfo.Id));
+                parameters.Add(new SqlParameter("@accountid", accountInfo.UserId));
                 if (db.Database.Connection != null)
                 {
                  //   db.Database.ExecuteSqlCommand(query, parameters.ToArray());

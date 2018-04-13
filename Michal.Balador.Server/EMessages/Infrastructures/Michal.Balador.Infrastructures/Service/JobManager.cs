@@ -29,7 +29,7 @@ namespace Michal.Balador.Infrastructures.Service
                 {
                     foreach (var jobaccount in jobaccounts)
                     {
-                        if (String.IsNullOrEmpty(jobaccount.Id))
+                        if (String.IsNullOrEmpty(jobaccount.AccountId))
                             continue;
 
                     }

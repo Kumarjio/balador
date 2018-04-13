@@ -9,13 +9,12 @@ namespace Michal.Balador.Contracts.Mechanism
 {
     public class AccountInfo: LogInfo
     {
-        public int ManagedThreadId { get; set; }
-        public string Id { get; set; }
+        
         public string Email { get; set; }
         public string Name { get; set; }
         public string MessagesType { get; set; }
         public string UserName { get; set; }
-        public Guid JobId { get; set; }
+       
     }
 
     public class AccountSend: AccountInfo

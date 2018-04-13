@@ -8,6 +8,10 @@ namespace Michal.Balador.Contracts.DataModel
 {
     public class LogInfo
     {
-        public int spid { get; set; }
+        public string AccountId { get; set; }
+        public int Spid { get; set; }
+        public Guid JobId { get; set; }
+        public int LogThId { get; set; }
+
     }
 }

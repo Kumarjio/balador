@@ -20,12 +20,12 @@ namespace Michal.Balador.SimpleMessage.ConcreteContact
             var _test = convert.HttpClientTest;
             try
             {
-                var message = await _test.SendMessage($"Id={messageItem.Id},Message={messageItem.Message}");
-                return new ResponseMessage { Id = messageItem.Id, IsError = false, Message = message + " id=" + messageItem.Id + " ,Message=" + messageItem.Message };
+                var message = await _test.SendMessage($"Id={messageItem.ClientId},Message={messageItem.Message}");
+                return new ResponseMessage { ClientId = messageItem.ClientId, IsError = false, Message = message + " id=" + messageItem.ClientId + " ,Message=" + messageItem.Message };
             }
             catch (Exception e)
             {
-                return new ResponseMessage { Id = messageItem.Id, IsError = true, ErrMessage = e.ToString(), Message = messageItem.Message };
+                return new ResponseMessage { ClientId = messageItem.ClientId, IsError = true, ErrMessage = e.ToString(), Message = messageItem.Message };
             }
         }
     }

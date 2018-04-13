@@ -45,7 +45,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
                 {
                     Lazy<IAppMessangerFactrory> _utah = _senderRules.Where(s => (string)s.Metadata[ConstVariable.MESSAGE_TYPE] == rs.MessaggerShrotName).FirstOrDefault();
 
-                    rs.ManagedThreadId = Thread.CurrentThread.ManagedThreadId;
+                    rs.LogThId = Thread.CurrentThread.ManagedThreadId;
                     if (_utah == null || _utah.Value == null)
                         return;
                     var appMessangerFactrory = _utah.Value;
@@ -63,7 +63,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
                             }
                             else
                             {
-                                var mes = rs.ManagedThreadId + " " + rs.Id + " " + sender.Message;
+                                var mes = rs.LogThId + " " + rs.AccountId + " " + sender.Message;
                                 resultError.Add(new ResponseSend { IsError = true, Message = mes });
                                 Log.Error(mes);
                             }
@@ -71,7 +71,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
                         catch (Exception ee)
                         {
                             resultError.Add(new ResponseSend { IsError = true, Message = ee.Message });
-                            Log.Error(rs.ManagedThreadId + " " + rs.Id + " " + ee);
+                            Log.Error(rs.LogThId + " " + rs.AccountId + " " + ee);
                         }
                         finally
                         {
@@ -86,7 +86,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
 
                 foreach (var task_job in tasks_job)
                 {
-                    if (String.IsNullOrEmpty(task_job.Id))
+                    if (String.IsNullOrEmpty(task_job.AccountId))
                         continue;
                     if (jobid == Guid.Empty)
                         jobid = task_job.JobId;
@@ -100,14 +100,14 @@ namespace Michal.Balador.Infrastructures.Mechanism
                         accountsenders.Add(new AccountSend
                         {
                             Email = task_job.Email,
-                            Id = task_job.Id,
+                            AccountId = task_job.AccountId,
                             MessagesType = task_job.MessagesType,
                             Messassnger = messassnger,
                             MessaggerShrotName = messaggerShrotName,
                             Name = task_job.Name,
                             UserName = task_job.UserName,
                             JobId = task_job.JobId,
-                            spid= task_job.spid
+                            Spid= task_job.Spid
                         });
 
                     }

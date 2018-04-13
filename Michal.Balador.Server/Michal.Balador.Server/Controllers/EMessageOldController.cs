@@ -61,7 +61,7 @@ namespace Michal.Balador.Server.Controllers
                                 {
                                     foreach (var messageWebHookClient in iexposeResult.NotificationResult.Messages)
                                     {
-                                        var messageToChange = requestToSend.Messages.Where(p => p.Id == messageWebHookClient.Id).FirstOrDefault();
+                                        var messageToChange = requestToSend.Messages.Where(p => p.ClientId == messageWebHookClient.ClientId).FirstOrDefault();
                                         if (messageToChange != null)
                                           messageToChange.Message = messageWebHookClient.Message; 
                                     }

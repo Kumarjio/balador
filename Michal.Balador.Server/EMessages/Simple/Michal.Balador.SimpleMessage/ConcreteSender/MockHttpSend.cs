@@ -47,11 +47,11 @@ namespace Michal.Balador.SimpleMessage
                   try
                   {
                      var message=   await _test.SendMessage(request.ToString());
-                      res.Result.Add(new ResponseMessage { Id = itemMessage.Id, IsError = false, Message = message +" id="+ itemMessage.Id+ " ,Message=" + itemMessage.Message });
+                      res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = false, Message = message +" id="+ itemMessage.ClientId+ " ,Message=" + itemMessage.Message });
                   }
                   catch (Exception e)
                   {
-                      res.Result.Add(new ResponseMessage { Id = itemMessage.Id, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
+                      res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
                   }
         }
             return await Task.FromResult(res);
