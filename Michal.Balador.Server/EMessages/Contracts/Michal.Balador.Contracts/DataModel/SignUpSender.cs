@@ -8,7 +8,7 @@ namespace Michal.Balador.Contracts.Mechanism
 {
     public class SignUpSender
     {
-        public string Id { get; set; }//phone 
+        public string UserName { get; set; }//phone 
         public string Email { get; set; }//for notify message
         public string FirstName { get; set; }
         public string LastName { get; set; }

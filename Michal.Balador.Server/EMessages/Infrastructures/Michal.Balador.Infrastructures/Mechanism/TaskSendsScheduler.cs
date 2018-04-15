@@ -33,9 +33,144 @@ namespace Michal.Balador.Infrastructures.Mechanism
         public void Dispose()
         {
             _taskService.Dispose();
+
+            if (_senderRules != null)
+            {
+                foreach (var _senderRule in _senderRules)
+                {
+                    if (_senderRule.IsValueCreated && _senderRule.Value != null)
+                    {
+                        _senderRule.Value.Dispose();
+                    }
+                }
+            }
         }
 
         public async Task<ConcurrentBag<ResponseSend>> Run()
+        {
+            ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
+            Guid jobid = Guid.Empty;
+            try
+            {
+                var jobRunHandler = GetJobRun();
+
+                List<AccountSend> accountsenders =await GetAccountsAppMessagers();
+
+                RequestJob job = new RequestJob();
+                foreach (var item in accountsenders)
+                {
+                    job = new RequestJob {AccountSend=item,Retry=resultError };
+                    jobRunHandler.Post(job);
+                }
+                jobRunHandler.Complete();
+                await jobRunHandler.Completion;
+
+                await _taskService.TaskSchedulerRepository.Complete(jobid);
+
+                
+            }
+            catch (Exception e)
+            {
+
+                //resultError.IsError = true;
+                //   resultError.Message = e.Message;
+            }
+            finally
+            {
+               
+            }
+           
+            return resultError;
+
+
+        }
+
+        
+        private async Task<List<AccountSend>> GetAccountsAppMessagers()
+        {
+            Guid jobid = Guid.Empty;
+            var tasks_job=await _taskService.TaskSchedulerRepository.GetAccountsJob();
+            List<AccountSend> accountsenders = new List<AccountSend>();
+
+            foreach (var task_job in tasks_job)
+            {
+                if (String.IsNullOrEmpty(task_job.AccountId))
+                    continue;
+                if (jobid == Guid.Empty)
+                    jobid = task_job.JobId;
+
+                var messaggerShrotName = "";
+
+                var messangers = task_job.MessagesType.Split(',');
+                foreach (var messassnger in messangers)
+                {
+                    messaggerShrotName = messassnger.GetMessaggerShrotName();
+                    accountsenders.Add(new AccountSend
+                    {
+                        Email = task_job.Email,
+                        AccountId = task_job.AccountId,
+                        MessagesType = task_job.MessagesType,
+                        Messassnger = messassnger,
+                        MessaggerShrotName = messaggerShrotName,
+                        Name = task_job.Name,
+                        UserName = task_job.UserName,
+                        JobId = task_job.JobId,
+                        Spid = task_job.Spid
+                    });
+
+                }
+            }
+            return accountsenders;
+        }
+
+        private ActionBlock<RequestJob> GetJobRun()
+        {
+            var getJobRun = new ActionBlock<RequestJob>(async rj =>
+            {
+                var rs = rj.AccountSend;
+                var resultError = rj.Retry;
+                Lazy<IAppMessangerFactrory> _utah = _senderRules.Where(s => (string)s.Metadata[ConstVariable.MESSAGE_TYPE] == rs.MessaggerShrotName).FirstOrDefault();
+
+                rs.LogThId = Thread.CurrentThread.ManagedThreadId;
+                if (_utah == null || _utah.Value == null)
+                    return;
+                var appMessangerFactrory = _utah.Value;
+                //using (var appMessangerFactrory = _utah.Value)
+                {
+                    AppMessanger appMessanger = null;
+                    var sender = await _utah.Value.GetAppMessanger(rs);
+                    try
+                    {
+                        if (!sender.IsError && sender.IsAutorize)
+                        {
+                            appMessanger = sender.Result;
+                            var requestToSend = await appMessanger.SendAsync(rs);
+
+                        }
+                        else
+                        {
+                            var mes = rs.LogThId + " " + rs.AccountId + " " + sender.Message;
+                            resultError.Add(new ResponseSend { IsError = true, Message = mes });
+                            Log.Error(mes);
+                        }
+                    }
+                    catch (Exception ee)
+                    {
+                        resultError.Add(new ResponseSend { IsError = true, Message = ee.Message });
+                        Log.Error(rs.LogThId + " " + rs.AccountId + " " + ee);
+                    }
+                    finally
+                    {
+                        if (sender != null && appMessanger != null)
+                            appMessanger.Dispose();
+                    }
+                }
+            });
+            return getJobRun;
+        }
+
+
+        public async Task<ConcurrentBag<ResponseSend>> RunOld()
         {
             ConcurrentBag<ResponseSend> resultError = new ConcurrentBag<ResponseSend>();
             Guid jobid = Guid.Empty;
@@ -107,7 +242,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
                             Name = task_job.Name,
                             UserName = task_job.UserName,
                             JobId = task_job.JobId,
-                            Spid= task_job.Spid
+                            Spid = task_job.Spid
                         });
 
                     }
@@ -121,7 +256,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
 
                 await _taskService.TaskSchedulerRepository.Complete(jobid);
 
-                
+
             }
             catch (Exception e)
             {
@@ -139,7 +274,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
                     }
                 }
             }
-           
+
             return resultError;
 
 

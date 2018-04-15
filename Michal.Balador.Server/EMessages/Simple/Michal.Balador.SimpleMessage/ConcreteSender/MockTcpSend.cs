@@ -45,7 +45,7 @@ namespace Michal.Balador.SimpleMessage
             {
                 response.IsAutorize = true;
                 SenderMessagesFactory sendFactory = new SenderMessagesFactory(this.Context);
-                var respndFactory = await sendFactory.ConnectAndLogin(sender.Id, token.Token);
+                var respndFactory = await sendFactory.ConnectAndLogin(sender.UserName, token.Token);
                 if (respndFactory.IsError)
                 {
                     response.IsAutorize = true;

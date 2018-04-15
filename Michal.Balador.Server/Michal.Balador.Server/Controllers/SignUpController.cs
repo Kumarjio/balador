@@ -138,7 +138,7 @@ namespace Michal.Balador.Server.Controllers
                     {
 
 
-                        var configuration = await authenticationManager.Register(new SignUpSender { Id = User.Identity.Name });
+                        var configuration = await authenticationManager.Register(new SignUpSender { UserName = User.Identity.Name });
 
                         authentications.Add(new FormSignThirdPartyToken
                         {
@@ -188,7 +188,7 @@ namespace Michal.Balador.Server.Controllers
                     var authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager.ServiceName == id)
                     {
-                        responseResult = await authenticationManager.SignIn(new SignUpSender { Id = User.Identity.Name }, formData);
+                        responseResult = await authenticationManager.SignIn(new SignUpSender { UserName = User.Identity.Name }, formData);
                         break;
                     }
                 }
@@ -223,7 +223,7 @@ namespace Michal.Balador.Server.Controllers
                     var authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager.ServiceName == id)
                     {
-                        responseResult = await authenticationManager.UnRegister(new SignUpSender { Id = User.Identity.Name });
+                        responseResult = await authenticationManager.UnRegister(new SignUpSender { UserName = User.Identity.Name });
                         break;
                     }
                 }
@@ -261,7 +261,7 @@ namespace Michal.Balador.Server.Controllers
                     var authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager.ServiceName == id)
                     {
-                        responseResult = await authenticationManager.SetObservableToken(new SignUpSender { Id = User.Identity.Name }, new BToken { Token = token });
+                        responseResult = await authenticationManager.SetObservableToken(new SignUpSender { UserName = User.Identity.Name }, new BToken { Token = token });
                         break;
                     }
                 }

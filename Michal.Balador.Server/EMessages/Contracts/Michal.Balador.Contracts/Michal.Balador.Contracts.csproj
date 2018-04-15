@@ -75,6 +75,7 @@
     <Compile Include="DataModel\MessageItem.cs" />
     <Compile Include="DataModel\NotificationManager.cs" />
     <Compile Include="DataModel\RegisterSender.cs" />
+    <Compile Include="DataModel\RequestJob.cs" />
     <Compile Include="DataModel\Response.cs" />
     <Compile Include="DataModel\ResponseBase.cs" />
     <Compile Include="DataModel\ResponseMessage.cs" />

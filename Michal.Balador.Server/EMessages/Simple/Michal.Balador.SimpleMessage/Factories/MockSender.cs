@@ -36,7 +36,7 @@ namespace Michal.Balador.SimpleMessage
             try
             {
                 var mockSend = new MockTcpSend(Context,this);
-                response =await mockSend.SetSocketClient(new SignUpSender { Id= register.Id},register.CanExcute);
+                response =await mockSend.SetSocketClient(new SignUpSender { UserName= register.Id},register.CanExcute);
                 return response;
             }
             catch (Exception e)
@@ -53,7 +53,7 @@ namespace Michal.Balador.SimpleMessage
             try
             {
                 var mockSend = new MockTcpSend(Context, this);
-                response = await mockSend.SetSocketClient(new SignUpSender { Id = accountSend.UserName }, true);
+                response = await mockSend.SetSocketClient(new SignUpSender { UserName = accountSend.UserName }, true);
                 return response;
             }
             catch (Exception e)

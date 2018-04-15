@@ -41,16 +41,16 @@ namespace Michal.Balador.SimpleMessage
       
         public override async Task<ResponseBase> SetObservableToken(SignUpSender signUpSender, BToken token)
         {
-            var config = await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, signUpSender.Id);
+            var config = await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, signUpSender.UserName);
             config.Token = token.Token;
-            var result=await this.Context.SetConfiguration(this.Provider.ServiceName, signUpSender.Id, config);
+            var result=await this.Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserName, config);
 
             return result;
         }
 
         public override async Task<BToken> GetToken(SignUpSender signUpSender)
         {
-            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(Provider.ServiceName, signUpSender.Id);
+            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(Provider.ServiceName, signUpSender.UserName);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
                 return config;
@@ -71,7 +71,7 @@ namespace Michal.Balador.SimpleMessage
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "pws", Title = "write password" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "client_id", Title = "client" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "grant_type", Title = "grant type" });
-            var config = await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, signUpSender.Id);
+            var config = await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, signUpSender.UserName);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
                 senderLandPageConfiguration.IsAlreadyRegister = true;
@@ -83,7 +83,7 @@ namespace Michal.Balador.SimpleMessage
         public override async Task<Response<AuthenticationUser>> SignIn(SignUpSender senderDetail, NameValueCollection extraDataForm)
         {
             var response = new Response<AuthenticationUser>();
-            response.Result = new AuthenticationUser { IsTwoFactorAuthentication = true, UserId = senderDetail.Id };
+            response.Result = new AuthenticationUser { IsTwoFactorAuthentication = true, UserId = senderDetail.UserName };
             response.IsError = true;
             var url = "http://localhost:8988/token";
             var httpClient = new HttpClient();
@@ -96,7 +96,7 @@ namespace Michal.Balador.SimpleMessage
             var grant_type = extraDataForm["grant_type"];
             var client_id = extraDataForm["client_id"];
             
-            dict.Add("username", senderDetail.Id);
+            dict.Add("username", senderDetail.UserName);
             dict.Add("password", pws);
             dict.Add("client_id", client_id);
             dict.Add("grant_type", grant_type);
@@ -112,7 +112,7 @@ namespace Michal.Balador.SimpleMessage
                 Context.GetLogger().Log(System.Diagnostics.TraceLevel.Verbose, stringRes);
                 if(d!=null )
                 {
-                    await Context.SetConfiguration(this.Provider.ServiceName, senderDetail.Id, new ConfigHttp { UserId= senderDetail.Id,RefreshToken=d.refresh_token,  Token = d.access_token });
+                    await Context.SetConfiguration(this.Provider.ServiceName, senderDetail.UserName, new ConfigHttp { UserId= senderDetail.UserName,RefreshToken=d.refresh_token,  Token = d.access_token });
                 }
                 //
             } 
@@ -125,10 +125,10 @@ namespace Michal.Balador.SimpleMessage
         {
             ResponseBase response = new ResponseBase();
             response.Message = "unregister done";
-            var config = await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, signUpSender.Id);
+            var config = await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, signUpSender.UserName);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
-                await Context.SetConfiguration(this.Provider.ServiceName, signUpSender.Id, new ConfigHttp());
+                await Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserName, new ConfigHttp());
 
             }
             return response;

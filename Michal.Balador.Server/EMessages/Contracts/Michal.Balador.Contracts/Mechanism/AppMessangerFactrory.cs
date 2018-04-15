@@ -64,7 +64,7 @@ namespace Michal.Balador.Contracts.Mechanism
             if (!response.IsError)
             {
                 _authenticationManager = this.GetAuthenticationManager();
-                var token = await _authenticationManager.GetToken(new SignUpSender { Id = register.Id });
+                var token = await _authenticationManager.GetToken(new SignUpSender { UserName = register.Id });
                 if (token == null || String.IsNullOrWhiteSpace(token.Token))
                 {
                     response.IsAutorize = false;
@@ -116,7 +116,7 @@ namespace Michal.Balador.Contracts.Mechanism
         {
             ResponseAppMessanger response = new ResponseAppMessanger{ IsAutorize=true};
                _authenticationManager = this.GetAuthenticationManager();
-            var token = await _authenticationManager.GetToken(new SignUpSender { Id = accountSend.UserName });
+            var token = await _authenticationManager.GetToken(new SignUpSender { UserName = accountSend.UserName });
             if (token == null || String.IsNullOrWhiteSpace(token.Token))
             {
                 response.IsAutorize = false;
