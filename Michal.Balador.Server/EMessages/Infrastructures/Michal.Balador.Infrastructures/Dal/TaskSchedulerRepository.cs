@@ -66,12 +66,10 @@ namespace Michal.Balador.Infrastructures.Dal
                     return await _unitOfWork.Database.SqlQuery<ContactInfo>(query, parameters.ToArray()).ToListAsync();
                 }
                 return null;
-              
             } 
 
             catch (Exception ee)
             {
-
                 throw ee;
             }
            

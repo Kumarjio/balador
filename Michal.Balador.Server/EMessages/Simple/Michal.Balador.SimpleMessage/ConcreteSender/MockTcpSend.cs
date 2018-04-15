@@ -51,16 +51,11 @@ namespace Michal.Balador.SimpleMessage
                     response.IsAutorize = true;
                     response.IsError = true;
                     response.Message = respndFactory.Message;
-
                 }
                 else
                 {
                     _test = respndFactory.Result;
-
                 }
-
-
-
             }
             return response;
         }

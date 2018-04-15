@@ -65,7 +65,7 @@ namespace Michal.Balador.Infrastructures.Mechanism
                 jobRunHandler.Complete();
                 await jobRunHandler.Completion;
 
-                await _taskService.TaskSchedulerRepository.Complete(jobid);
+                await _taskService.TaskSchedulerRepository.Complete(_jobid);
 
                 
             }
@@ -84,11 +84,11 @@ namespace Michal.Balador.Infrastructures.Mechanism
 
 
         }
+        Guid _jobid = Guid.Empty;
 
-        
         private async Task<List<AccountSend>> GetAccountsAppMessagers()
         {
-            Guid jobid = Guid.Empty;
+           
             var tasks_job=await _taskService.TaskSchedulerRepository.GetAccountsJob();
             List<AccountSend> accountsenders = new List<AccountSend>();
 
@@ -96,8 +96,8 @@ namespace Michal.Balador.Infrastructures.Mechanism
             {
                 if (String.IsNullOrEmpty(task_job.AccountId))
                     continue;
-                if (jobid == Guid.Empty)
-                    jobid = task_job.JobId;
+                if (_jobid == Guid.Empty)
+                    _jobid = task_job.JobId;
 
                 var messaggerShrotName = "";
 

@@ -12306,3 +12306,190 @@ ERROR 2018-04-15 11:31:43,310 1393026ms TaskSendsScheduler     MoveNext         
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
    at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__7_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+ERROR 2018-04-15 11:34:30,302 1560018ms TaskSendsScheduler     MoveNext           - 40 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.Data.SqlClient.SqlException (0x80131904): The parameterized query '(@jobid uniqueidentifier,@messassnger nvarchar(31),@accountid nv' expects the parameter '@clientid', which was not supplied.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__167_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetMessagesContact>d__4.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 90
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 39
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__7_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+ClientConnectionId:8359a7f1-b196-4a76-8667-468a71698e02
+Error Number:8178,State:1,Class:16
+ERROR 2018-04-15 11:34:30,514 1560230ms TaskSendsScheduler     MoveNext           - 36 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.NotImplementedException: The method or operation is not implemented.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactTcpSimple.Init() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteContact\ContactTcpSimple.cs:line 18
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<LoadContactsManager>d__12.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 101
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__7_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+ERROR 2018-04-15 11:34:30,543 1560259ms TaskSendsScheduler     MoveNext           - 31 8dd0f376-a4e3-4c98-9b80-7c9459049a06 System.Data.SqlClient.SqlException (0x80131904): The parameterized query '(@jobid uniqueidentifier,@messassnger nvarchar(31),@accountid nv' expects the parameter '@clientid', which was not supplied.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__167_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryInternalAsync>d__73`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteStoreQueryReliablyAsync>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Dal.TaskSchedulerRepository.<GetMessagesContact>d__4.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Dal\TaskSchedulerRepository.cs:line 90
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 39
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__7_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+ClientConnectionId:8359a7f1-b196-4a76-8667-468a71698e02
+Error Number:8178,State:1,Class:16
+ERROR 2018-04-15 11:34:30,562 1560278ms TaskSendsScheduler     MoveNext           - 31 8dd0f376-a4e3-4c98-9b80-7c9459049a06 System.NotImplementedException: The method or operation is not implemented.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactTcpSimple.Init() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteContact\ContactTcpSimple.cs:line 18
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<LoadContactsManager>d__12.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 101
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__7_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+INFO  2018-04-15 11:36:56,296 1706012ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 11:37:11,823 1721539ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 11:37:25,710 1735426ms TaskSendsScheduler     MoveNext           - 36 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.NotImplementedException: The method or operation is not implemented.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactTcpSimple.Init() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteContact\ContactTcpSimple.cs:line 18
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<LoadContactsManager>d__12.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 101
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__7_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+INFO  2018-04-15 11:37:32,954 1742670ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 11:37:36,057 1745773ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 11:37:43,507 1753223ms TaskSendsScheduler     MoveNext           - 56 8dd0f376-a4e3-4c98-9b80-7c9459049a06 System.NotImplementedException: The method or operation is not implemented.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactTcpSimple.Init() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteContact\ContactTcpSimple.cs:line 18
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<LoadContactsManager>d__12.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 101
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__7_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+INFO  2018-04-15 11:39:05,674 1835390ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 11:39:06,088 1835804ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 11:39:06,100 1835816ms TaskSendsScheduler     MoveNext           - 8 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.NotImplementedException: The method or operation is not implemented.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactTcpSimple.Init() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteContact\ContactTcpSimple.cs:line 18
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<LoadContactsManager>d__12.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 101
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__7_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+INFO  2018-04-15 11:39:06,114 1835830ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 11:39:06,529 1836245ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 11:39:06,542 1836258ms TaskSendsScheduler     MoveNext           - 8 8dd0f376-a4e3-4c98-9b80-7c9459049a06 System.NotImplementedException: The method or operation is not implemented.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactTcpSimple.Init() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteContact\ContactTcpSimple.cs:line 18
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<LoadContactsManager>d__12.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 101
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__7_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+INFO  2018-04-15 11:41:58,543 66885ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 11:42:13,533 81875ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 11:42:51,682 120024ms TaskSendsScheduler     MoveNext           - 27 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+INFO  2018-04-15 11:43:11,719 140061ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 11:43:18,663 147005ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
