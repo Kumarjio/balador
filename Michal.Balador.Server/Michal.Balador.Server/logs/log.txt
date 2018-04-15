@@ -11864,3 +11864,5 @@ INFO  2018-04-15 10:43:49,696 55000ms Logger                 Log                
 INFO  2018-04-15 10:43:55,245 60549ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp
 INFO  2018-04-15 10:43:56,618 61922ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-15 10:44:02,653 67957ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+ERROR 2018-04-15 11:05:15,203 579314ms TaskSendsScheduler     MoveNext           - 24 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2018-04-15 11:05:16,248 580359ms TaskSendsScheduler     MoveNext           - 30 8dd0f376-a4e3-4c98-9b80-7c9459049a06 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
