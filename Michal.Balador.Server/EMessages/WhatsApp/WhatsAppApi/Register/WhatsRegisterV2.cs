@@ -24,7 +24,11 @@ namespace WhatsAppApi.Register
             return WaToken.GenerateTokenAndroid(number);
             // return WaToken.GenerateToken(number);
         }
-
+        public static string GetTokenNokia(string number)
+        {
+            return WaToken.GenerateTokenNokia(number);
+            // return WaToken.GenerateToken(number);
+        }
         public static bool RequestCode(string phoneNumber, out string password, string method = "sms", string id = null)
         {
             string response = string.Empty;
@@ -98,6 +102,71 @@ namespace WhatsAppApi.Register
                 return false;
             }
         }
+
+
+        public static bool RequestCodeNokia(string phoneNumber, out string password, out string request, out string response, string method = "sms", string id = null)
+        {
+            response = null;
+            password = null;
+            request = null;
+            try
+            {
+                if (string.IsNullOrEmpty(id))
+                {
+                    //auto-generate
+                    id = GenerateIdentity(phoneNumber);
+                }
+                PhoneNumber pn = new PhoneNumber(phoneNumber);
+                string token = System.Uri.EscapeDataString(WhatsRegisterV2.GetTokenNokia(pn.Number));
+
+                byte[] sha256bytes = new byte[20]; new Random().NextBytes(sha256bytes);
+                NameValueCollection QueryStringParameters = new NameValueCollection();
+                QueryStringParameters.Add("cc", pn.CC);
+                QueryStringParameters.Add("in", pn.Number);
+                QueryStringParameters.Add("lg", pn.ISO639);
+                QueryStringParameters.Add("lc", pn.ISO3166);
+                QueryStringParameters.Add("id", id);
+                QueryStringParameters.Add("token", token);
+                QueryStringParameters.Add("mistyped", "6");
+                QueryStringParameters.Add("network_radio_type", "1");
+                QueryStringParameters.Add("simnum", "1");
+                QueryStringParameters.Add("s", "");
+                QueryStringParameters.Add("copiedrc", "1");
+                QueryStringParameters.Add("hasinrc", "1");
+                QueryStringParameters.Add("rcmatch", "1");
+                QueryStringParameters.Add("pid", new Random().Next(100, 9999).ToString());
+                QueryStringParameters.Add("rchash", BitConverter.ToString(HashAlgorithm.Create("sha256").ComputeHash(sha256bytes)));
+                QueryStringParameters.Add("anhash", BitConverter.ToString(HashAlgorithm.Create("md5").ComputeHash(sha256bytes)));
+                QueryStringParameters.Add("extexist", "1");
+                QueryStringParameters.Add("extstate", "1");
+                QueryStringParameters.Add("mcc", pn.MCC);
+                QueryStringParameters.Add("mnc", pn.MNC);
+                QueryStringParameters.Add("sim_mcc", pn.MCC);
+                QueryStringParameters.Add("sim_mnc", pn.MNC);
+                QueryStringParameters.Add("method", method);
+
+                NameValueCollection RequestHttpHeaders = new NameValueCollection();
+                var userAgent = "WhatsApp/2.16.11 S40Version/14.26 Device/Nokia302";
+                RequestHttpHeaders.Add("User-Agent", userAgent);
+                RequestHttpHeaders.Add("Accept", "text/json");
+
+                response = GetResponse("https://v.whatsapp.net/v2/code", QueryStringParameters, RequestHttpHeaders);
+                // request = String.Format("https://v.whatsapp.net/v2/code?method={0}&in={1}&cc={2}&id={3}&lg={4}&lc={5}&token={6}&sim_mcc=000&sim_mnc=000", method, pn.Number, pn.CC, id, pn.ISO639, pn.ISO3166, token, pn.MCC, pn.MNC);
+                // response = GetResponse(request);
+                password = response.GetJsonValue("pw");
+                if (!string.IsNullOrEmpty(password))
+                {
+                    return true;
+                }
+                return (response.GetJsonValue("status") == "sent");
+            }
+            catch (Exception e)
+             {
+                response = e.Message;
+                return false;
+            }
+        }
+
 
         public static string RegisterCode(string phoneNumber, string code, string id = null)
         {

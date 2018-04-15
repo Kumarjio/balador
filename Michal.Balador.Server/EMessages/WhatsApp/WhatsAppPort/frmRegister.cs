@@ -40,9 +40,15 @@ namespace WhatsAppPort
                 this.number =  this.txtPhoneNumber.Text;
                 this.cc = this.number.Substring(0, 2);
                 this.phone = this.number.Substring(2);
-                if (WhatsAppApi.Register.WhatsRegisterV2.RequestCode(this.number, out this.password, method))
-                {
-                    if (!string.IsNullOrEmpty(this.password))
+
+                string request , resp;
+               if (WhatsAppApi.Register.WhatsRegisterV2.RequestCode(this.number, out this.password, method))
+               {
+               // if (WhatsAppApi.Register.WhatsRegisterV2.RequestCodeNokia(this.number, out this.password,out request,out resp, method))
+                   // {
+
+
+                        if (!string.IsNullOrEmpty(this.password))
                     {
                         //password received
                         this.OnReceivePassword();

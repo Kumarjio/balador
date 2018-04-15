@@ -50,7 +50,7 @@ namespace Michal.Balador.SimpleMessage
 
         public override async Task<BToken> GetToken(SignUpSender signUpSender)
         {
-            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(Provider.ServiceName, signUpSender.UserName);
+            var config = await Context.GetConfiguration<ConfigHttp>(Provider.ServiceName, signUpSender.UserName);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
                 return config;

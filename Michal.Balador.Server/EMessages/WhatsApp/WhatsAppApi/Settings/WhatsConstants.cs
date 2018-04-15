@@ -39,7 +39,8 @@ namespace WhatsAppApi.Settings
 		//public const string WhatsAppVer = "2.13.21";
         //public const string WhatsAppVer = "2.12.440";
         //public const string WhatsAppVer = "2.12.556";
-        public const string WhatsAppVer = "2.17.242";
+       // public const string WhatsAppVer = "2.17.242";
+        public const string WhatsAppVer = "2.17.426";
         /// <summary>
         /// The port that needs to be connected to
         /// </summary>
@@ -67,7 +68,22 @@ namespace WhatsAppApi.Settings
 		//public const string UserAgent = "WhatsApp/2.13.21 S40Version/14.26 Device/Nokia302";
         //public const string UserAgent = "WhatsApp/2.12.440 Android/4.3 Device/Xiaomi-HM_1SW";
         //public const string UserAgent = "WhatsApp/2.12.556 Android/4.3 Device/Xiaomi-HM_1SW";
-        public const string UserAgent = "WhatsApp/2.17.242 Android/4.3 Device/Xiaomi-HM_1SW";
+       // public const string UserAgent = "WhatsApp/2.17.242 Android/4.3 Device/Xiaomi-HM_1SW";
+        public const string UserAgent = "WhatsApp/2.17.426 Android/4.3 Device/Xiaomi-HM_1SW";
+        /*
+         * https://github.com/tgalal/yowsup/issues/2350
+         @manelmolina
+This method worked for me, but has ceased to work yesterday.
+
+_MD5_CLASSES = "OyTf9XK7xoJkKIxLgY6/Lw=="
+_VERSION = "2.17.426"
+
+_VERSION = "2.16.12"
+
+DEFAULT = "android"
+    
+         */
+
 
         #endregion
 

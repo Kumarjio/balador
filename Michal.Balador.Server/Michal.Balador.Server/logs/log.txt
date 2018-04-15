@@ -12554,3 +12554,31 @@ INFO  2018-04-15 12:44:03,563 331187ms Logger                 Log               
 INFO  2018-04-15 12:44:03,972 331596ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
 INFO  2018-04-15 12:44:03,983 331607ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
 INFO  2018-04-15 12:44:03,989 331613ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:49:33,760 661383ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:49:34,194 661817ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 12:49:35,223 662847ms TaskSendsScheduler     MoveNext           - 24 1bfa6f8e-0000-0000-0000-b573b2c8f820 No connection could be made because the target machine actively refused it 127.0.0.1:5150
+INFO  2018-04-15 12:49:35,235 662858ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:49:35,643 663267ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 12:49:36,652 664276ms TaskSendsScheduler     MoveNext           - 7 8dd0f376-a4e3-4c98-9b80-7c9459049a06 No connection could be made because the target machine actively refused it 127.0.0.1:5150
+INFO  2018-04-15 12:50:18,118 705742ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:50:18,531 706155ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:50:18,545 706169ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:50:18,550 706174ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:50:18,559 706183ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:50:18,969 706593ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:50:18,982 706606ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:50:18,987 706611ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:09:44,866 1872490ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:10:18,047 1905671ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:11:07,418 1955041ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:11:17,453 1965077ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:11:41,589 1989213ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:11:46,952 1994576ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:12:07,465 2015089ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:12:15,288 2022911ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:12:51,719 2059343ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 13:13:39,444 2107068ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 14:24:45,453 25776ms Logger                 Log                - Michal.Balador.Whatsup.Config.ConfigWhatsApp
+INFO  2018-04-15 14:24:51,256 31579ms Logger                 Log                - Michal.Balador.Whatsup.Config.ConfigWhatsApp
+INFO  2018-04-15 14:27:35,902 196225ms Logger                 Log                - Michal.Balador.Whatsup.Config.ConfigWhatsApp
+INFO  2018-04-15 14:39:55,692 102262ms Logger                 Log                - Michal.Balador.Whatsup.Config.ConfigWhatsApp

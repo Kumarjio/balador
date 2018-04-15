@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
+    <Folder Include="ConcreteContact\" />
     <Folder Include="ConcreteSender\" />
     <Folder Include="Config\" />
     <Folder Include="Contact\" />
