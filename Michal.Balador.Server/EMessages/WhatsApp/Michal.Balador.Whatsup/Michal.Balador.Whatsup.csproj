@@ -46,7 +46,7 @@
     <Compile Include="Authentication\WhatsAppAuthentication.cs" />
     <Compile Include="ConcreteContact\WhatsAppContactManager.cs" />
     <Compile Include="ConcreteSender\WhatsAppMessanger.cs" />
-    <Compile Include="Config\ConfigHttp.cs" />
+    <Compile Include="Config\ConfigWhatsApp.cs" />
     <Compile Include="Factories\WhatsAppMessangerFactrory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

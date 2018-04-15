@@ -43,7 +43,7 @@ namespace Michal.Balador.Contracts.Mechanism
                 return _provider.ServiceName;
             }
         }
-        public abstract Task<BToken> GetToken( SignUpSender signUpSender);
+        public abstract Task<BToken> GetToken(SignUpSender signUpSender);
 
 
         //step 1 after set signup sender register page or email
