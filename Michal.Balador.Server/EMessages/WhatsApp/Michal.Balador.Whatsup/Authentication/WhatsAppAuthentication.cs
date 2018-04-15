@@ -73,6 +73,7 @@ namespace Michal.Balador.Whatsup.Authentication
             };
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "phone", Title = "phone" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "method", Title = "method sms" });
+            
             var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserName);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Michal.Balador.Contracts.Contract;
 
 namespace Michal.Balador.Contracts.Mechanism
 {
     public class FieldView
     {
+        public string FieldViewType { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
     }
@@ -32,6 +34,14 @@ namespace Michal.Balador.Contracts.Mechanism
         public List<FieldView> ExtraFields { get; set; }//fieldname,title
         public bool IsAlreadyRegister { get; set; }
         public bool TwoFactorAuthentication { get; set; }
+        public string AcceptTemplate { get; set; }
+
+        public SenderLandPageConfiguration AddAcceptable(SenderLandPageConfiguration config,string acceptTemplate)
+        {
+            AcceptTemplate = acceptTemplate;
+            ExtraFields.Add(new FieldView { FieldViewType = typeof(bool).Name, Name = ConstVariable.CHECKBOX_Accept, Title = "" });
+            return config;
+        }
 
     }
 }
