@@ -36,14 +36,11 @@ namespace Michal.Balador.Infrastructures.Service
 
             if (GetConfigFile(id, out pat))
             {
-                //var dataProtected = DataSecurity.GetDataProtector();
                 account = await GetDataConfig(pat);
                 if (account.ContainsKey(key))
                 {
                     var data = account[key];
                     return DeserializeObject<T>(data);
-                    //var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
-                    //return JsonConvert.DeserializeObject<T>(unProtectedData);
                 }
             }
             return await Task.FromResult(default(T));

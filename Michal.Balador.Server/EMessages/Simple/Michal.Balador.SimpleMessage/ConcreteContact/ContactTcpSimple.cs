@@ -12,12 +12,7 @@ namespace Michal.Balador.SimpleMessage.ConcreteContact
         public ContactTcpSimple(AppMessanger appMessanger, ContactInfo contact) : base(appMessanger, contact)
         {
         }
-
-        public override Task<ResponseBase> Init()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public override async Task<ResponseMessage> SendMessage(MessageItem messageItem)
         {
             var convert = (MockTcpSend)this.AppMessanger;

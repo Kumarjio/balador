@@ -12493,3 +12493,64 @@ INFO  2018-04-15 11:42:13,533 81875ms Logger                 Log                
 ERROR 2018-04-15 11:42:51,682 120024ms TaskSendsScheduler     MoveNext           - 27 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
 INFO  2018-04-15 11:43:11,719 140061ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
 INFO  2018-04-15 11:43:18,663 147005ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:24:09,921  3566ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:24:18,485 12130ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 12:24:18,659 12304ms TaskSendsScheduler     MoveNext           - 15 1bfa6f8e-0000-0000-0000-b573b2c8f820 System.NotImplementedException: The method or operation is not implemented.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactTcpSimple.Init() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteContact\ContactTcpSimple.cs:line 18
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<LoadContactsManager>d__12.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 101
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__8_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+INFO  2018-04-15 12:24:18,711 12355ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:24:19,123 12768ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 12:24:19,135 12779ms TaskSendsScheduler     MoveNext           - 11 8dd0f376-a4e3-4c98-9b80-7c9459049a06 System.NotImplementedException: The method or operation is not implemented.
+   at Michal.Balador.SimpleMessage.ConcreteContact.ContactTcpSimple.Init() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Simple\Michal.Balador.SimpleMessage\ConcreteContact\ContactTcpSimple.cs:line 18
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<LoadContactsManager>d__12.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 101
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Contracts.Mechanism.AppMessanger.<SendAsync>d__9.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Contracts\Michal.Balador.Contracts\Mechanism\AppMessanger.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Michal.Balador.Infrastructures.Mechanism.TaskSendsScheduler.<<GetJobRun>b__8_0>d.MoveNext() in C:\Users\crm\Documents\github\balador\Michal.Balador.Server\EMessages\Infrastructures\Michal.Balador.Infrastructures\Mechanism\TaskSendsScheduler.cs:line 147
+INFO  2018-04-15 12:38:35,710  3334ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:38:42,732 10356ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:38:42,761 10385ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:38:42,769 10393ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:38:42,781 10405ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:38:43,196 10819ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:38:43,210 10833ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:38:43,217 10840ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:22,325 289949ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:22,740 290363ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:22,751 290375ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:22,757 290380ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:22,766 290389ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:23,176 290800ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:23,188 290811ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:23,194 290818ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:49,568 317192ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:49,981 317605ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+ERROR 2018-04-15 12:43:50,992 318616ms TaskSendsScheduler     MoveNext           - 26 1bfa6f8e-0000-0000-0000-b573b2c8f820 Socket exception: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+INFO  2018-04-15 12:43:51,108 318732ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:51,518 319142ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:52,430 320054ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:43:52,435 320059ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:44:03,128 330752ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:44:03,537 331161ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:44:03,549 331173ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:44:03,554 331178ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:44:03,563 331187ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:44:03,972 331596ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:44:03,983 331607ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
+INFO  2018-04-15 12:44:03,989 331613ms Logger                 Log                - test presend Michal.Balador.Contracts.Mechanism.MessageItem
