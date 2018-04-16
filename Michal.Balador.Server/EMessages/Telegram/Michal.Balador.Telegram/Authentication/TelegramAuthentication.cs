@@ -43,7 +43,7 @@ namespace Michal.Balador.Telegram.Authentication
         public override async Task<ResponseBase> SetObservableToken(SignUpSender signUpSender, BToken token)
         {
             ConfigTelegram configTelegram = await Context.GetConfiguration<ConfigTelegram>(Provider.ServiceName, signUpSender.UserName);
-            var store = new BaladorSessionStore(this.Context);
+            var store = new BaladorSessionStore(this.Context, configTelegram,this.Provider, signUpSender);
             var client = new TelegramClient(configTelegram.Api, configTelegram.Api_Hash, store);
             var user = await client.MakeAuthAsync(configTelegram.Phone, configTelegram.CodeRequest, token.Token);
             configTelegram.Token = token.Token;
@@ -93,17 +93,15 @@ namespace Michal.Balador.Telegram.Authentication
             var api = extraDataForm["API_ID"];
             var apiHash = extraDataForm["API_HASH"];
             int apiId = int.Parse(api);
-
-            var store = new BaladorSessionStore(this.Context);
-
-
+            ConfigTelegram configTelegram = await Context.GetConfiguration<ConfigTelegram>(Provider.ServiceName, senderDetail.UserName);
+            var store = new BaladorSessionStore(this.Context, configTelegram, this.Provider, senderDetail);
             var client = new TelegramClient(apiId, apiHash, store);
             var isconnected = await client.ConnectAsync();
             if (!isconnected)
             {
                 return new Response<AuthenticationUser> { IsError = true, Message = "unable to connect" };
             }
-            ConfigTelegram configTelegram = await Context.GetConfiguration<ConfigTelegram>(Provider.ServiceName, senderDetail.UserName);
+          
             configTelegram = configTelegram ?? new ConfigTelegram { Token = "", Phone = phone, Api = apiId, Api_Hash = apiHash };
             var estaRegistrado = await client.IsPhoneRegisteredAsync(phone);
             if (estaRegistrado)
