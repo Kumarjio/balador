@@ -12583,3 +12583,5 @@ INFO  2018-04-15 14:24:51,256 31579ms Logger                 Log                
 INFO  2018-04-15 14:27:35,902 196225ms Logger                 Log                - Michal.Balador.Whatsup.Config.ConfigWhatsApp
 INFO  2018-04-15 14:39:55,692 102262ms Logger                 Log                - Michal.Balador.Whatsup.Config.ConfigWhatsApp
 INFO  2018-04-16 13:36:37,440 186452ms Logger                 Log                - Configuring 'BaladorDataflowWebHookSender' with a total of 1 attempt(s) of sending WebHooks.
+INFO  2018-04-16 17:13:31,050 20233ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-16 17:13:32,012 21194ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttp

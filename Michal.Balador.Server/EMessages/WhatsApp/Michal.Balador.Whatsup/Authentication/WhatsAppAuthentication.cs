@@ -73,8 +73,11 @@ namespace Michal.Balador.NSWhatsApp.Authentication
             };
             senderLandPageConfiguration
                 .AddExtraFields(new FieldView { Name = "phone", Title = "phone" })
-                .AddExtraFields(new FieldView { Name = "method", Title = "method sms" });
-           // senderLandPageConfiguration.AddAcceptable("");
+                .AddExtraFields(new FieldView { Name = "method", Title = "method sms" })
+                .AddAcceptable("Remember It's will replace your whatsApp Application Account  on your mobile phone!!!")
+                .AddExplain("Goto API development tools and copy API_ID and API_HASH from your account. You'll need it later.");
+
+            // senderLandPageConfiguration.AddAcceptable("");
             var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserName);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {

@@ -48,40 +48,34 @@ namespace Michal.Balador.Infrastructures.Service
 
         T DeserializeObject<T>(string data)
         {
-         ////   #if DEBUG
-          //  return JsonConvert.DeserializeObject<T>(data);
-           // #else
-                 var dataProtected = DataSecurity.GetDataProtector(System.Configuration.ConfigurationManager.AppSettings["k"].ToString());
-                 var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
-                 return JsonConvert.DeserializeObject<T>(unProtectedData);
-         //   #endif
-            }
+            var dataProtected = DataSecurity.GetDataProtector(System.Configuration.ConfigurationManager.AppSettings["k"].ToString());
+            var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
+            return JsonConvert.DeserializeObject<T>(unProtectedData);
+
+        }
 
         string GetprotectedData(string data)
         {
-           // #if DEBUG
-          //        return data;
-          //  #else
-                var dataProtected = DataSecurity.GetDataProtector(System.Configuration.ConfigurationManager.AppSettings["k"].ToString());
-                var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(data)));
-                 return protectedData;
-         //   #endif
+            var dataProtected = DataSecurity.GetDataProtector(System.Configuration.ConfigurationManager.AppSettings["k"].ToString());
+            var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(data)));
+            return protectedData;
+
         }
 
         async Task<Dictionary<string, string>> GetDataConfig(string pat)
         {
             using (StreamReader reader = File.OpenText(pat))
             {
-                var  config = await reader.ReadToEndAsync();
+                var config = await reader.ReadToEndAsync();
                 Dictionary<string, string> account = JsonConvert.DeserializeObject<Dictionary<string, string>>(config);
                 return account;
             }
         }
 
-        bool GetConfigFile(string id,out string path)
+        bool GetConfigFile(string id, out string path)
         {
             var defaultAccountFolder = System.Configuration.ConfigurationManager.AppSettings["f"].ToString();// HttpContext.Current.Server.MapPath("~/AccountsFolder");
-            var filename = id+ ".txt";
+            var filename = id + ".txt";
             path = Path.Combine(defaultAccountFolder, filename);
             return File.Exists(path);
         }
@@ -94,7 +88,7 @@ namespace Michal.Balador.Infrastructures.Service
             return File.Exists(path);
         }
 
-        public async Task<ResponseBase>  SetConfiguration<T>(string serviceName, string id, T config)
+        public async Task<ResponseBase> SetConfiguration<T>(string serviceName, string id, T config)
         {
             var key = DataSecurity.GetHash(serviceName);
             Dictionary<string, string> account = null;
@@ -104,9 +98,9 @@ namespace Michal.Balador.Infrastructures.Service
             var protectedData = GetprotectedData(configData);
 
             string pat;
-            if (GetConfigFile(id,out pat))
+            if (GetConfigFile(id, out pat))
             {
-                account =await GetDataConfig(pat);
+                account = await GetDataConfig(pat);
                 if (account.ContainsKey(key))
                     account[key] = protectedData;
                 else
@@ -117,7 +111,7 @@ namespace Michal.Balador.Infrastructures.Service
                 account = new Dictionary<string, string>();
                 account.Add(key, protectedData);
             }
-            var jsonData=JsonConvert.SerializeObject(account);
+            var jsonData = JsonConvert.SerializeObject(account);
             using (StreamWriter outputFile = new StreamWriter(pat))
             {
                 await outputFile.WriteAsync(jsonData);
@@ -135,12 +129,12 @@ namespace Michal.Balador.Infrastructures.Service
 
             if (GetContactFile(id, out pat))
             {
-               // var dataProtected = DataSecurity.GetDataProtector();
+                // var dataProtected = DataSecurity.GetDataProtector();
                 contact = await GetDataConfig(pat);
                 if (contact.ContainsKey(key))
                 {
                     var data = contact[key];
-                     return DeserializeObject<T>(data);
+                    return DeserializeObject<T>(data);
                     //var unProtectedData = UTF8Encoding.UTF8.GetString(dataProtected.Unprotect(Convert.FromBase64String(data)));
                     //return JsonConvert.DeserializeObject<T>(unProtectedData);
                 }
@@ -158,7 +152,7 @@ namespace Michal.Balador.Infrastructures.Service
             var key = DataSecurity.GetHash(serviceName);
             Dictionary<string, string> contactData = null;
             var configContactData = JsonConvert.SerializeObject(contact);
-          //  var dataProtected = DataSecurity.GetDataProtector();
+            //  var dataProtected = DataSecurity.GetDataProtector();
             //var protectedData = Convert.ToBase64String(dataProtected.Protect(UTF8Encoding.UTF8.GetBytes(configContactData)));
             var protectedData = GetprotectedData(configContactData);
             string pat;
