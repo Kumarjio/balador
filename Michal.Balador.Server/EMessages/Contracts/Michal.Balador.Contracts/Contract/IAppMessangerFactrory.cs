@@ -12,8 +12,8 @@ namespace Michal.Balador.Contracts.Contract
 {
     public interface IAppMessangerFactrory:IDisposable
     {
-        [Obsolete("WILL REMOVE",false)]
-        Task<ResponseAppMessanger> GetInstance(RegisterSender register);
+        //[Obsolete("WILL REMOVE",false)]
+        //Task<ResponseAppMessanger> GetInstance(RegisterSender register);
 
         string ServiceName { get; }
         AuthenticationManager GetAuthenticationManager();

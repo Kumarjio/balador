@@ -43,7 +43,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeleSharp.TL", "EMessages\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLSharp.Core", "EMessages\Telegram\TLSharp.Core\TLSharp.Core.csproj", "{400D2544-1CC6-4D8A-A62C-2292D9947A16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Michal.Balador.Whatsup", "EMessages\WhatsApp\Michal.Balador.Whatsup\Michal.Balador.Whatsup.csproj", "{9DA54390-1293-4A05-91D3-5CD256F0EF5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Michal.Balador.WhatsApp", "EMessages\WhatsApp\Michal.Balador.Whatsup\Michal.Balador.WhatsApp.csproj", "{9DA54390-1293-4A05-91D3-5CD256F0EF5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Michal.Balador.Telegram", "EMessages\Telegram\Michal.Balador.Telegram\Michal.Balador.Telegram.csproj", "{771C2C85-93E2-4E6A-8745-FAD8B8C03654}"
 EndProject

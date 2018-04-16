@@ -55,27 +55,27 @@ namespace Michal.Balador.Contracts.Mechanism
 
         
 
-        [Obsolete("WILL REMOVE", false)]
-        public virtual async Task<ResponseAppMessanger> GetInstance(RegisterSender register)
-        {
+        //[Obsolete("WILL REMOVE", false)]
+        //public virtual async Task<ResponseAppMessanger> GetInstance(RegisterSender register)
+        //{
            
-            register.CanExcute = true;
-            ResponseAppMessanger response = await GetSender(register);
-            if (!response.IsError)
-            {
-                _authenticationManager = this.GetAuthenticationManager();
-                var token = await _authenticationManager.GetToken(new SignUpSender { UserName = register.Id });
-                if (token == null || String.IsNullOrWhiteSpace(token.Token))
-                {
-                    response.IsAutorize = false;
-                }
-            }
-            return response;
+        //    register.CanExcute = true;
+        //    ResponseAppMessanger response = await GetSender(register);
+        //    if (!response.IsError)
+        //    {
+        //        _authenticationManager = this.GetAuthenticationManager();
+        //        var token = await _authenticationManager.GetToken(new SignUpSender { UserName = register.Id });
+        //        if (token == null || String.IsNullOrWhiteSpace(token.Token))
+        //        {
+        //            response.IsAutorize = false;
+        //        }
+        //    }
+        //    return response;
 
-        }
+        //}
 
-        [Obsolete("WILL REMOVE", false)]
-        protected abstract Task<ResponseAppMessanger> GetSender(RegisterSender register);
+        //[Obsolete("WILL REMOVE", false)]
+        //protected abstract Task<ResponseAppMessanger> GetSender(RegisterSender register);
         
         protected abstract Task<ResponseAppMessanger> GetSender(AccountSend accountSend);
 

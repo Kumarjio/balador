@@ -8,7 +8,7 @@ namespace Michal.Balador.Contracts.Mechanism
 {
    public class RegisterSender
     {
-        public bool CanExcute { get; set; }
+        //public bool CanExcute { get; set; }
         public int Log { get; set; }
         public string Id { get; set; }//email,phone
         public string Email { get; set; }//email

@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Mechanism;
-using Michal.Balador.Whatsup.Config;
+using Michal.Balador.WhatsApp.Config;
 //using Newtonsoft.Json.Linq;
 
-namespace Michal.Balador.Whatsup.Authentication
+namespace Michal.Balador.WhatsApp.Authentication
 {
    
     public class WhatsAppAuthentication: AuthenticationManager

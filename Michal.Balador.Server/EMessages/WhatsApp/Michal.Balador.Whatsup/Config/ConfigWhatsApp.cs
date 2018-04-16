@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Mechanism;
 
-namespace Michal.Balador.Whatsup.Config
+namespace Michal.Balador.WhatsApp.Config
 {
     public class ConfigWhatsApp: BToken
     {

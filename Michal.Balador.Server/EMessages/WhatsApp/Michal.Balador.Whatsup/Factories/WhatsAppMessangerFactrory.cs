@@ -10,14 +10,14 @@ using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Contracts.Service;
-using Michal.Balador.Whatsup.Authentication;
-using Michal.Balador.Whatsup.ConcreteSender;
+using Michal.Balador.WhatsApp.Authentication;
+using Michal.Balador.WhatsApp.ConcreteSender;
 
-namespace Michal.Balador.Whatsup.Factories
+namespace Michal.Balador.WhatsApp.Factories
 {
     [Export(typeof(IAppMessangerFactrory))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    [ExportMetadata(ConstVariable.MESSAGE_TYPE, "Whatsup")]
+    [ExportMetadata(ConstVariable.MESSAGE_TYPE, "WhatsApp")]
     [ExportMetadata(ConstVariable.DOMAIN_NAME, "com.baladorPlant")]
     public class WhatsAppMessangerFactrory : AppMessangerFactrory
     {
@@ -32,12 +32,7 @@ namespace Michal.Balador.Whatsup.Factories
             return new WhatsAppAuthentication(Context, this);
         }
 
-        protected override async Task<ResponseAppMessanger> GetSender(RegisterSender register)
-        {
-            ResponseAppMessanger response = new ResponseAppMessanger();
-           
-            return await Task.FromResult( response);
-        }
+     
 
         protected override async Task<ResponseAppMessanger> GetSender(AccountSend accountSend)
         {

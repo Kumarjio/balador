@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts.Mechanism;
 
-namespace Michal.Balador.Whatsup.ConcreteContact
+namespace Michal.Balador.WhatsApp.ConcreteContact
 {
     public class WhatsAppContactManager : ContactManager
     {
