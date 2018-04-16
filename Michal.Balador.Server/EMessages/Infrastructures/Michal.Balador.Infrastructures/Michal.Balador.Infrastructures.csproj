@@ -126,6 +126,7 @@
     <Compile Include="Dal\Repository.cs" />
     <Compile Include="Dal\TaskSchedulerRepository.cs" />
     <Compile Include="Dal\UserRepository.cs" />
+    <Compile Include="Mechanism\EmigrationContactManager.cs" />
     <Compile Include="Mechanism\TaskSendsScheduler.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />

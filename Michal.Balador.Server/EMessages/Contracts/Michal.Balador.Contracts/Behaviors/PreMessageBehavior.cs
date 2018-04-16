@@ -17,14 +17,14 @@ namespace Michal.Balador.Contracts.Behaviors
 
         //}
 
-        public override async Task<ResponseBase> Excute<TRequestBehavior>(TRequestBehavior request) 
+        public override async Task<Response<BehaviorStatus>> Excute<TRequestBehavior>(TRequestBehavior request) 
         {
             RequestPreMessageBehavior requestMessageBehavior = (RequestPreMessageBehavior)Convert.ChangeType(request, typeof(RequestPreMessageBehavior));
 
             //return null;
             return await PreSend(requestMessageBehavior);
         }
-       public abstract Task<ResponseBase> PreSend(RequestPreMessageBehavior requestMessageBehavior);
+       public abstract Task<Response<BehaviorStatus>> PreSend(RequestPreMessageBehavior requestMessageBehavior);
        
     }
 }

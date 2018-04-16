@@ -9,7 +9,7 @@ using Michal.Balador.Contracts.Mechanism;
 
 namespace Michal.Balador.Contracts.Behaviors
 {
-   
+    public enum BehaviorStatus {Continue=1,Pause=2 }
     public abstract class Behavior
     {
         protected IBaladorContext _baladorContext;
@@ -19,7 +19,7 @@ namespace Michal.Balador.Contracts.Behaviors
         //}
         public IBaladorContext BaladorContext { get { return _baladorContext; } }
 
-        public abstract Task<ResponseBase> Excute<TRequestBehavior>(TRequestBehavior request) where TRequestBehavior : RequestBehavior;
+        public abstract Task<Response<BehaviorStatus>> Excute<TRequestBehavior>(TRequestBehavior request) where TRequestBehavior : RequestBehavior;
     }
     
 }

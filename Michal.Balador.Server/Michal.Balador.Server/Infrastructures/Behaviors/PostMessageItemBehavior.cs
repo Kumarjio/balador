@@ -17,12 +17,12 @@ namespace Michal.Balador.Server.Infrastructures.Behaviors
 
         //}
 
-        public override async Task<ResponseBase> PostSend(RequestPostMessageBehavior requestMessageBehavior)
+        public override async Task<Response<BehaviorStatus>> PostSend(RequestPostMessageBehavior requestMessageBehavior)
         {
 
             requestMessageBehavior.BaladorContext.GetLogger().Log( System.Diagnostics.TraceLevel.Info, $"test presend {requestMessageBehavior.Message}");
 
-            return await Task.FromResult(new ResponseBase());
+            return await Task.FromResult(new Response<BehaviorStatus> { Result=BehaviorStatus.Continue});
         }
       
     }
