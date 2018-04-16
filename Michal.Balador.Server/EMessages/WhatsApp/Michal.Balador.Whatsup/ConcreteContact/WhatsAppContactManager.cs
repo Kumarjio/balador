@@ -14,22 +14,22 @@ namespace Michal.Balador.NSWhatsApp.ConcreteContact
 {
     public class WhatsAppContactManager : ContactManager
     {
-        public WhatsAppContactManager(AppMessanger appMessanger, ContactInfo contact) : base(appMessanger, contact)
+        WhatsApp _whatsApp;
+        public WhatsAppContactManager(AppMessanger appMessanger, ContactInfo contact, WhatsApp whatsApp) : base(appMessanger, contact)
         {
-          
+            _whatsApp = whatsApp;
         }
 
         public override async Task<ResponseMessage> SendMessage(MessageItem messageItem)
         {
-            var whatsAppMessanger = (WhatsAppMessanger)this.AppMessanger;
-            var wa = whatsAppMessanger.WhatsApp;
+           
             await Task.Run(() =>
             {
                 try
                 {
                     WhatsUserManager usrMan = new WhatsUserManager();
                     var tmpUser = usrMan.CreateUser(messageItem.ClientId, "User");
-                    wa.SendMessage(tmpUser.GetFullJid(), messageItem.Message);
+                    _whatsApp.SendMessage(tmpUser.GetFullJid(), messageItem.Message);
              
                     return new ResponseMessage (messageItem);
                 }
@@ -41,5 +41,6 @@ namespace Michal.Balador.NSWhatsApp.ConcreteContact
             return new ResponseMessage { ClientId = messageItem.ClientId, IsError = true, ErrMessage = "", Message = messageItem.Message };
 
         }
+
     }
 }

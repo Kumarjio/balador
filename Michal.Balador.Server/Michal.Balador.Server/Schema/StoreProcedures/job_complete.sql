@@ -5,7 +5,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create  proc [dbo].[job_complete]
+alter  proc [dbo].[job_complete]
 @jobid uniqueidentifier
   as 
   

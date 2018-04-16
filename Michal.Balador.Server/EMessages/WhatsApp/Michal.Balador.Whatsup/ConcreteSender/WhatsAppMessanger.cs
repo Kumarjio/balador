@@ -13,21 +13,20 @@ namespace Michal.Balador.NSWhatsApp.ConcreteSender
 {
     public class WhatsAppMessanger : AppMessanger
     {
-        WhatsApp _wa;// = new WhatsApp(sender, password, nickname, true);
-        AccountSend _accountSend;
+        WhatsApp _wa;
         public WhatsApp WhatsApp { get { return _wa; } }
         public WhatsAppMessanger(IBaladorContext context, AppMessangerFactrory provider, WhatsApp wa) : base(context, provider)
         {
             _wa = wa;
         }
 
-        protected virtual ContactManager GetInstanceContactManger(ContactInfo contact)
+        protected override ContactManager GetInstanceContactManger(ContactInfo contact)
         {
-            return new WhatsAppContactManager(this, contact);
+            return new WhatsAppContactManager(this, contact, _wa);
         }
         public override void Dispose()
         {
-            
+            _wa.Disconnect();
         }
 
         
