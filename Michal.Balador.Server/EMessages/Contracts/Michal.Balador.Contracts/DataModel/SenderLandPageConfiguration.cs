@@ -36,11 +36,16 @@ namespace Michal.Balador.Contracts.Mechanism
         public bool TwoFactorAuthentication { get; set; }
         public string AcceptTemplate { get; set; }
 
-        public SenderLandPageConfiguration AddAcceptable(SenderLandPageConfiguration config,string acceptTemplate)
+        public SenderLandPageConfiguration AddExtraFields(FieldView fieldView)
+        {
+            ExtraFields.Add(fieldView);
+            return this;
+        }
+        public SenderLandPageConfiguration AddAcceptable(string acceptTemplate)
         {
             AcceptTemplate = acceptTemplate;
             ExtraFields.Add(new FieldView { FieldViewType = typeof(bool).Name, Name = ConstVariable.CHECKBOX_Accept, Title = "" });
-            return config;
+            return this;
         }
 
     }

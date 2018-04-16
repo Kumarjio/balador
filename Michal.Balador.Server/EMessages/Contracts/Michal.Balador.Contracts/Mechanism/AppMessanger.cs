@@ -108,8 +108,8 @@ namespace Michal.Balador.Contracts.Mechanism
 
         public abstract void Dispose();
 
-        [Obsolete("WILL REMOVE", false)]
-        public abstract Task<ResponseSend> Send(SendRequest request);
+        //[Obsolete("WILL REMOVE", false)]
+        //public abstract Task<ResponseSend> Send(SendRequest request);
 
         public  AuthenticationManager GetAuthenticationManager()
         {

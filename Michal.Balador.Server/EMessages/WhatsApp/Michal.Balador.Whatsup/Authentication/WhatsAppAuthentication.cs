@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Mechanism;
-using Michal.Balador.WhatsApp.Config;
+using Michal.Balador.NSWhatsApp.Config;
 //using Newtonsoft.Json.Linq;
 
-namespace Michal.Balador.WhatsApp.Authentication
+namespace Michal.Balador.NSWhatsApp.Authentication
 {
    
     public class WhatsAppAuthentication: AuthenticationManager
@@ -26,7 +26,7 @@ namespace Michal.Balador.WhatsApp.Authentication
 
             get
             {
-                return "WhatsApp Authentication";
+                return "NSWhatsApp Authentication";
             }
         }
 
@@ -66,14 +66,15 @@ namespace Michal.Balador.WhatsApp.Authentication
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.Provider.ServiceName)
             {
                 Logo = "",
-                MessageEmailTemplate= "WhatsApp",
-                TextLandPageTemplate= "WhatsApp",
+                MessageEmailTemplate= "NSWhatsApp",
+                TextLandPageTemplate= "NSWhatsApp",
                 TwoFactorAuthentication = true
 
             };
-            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "phone", Title = "phone" });
-            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "method", Title = "method sms" });
-            
+            senderLandPageConfiguration
+                .AddExtraFields(new FieldView { Name = "phone", Title = "phone" })
+                .AddExtraFields(new FieldView { Name = "method", Title = "method sms" });
+           // senderLandPageConfiguration.AddAcceptable("");
             var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserName);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {

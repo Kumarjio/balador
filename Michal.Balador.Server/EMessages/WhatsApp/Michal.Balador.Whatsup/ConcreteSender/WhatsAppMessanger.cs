@@ -5,19 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Michal.Balador.Contracts.Contract;
 using Michal.Balador.Contracts.Mechanism;
-using Michal.Balador.WhatsApp.ConcreteContact;
-using Michal.Balador.WhatsApp.Config;
+using Michal.Balador.NSWhatsApp.ConcreteContact;
+using Michal.Balador.NSWhatsApp.Config;
 using WhatsAppApi;
 
-namespace Michal.Balador.WhatsApp.ConcreteSender
+namespace Michal.Balador.NSWhatsApp.ConcreteSender
 {
     public class WhatsAppMessanger : AppMessanger
     {
-      
-        public WhatsAppMessanger(IBaladorContext context, AppMessangerFactrory provider) : base(context, provider)
+        WhatsApp _wa;// = new WhatsApp(sender, password, nickname, true);
+        AccountSend _accountSend;
+        public WhatsApp WhatsApp { get { return _wa; } }
+        public WhatsAppMessanger(IBaladorContext context, AppMessangerFactrory provider, WhatsApp wa) : base(context, provider)
         {
-
-     
+            _wa = wa;
         }
 
         protected virtual ContactManager GetInstanceContactManger(ContactInfo contact)
@@ -30,10 +31,5 @@ namespace Michal.Balador.WhatsApp.ConcreteSender
         }
 
         
-        public override async Task<ResponseSend> Send(SendRequest request)
-        {
-            // wa = new WhatsApp(request.
-            return await Task.FromResult(new ResponseSend());
-        }
     }
 }

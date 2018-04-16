@@ -70,31 +70,31 @@ namespace Michal.Balador.SimpleMessage
             return new ContactTcpSimple(this, contact);
         }
 
-        public override async Task<ResponseSend> Send(SendRequest request)
-        {
-            ResponseSend res = new ResponseSend();
-            res.Result = new List<ResponseMessage>();
-            res.Id = request.Id;
-            res.Log = request.Log;
-            foreach (var itemMessage in request.Messages)
-            {
-                await Task.Run(() =>
-               {
-                   try
-                   {
-                       var message = _test.SendMessage(itemMessage.ClientId, itemMessage.Message);
-                       res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = false, Message = message + " id=" + itemMessage.ClientId + " ,Message=" + itemMessage.Message });
-                   }
-                   catch (Exception e)
-                   {
-                       res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
-                   }
-               }
-             );
-            }
-            //   return await Task.FromResult(res);
-            return res;
-        }
+        //public override async Task<ResponseSend> Send(SendRequest request)
+        //{
+        //    ResponseSend res = new ResponseSend();
+        //    res.Result = new List<ResponseMessage>();
+        //    res.Id = request.Id;
+        //    res.Log = request.Log;
+        //    foreach (var itemMessage in request.Messages)
+        //    {
+        //        await Task.Run(() =>
+        //       {
+        //           try
+        //           {
+        //               var message = _test.SendMessage(itemMessage.ClientId, itemMessage.Message);
+        //               res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = false, Message = message + " id=" + itemMessage.ClientId + " ,Message=" + itemMessage.Message });
+        //           }
+        //           catch (Exception e)
+        //           {
+        //               res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
+        //           }
+        //       }
+        //     );
+        //    }
+        //    //   return await Task.FromResult(res);
+        //    return res;
+        //}
 
 
     }

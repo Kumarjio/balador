@@ -31,31 +31,31 @@ namespace Michal.Balador.SimpleMessage
             return new ContactHttpSimple(this, contact);
         }
 
-        public override async Task<ResponseSend> Send(SendRequest request)
-        {
-            var configAccount=await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, request.Id);
+        //public override async Task<ResponseSend> Send(SendRequest request)
+        //{
+        //    var configAccount=await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, request.Id);
 
-              var contact= this.Context.GetContact<ContactHttpSend>(this.Provider.ServiceName, "ddd");
-            this.Context.GetLogger().Log(System.Diagnostics.TraceLevel.Info, configAccount.RefreshToken, null);
+        //      var contact= this.Context.GetContact<ContactHttpSend>(this.Provider.ServiceName, "ddd");
+        //    this.Context.GetLogger().Log(System.Diagnostics.TraceLevel.Info, configAccount.RefreshToken, null);
 
-            ResponseSend res = new ResponseSend();
-            res.Result = new List<ResponseMessage>();
-            res.Id = request.Id;
-            res.Log = request.Log;
-            foreach (var itemMessage in request.Messages)
-            {
-                  try
-                  {
-                     var message=   await _test.SendMessage(request.ToString());
-                      res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = false, Message = message +" id="+ itemMessage.ClientId+ " ,Message=" + itemMessage.Message });
-                  }
-                  catch (Exception e)
-                  {
-                      res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
-                  }
-        }
-            return await Task.FromResult(res);
-        }
+        //    ResponseSend res = new ResponseSend();
+        //    res.Result = new List<ResponseMessage>();
+        //    res.Id = request.Id;
+        //    res.Log = request.Log;
+        //    foreach (var itemMessage in request.Messages)
+        //    {
+        //          try
+        //          {
+        //             var message=   await _test.SendMessage(request.ToString());
+        //              res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = false, Message = message +" id="+ itemMessage.ClientId+ " ,Message=" + itemMessage.Message });
+        //          }
+        //          catch (Exception e)
+        //          {
+        //              res.Result.Add(new ResponseMessage { ClientId = itemMessage.ClientId, IsError = true, ErrMessage = e.ToString(), Message = itemMessage.Message });
+        //          }
+        //}
+        //    return await Task.FromResult(res);
+        //}
 
 
     }

@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Mechanism;
 
-namespace Michal.Balador.WhatsApp.Config
+namespace Michal.Balador.NSWhatsApp.Config
 {
     public class ConfigWhatsApp: BToken
     {
         public string Phone { get; set; }
-     //   public string TempPwsSms { get; set; }
     }
 }
