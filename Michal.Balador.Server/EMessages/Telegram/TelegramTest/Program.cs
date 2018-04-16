@@ -18,7 +18,7 @@ namespace Tele.My
             var hash = "54a578ab2c70e02c22";
             int apiId = 121845;
             string apiHash = "888c93f37abef8dde1b7a1cf40580ebb";
-            var client = new TelegramClient(apiId, apiHash);
+            var client = new TelegramClient(apiId, apiHash, store);
             client.ConnectAsync().Wait();
             var estaRegistrado = client.IsPhoneRegisteredAsync("972546252491").Result;
             if (estaRegistrado)

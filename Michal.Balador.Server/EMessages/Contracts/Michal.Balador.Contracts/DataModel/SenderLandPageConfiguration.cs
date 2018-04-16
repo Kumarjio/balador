@@ -35,7 +35,7 @@ namespace Michal.Balador.Contracts.Mechanism
         public bool IsAlreadyRegister { get; set; }
         public bool TwoFactorAuthentication { get; set; }
         public string AcceptTemplate { get; set; }
-
+        public string Explain { get; set; }
         public SenderLandPageConfiguration AddExtraFields(FieldView fieldView)
         {
             ExtraFields.Add(fieldView);
@@ -47,6 +47,10 @@ namespace Michal.Balador.Contracts.Mechanism
             ExtraFields.Add(new FieldView { FieldViewType = typeof(bool).Name, Name = ConstVariable.CHECKBOX_Accept, Title = "" });
             return this;
         }
-
+        public SenderLandPageConfiguration AddExplain(string explain)
+        {
+            Explain = explain;
+            return this;
+        }
     }
 }

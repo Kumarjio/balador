@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\BaladorSessionStore.cs" />
+    <Compile Include="Authentication\TelegramAuthentication.cs" />
+    <Compile Include="Config\ConfigTelegram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,10 +62,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Authentication\" />
     <Folder Include="ConcreteContact\" />
     <Folder Include="ConcreteSender\" />
-    <Folder Include="Config\" />
     <Folder Include="Contact\" />
     <Folder Include="Factories\" />
   </ItemGroup>
