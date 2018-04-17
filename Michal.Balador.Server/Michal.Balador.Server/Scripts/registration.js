@@ -6,8 +6,8 @@ function init() {
         e.preventDefault();
         debugger;
         var idindex = $(this).data("index");
-
-        var $form = $(this).parent();
+        
+        var $form = $(this).parent().parent().parent();// $(this).parent();
         var formData = $form.serialize();
         ajax_token(formData, '/api/setToken', 'POST', 'application/x-www-form-urlencoded', function (got) {
             debugger;
@@ -42,7 +42,7 @@ function init() {
         debugger;
         var idindex = $(this).data("index");
 
-        var $form = $(this).parent();
+        var $form = $(this).parent().parent().parent();//    $(this).parent();
         var action = $form.attr('action');
         var formData = $form.serialize();
         ajax_token(formData, action, 'POST', 'application/x-www-form-urlencoded', function (got) {
@@ -106,6 +106,8 @@ function init() {
             var $div_container = $('<div  />', { class: 'card', id: 'div_' + val.Id });
             var $div_content = $('<div  />', { class: 'card-content' });
             var $div_row = $('<div  />', { class: 'row' });
+            var $card__actions = $('<div  class="mdc-card__actions" />');
+            var $card__actions_buttons = $('<div  class="mdc-card__action-buttons" />');
             var completeText = $('<div />', { id: 'ok_' + val.Id, text: "Complete " + val.Message });
 
             completeText.appendTo($div_container);
@@ -136,12 +138,17 @@ function init() {
                 }
 
                 $form.data("frmsignupid", val.Id);
-                var frmSave = $('<div />', { text: val.Message });
+                var frmSave = $('<div />');//, { text: val.Message });
                 var frmRName = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
-                var frmButton = $('<input />', { type: 'submit', value: 'Register',Id:'register_id_'+val.Id });
-              
+                var frmButton = $('<input />', {
+                    type: 'submit', value: 'Register',
+                    Id: 'register_id_' + val.Id, class: 'mdc-button mdc-card__action mdc-card__action--button mdc-ripple-upgraded'
+                });
+               
+                $card__actions_buttons.append(frmButton).appendTo($card__actions);
+
                 if (val.IsAgreement) {
-                    frmButton.attr('disabled',true);
+                   frmButton.attr('disabled',true);
                 }
                 frmButton.data("index", val.Id);
                 var fields = val.Fields;
@@ -162,28 +169,37 @@ function init() {
                         $fieldForm = $('<input />', { name: field.Name, placeholder: field.Title, type: 'text' });
 
                     }
+                    debugger;
                     $fieldForm.data("index", val.Id);
                     $div_row.append($fieldForm, $('<br />'))
                 }
                 frmSave.append($div_row);
-
-                $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
+                $form.append(frmSave, $('<br />'), frmRName, $card__actions).appendTo($div_container);
+               // $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
             }
             else {
 
                 $form.attr('action', '/api/unRegister');
 
-                var frmSave = $('<div />', { text: val.Message });
-                var frmButton = $('<input />', { type: 'submit', value: 'Unregister' });
+                var frmSave = $('<div />');//, { text: val.Message });
+                var frmButton = $('<input />', {
+                    type: 'submit', value: 'Unregister' ,class: 'mdc-button mdc-card__action mdc-card__action--button mdc-ripple-upgraded'
+                });
                 frmButton.data("index", val.Id);
 
                 $form.show();
                 frmSave.append($div_row);
-                $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
+                $card__actions_buttons.append(frmButton).appendTo($card__actions);
+
+                $form.append(frmSave, $('<br />'), frmRName, $card__actions).appendTo($div_container);
 
             }
+            var $title_row = $('<div class="row" />');
+            var $logo= $('<div class="col s12 m2 l2" ><img src="'+val.Logo+'"/>');
+            var $header_text = $('<div class="col s12 m6 l6" ><h3 style="text-align:left">' + val.Message + '</h3>');
+            $title_row.append($logo, $header_text);
             // $div_container.append($form, $hr).appendTo($('#share'));
-            $div_content.append($form);
+            $div_content.append($title_row,$form);
             $div_container.append($div_content).appendTo($('#share'));
         });
 

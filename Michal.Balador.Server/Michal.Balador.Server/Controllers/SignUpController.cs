@@ -152,7 +152,9 @@ namespace Michal.Balador.Server.Controllers
                             TwoFactorAuthentication = configuration.TwoFactorAuthentication,
                             Agreement= configuration.Agreement,
                             HelpFile = configuration.HelpFile,
-                            IsAgreement=configuration.IsAgreement
+                            IsAgreement=configuration.IsAgreement,
+                            Logo=configuration.Logo
+                            
                         });
                     }
                 }

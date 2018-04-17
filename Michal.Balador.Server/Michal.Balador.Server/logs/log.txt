@@ -12591,3 +12591,7 @@ INFO  2018-04-17 12:55:31,643 675202ms Logger                 Log               
 INFO  2018-04-17 18:37:35,816 3957441ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-17 18:37:52,680 3974305ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-17 18:38:00,427 3982052ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-18 00:59:34,412 93408ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-18 01:03:58,957 357952ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-18 01:04:24,475 383470ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-18 01:05:29,652 448647ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite

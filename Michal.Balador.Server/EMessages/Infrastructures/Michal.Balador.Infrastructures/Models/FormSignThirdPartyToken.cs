@@ -18,6 +18,7 @@ namespace Michal.Balador.Server.Models
         public string Agreement { get; set; }
         public bool  IsAgreement { get; set; }
         public string HelpFile { get; set; }
+        public string Logo { get; set; }
     }
     public class FormsSignThirdPartyToken
     {
