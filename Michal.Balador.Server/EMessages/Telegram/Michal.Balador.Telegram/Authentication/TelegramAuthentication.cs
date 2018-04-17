@@ -75,7 +75,7 @@ namespace Michal.Balador.Telegram.Authentication
             senderLandPageConfiguration.AddExtraFields(new FieldView { Name = "API_ID", Title = "API_ID" })
                 .AddExtraFields(new FieldView { Name = "API_HASH", Title = "API_HASH" })
                 .AddExtraFields(new FieldView { Name = "phone", Title = "phone" });
-            senderLandPageConfiguration.AddAcceptable("Remember It's will replace your whatsApp Application Account  on your mobile phone!!!").AddExplain("Goto API development tools and copy API_ID and API_HASH from your account. You'll need it later.");
+            senderLandPageConfiguration.AddAcceptable("Remember It's will replace your whatsApp Application Account  on your mobile phone!!!").AddHelpFile("/plugin/h.html");
             var config = await Context.GetConfiguration<ConfigTelegram>(this.Provider.ServiceName, signUpSender.UserName);
             if (config != null && !String.IsNullOrEmpty(config.Token))
                 senderLandPageConfiguration.IsAlreadyRegister = true;

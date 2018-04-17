@@ -140,10 +140,7 @@ namespace Michal.Balador.Server.Controllers
                     authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager != null)
                     {
-                        
-
                         var configuration = await authenticationManager.Register(signUpSender);
-
                         authentications.Add(new FormSignThirdPartyToken
                         {
                             Id = configuration.Id.ToString(),

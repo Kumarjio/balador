@@ -19,7 +19,7 @@ namespace Michal.Balador.NSWhatsApp.Factories
 {
     [Export(typeof(IAppMessangerFactrory))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
-    [ExportMetadata(ConstVariable.MESSAGE_TYPE, "NSWhatsApp")]
+    [ExportMetadata(ConstVariable.MESSAGE_TYPE, "WhatsApp")]
     [ExportMetadata(ConstVariable.DOMAIN_NAME, "com.baladorPlant")]
     public class WhatsAppMessangerFactrory : AppMessangerFactrory
     {

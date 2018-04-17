@@ -54,13 +54,16 @@ namespace Michal.Balador.SimpleMessage
         {
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.Provider.ServiceName)
             {
-                Logo = "",
+                Logo = "/Resources/com.baladorPlant/MockSender/telegram-logo64x64.png",
                 MessageEmailTemplate = "http lite",
                 TextLandPageTemplate = "http lite",
                 TwoFactorAuthentication=false
 
             };
-            senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "token", Title = "write token only " });
+            senderLandPageConfiguration.AddExtraFields(new FieldView { Name = "token", Title = "write token only " });
+            senderLandPageConfiguration.AddAcceptable("Remember It's will replace your whatsApp Application Account  on your mobile phone!!!")
+                .AddHelpFile("/Resources/com.baladorPlant/MockSender/helpfile.html");
+
 
             var token = await GetToken(signUpSender);
             if (token != null)

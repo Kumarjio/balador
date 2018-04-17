@@ -65,9 +65,9 @@ namespace Michal.Balador.NSWhatsApp.Authentication
         {
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.Provider.ServiceName)
             {
-                Logo = "",
-                MessageEmailTemplate= "NSWhatsApp",
-                TextLandPageTemplate= "NSWhatsApp",
+                Logo = "/Resources/com.baladorPlant/WhatsApp/whatsapp64x64.png",
+                MessageEmailTemplate = "WhatsApp",
+                TextLandPageTemplate= "WhatsApp",
                 TwoFactorAuthentication = true
 
             };
@@ -75,9 +75,8 @@ namespace Michal.Balador.NSWhatsApp.Authentication
                 .AddExtraFields(new FieldView { Name = "phone", Title = "phone" })
                 .AddExtraFields(new FieldView { Name = "method", Title = "method sms" })
                 .AddAcceptable("Remember It's will replace your whatsApp Application Account  on your mobile phone!!!")
-                .AddExplain("Goto API development tools and copy API_ID and API_HASH from your account. You'll need it later.");
-
-            // senderLandPageConfiguration.AddAcceptable("");
+                .AddHelpFile("/Resources/com.baladorPlant/WhatsApp/helpfile.html");
+           
             var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserId);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {

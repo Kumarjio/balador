@@ -62,8 +62,8 @@ namespace Michal.Balador.SimpleMessage
         {
             var senderLandPageConfiguration = new SenderLandPageConfiguration(this.Provider.ServiceName)
             {
-                Logo = "",
-                MessageEmailTemplate= "http test",
+                Logo = "/Resources/com.baladorPlant/MockHttpSender/whatsapp64x64.png",
+                MessageEmailTemplate = "http test",
                 TextLandPageTemplate="http test",
                 TwoFactorAuthentication = true
 
@@ -71,6 +71,10 @@ namespace Michal.Balador.SimpleMessage
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "pws", Title = "write password" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "client_id", Title = "client" });
             senderLandPageConfiguration.ExtraFields.Add(new FieldView { Name = "grant_type", Title = "grant type" });
+
+            senderLandPageConfiguration.AddAcceptable("Remember It your mobile phone!!!")
+               .AddHelpFile("/Resources/com.baladorPlant/MockHttpSender/helpfile.html");
+
             var config = await Context.GetConfiguration<ConfigHttp>(this.Provider.ServiceName, signUpSender.UserId);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {

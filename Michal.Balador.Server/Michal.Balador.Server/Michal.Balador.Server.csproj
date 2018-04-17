@@ -298,6 +298,15 @@
     <Content Include="js\materialize.min.js" />
     <Content Include="js\modernizr.js" />
     <Content Include="LICENSE" />
+    <Content Include="Resources\com.baladorPlant\MockHttpSender\helpfile.html" />
+    <Content Include="Resources\com.baladorPlant\MockHttpSender\whatsapp16x16.png" />
+    <Content Include="Resources\com.baladorPlant\MockHttpSender\whatsapp64x64.png" />
+    <Content Include="Resources\com.baladorPlant\MockSender\helpfile.html" />
+    <Content Include="Resources\com.baladorPlant\MockSender\telegram-logo64x64.png" />
+    <Content Include="Resources\com.baladorPlant\Telegram\helpfile.html" />
+    <Content Include="Resources\com.baladorPlant\Telegram\telegram-logo64x64.png" />
+    <Content Include="Resources\com.baladorPlant\WhatsApp\helpfile.html" />
+    <Content Include="Resources\com.baladorPlant\WhatsApp\whatsapp64x64.png" />
     <Content Include="Schema\StoreProcedures\balador_sp_getContacts.sql" />
     <Content Include="Schema\StoreProcedures\balador_sp_getMessages.sql" />
     <Content Include="Schema\StoreProcedures\createMessage.sql" />
