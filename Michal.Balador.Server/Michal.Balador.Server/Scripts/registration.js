@@ -6,7 +6,7 @@ function init() {
         e.preventDefault();
         debugger;
         var idindex = $(this).data("index");
-        
+
         var $form = $(this).parent().parent().parent();// $(this).parent();
         var formData = $form.serialize();
         ajax_token(formData, '/api/setToken', 'POST', 'application/x-www-form-urlencoded', function (got) {
@@ -74,25 +74,25 @@ function init() {
         });
 
 
-    }); 
+    });
 
     //$(".mdl-checkbox").on("change", function () {
     $(document).on('change', '.mdl-checkbox', function (e) {
         debugger;
-       // e.preventDefault();
+        // e.preventDefault();
         var idindex = $(this).data("index");
-        var ischeck = $(this).hasClass("is-checked"); 
+        var ischeck = $(this).hasClass("is-checked");
         var register_id = "register_id_" + idindex;
         var elembutton = document.getElementById(register_id);
         var check = $(this).children().first();
-        if (check != null &&  check.length>0 &&  check[0].checked) {
+        if (check != null && check.length > 0 && check[0].checked) {
             elembutton.removeAttribute("disabled");
-        //    return $(this).children().first().attr("checked", true);
-            
+            //    return $(this).children().first().attr("checked", true);
+
         } else {
             elembutton.setAttribute("disabled", true);
-          //  return $(this).children().first().removeAttr("checked");
-            
+            //  return $(this).children().first().removeAttr("checked");
+
         }
     });
 
@@ -144,11 +144,11 @@ function init() {
                     type: 'submit', value: 'Register',
                     Id: 'register_id_' + val.Id, class: 'mdc-button mdc-card__action mdc-card__action--button mdc-ripple-upgraded'
                 });
-               
+
                 $card__actions_buttons.append(frmButton).appendTo($card__actions);
 
                 if (val.IsAgreement) {
-                   frmButton.attr('disabled',true);
+                    frmButton.attr('disabled', true);
                 }
                 frmButton.data("index", val.Id);
                 var fields = val.Fields;
@@ -158,15 +158,19 @@ function init() {
                     var field = fields[i];
                     if (field.FieldViewType != null && field.FieldViewType == "Aggrement") {
                         debugger;
-                        $fieldaccept = $('<input/>', {  type: 'checkbox', id: field.Name + val.Id });
+                        $fieldaccept = $('<input/>', { type: 'checkbox', id: field.Name + val.Id });
                         $fieldacceptlabel = $('<label for=' + field.Name + val.Id + ' />');
                         $fieldacceptlabel.text(val.Agreement);
-                      
+
                         $fieldForm = $('<div />', { class: 'mdl-checkbox' }).append($fieldaccept, $fieldacceptlabel);
-                      
+
                     }
                     else {
-                        $fieldForm = $('<input />', { name: field.Name, placeholder: field.Title, type: 'text' });
+                        $fieldaccept = $('<input />', { name: field.Name,  type: 'text' });
+                        $fieldacceptlabel = $('<label for=' + field.Name + ' />');
+                        $fieldacceptlabel.text(field.Title);
+
+                        $fieldForm = $('<div />', { class: 'input-field col s8' }).append($fieldaccept, $fieldacceptlabel);
 
                     }
                     debugger;
@@ -175,7 +179,7 @@ function init() {
                 }
                 frmSave.append($div_row);
                 $form.append(frmSave, $('<br />'), frmRName, $card__actions).appendTo($div_container);
-               // $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
+                // $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
             }
             else {
 
@@ -183,7 +187,7 @@ function init() {
 
                 var frmSave = $('<div />');//, { text: val.Message });
                 var frmButton = $('<input />', {
-                    type: 'submit', value: 'Unregister' ,class: 'mdc-button mdc-card__action mdc-card__action--button mdc-ripple-upgraded'
+                    type: 'submit', value: 'Unregister', class: 'mdc-button mdc-card__action mdc-card__action--button mdc-ripple-upgraded'
                 });
                 frmButton.data("index", val.Id);
 
@@ -195,11 +199,11 @@ function init() {
 
             }
             var $title_row = $('<div class="row" />');
-            var $logo= $('<div class="col s12 m2 l2" ><img src="'+val.Logo+'"/>');
-            var $header_text = $('<div class="col s12 m6 l6" ><h3 style="text-align:left">' + val.Message + '</h3>');
+            var $logo = $('<div class="col s12 m2 l2" ><img src="' + val.Logo + '"/>');
+            var $header_text = $('<div class="col s12 m10 l10" ><h3 style="text-align:left">' + val.Message + '</h3>');
             $title_row.append($logo, $header_text);
             // $div_container.append($form, $hr).appendTo($('#share'));
-            $div_content.append($title_row,$form);
+            $div_content.append($title_row, $form);
             $div_container.append($div_content).appendTo($('#share'));
         });
 
