@@ -15,7 +15,8 @@ namespace Michal.Balador.Server.Models
         public List<FieldView> Fields { get; set; }
         public bool  IsAlreadyRegister { get; set; }
         public bool TwoFactorAuthentication { get; set; }
-        public string AcceptTemplate { get; set; }
+        public string Agreement { get; set; }
+        public bool  IsAgreement { get; set; }
         public string HelpFile { get; set; }
     }
     public class FormsSignThirdPartyToken

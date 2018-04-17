@@ -12588,3 +12588,6 @@ INFO  2018-04-16 17:13:32,012 21194ms Logger                 Log                
 INFO  2018-04-17 10:45:59,389 10817ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-17 12:55:17,567 661126ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
 INFO  2018-04-17 12:55:31,643 675202ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-17 18:37:35,816 3957441ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-17 18:37:52,680 3974305ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite
+INFO  2018-04-17 18:38:00,427 3982052ms Logger                 Log                - Michal.Balador.SimpleMessage.ConfigHttpLite

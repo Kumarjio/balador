@@ -12,6 +12,6 @@ namespace Michal.Balador.Contracts.Contract
         public const string  DOMAIN_NAME= "Domain";
         public const string FORM_TYPE = "formType";
         public const string CHECKBOX_Accept = "chkAccept";
-
+        public const string Field_Type_Aggrement = "Aggrement";
     }
 }

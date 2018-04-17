@@ -265,6 +265,8 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\materialize.css" />
     <Content Include="css\materialize.min.css" />
+    <Content Include="css\register.css" />
+    <Content Include="css\spinner.css" />
     <Content Include="css\style.css" />
     <Content Include="css\tidy.css" />
     <Content Include="Default.aspx" />

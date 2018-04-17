@@ -1,6 +1,6 @@
 ﻿var _d = [];
 function init() {
-    debugger;
+
     $(document).on('click', '#share form input[type=button]', function (e) {
         debugger;
         e.preventDefault();
@@ -74,22 +74,32 @@ function init() {
         });
 
 
-    }); debugger;
+    }); 
 
-    $(".mdl-checkbox").on("change", function () {
+    //$(".mdl-checkbox").on("change", function () {
+    $(document).on('change', '.mdl-checkbox', function (e) {
         debugger;
-        if ($(this).hasClass("is-checked")) {
-            return $(this).children().first().attr("checked", true);
+       // e.preventDefault();
+        var idindex = $(this).data("index");
+        var ischeck = $(this).hasClass("is-checked"); 
+        var register_id = "register_id_" + idindex;
+        var elembutton = document.getElementById(register_id);
+        var check = $(this).children().first();
+        if (check != null &&  check.length>0 &&  check[0].checked) {
+            elembutton.removeAttribute("disabled");
+        //    return $(this).children().first().attr("checked", true);
+            
         } else {
-            return $(this).children().first().removeAttr("checked");
+            elembutton.setAttribute("disabled", true);
+          //  return $(this).children().first().removeAttr("checked");
+            
         }
     });
+
     $('#preloader').show();
     ajax_token(null, '/api/getMessagers', 'GET', 'application/json; charset=utf-8', function (data) {
-        debugger;
         var items = [];
         $.each(data, function (key, val) {
-            debugger;
             $('#preloader').hide();
             _d.push(val);
 
@@ -128,30 +138,36 @@ function init() {
                 $form.data("frmsignupid", val.Id);
                 var frmSave = $('<div />', { text: val.Message });
                 var frmRName = $('<input />', { name: 'formType', type: 'hidden', placeholder: 'Name', value: val.Id });
-                var frmButton = $('<input />', { type: 'submit', value: 'Register' });
+                var frmButton = $('<input />', { type: 'submit', value: 'Register',Id:'register_id_'+val.Id });
+              
+                if (val.IsAgreement) {
+                    frmButton.attr('disabled',true);
+                }
                 frmButton.data("index", val.Id);
                 var fields = val.Fields;
                 $form.show();
                 var $fieldaccept, $fieldacceptlabel; var $fieldForm;
                 for (var i = 0; i < fields.length; i++) {
                     var field = fields[i];
-                    if (field.FieldViewType != null && field.FieldViewType == "Boolean") {
-                        $fieldaccept = $('<input/>', { class: 'mdl-checkbox', type: 'checkbox', id: field.Name + val.Id });
-                        $fieldacceptlabel = $('<label for=' + field.Name + val.Id + ' />', { text: val.AcceptTemplate});
+                    if (field.FieldViewType != null && field.FieldViewType == "Aggrement") {
+                        debugger;
+                        $fieldaccept = $('<input/>', {  type: 'checkbox', id: field.Name + val.Id });
+                        $fieldacceptlabel = $('<label for=' + field.Name + val.Id + ' />');
+                        $fieldacceptlabel.text(val.Agreement);
+                      
                         $fieldForm = $('<div />', { class: 'mdl-checkbox' }).append($fieldaccept, $fieldacceptlabel);
-
+                      
                     }
                     else {
                         $fieldForm = $('<input />', { name: field.Name, placeholder: field.Title, type: 'text' });
 
                     }
+                    $fieldForm.data("index", val.Id);
                     $div_row.append($fieldForm, $('<br />'))
                 }
                 frmSave.append($div_row);
 
                 $form.append(frmSave, $('<br />'), frmRName, frmButton).appendTo($div_container);
-
-                //  $div_container.append($fieldaccept, $fieldacceptlabel);
             }
             else {
 

@@ -1,5 +1,4 @@
 ﻿$('document').ready(function () {
-    debugger;
     $(".dropdown-button").dropdown();
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/') + 1)
@@ -27,11 +26,9 @@
         }
     }
     $("#Logout").click(function () {
-        debugger;
         logout();
     });
     $("#loginsubmit").click(function () {
-        debugger;
         var alerttextempty = "Field can't be empty!";
         var url = "/token";
         var data = $("#login-form").serialize();
@@ -40,7 +37,6 @@
             url: url,
             data: data,
             success: function (response) {
-                debugger;
                 if (response != null && response.access_token != null) {
                     sessionStorage.setItem('token', response.token_type + " " + response.access_token);
                     sessionStorage.setItem('secret', response["m:secret"]);
@@ -54,7 +50,6 @@
 });
 
 function ajax_token(data, url, typ, contentType, callback) {
-    debugger;
      var access_token = sessionStorage.token;
     $.ajax({
         type: typ,
@@ -63,7 +58,6 @@ function ajax_token(data, url, typ, contentType, callback) {
         headers: { "Authorization": access_token },
         contentType: contentType,
         success: function (data, status) {
-            debugger;
             callback(data, status)
         },
         error: function (errMsg) {
@@ -76,8 +70,6 @@ function ajax_token(data, url, typ, contentType, callback) {
 }
 function logout()
 {
-  //  alert(1);
-    debugger;
     sessionStorage.setItem('token', '');
     setTimeout('window.location.href = "index.html"', 200);
 }

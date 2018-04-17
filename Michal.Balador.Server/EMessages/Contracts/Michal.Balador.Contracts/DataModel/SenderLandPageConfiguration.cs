@@ -34,17 +34,23 @@ namespace Michal.Balador.Contracts.Mechanism
         public List<FieldView> ExtraFields { get; set; }//fieldname,title
         public bool IsAlreadyRegister { get; set; }
         public bool TwoFactorAuthentication { get; set; }
-        public string AcceptTemplate { get; set; }
+        public string Agreement { get; set; }
         public string HelpFile { get; set; }
+
+        public bool IsAgreement { get; set; }
         public SenderLandPageConfiguration AddExtraFields(FieldView fieldView)
         {
             ExtraFields.Add(fieldView);
             return this;
         }
-        public SenderLandPageConfiguration AddAcceptable(string acceptTemplate)
+        public SenderLandPageConfiguration AddAcceptable(string agreement)
         {
-            AcceptTemplate = acceptTemplate;
-            ExtraFields.Add(new FieldView { FieldViewType = typeof(bool).Name, Name = ConstVariable.CHECKBOX_Accept, Title = "" });
+            Agreement = agreement;
+            if (!ExtraFields.Where(d => d.FieldViewType == ConstVariable.Field_Type_Aggrement).Any())
+            {
+                IsAgreement = true;
+                ExtraFields.Add(new FieldView { FieldViewType = ConstVariable.Field_Type_Aggrement, Name = ConstVariable.CHECKBOX_Accept, Title = "" });
+            }
             return this;
         }
         public SenderLandPageConfiguration AddHelpFile(string helpfile)
