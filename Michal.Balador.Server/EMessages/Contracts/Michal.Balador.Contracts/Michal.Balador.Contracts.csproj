@@ -62,6 +62,7 @@
     <Compile Include="Contract\IBaladorLogger.cs" />
     <Compile Include="Dal\IRepository.cs" />
     <Compile Include="Dal\IMessageRepository.cs" />
+    <Compile Include="Dal\IAccountRepository.cs" />
     <Compile Include="Dal\ITaskSchedulerRepository.cs" />
     <Compile Include="Dal\IUnitOfWork.cs" />
     <Compile Include="DataModel\AuthenticationManager.cs" />

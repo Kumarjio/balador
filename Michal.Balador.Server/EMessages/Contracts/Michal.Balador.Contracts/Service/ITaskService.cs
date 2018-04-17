@@ -11,5 +11,6 @@ namespace Michal.Balador.Contracts.Service
     {
         ITaskSchedulerRepository TaskSchedulerRepository { get; }
         IMessageRepository MessageRepository { get; }
+    //    IAccountRepository AccountRepository { get; }
     }
 }

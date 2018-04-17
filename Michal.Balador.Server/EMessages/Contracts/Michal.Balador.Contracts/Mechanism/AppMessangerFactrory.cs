@@ -116,7 +116,7 @@ namespace Michal.Balador.Contracts.Mechanism
         {
             ResponseAppMessanger response = new ResponseAppMessanger{ IsAutorize=true};
                _authenticationManager = this.GetAuthenticationManager();
-            var token = await _authenticationManager.GetToken(new SignUpSender { UserName = accountSend.UserName });
+            var token = await _authenticationManager.GetToken(new SignUpSender { UserId = accountSend.AccountId });
             if (token == null || String.IsNullOrWhiteSpace(token.Token))
             {
                 response.IsAutorize = false;

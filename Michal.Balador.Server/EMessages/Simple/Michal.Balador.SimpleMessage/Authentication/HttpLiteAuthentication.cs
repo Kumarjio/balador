@@ -42,7 +42,7 @@ namespace Michal.Balador.SimpleMessage
 
         public override async Task<BToken> GetToken( SignUpSender signUpSender)
         {
-            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(Provider.ServiceName, signUpSender.UserName);
+            ConfigHttpLite config = await Context.GetConfiguration<ConfigHttpLite>(Provider.ServiceName, signUpSender.UserId);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
                 return config;
@@ -75,7 +75,7 @@ namespace Michal.Balador.SimpleMessage
         {
             var response = new Response<AuthenticationUser>();
             response.IsError = false;
-            response.Result = new AuthenticationUser { IsTwoFactorAuthentication = false, UserId = senderDetail.UserName };
+            response.Result = new AuthenticationUser { IsTwoFactorAuthentication = false, UserId = senderDetail.UserId };
             var url = "http://localhost:1945/token";
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders
@@ -84,33 +84,33 @@ namespace Michal.Balador.SimpleMessage
             var dict = new Dictionary<string, string>();
 
             var pws = extraDataForm["token"];
-           await Context.SetConfiguration(this.Provider.ServiceName, senderDetail.UserName, new ConfigHttpLite { Token=pws});
+           await Context.SetConfiguration(this.Provider.ServiceName, senderDetail.UserId, new ConfigHttpLite { Token=pws});
             return response;
 
         }
         public override async Task<ResponseBase> UnRegister(SignUpSender signUpSender)
         {
             ResponseBase response = new ResponseBase();
-            var config = await Context.GetConfiguration<ConfigHttpLite>(this.Provider.ServiceName, signUpSender.UserName);
+            var config = await Context.GetConfiguration<ConfigHttpLite>(this.Provider.ServiceName, signUpSender.UserId);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
-                await Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserName, new ConfigHttpLite());
+                await Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserId, new ConfigHttpLite());
 
             }
             return response;
         }
         public override async Task<ResponseBase> SetObservableToken(SignUpSender signUpSender, BToken token)
         {
-            var config = await Context.GetConfiguration<ConfigHttpLite>(this.Provider.ServiceName, signUpSender.UserName);
+            var config = await Context.GetConfiguration<ConfigHttpLite>(this.Provider.ServiceName, signUpSender.UserId);
             if (config == null)
             {
-                config = new ConfigHttpLite { Token = token.Token, UserId = signUpSender.UserName };
+                config = new ConfigHttpLite { Token = token.Token, UserId = signUpSender.UserId };
             }
             else
             {
                 config.Token = token.Token;
             }
-            var result = await this.Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserName, config);
+            var result = await this.Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserId, config);
 
             return result;
         }

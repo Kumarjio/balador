@@ -17,6 +17,7 @@ using lior.api.Models;
 using lior.AppStart.api;
 using Michal.Balador.Contracts;
 using Michal.Balador.Contracts.Contract;
+using Michal.Balador.Contracts.Dal;
 using Michal.Balador.Contracts.Mechanism;
 using Michal.Balador.Server.Dal;
 using Michal.Balador.Server.Infrastructures.WebHookExstension;
@@ -35,6 +36,8 @@ namespace Michal.Balador.Server.Controllers
         [ImportMany(typeof(IAppMessangerFactrory))]
         IEnumerable<Lazy<IAppMessangerFactrory>> _senderRules;
 
+        [Import(typeof(IAccountRepository))]
+        IAccountRepository _accountRepository;
 
         [HttpPost]
         [AllowAnonymous]
@@ -127,6 +130,7 @@ namespace Michal.Balador.Server.Controllers
             List<FormSignThirdPartyToken> authentications = new List<FormSignThirdPartyToken>();
             try
             {
+                SignUpSender signUpSender = await GetUserid();
                 Michal.Balador.Contracts.Mechanism.AuthenticationManager authenticationManager = null;
                 MockRepository mockData = new MockRepository();
                 foreach (var senderRule in _senderRules)
@@ -136,9 +140,9 @@ namespace Michal.Balador.Server.Controllers
                     authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager != null)
                     {
+                        
 
-
-                        var configuration = await authenticationManager.Register(new SignUpSender { UserName = User.Identity.Name });
+                        var configuration = await authenticationManager.Register(signUpSender);
 
                         authentications.Add(new FormSignThirdPartyToken
                         {
@@ -180,6 +184,7 @@ namespace Michal.Balador.Server.Controllers
             ResponseBase responseResult = new ResponseBase();
             try
             {
+                SignUpSender signUpSender = await GetUserid();
                 NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
                 var id = formData[ConstVariable.FORM_TYPE];
                 foreach (var senderRule in _senderRules)
@@ -188,7 +193,7 @@ namespace Michal.Balador.Server.Controllers
                     var authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager.ServiceName == id)
                     {
-                        responseResult = await authenticationManager.SignIn(new SignUpSender { UserName = User.Identity.Name }, formData);
+                        responseResult = await authenticationManager.SignIn(signUpSender, formData);
                         break;
                     }
                 }
@@ -214,6 +219,7 @@ namespace Michal.Balador.Server.Controllers
             ResponseBase responseResult = new ResponseBase();
             try
             {
+                SignUpSender signUpSender = await GetUserid();
                 NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
                 var id = formData[ConstVariable.FORM_TYPE];
 
@@ -223,7 +229,7 @@ namespace Michal.Balador.Server.Controllers
                     var authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager.ServiceName == id)
                     {
-                        responseResult = await authenticationManager.UnRegister(new SignUpSender { UserName = User.Identity.Name });
+                        responseResult = await authenticationManager.UnRegister(signUpSender);
                         break;
                     }
                 }
@@ -251,7 +257,8 @@ namespace Michal.Balador.Server.Controllers
             ResponseBase responseResult = new ResponseBase();
             try
             {
-                NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
+                SignUpSender signUpSender = await GetUserid();
+                   NameValueCollection formData = await request.Content.ReadAsFormDataAsync();
                 var id = formData[ConstVariable.FORM_TYPE];
                 var token = formData["token"];
                 foreach (var senderRule in _senderRules)
@@ -261,7 +268,7 @@ namespace Michal.Balador.Server.Controllers
                     var authenticationManager =  factory.GetAuthenticationManager();
                     if (authenticationManager.ServiceName == id)
                     {
-                        responseResult = await authenticationManager.SetObservableToken(new SignUpSender { UserName = User.Identity.Name }, new BToken { Token = token });
+                        responseResult = await authenticationManager.SetObservableToken(signUpSender, new BToken { Token = token });
                         break;
                     }
                 }
@@ -279,6 +286,19 @@ namespace Michal.Balador.Server.Controllers
                          new MediaTypeWithQualityHeaderValue("application/json"))
             };
             return response;
+        }
+
+        async Task<SignUpSender> GetUserid()
+        {
+            using (_accountRepository)
+            {
+               var id=await _accountRepository.GetUserId(User.Identity.Name);
+                if (String.IsNullOrEmpty(id))
+                {
+                    return null;
+                }
+                return new SignUpSender { UserId = id };
+            }
         }
     }
 }

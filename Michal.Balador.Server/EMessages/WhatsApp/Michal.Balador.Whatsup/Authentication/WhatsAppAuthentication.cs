@@ -40,20 +40,20 @@ namespace Michal.Balador.NSWhatsApp.Authentication
       
         public override async Task<ResponseBase> SetObservableToken(SignUpSender signUpSender, BToken token)
         {
-            var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserName);
+            var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserId);
             config.Token = token.Token;
             var pws= WhatsAppApi.Register.WhatsRegisterV2.RegisterCode(config.Phone, config.Token);
             //config.TempPwsSms = config.Token;
             config.Token = pws;//curent
 
-            var result =await this.Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserName, config);
+            var result =await this.Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserId, config);
 
             return result;
         }
 
         public override async Task<BToken> GetToken(SignUpSender signUpSender)
         {
-            ConfigWhatsApp config = await Context.GetConfiguration<ConfigWhatsApp>(Provider.ServiceName, signUpSender.UserName);
+            ConfigWhatsApp config = await Context.GetConfiguration<ConfigWhatsApp>(Provider.ServiceName, signUpSender.UserId);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
                 return config;
@@ -78,7 +78,7 @@ namespace Michal.Balador.NSWhatsApp.Authentication
                 .AddExplain("Goto API development tools and copy API_ID and API_HASH from your account. You'll need it later.");
 
             // senderLandPageConfiguration.AddAcceptable("");
-            var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserName);
+            var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserId);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
                 senderLandPageConfiguration.IsAlreadyRegister = true;
@@ -90,7 +90,7 @@ namespace Michal.Balador.NSWhatsApp.Authentication
         public override async Task<Response<AuthenticationUser>> SignIn(SignUpSender senderDetail, NameValueCollection extraDataForm)
         {
             var response = new Response<AuthenticationUser>();
-            response.Result = new AuthenticationUser { IsTwoFactorAuthentication = true, UserId = senderDetail.UserName };
+            response.Result = new AuthenticationUser { IsTwoFactorAuthentication = true, UserId = senderDetail.UserId };
             response.IsError = true;
          
             var phone = extraDataForm["phone"];
@@ -103,7 +103,7 @@ namespace Michal.Balador.NSWhatsApp.Authentication
             if (isregister)
             {
                 response.IsError = false;
-              await Context.SetConfiguration(this.Provider.ServiceName, senderDetail.UserName, new ConfigWhatsApp {  Token = password,Phone= phone });
+              await Context.SetConfiguration(this.Provider.ServiceName, senderDetail.UserId, new ConfigWhatsApp {  Token = password,Phone= phone });
             
             }
             return response;
@@ -113,10 +113,10 @@ namespace Michal.Balador.NSWhatsApp.Authentication
         {
             ResponseBase response = new ResponseBase();
             response.Message = "unregister done";
-            var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserName);
+            var config = await Context.GetConfiguration<ConfigWhatsApp>(this.Provider.ServiceName, signUpSender.UserId);
             if (config != null && !String.IsNullOrEmpty(config.Token))
             {
-                await Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserName, new ConfigWhatsApp());
+                await Context.SetConfiguration(this.Provider.ServiceName, signUpSender.UserId, new ConfigWhatsApp());
 
             }
             return response;
