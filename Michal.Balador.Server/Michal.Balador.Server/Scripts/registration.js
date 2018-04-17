@@ -76,7 +76,6 @@ function init() {
 
     });
 
-    //$(".mdl-checkbox").on("change", function () {
     $(document).on('change', '.mdl-checkbox', function (e) {
         debugger;
         // e.preventDefault();
