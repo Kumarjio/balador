@@ -149,7 +149,9 @@ namespace Michal.Balador.Server.Controllers
                             Name = authenticationManager.AuthenticationName,
                             Title = authenticationManager.AuthenticationTitle,
                             IsAlreadyRegister = configuration.IsAlreadyRegister,
-                            TwoFactorAuthentication = configuration.TwoFactorAuthentication
+                            TwoFactorAuthentication = configuration.TwoFactorAuthentication,
+                            AcceptTemplate= configuration.AcceptTemplate,
+                            HelpFile = configuration.HelpFile,
                         });
                     }
                 }

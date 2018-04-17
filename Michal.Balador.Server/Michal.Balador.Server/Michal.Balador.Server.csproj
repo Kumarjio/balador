@@ -317,6 +317,7 @@
     <Content Include="Schema\Tables\Balador_JobSender.sql" />
     <Content Include="Schema\Tables\Balador_lead.sql" />
     <Content Include="Schema\Tables\Balador_Resource.sql" />
+    <Content Include="Scripts\material-components-web.js" />
     <Content Include="Scripts\testpage.js" />
     <Content Include="signup.html" />
     <Content Include="min\custom-min.css" />
